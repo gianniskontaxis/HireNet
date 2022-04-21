@@ -2,11 +2,9 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -22,9 +20,13 @@ public class Company extends JFrame {
 	private ArrayList<ArrayList<String>> employees = new ArrayList<ArrayList<String>>();
 	private ArrayList<String> company = new ArrayList<>();
 	private ArrayList<String> employeesIDs = new ArrayList<>();
+	private ArrayList<String> namesUser = new ArrayList<>();
 	private ArrayList<Integer> matches = new ArrayList<>();
 	String filename="";
 	private FileManager rw = new FileManager();
+	private DefaultListModel model;
+
+
 
 	/**
 	 * Launch the application.
@@ -48,6 +50,7 @@ public class Company extends JFrame {
 	public Company(int i) {
 		
 		this.i=i;
+
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(50, 50, 750, 700);
 		contentPane = new JPanel();
@@ -133,19 +136,18 @@ public class Company extends JFrame {
 		btnNewButton_2.setBounds(117, 573, 137, 47);
 		contentPane.add(btnNewButton_2);	
 		
-		JButton btnNewButton_2_1 = new JButton("Graph2");
-		btnNewButton_2_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});		
+			
 		
+		model = new DefaultListModel();
+		list_1.setModel(model);
 		results.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 				// φορτωση των ID των χρηστων του αλλου ρολου οι οποιοι διαθετουν αποθηκευμενη λιστα με qualifications.
 				String line="";
 				employeesIDs = rw.read("employees.txt");
+				
+				namesUser = rw.readDecr("file3.txt");
 				
 				//initialize the list of lists.
 				for (int j = 0; j <employeesIDs.size(); j++) {
@@ -163,21 +165,40 @@ public class Company extends JFrame {
 				company = rw.read(filename);
 				
 				int score=0;
-				
 				for (int j=0; j< employeesIDs.size(); j++ ) {
 					score=0;			
-					for (int k=0; k<64; k++) {				
-						if ( company.get(k).equals(employees.get(j).get(k)) && company.get(k).equals("TRUE")) {							
+					for (int k=0; k<64; k++) {		
+						
+						if ( company.get(k).equals(employees.get(j).get(k)) && company.get(k).equals("TRUE") ) {							
 							score++;					
-						}				
+						}	
+						
 					}		
 					matches.add(score);			
 				}
-				for (int j=0;j< employeesIDs.size();j++) {					
-					System.out.println(employeesIDs.get(j) + " matches with score: " + matches.get(j)+" on 63 \n");					
+				int pl=0;
+				for(String sun: company) {
+					if(sun.equals("TRUE")) {
+						pl++;
+					}	
+				}
+				for (int j=0;j< employeesIDs.size();j++) {	
+					int s = Integer.parseInt(employeesIDs.get(j));
+					int o = matches.get(j);
+					double sc=((o*1.0)/pl*1.0)*100;
+					sc = Math.ceil(sc);
+				
+					model.addElement(namesUser.get(s) + " matches with score: "  + sc    +" % \n");
 				}			
 			}
 		});
+		
+		JButton btnNewButton_2_1 = new JButton("select");
+		btnNewButton_2_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+			}
+		});	
 		
 		btnNewButton_2_1.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
 		btnNewButton_2_1.setForeground(new Color(255, 255, 255));
