@@ -8,7 +8,6 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
@@ -23,13 +22,15 @@ public class SignUp extends JFrame {
 	private JPanel contentPane;
 	private JTextField name;
 	private JTextField email;
-	private JTextField code;
-	
+	private JTextField code;	
 	private ArrayList<String> names = new ArrayList<>();
 	private ArrayList<String> emails = new ArrayList<>();
 	private aes data = new aes();
 	private final String secretKey = "aes4";
 	private FileManager rw = new FileManager();
+	private String x="";
+	private int y=0;
+	
 	/*public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -42,7 +43,6 @@ public class SignUp extends JFrame {
 			}
 		});
 	}*/
-
 	
 	public SignUp() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -102,7 +102,7 @@ public class SignUp extends JFrame {
 		JCheckBox chckbxNewCheckBox = new JCheckBox("Agree with terms");
 		chckbxNewCheckBox.setFont(new Font("Tahoma", Font.BOLD, 12));
 		chckbxNewCheckBox.setBounds(71, 323, 139, 21);
-		contentPane.add(chckbxNewCheckBox);		  
+		contentPane.add(chckbxNewCheckBox);		
 		
 		JButton btnNewButton_1 = new JButton("Complete");
 		
@@ -110,6 +110,8 @@ public class SignUp extends JFrame {
 			
 			public void actionPerformed(ActionEvent e) {	
 				
+				/*
+				//files
 				names = rw.readDecr("file3.txt");				
 				emails = rw.readDecr("file2.txt");
 				
@@ -118,13 +120,73 @@ public class SignUp extends JFrame {
 				
 				else
 				{
-					rw.writeText("file3.txt", name.getText() , true , true);					
+					rw.writeText("file3.txt", name.getText(), true , true);					
 					rw.writeText("file2.txt", email.getText(), true, true);					
 					rw.writeText("file1.txt", code.getText(), true, true);					
 					rw.writeText("file4.txt", "empty role", true, true);					
 				}
+				*/
+				
 				//sql
 				
+				try {					
+					Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/hirenetdb", 
+					"root", "hnppass21");
+					Statement state = conn.createStatement();
+					ResultSet rs = state.executeQuery("select username from users");
+					while (rs.next()) {
+						names.add(rs.getString("username"));
+					}					
+				}
+				catch (Exception exc){
+					exc.printStackTrace();
+				}
+				
+				try {					
+					Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/hirenetdb", 
+					"root", "hnppass21");
+					Statement state = conn.createStatement();
+					ResultSet rs = state.executeQuery("select email from users");
+					while (rs.next()) {
+						emails.add(rs.getString("email"));
+					}					
+				}
+				catch (Exception exc){
+					exc.printStackTrace();
+				}
+				
+				if ( names.contains(name.getText()) || emails.contains(email.getText()) || !chckbxNewCheckBox.isSelected() )
+					System.out.println("Error");
+				else
+				{
+					try {					
+						Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/hirenetdb", 
+						"root", "hnppass21");
+						Statement state = conn.createStatement();
+						ResultSet rs = state.executeQuery("select count(*) from users");
+						rs.next();
+						y=rs.getInt("count(*)"); 
+					}    
+					catch (Exception exc){
+						exc.printStackTrace();
+					}
+					
+					y++;
+					x=y+"";
+					
+					try {					
+						Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/hirenetdb", 
+						"root", "hnppass21");
+						Statement state = conn.createStatement();
+						state.executeUpdate("INSERT INTO \r\n"
+								+ "`hirenetdb`.`users` \r\n"
+								+ "(`id`, `username`, `email`, `password`, `role`) "
+								+ "VALUES ('"+x+"','"+name.getText()+"','"+email.getText()+"','"+code.getText()+"','empty role');");						
+					}
+					catch (Exception exc){
+						exc.printStackTrace();
+					}
+				}			
 				dispose();
 			}
 		});
@@ -139,7 +201,7 @@ public class SignUp extends JFrame {
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				TermsOfUse tof = new  TermsOfUse();
+				new  TermsOfUse();
 			}
 		});
 		
@@ -153,3 +215,5 @@ public class SignUp extends JFrame {
 		this.setTitle("Sign Up");
 	}	
 }
+
+

@@ -1,7 +1,6 @@
-
+import java.sql.*;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -18,13 +17,12 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.sql.*;
 import javax.swing.JLabel;
 
 public class First extends JFrame {
 
 	private JPanel contentPane;
-	private int i;
+	private int i,y;
 	private ArrayList<String> roles = new ArrayList<>();
 	private aes data = new aes();
 	private final String secretKey = "aes4";
@@ -51,9 +49,21 @@ public class First extends JFrame {
 	 */
 	public First(int i) {
 		this.i=i;
-		
-		String line;
-		roles = rw.readDecr("file4.txt");
+		y=i+1;
+		//roles = rw.readDecr("file4.txt");
+		//sql
+		try {					
+			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/hirenetdb", 
+			"root", "hnppass21");
+			Statement state = conn.createStatement();
+			ResultSet rs = state.executeQuery("select role from users");
+			while (rs.next()) {
+				roles.add(rs.getString("role"));
+			}					
+		}
+		catch (Exception exc){
+			exc.printStackTrace();
+		}	
 		
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 614, 600);
@@ -66,9 +76,26 @@ public class First extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e){
 				new Company(i);
-				roles.set(i,"company");
+				/*roles.set(i,"company");				
+				rw.writeList("file4.txt", roles, false, true);*/
 				
-				rw.writeList("file4.txt", roles, false, true);
+				//sql
+				try {	
+					
+					Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/hirenetdb", 
+					"root", "hnppass21");
+					Statement state = conn.createStatement();
+					state.executeUpdate("UPDATE\r\n"
+							+ " `hirenetdb`.`users` \r\n"
+							+ "SET `role` = 'company' \r\n"
+							+ "WHERE (`id` = '"+y+"');");
+					
+		               state.close(); 
+		               conn.close(); 
+				}
+				catch (Exception exc){
+					exc.printStackTrace();
+				}
 				
 				dispose();
 		    }
@@ -82,11 +109,27 @@ public class First extends JFrame {
 		JButton btnEmployee = new JButton("Employee");
 		btnEmployee.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e){
-				new Employee(i);
+				new Employee(i);				
+				/*roles.set(i,"employee");				
+				rw.writeList("file4.txt", roles, false, true);*/
 				
-				roles.set(i,"employee");
+				//sql
 				
-				rw.writeList("file4.txt", roles, false, true);
+				try {					
+					Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/hirenetdb", 
+					"root", "hnppass21");
+					Statement state = conn.createStatement();
+					state.executeUpdate("UPDATE\r\n"
+							+ " `hirenetdb`.`users` \r\n"
+							+ "SET `role` = 'employee' \r\n"
+							+ "WHERE (`id` = '"+y+"');");		
+				   
+		               state.close(); 
+		               conn.close(); 
+				}
+				catch (Exception exc){
+					exc.printStackTrace();
+				}
 				
 				dispose();
 		    }

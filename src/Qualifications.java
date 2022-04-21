@@ -9,13 +9,13 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.border.EmptyBorder;
+import java.sql.*;
 
 public class Qualifications extends JFrame {
 
@@ -32,6 +32,7 @@ public class Qualifications extends JFrame {
 	private String role = "";
 	private ArrayList<String> companies = new ArrayList<String>();
 	private ArrayList<String> employees = new ArrayList<String>();
+	private int y=0;
 
 	/**
 	 * Launch the application.
@@ -55,6 +56,7 @@ public class Qualifications extends JFrame {
 	public Qualifications(int i) {
 		
 		this.i=i;
+		y=i+1;
 		setTitle("Qualifications");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 973, 1200);
@@ -64,12 +66,12 @@ public class Qualifications extends JFrame {
 		contentPane.setLayout(null);		
 		radioButtons = new JRadioButton[65];
 		
-		roles = rw.readDecr("file4.txt");		
+		/*roles = rw.readDecr("file4.txt");		
 		role = roles.get(i);		
-		
 		if (role.equals("employee"))	{		
 			  filename = "Employees/user" + i +".txt";
-			  employees = rw.read("employees.txt");			  
+			  employees = rw.read("employees.txt");		
+			  
 		}
 		else {
 			  filename = "Companies/user" + i +".txt";
@@ -81,9 +83,10 @@ public class Qualifications extends JFrame {
 				File.createNewFile();
 			} catch (IOException e2) {				
 				e2.printStackTrace();
-			}
-			  
-		qual = rw.read(filename);
+			}			  
+		qual = rw.read(filename);*/	
+		
+		
 		
 		JButton btnNewButton_1 = new JButton("Save");	
 		
@@ -105,7 +108,7 @@ public class Qualifications extends JFrame {
 		lblNewLabel.setBounds(15, 15, 155, 20);
 		contentPane.add(lblNewLabel);
 		
-		radioButtons[0] = new JRadioButton("University Degree in Computer Science or equal education in the IT Sector");
+		radioButtons[0] = new JRadioButton("University Degree in STEM");
 		radioButtons[0].setBounds(25, 41, 499, 20);
 		contentPane.add(radioButtons[0]);
 		
@@ -379,26 +382,60 @@ public class Qualifications extends JFrame {
 		
 		radioButtons[63] = new JRadioButton("Outlook-Internet");
 		radioButtons[63].setBounds(760, 540, 128, 21);
-		contentPane.add(radioButtons[63]);
+		contentPane.add(radioButtons[63]);	
+		
+		try {					
+			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/hirenetdb", 
+			"root", "hnppass21");
+			Statement state = conn.createStatement();
+			ResultSet rs = state.executeQuery("select id from quals where id = '"+y+"'");			
+			if (!rs.next()) {
+				state.executeUpdate("INSERT INTO `hirenetdb`.`quals` (`id`) VALUES ('"+y+"');");
+			}
+			rs.close(); 
+            state.close(); 
+            conn.close(); 
+		}
+		catch (Exception exc){
+			exc.printStackTrace();
+		}
 		
 		btnNewButton_2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {	
+			public void actionPerformed(ActionEvent e) {
+		/*
 		int j=0;
 		for (String state : qual) {
 			if (state.equals("TRUE"))
 				radioButtons[j].doClick();
 			j++;
-			}
+			}	
+		*/
+				//sql				
+				try {					
+					Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/hirenetdb", 
+					"root", "hnppass21");					
+					Statement state = conn.createStatement();
+					for (int j=0;j<64;j++) {
+					ResultSet rs = state.executeQuery("select `"+radioButtons[j].getLabel()+"` from quals where id = "+y+"");
+					rs.next();
+					if (rs.getString(""+radioButtons[j].getLabel()+"").equals("true"))
+						radioButtons[j].doClick();						
+					}
+					
+		               state.close(); 
+		               conn.close(); 
+				}
+				catch (Exception exc){
+					exc.printStackTrace();
+				}
 		}
 	});
 		
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {		
-				
-				int	j=0;
-				
-				for (j=0; j<64; j++)	{
-					
+				/*
+				int	j=0;				
+				for (j=0; j<64; j++)	{					
 					if (radioButtons[j].isSelected()) 
 						qual2.add("TRUE");				
 					else
@@ -410,9 +447,37 @@ public class Qualifications extends JFrame {
 				rw.writeText("employees.txt", i+"", true, false);
 			if (role.equals("company") && !companies.contains(r))
 				rw.writeText("companies.txt", i+"", true, false);	
+				*/
+				//sql
+				
+				for (int j=0; j<64; j++) {
+					if (radioButtons[j].isSelected())
+					{
+						try {					
+							Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/hirenetdb", 
+							"root", "hnppass21");
+							Statement state = conn.createStatement();
+							state.executeUpdate("update quals set `"+radioButtons[j].getLabel()+"` = 'true' where id = '"+y+"'");							
+							}
+						catch (Exception exc){
+							exc.printStackTrace();
+							}
+					}
+					else
+					{
+						try {					
+							Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/hirenetdb", 
+							"root", "hnppass21");
+							Statement state = conn.createStatement();
+							state.executeUpdate("update quals set `"+radioButtons[j].getLabel()+"` = 'false' where id = '"+y+"'");							
+							}
+						catch (Exception exc){
+							exc.printStackTrace();
+							}
+					}
+				}				
 			dispose();
-			}
-			
+			}			
 		});
 		
 		this.setVisible(true);

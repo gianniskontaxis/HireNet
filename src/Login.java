@@ -1,6 +1,6 @@
+import java.sql.*;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import java.awt.Image;
 import javax.swing.ImageIcon;
-import java.sql.*;
+
 
 public class Login extends JFrame {
 
@@ -59,7 +59,7 @@ public class Login extends JFrame {
 		JButton btnNewButton_1 = new JButton("Sign Up");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e){
-				SignUp su = new SignUp();
+				 new SignUp();
 		    }
 		});
 		
@@ -87,10 +87,58 @@ public class Login extends JFrame {
 		JButton btnNewButton_2 = new JButton("Login");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				/*
+				//files
 				names = rw.readDecr("file3.txt");				
 				roles = rw.readDecr("file4.txt");				
 				codes = rw.readDecr("file1.txt");
+				*/
+				//sql
+				try {					
+					Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/hirenetdb", 
+					"root", "hnppass21");
+					Statement state = conn.createStatement();
+					ResultSet rs = state.executeQuery("select username from users");
+					while (rs.next()) {
+						names.add(rs.getString("username"));
+					}	
+						rs.close(); 
+		               state.close(); 
+		               conn.close(); 
+				}
+				catch (Exception exc){
+					exc.printStackTrace();
+				}
+				try {					
+					Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/hirenetdb", 
+					"root", "hnppass21");
+					Statement state = conn.createStatement();
+					ResultSet rs = state.executeQuery("select role from users");
+					while (rs.next()) {
+						roles.add(rs.getString("role"));
+					}	
+					rs.close(); 
+		               state.close(); 
+		               conn.close(); 
+				}
+				catch (Exception exc){
+					exc.printStackTrace();
+				}
+				try {					
+					Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/hirenetdb", 
+					"root", "hnppass21");
+					Statement state = conn.createStatement();
+					ResultSet rs = state.executeQuery("select password from users");
+					while (rs.next()) {
+						codes.add(rs.getString("password"));
+					}
+					rs.close(); 
+		               state.close(); 
+		               conn.close(); 
+				}
+				catch (Exception exc){
+					exc.printStackTrace();
+				}
 				
 				i= names.indexOf(name.getText());
 				
@@ -107,8 +155,7 @@ public class Login extends JFrame {
 						if (roles.get(i).equals("employee"))
 							new Employee(i);
 					}						
-				}
-				//sql
+				}				
 				dispose();
 			}
 		});
