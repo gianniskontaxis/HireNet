@@ -107,6 +107,7 @@ public class cv extends JFrame {
 		textField_3.setBounds(107, 205, 54, 28);
 		contentPane.add(textField_3);	
 		
+		/*
 		filename = "EmployeesData/user" + i +".txt";
 		
 		File fl=new File(filename);
@@ -148,6 +149,7 @@ public class cv extends JFrame {
 		  
 		emails = rw.readDecr("file2.txt");		
 		textField_2.setText(emails.get(i));
+		*/
 		
 		JLabel lblNewLabel_1_1_1_1 = new JLabel("*Jobs");
 		lblNewLabel_1_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 22));
