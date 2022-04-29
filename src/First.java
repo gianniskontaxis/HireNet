@@ -27,7 +27,11 @@ public class First extends JFrame {
 	private aes data = new aes();
 	private final String secretKey = "aes4";
 	private FileManager rw = new FileManager();
-
+	Connection conn = null;
+	PreparedStatement ps = null;
+	ResultSet rs = null;
+	String sql="";
+	
 	/**
 	 * Launch the application.
 	 */
@@ -50,20 +54,8 @@ public class First extends JFrame {
 	public First(int i) {
 		this.i=i;
 		y=i+1;
+		
 		//roles = rw.readDecr("file4.txt");
-		//sql
-		try {					
-			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/hirenetdb", 
-			"root", "hnppass21");
-			Statement state = conn.createStatement();
-			ResultSet rs = state.executeQuery("select role from users");
-			while (rs.next()) {
-				roles.add(rs.getString("role"));
-			}					
-		}
-		catch (Exception exc){
-			exc.printStackTrace();
-		}	
 		
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 614, 600);
@@ -71,6 +63,7 @@ public class First extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		conn = DBConnection.ConnDB();
 		
 		JButton btnNewButton = new JButton("Company");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -80,23 +73,17 @@ public class First extends JFrame {
 				rw.writeList("file4.txt", roles, false, true);*/
 				
 				//sql
-				try {	
-					
-					Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/hirenetdb", 
-					"root", "hnppass21");
-					Statement state = conn.createStatement();
-					state.executeUpdate("UPDATE\r\n"
-							+ " `hirenetdb`.`users` \r\n"
-							+ "SET `role` = 'company' \r\n"
-							+ "WHERE (`id` = '"+y+"');");
-					
-		               state.close(); 
-		               conn.close(); 
-				}
-				catch (Exception exc){
-					exc.printStackTrace();
-				}
 				
+				try {
+					sql = "UPDATE users set role = 'company' where id = '"+i+"' ";
+					ps = conn.prepareStatement(sql);
+					ps.execute();	
+					ps.close();
+					conn.close();
+				}
+				catch (SQLException e1) {					
+					e1.printStackTrace();
+				}				
 				dispose();
 		    }
 		});
@@ -114,24 +101,18 @@ public class First extends JFrame {
 				rw.writeList("file4.txt", roles, false, true);*/
 				
 				//sql
-				
-				try {					
-					Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/hirenetdb", 
-					"root", "hnppass21");
-					Statement state = conn.createStatement();
-					state.executeUpdate("UPDATE\r\n"
-							+ " `hirenetdb`.`users` \r\n"
-							+ "SET `role` = 'employee' \r\n"
-							+ "WHERE (`id` = '"+y+"');");		
-				   
-		               state.close(); 
-		               conn.close(); 
+								
+				try {
+					sql = "UPDATE users set role = 'employee' where id = '"+i+"' ";
+					ps = conn.prepareStatement(sql);
+					ps.execute();
+					ps.close();
+					conn.close();
 				}
-				catch (Exception exc){
-					exc.printStackTrace();
-				}
-				
-				dispose();
+				catch (SQLException e1) {					
+					e1.printStackTrace();
+				}				
+				dispose();				
 		    }
 		});
 		btnEmployee.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
@@ -147,6 +128,5 @@ public class First extends JFrame {
 		lblNewLabel.setIcon(new ImageIcon(img));
 		
 		this.setVisible(true);
-
 	}
 }

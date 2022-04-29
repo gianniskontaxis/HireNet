@@ -30,6 +30,10 @@ public class SignUp extends JFrame {
 	private FileManager rw = new FileManager();
 	private String x="";
 	private int y=0;
+	Connection conn = null;
+	PreparedStatement ps = null;
+	ResultSet rs = null;
+	String sql="";
 	
 	/*public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -51,6 +55,7 @@ public class SignUp extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		conn = DBConnection.ConnDB();
 		
 		JLabel lblNewLabel = new JLabel("User Name");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
@@ -99,10 +104,10 @@ public class SignUp extends JFrame {
 		lblCompleteYourInformation.setBounds(101, 24, 251, 32);
 		contentPane.add(lblCompleteYourInformation);
 		
-		JCheckBox chckbxNewCheckBox = new JCheckBox("Agree with terms");
-		chckbxNewCheckBox.setFont(new Font("Tahoma", Font.BOLD, 12));
-		chckbxNewCheckBox.setBounds(71, 323, 139, 21);
-		contentPane.add(chckbxNewCheckBox);		
+		JCheckBox terms = new JCheckBox("Agree with terms");
+		terms.setFont(new Font("Tahoma", Font.BOLD, 12));
+		terms.setBounds(71, 323, 139, 21);
+		contentPane.add(terms);		
 		
 		JButton btnNewButton_1 = new JButton("Complete");
 		
@@ -111,7 +116,7 @@ public class SignUp extends JFrame {
 			public void actionPerformed(ActionEvent e) {	
 				
 				/*
-				//files
+				//Μέθοδος με files.
 				names = rw.readDecr("file3.txt");				
 				emails = rw.readDecr("file2.txt");
 				
@@ -127,66 +132,42 @@ public class SignUp extends JFrame {
 				}
 				*/
 				
-				//sql
+				//Μέθοδος με sql.
 				
-				try {					
-					Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/hirenetdb", 
-					"root", "hnppass21");
-					Statement state = conn.createStatement();
-					ResultSet rs = state.executeQuery("select username from users");
-					while (rs.next()) {
-						names.add(rs.getString("username"));
-					}					
-				}
-				catch (Exception exc){
-					exc.printStackTrace();
-				}
+				//Έλεγχος έγκυρων στοιχείων.
+				sql = "select username from users where username = '"+name.getText()+"' or email = '"+email.getText()+"'";
 				
-				try {					
-					Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/hirenetdb", 
-					"root", "hnppass21");
-					Statement state = conn.createStatement();
-					ResultSet rs = state.executeQuery("select email from users");
-					while (rs.next()) {
-						emails.add(rs.getString("email"));
-					}					
-				}
-				catch (Exception exc){
-					exc.printStackTrace();
-				}
-				
-				if ( names.contains(name.getText()) || emails.contains(email.getText()) || !chckbxNewCheckBox.isSelected() )
-					System.out.println("Error");
-				else
-				{
-					try {					
-						Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/hirenetdb", 
-						"root", "hnppass21");
-						Statement state = conn.createStatement();
-						ResultSet rs = state.executeQuery("select count(*) from users");
-						rs.next();
-						y=rs.getInt("count(*)"); 
-					}    
-					catch (Exception exc){
-						exc.printStackTrace();
+				try {
+					ps = conn.prepareStatement(sql);
+					rs = ps.executeQuery();
+					
+					if (rs.isClosed() && terms.isSelected()) {
+						
+						//Εγγραφή χρήστη.
+						sql = "INSERT INTO users(username,email,password,role) VALUES(?,?,?,?)";
+						
+						try {
+							ps = conn.prepareStatement(sql);
+							ps.setString(1, name.getText());
+							ps.setString(2, email.getText());
+							ps.setString(3, code.getText());
+							ps.setString(4, "empty role");		
+							
+							ps.execute();
+						}
+						catch (Exception e1) {
+							e1.printStackTrace();
+						}
+					}
+					else {
+						//Μήνυμα σφάλματος επειδή τα στοιχεία υπάρχουν ήδη ή δεν έγινε η αποδοχή των όρων χρήσης.
+						System.out.println("Error");	
 					}
 					
-					y++;
-					x=y+"";
-					
-					try {					
-						Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/hirenetdb", 
-						"root", "hnppass21");
-						Statement state = conn.createStatement();
-						state.executeUpdate("INSERT INTO \r\n"
-								+ "`hirenetdb`.`users` \r\n"
-								+ "(`id`, `username`, `email`, `password`, `role`) "
-								+ "VALUES ('"+x+"','"+name.getText()+"','"+email.getText()+"','"+code.getText()+"','empty role');");						
-					}
-					catch (Exception exc){
-						exc.printStackTrace();
-					}
-				}			
+				} catch (SQLException e1) {					
+					e1.printStackTrace();
+				}
+				
 				dispose();
 			}
 		});
@@ -199,8 +180,7 @@ public class SignUp extends JFrame {
 		
 		JButton btnNewButton_2 = new JButton("Terms");
 		btnNewButton_2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
+			public void actionPerformed(ActionEvent e) {				
 				new  TermsOfUse();
 			}
 		});

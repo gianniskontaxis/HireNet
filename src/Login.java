@@ -24,14 +24,17 @@ public class Login extends JFrame {
 	private JPanel contentPane;
 	private JTextField name;
 	private JTextField code;
-	private int i=0;
-	
+	private int i=0;	
 	private ArrayList<String> names = new ArrayList<>();
 	private ArrayList<String> codes = new ArrayList<>();
 	private ArrayList<String> roles = new ArrayList<>();
 	private aes data = new aes();
 	private final String secretKey = "aes4";
 	private FileManager rw = new FileManager();
+	Connection conn = null;
+	PreparedStatement ps = null;
+	ResultSet rs = null;
+	String sql="";
 	
 	/*public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -54,7 +57,7 @@ public class Login extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+		conn = DBConnection.ConnDB();
 		
 		JButton btnNewButton_1 = new JButton("Sign Up");
 		btnNewButton_1.addActionListener(new ActionListener() {
@@ -87,76 +90,32 @@ public class Login extends JFrame {
 		JButton btnNewButton_2 = new JButton("Login");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				/*
-				//files
-				names = rw.readDecr("file3.txt");				
-				roles = rw.readDecr("file4.txt");				
-				codes = rw.readDecr("file1.txt");
-				*/
-				//sql
-				try {					
-					Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/hirenetdb", 
-					"root", "hnppass21");
-					Statement state = conn.createStatement();
-					ResultSet rs = state.executeQuery("select username from users");
-					while (rs.next()) {
-						names.add(rs.getString("username"));
-					}	
-						rs.close(); 
-		               state.close(); 
-		               conn.close(); 
-				}
-				catch (Exception exc){
-					exc.printStackTrace();
-				}
-				try {					
-					Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/hirenetdb", 
-					"root", "hnppass21");
-					Statement state = conn.createStatement();
-					ResultSet rs = state.executeQuery("select role from users");
-					while (rs.next()) {
-						roles.add(rs.getString("role"));
-					}	
-					rs.close(); 
-		               state.close(); 
-		               conn.close(); 
-				}
-				catch (Exception exc){
-					exc.printStackTrace();
-				}
-				try {					
-					Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/hirenetdb", 
-					"root", "hnppass21");
-					Statement state = conn.createStatement();
-					ResultSet rs = state.executeQuery("select password from users");
-					while (rs.next()) {
-						codes.add(rs.getString("password"));
-					}
-					rs.close(); 
-		               state.close(); 
-		               conn.close(); 
-				}
-				catch (Exception exc){
-					exc.printStackTrace();
-				}
 				
-				i= names.indexOf(name.getText());
+				sql = "select id,role from users where username = '"+name.getText()+"' and password = '"+code.getText()+"'";
 				
-				if ( i==-1 || ( !(codes.get(i).equals(code.getText())) ) )  {
+				try {
+					ps = conn.prepareStatement(sql);
+					rs = ps.executeQuery();
+					
+					if (rs.isClosed()) 
 						System.out.println("Error");
-				}
-				else {
-					if (roles.get(i).equals("empty role"))      
-							new First(i);
-					else
-					{
-						if (roles.get(i).equals("company"))
-							new Company(i);
-						if (roles.get(i).equals("employee"))
-							new Employee(i);
-					}						
-				}				
-				dispose();
+					else {
+						rs.next();
+						if (rs.getString("role").equals("empty role"))
+							new First(rs.getInt("id"));
+						if (rs.getString("role").equals("company"))
+							new Company(rs.getInt("id"));
+						if (rs.getString("role").equals("employee"))
+							new Employee(rs.getInt("id"));		
+					
+					ps.close();
+					rs.close();
+					conn.close();
+					}
+					dispose();				
+				} catch (SQLException e1) {					
+					e1.printStackTrace();
+				}			
 			}
 		});
 		btnNewButton_2.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));

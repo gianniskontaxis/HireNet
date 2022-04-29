@@ -33,6 +33,10 @@ public class Qualifications extends JFrame {
 	private ArrayList<String> companies = new ArrayList<String>();
 	private ArrayList<String> employees = new ArrayList<String>();
 	private int y=0;
+	Connection conn = null;
+	PreparedStatement ps = null;
+	ResultSet rs = null;
+	String sql="";
 
 	/**
 	 * Launch the application.
@@ -57,13 +61,16 @@ public class Qualifications extends JFrame {
 		
 		this.i=i;
 		y=i+1;
+		
 		setTitle("Qualifications");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 973, 1200);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setLayout(null);		
+		contentPane.setLayout(null);
+		conn = DBConnection.ConnDB();
+		
 		radioButtons = new JRadioButton[65];
 		
 		/*roles = rw.readDecr("file4.txt");		
@@ -85,8 +92,6 @@ public class Qualifications extends JFrame {
 				e2.printStackTrace();
 			}			  
 		qual = rw.read(filename);*/	
-		
-		
 		
 		JButton btnNewButton_1 = new JButton("Save");	
 		
@@ -384,20 +389,16 @@ public class Qualifications extends JFrame {
 		radioButtons[63].setBounds(760, 540, 128, 21);
 		contentPane.add(radioButtons[63]);	
 		
-		try {					
-			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/hirenetdb", 
-			"root", "hnppass21");
-			Statement state = conn.createStatement();
-			ResultSet rs = state.executeQuery("select id from quals where id = '"+y+"'");			
-			if (!rs.next()) {
-				state.executeUpdate("INSERT INTO `hirenetdb`.`quals` (`id`) VALUES ('"+y+"');");
-			}
-			rs.close(); 
-            state.close(); 
-            conn.close(); 
-		}
-		catch (Exception exc){
-			exc.printStackTrace();
+		try {			
+			ps = conn.prepareStatement("select id from quals where id = '"+i+"'");
+			rs = ps.executeQuery();
+			if (rs.isClosed()) {
+				ps = conn.prepareStatement("INSERT INTO quals(id) VALUES(?)");
+				ps.setInt(1, i);
+				ps.execute();
+			}						
+		} catch (SQLException e1) {			
+			e1.printStackTrace();
 		}
 		
 		btnNewButton_2.addActionListener(new ActionListener() {
@@ -410,26 +411,23 @@ public class Qualifications extends JFrame {
 			j++;
 			}	
 		*/
-				//sql				
-				try {					
-					Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/hirenetdb", 
-					"root", "hnppass21");					
-					Statement state = conn.createStatement();
+				
+		//sql				
+				try {
 					for (int j=0;j<64;j++) {
-					ResultSet rs = state.executeQuery("select `"+radioButtons[j].getLabel()+"` from quals where id = "+y+"");
+					sql = " select `"+radioButtons[j].getLabel()+"` from quals where id = "+i+" ";
+					ps = conn.prepareStatement(sql);
+					rs = ps.executeQuery();
 					rs.next();
 					if (rs.getString(""+radioButtons[j].getLabel()+"").equals("true"))
 						radioButtons[j].doClick();						
-					}
-					
-		               state.close(); 
-		               conn.close(); 
-				}
-				catch (Exception exc){
-					exc.printStackTrace();
-				}
-		}
-	});
+					}			               			
+				}					
+				 catch (SQLException e1) {					
+					 e1.printStackTrace();
+				}			
+			}		
+		});
 		
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {		
@@ -450,33 +448,24 @@ public class Qualifications extends JFrame {
 				*/
 				//sql
 				
-				for (int j=0; j<64; j++) {
-					if (radioButtons[j].isSelected())
-					{
-						try {					
-							Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/hirenetdb", 
-							"root", "hnppass21");
-							Statement state = conn.createStatement();
-							state.executeUpdate("update quals set `"+radioButtons[j].getLabel()+"` = 'true' where id = '"+y+"'");							
-							}
-						catch (Exception exc){
-							exc.printStackTrace();
-							}
-					}
-					else
-					{
-						try {					
-							Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/hirenetdb", 
-							"root", "hnppass21");
-							Statement state = conn.createStatement();
-							state.executeUpdate("update quals set `"+radioButtons[j].getLabel()+"` = 'false' where id = '"+y+"'");							
-							}
-						catch (Exception exc){
-							exc.printStackTrace();
-							}
-					}
+				try {
+					for (int j=0; j<64; j++) {		
+						if (radioButtons[j].isSelected()) {
+							sql = "update quals set `"+radioButtons[j].getLabel()+"` = 'true' where id = '"+i+"'";
+							ps = conn.prepareStatement(sql);
+						}
+						else
+						{
+							sql = "update quals set `"+radioButtons[j].getLabel()+"` = 'false' where id = '"+i+"'";
+							ps = conn.prepareStatement(sql);
+						}	
+						ps.execute();
+					}	
+					conn.close();
+					dispose();
+				} catch (SQLException e1) {				
+					e1.printStackTrace();
 				}				
-			dispose();
 			}			
 		});
 		
