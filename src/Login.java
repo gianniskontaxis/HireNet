@@ -8,6 +8,7 @@ import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
@@ -98,7 +99,7 @@ public class Login extends JFrame {
 					rs = ps.executeQuery();
 					
 					if (rs.isClosed()) 
-						System.out.println("Error");
+						JOptionPane.showMessageDialog(null, "Invalid Username or Password");    
 					else {
 						rs.next();
 						if (rs.getString("role").equals("empty role"))

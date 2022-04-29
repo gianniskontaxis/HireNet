@@ -147,8 +147,7 @@ public class cv extends JFrame {
 		textField_2.setText(dataUser.get(2));
 		textField_3.setText(dataUser.get(3)); 
 		  
-		emails = rw.readDecr("file2.txt");		
-		textField_2.setText(emails.get(i));
+	
 		*/
 		
 		JLabel lblNewLabel_1_1_1_1 = new JLabel("*Jobs");

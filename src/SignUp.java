@@ -12,6 +12,7 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
@@ -30,10 +31,10 @@ public class SignUp extends JFrame {
 	private FileManager rw = new FileManager();
 	private String x="";
 	private int y=0;
-	Connection conn = null;
-	PreparedStatement ps = null;
-	ResultSet rs = null;
-	String sql="";
+	private Connection conn = null;
+	private PreparedStatement ps = null;
+	private ResultSet rs = null;
+	private String sql="";
 	
 	/*public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -161,7 +162,8 @@ public class SignUp extends JFrame {
 					}
 					else {
 						//Μήνυμα σφάλματος επειδή τα στοιχεία υπάρχουν ήδη ή δεν έγινε η αποδοχή των όρων χρήσης.
-						System.out.println("Error");	
+						JOptionPane.showMessageDialog(null, "Invalid Username or Password");    
+
 					}
 					
 				} catch (SQLException e1) {					
