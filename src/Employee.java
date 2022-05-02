@@ -1,24 +1,30 @@
-import java.sql.*;
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.Font;
-import javax.swing.JLabel;
-import javax.swing.JList;
 import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+import javax.swing.DefaultListModel;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JPanel;
 import javax.swing.JScrollBar;
+import javax.swing.ListModel;
+import javax.swing.border.EmptyBorder;
 
 public class Employee extends JFrame {
-
+	
+	private DefaultListModel model_1;
 	private JPanel contentPane;
 	private int i;
-
+	
 	/**
 	 * Launch the application.
 	 */
@@ -82,6 +88,7 @@ public class Employee extends JFrame {
 				new cv(i);
 			}
 		});
+		
 		btnNewButton_1.setBackground(new Color(47, 79, 79));
 		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
 		btnNewButton_1.setForeground(new Color(255, 255, 255));
@@ -98,12 +105,26 @@ public class Employee extends JFrame {
 		list_1.setBounds(429, 304, 206, 211);
 		contentPane.add(list_1);
 		
-		JButton btnNewButton_1_1 = new JButton("Search");
-		btnNewButton_1_1.setForeground(Color.WHITE);
-		btnNewButton_1_1.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
-		btnNewButton_1_1.setBackground(new Color(47, 79, 79));
-		btnNewButton_1_1.setBounds(117, 549, 149, 47);
-		contentPane.add(btnNewButton_1_1);
+		model_1 = new DefaultListModel();
+		list_1.setModel(model_1);
+		
+		JButton search = new JButton("Search");
+		search.setForeground(Color.WHITE);
+		search.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
+		search.setBackground(new Color(47, 79, 79));
+		search.setBounds(117, 549, 149, 47);
+		contentPane.add(search);
+		
+		search.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//Μέθοδος με SQLite.
+				model_1.clear();
+				Matching mr = new Matching(i,"company");
+				ArrayList<String> results = new ArrayList<>();
+				results = mr.getResults();
+				model_1.addAll(results);				
+			}
+		});
 		
 		JScrollBar scrollBar = new JScrollBar();
 		scrollBar.setBounds(219, 379, 17, 48);

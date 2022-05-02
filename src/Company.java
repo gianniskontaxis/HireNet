@@ -2,11 +2,13 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
-
-
+import java.text.DecimalFormat;
 import javax.swing.DefaultListModel;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -14,7 +16,6 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollBar;
 import javax.swing.border.EmptyBorder;
-import java.sql.*;
 
 public class Company extends JFrame {
 
@@ -27,10 +28,8 @@ public class Company extends JFrame {
 	private ArrayList<Integer> matches = new ArrayList<>();
 	String filename="";
 	private FileManager rw = new FileManager();
-	private DefaultListModel model;
-
-
-
+	private DefaultListModel model_1;	
+	
 	/**
 	 * Launch the application.
 	 */
@@ -59,7 +58,7 @@ public class Company extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setLayout(null);
+		contentPane.setLayout(null);	
 		
 		JButton btnNewButton = new JButton("Profile");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -139,13 +138,11 @@ public class Company extends JFrame {
 		btnNewButton_2.setBounds(117, 573, 137, 47);
 		contentPane.add(btnNewButton_2);	
 		
-			
-		
-		model = new DefaultListModel();
-		list_1.setModel(model);
+		model_1 = new DefaultListModel();
+		list_1.setModel(model_1);
 		results.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				/* Μέθοδος με files.
 				// φορτωση των ID των χρηστων του αλλου ρολου οι οποιοι διαθετουν αποθηκευμενη λιστα με qualifications.
 				String line="";
 				employeesIDs = rw.read("employees.txt");
@@ -192,7 +189,14 @@ public class Company extends JFrame {
 					sc = Math.ceil(sc);
 				
 					model.addElement(namesUser.get(s) + " matches with score: "  + sc    +" % \n");
-				}			
+				}*/	
+				
+				//Μέθοδος με SQLite.
+				model_1.clear();
+				Matching mr = new Matching(i,"employee");
+				ArrayList<String> results = new ArrayList<>();
+				results = mr.getResults();
+				model_1.addAll(results);
 			}
 		});
 		

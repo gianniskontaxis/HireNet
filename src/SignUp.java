@@ -55,8 +55,7 @@ public class SignUp extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setLayout(null);
-		conn = DBConnection.ConnDB();
+		contentPane.setLayout(null);	
 		
 		JLabel lblNewLabel = new JLabel("User Name");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
@@ -115,7 +114,7 @@ public class SignUp extends JFrame {
 		btnNewButton_1.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {	
-				
+				conn = DBConnection.ConnDB();
 				/*
 				//Μέθοδος με files.
 				names = rw.readDecr("file3.txt");				
@@ -138,7 +137,7 @@ public class SignUp extends JFrame {
 				//Έλεγχος έγκυρων στοιχείων.
 				sql = "select username from users where username = '"+name.getText()+"' or email = '"+email.getText()+"'";
 				
-				try {
+				try {					
 					ps = conn.prepareStatement(sql);
 					rs = ps.executeQuery();
 					
@@ -170,6 +169,12 @@ public class SignUp extends JFrame {
 					e1.printStackTrace();
 				}
 				
+				try {
+					conn.close();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 				dispose();
 			}
 		});

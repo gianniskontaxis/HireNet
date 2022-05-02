@@ -107,7 +107,8 @@ public class cv extends JFrame {
 		textField_3.setBounds(107, 205, 54, 28);
 		contentPane.add(textField_3);	
 		
-		/*
+		/* Μέθοδος με files.
+		 
 		filename = "EmployeesData/user" + i +".txt";
 		
 		File fl=new File(filename);

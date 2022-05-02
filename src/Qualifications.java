@@ -57,7 +57,7 @@ public class Qualifications extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Qualifications(int i) {
+	public  Qualifications(int i) {
 		
 		this.i=i;
 		y=i+1;
@@ -68,8 +68,7 @@ public class Qualifications extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setLayout(null);
-		conn = DBConnection.ConnDB();
+		contentPane.setLayout(null);		
 		
 		radioButtons = new JRadioButton[65];
 		
@@ -389,14 +388,16 @@ public class Qualifications extends JFrame {
 		radioButtons[63].setBounds(760, 540, 128, 21);
 		contentPane.add(radioButtons[63]);	
 		
-		try {			
+		try {
+			conn = DBConnection.ConnDB();
 			ps = conn.prepareStatement("select id from quals where id = '"+i+"'");
 			rs = ps.executeQuery();
 			if (rs.isClosed()) {
 				ps = conn.prepareStatement("INSERT INTO quals(id) VALUES(?)");
 				ps.setInt(1, i);
 				ps.execute();
-			}						
+			}
+			conn.close();
 		} catch (SQLException e1) {			
 			e1.printStackTrace();
 		}
@@ -414,6 +415,7 @@ public class Qualifications extends JFrame {
 				
 		//sql				
 				try {
+					conn = DBConnection.ConnDB();
 					for (int j=0;j<64;j++) {
 					sql = " select `"+radioButtons[j].getLabel()+"` from quals where id = "+i+" ";
 					ps = conn.prepareStatement(sql);
@@ -421,7 +423,8 @@ public class Qualifications extends JFrame {
 					rs.next();
 					if (rs.getString(""+radioButtons[j].getLabel()+"").equals("true"))
 						radioButtons[j].doClick();						
-					}			               			
+					}	
+					conn.close();
 				}					
 				 catch (SQLException e1) {					
 					 e1.printStackTrace();
@@ -449,6 +452,7 @@ public class Qualifications extends JFrame {
 				//sql
 				
 				try {
+					conn = DBConnection.ConnDB();
 					for (int j=0; j<64; j++) {		
 						if (radioButtons[j].isSelected()) {
 							sql = "update quals set `"+radioButtons[j].getLabel()+"` = 'true' where id = '"+i+"'";
@@ -461,6 +465,7 @@ public class Qualifications extends JFrame {
 						}	
 						ps.execute();
 					}	
+					ps.close();
 					conn.close();
 					dispose();
 				} catch (SQLException e1) {				
@@ -473,3 +478,4 @@ public class Qualifications extends JFrame {
 		this.setTitle("Qualifications");
 	}
 }
+
