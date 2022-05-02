@@ -6,6 +6,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -21,10 +24,15 @@ import javax.swing.border.EmptyBorder;
 
 public class Employee extends JFrame {
 	
+	private Connection conn = null;
 	private DefaultListModel usernameModel;
 	private JPanel contentPane;
 	private int i;
 	private DefaultListModel scoreModel;
+	private DefaultListModel model;
+	private PreparedStatement ps = null;
+	private ResultSet rs = null;
+	private JList list;
 	
 	/**
 	 * Launch the application.
@@ -78,9 +86,30 @@ public class Employee extends JFrame {
 		lblYourResults.setBounds(478, 240, 149, 60);
 		contentPane.add(lblYourResults);
 		
-		JList list = new JList();
+		list = new JList();
 		list.setBounds(100, 304, 206, 211);
 		contentPane.add(list);
+		
+		model = new DefaultListModel();
+		list.setModel(model);
+		
+		//Καταχωρηση των companies.		
+		try {			
+			String sql = "select * from users join quals where users.id = quals.id and role = 'company'";
+			conn = DBConnection.ConnDB();
+			ps = conn.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				model.addElement(rs.getString("username"));
+					
+			}
+			ps.close();
+			rs.close();
+			conn.close();			
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}		
 		
 		JButton btnNewButton_1 = new JButton("Write your CV");
 		
@@ -208,6 +237,42 @@ public class Employee extends JFrame {
 			}	
 		});
 		
+		list.addMouseListener(new MouseListener () {		
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+					
+				try {
+					new companyInfo(list.getSelectedValue()+"");
+				} catch (SQLException e1) {							
+					e1.printStackTrace();
+				}				
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}	
+		});
 		this.setVisible(true);
 		this.setTitle("Employee");
 	}
