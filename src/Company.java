@@ -3,6 +3,8 @@ import java.awt.Cursor;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
@@ -198,12 +200,7 @@ public class Company extends JFrame {
 		
 		JButton select = new JButton("select");
 		select.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {							
-					try {
-						new MatchingInfo(usernameList.getSelectedValue()+"",i);
-					} catch (SQLException e1) {							
-						e1.printStackTrace();
-					}					
+			public void actionPerformed(ActionEvent e) {					
 			}
 		});	
 		
@@ -212,6 +209,43 @@ public class Company extends JFrame {
 		select.setBackground(new Color(47, 79, 79));
 		select.setBounds(425, 573, 137, 47);
 		contentPane.add(select);
+		
+		usernameList.addMouseListener(new MouseListener () {		
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+					
+				try {
+					new MatchingInfo(usernameList.getSelectedValue()+"",i);
+				} catch (SQLException e1) {							
+					e1.printStackTrace();
+				}				
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}	
+		});
 		
 		this.setVisible(true);
 		this.setTitle("Company");
