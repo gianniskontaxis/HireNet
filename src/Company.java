@@ -1,13 +1,10 @@
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.text.DecimalFormat;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -15,40 +12,20 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollBar;
+import javax.swing.ListSelectionModel;
 import javax.swing.border.EmptyBorder;
 
 public class Company extends JFrame {
 
-	private JPanel contentPane;
-	private int i;
-	private ArrayList<ArrayList<String>> employees = new ArrayList<ArrayList<String>>();
-	private ArrayList<String> company = new ArrayList<>();
-	private ArrayList<String> employeesIDs = new ArrayList<>();
-	private ArrayList<String> namesUser = new ArrayList<>();
-	private ArrayList<Integer> matches = new ArrayList<>();
-	String filename="";
-	private FileManager rw = new FileManager();
-	private DefaultListModel model_1;	
+	private int i; // id of user.
+	private JPanel contentPane;		
+	private DefaultListModel usernameModel;	
+	private DefaultListModel scoreModel;	
+	private JList usernameList = new JList();
+	private JList scoreList = new JList();
 	
-	/**
-	 * Launch the application.
-	 */
-	/*public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Company frame = new Company();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}*/
-
-	/**
-	 * Create the frame.
-	 */
+	// Create the Frame.
+	
 	public Company(int i) {
 		
 		this.i=i;
@@ -60,29 +37,29 @@ public class Company extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);	
 		
-		JButton btnNewButton = new JButton("Profile");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton profile = new JButton("Profile");
+		profile.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 			}
 		});
-		btnNewButton.setForeground(new Color(255, 255, 255));
-		btnNewButton.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
-		btnNewButton.setBackground(new Color(47, 79, 79));
-		btnNewButton.setBounds(577, 39, 115, 32);
-		contentPane.add(btnNewButton);
+		profile.setForeground(new Color(255, 255, 255));
+		profile.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
+		profile.setBackground(new Color(47, 79, 79));
+		profile.setBounds(577, 39, 115, 32);
+		contentPane.add(profile);
 		
-		JButton btnNewButton_1 = new JButton("Write the qualifications");
-		btnNewButton_1.addActionListener(new ActionListener() {
+		JButton quals = new JButton("Write the qualifications");
+		quals.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				new Qualifications(i);
 			}
 		});
-		btnNewButton_1.setForeground(new Color(255, 255, 255));
-		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
-		btnNewButton_1.setBackground(new Color(47, 79, 79));
-		btnNewButton_1.setBounds(93, 138, 212, 55);
-		contentPane.add(btnNewButton_1);
+		quals.setForeground(new Color(255, 255, 255));
+		quals.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
+		quals.setBackground(new Color(47, 79, 79));
+		quals.setBounds(93, 138, 212, 55);
+		contentPane.add(quals);
 		
 		JButton results = new JButton("Matching Results");
 		results.setForeground(new Color(255, 255, 255));
@@ -93,18 +70,24 @@ public class Company extends JFrame {
 		
 		JList list = new JList();
 		list.setBackground(Color.LIGHT_GRAY);
-		list.setBounds(79, 219, 239, 268);
+		list.setBounds(79, 219, 237, 268);
 		contentPane.add(list);
 		
 		JScrollBar scrollBar = new JScrollBar();
 		scrollBar.setBackground(Color.WHITE);
 		scrollBar.setBounds(301, 270, 17, 117);
-		contentPane.add(scrollBar);
+		contentPane.add(scrollBar);		
 		
-		JList list_1 = new JList();
-		list_1.setBackground(Color.LIGHT_GRAY);
-		list_1.setBounds(387, 219, 239, 268);
-		contentPane.add(list_1);
+		usernameList.setBackground(Color.LIGHT_GRAY);
+		usernameList.setBounds(451, 219, 177, 268);
+		usernameList.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+		contentPane.add(usernameList);
+		usernameList.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));		
+		
+		scoreList.setBackground(Color.LIGHT_GRAY);
+		scoreList.setSelectionBackground(Color.LIGHT_GRAY);
+		scoreList.setBounds(391, 219, 60, 268);
+		contentPane.add(scoreList);
 		
 		JScrollBar scrollBar_1 = new JScrollBar();
 		scrollBar_1.setBackground(Color.WHITE);
@@ -138,10 +121,15 @@ public class Company extends JFrame {
 		btnNewButton_2.setBounds(117, 573, 137, 47);
 		contentPane.add(btnNewButton_2);	
 		
-		model_1 = new DefaultListModel();
-		list_1.setModel(model_1);
+		usernameModel = new DefaultListModel();
+		usernameList.setModel(usernameModel);
+		
+		scoreModel = new DefaultListModel();
+		scoreList.setModel(scoreModel);
+		
 		results.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 				/* Μέθοδος με files.
 				// φορτωση των ID των χρηστων του αλλου ρολου οι οποιοι διαθετουν αποθηκευμενη λιστα με qualifications.
 				String line="";
@@ -191,27 +179,39 @@ public class Company extends JFrame {
 					model.addElement(namesUser.get(s) + " matches with score: "  + sc    +" % \n");
 				}*/	
 				
+				
 				//Μέθοδος με SQLite.
-				model_1.clear();
+				
+				usernameModel.clear();
+				scoreModel.clear();
+				
 				Matching mr = new Matching(i,"employee");
-				ArrayList<String> results = new ArrayList<>();
-				results = mr.getResults();
-				model_1.addAll(results);
+				ArrayList<String> scoreResults = new ArrayList<>();
+				ArrayList<String> usernameResults = new ArrayList<>();
+				
+				usernameResults = mr.getUsernameResults();
+				scoreResults = mr.getScoreResults();
+				usernameModel.addAll(usernameResults);
+				scoreModel.addAll(scoreResults);				
 			}
 		});
 		
-		JButton btnNewButton_2_1 = new JButton("select");
-		btnNewButton_2_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-
+		JButton select = new JButton("select");
+		select.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {							
+					try {
+						new MatchingInfo(usernameList.getSelectedValue()+"",i);
+					} catch (SQLException e1) {							
+						e1.printStackTrace();
+					}					
 			}
 		});	
 		
-		btnNewButton_2_1.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
-		btnNewButton_2_1.setForeground(new Color(255, 255, 255));
-		btnNewButton_2_1.setBackground(new Color(47, 79, 79));
-		btnNewButton_2_1.setBounds(425, 573, 137, 47);
-		contentPane.add(btnNewButton_2_1);
+		select.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
+		select.setForeground(new Color(255, 255, 255));
+		select.setBackground(new Color(47, 79, 79));
+		select.setBounds(425, 573, 137, 47);
+		contentPane.add(select);
 		
 		this.setVisible(true);
 		this.setTitle("Company");

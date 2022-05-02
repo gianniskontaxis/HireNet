@@ -1,14 +1,14 @@
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Font;
 import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.sql.SQLException;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
+
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -16,14 +16,15 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollBar;
-import javax.swing.ListModel;
+import javax.swing.ListSelectionModel;
 import javax.swing.border.EmptyBorder;
 
 public class Employee extends JFrame {
 	
-	private DefaultListModel model_1;
+	private DefaultListModel usernameModel;
 	private JPanel contentPane;
 	private int i;
+	private DefaultListModel scoreModel;
 	
 	/**
 	 * Launch the application.
@@ -101,12 +102,22 @@ public class Employee extends JFrame {
 		lblWhatCompaniesWant.setBounds(82, 240, 269, 60);
 		contentPane.add(lblWhatCompaniesWant);
 		
-		JList list_1 = new JList();
-		list_1.setBounds(429, 304, 206, 211);
-		contentPane.add(list_1);
+		JList usernameList = new JList();
+		usernameList.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+		usernameList.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		usernameList.setBounds(489, 304, 147, 211);
+		contentPane.add(usernameList);
 		
-		model_1 = new DefaultListModel();
-		list_1.setModel(model_1);
+		usernameModel = new DefaultListModel();
+		usernameList.setModel(usernameModel);
+		
+		JList scoreList = new JList();
+		scoreList.setSelectionBackground(Color.WHITE);
+		scoreList.setBounds(437, 304, 52, 211);
+		contentPane.add(scoreList);
+		
+		scoreModel = new DefaultListModel();
+		scoreList.setModel(scoreModel);
 		
 		JButton search = new JButton("Search");
 		search.setForeground(Color.WHITE);
@@ -117,12 +128,20 @@ public class Employee extends JFrame {
 		
 		search.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 				//Μέθοδος με SQLite.
-				model_1.clear();
+				
+				usernameModel.clear();
+				scoreModel.clear();
+				
 				Matching mr = new Matching(i,"company");
-				ArrayList<String> results = new ArrayList<>();
-				results = mr.getResults();
-				model_1.addAll(results);				
+				ArrayList<String> scoreResults = new ArrayList<>();
+				ArrayList<String> usernameResults = new ArrayList<>();
+				
+				usernameResults = mr.getUsernameResults();
+				scoreResults = mr.getScoreResults();
+				usernameModel.addAll(usernameResults);
+				scoreModel.addAll(scoreResults);					
 			}
 		});
 		
@@ -149,7 +168,46 @@ public class Employee extends JFrame {
 		btnNewButton_2.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
 		btnNewButton_2.setBackground(new Color(47, 79, 79));
 		btnNewButton_2.setBounds(589, 39, 115, 32);
-		contentPane.add(btnNewButton_2);
+		contentPane.add(btnNewButton_2);	
+		
+		
+		usernameList.addMouseListener(new MouseListener () {		
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+					
+				try {
+					new MatchingInfo(usernameList.getSelectedValue()+"",i);
+				} catch (SQLException e1) {							
+					e1.printStackTrace();
+				}				
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}	
+		});
+		
 		this.setVisible(true);
 		this.setTitle("Employee");
 	}

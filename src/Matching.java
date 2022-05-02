@@ -25,13 +25,12 @@ public class Matching {
 	private PreparedStatement ps6 = null;
 	private String sql="";
 	private ArrayList<String> results = new ArrayList<>();
+	private ArrayList<String> scoreResults = new ArrayList<>();
+	private ArrayList<String> usernameResults = new ArrayList<>();
 	
 	public Matching (int i, String role) {
 		this.i=i;
 		this.role=role;	
-	}
-	
-	public ArrayList<String> getResults() {
 		
 		try {
 			conn = DBConnection.ConnDB();
@@ -97,6 +96,9 @@ public class Matching {
 			//Αποθηκευση αποτελεσματος.					 
 			while (rs5.next()) {
 				results.add(df.format(rs5.getDouble("score")) + " %  " + rs5.getString("username"));
+				usernameResults.add(rs5.getString("username"));
+				scoreResults.add(df.format(rs5.getDouble("score")) + " %  ");
+				
 			}		
 			
 			//Διαγραφη περιεχομενων του πινακα MatchingResults.
@@ -123,6 +125,15 @@ public class Matching {
 		catch (SQLException e1) {					
 			e1.printStackTrace();
 		}			
+	}
+	
+	public ArrayList<String> getResults() {	
 		return results;
+	}
+	public ArrayList<String> getScoreResults() {
+		return scoreResults;
+	}
+	public ArrayList<String> getUsernameResults() {
+		return usernameResults;
 	}
 }
