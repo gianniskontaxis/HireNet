@@ -1,1 +1,0 @@
-select username from users;

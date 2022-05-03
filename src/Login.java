@@ -1,41 +1,32 @@
-import java.sql.*;
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
-import java.awt.event.ActionListener;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.awt.event.ActionEvent;
-import java.awt.Image;
-import javax.swing.ImageIcon;
-
+import javax.swing.border.EmptyBorder;
 
 public class Login extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField name;
 	private JTextField code;
-	private int i=0;	
-	private ArrayList<String> names = new ArrayList<>();
-	private ArrayList<String> codes = new ArrayList<>();
-	private ArrayList<String> roles = new ArrayList<>();
 	private aes data = new aes();
-	private final String secretKey = "aes4";
-	private FileManager rw = new FileManager();
-	Connection conn = null;
-	PreparedStatement ps = null;
-	ResultSet rs = null;
-	String sql="";
+	private final String secretKey = "aes4";	
+	private Connection conn = null;
+	private PreparedStatement ps = null;
+	private ResultSet rs = null;
+	private String sql="";
 	
 	/*public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -49,7 +40,6 @@ public class Login extends JFrame {
 			}
 		});
 	}*/
-
 	
 	public Login() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -89,10 +79,10 @@ public class Login extends JFrame {
 		contentPane.add(code);
 		
 		JButton btnNewButton_2 = new JButton("Login");
-		btnNewButton_2.addActionListener(new ActionListener() {
+		btnNewButton_2.addActionListener(new ActionListener() {    
 			public void actionPerformed(ActionEvent e) {
 				
-				sql = "select id,role from users where username = '"+name.getText()+"' and password = '"+code.getText()+"'";
+				sql = "select id,role from users where username = '"+name.getText()+"' and password = '"+data.encrypt(code.getText(), secretKey)+"'";
 				
 				try {
 					ps = conn.prepareStatement(sql);

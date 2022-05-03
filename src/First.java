@@ -1,40 +1,26 @@
-import java.sql.*;
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.ArrayList;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
 
 public class First extends JFrame {
 
 	private JPanel contentPane;
-	private int i,y;
-	private ArrayList<String> roles = new ArrayList<>();
-	private aes data = new aes();
-	private final String secretKey = "aes4";
-	private FileManager rw = new FileManager();
-	Connection conn = null;
-	PreparedStatement ps = null;
-	ResultSet rs = null;
-	String sql="";
+	private int i;			
+	private Connection conn = null;
+	private PreparedStatement ps = null;	
+	private String sql="";	
 	
-	/**
-	 * Launch the application.
-	 */
 	/*public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -47,15 +33,10 @@ public class First extends JFrame {
 			}
 		});
 	}*/
-
-	/**
-	 * Create the frame.
-	 */
+	
 	public First(int i) {
-		this.i=i;
-		y=i+1;
 		
-		//roles = rw.readDecr("file4.txt");
+		this.i=i;	
 		
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 614, 600);
@@ -68,9 +49,7 @@ public class First extends JFrame {
 		JButton btnNewButton = new JButton("Company");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e){
-				new Company(i);
-				/*roles.set(i,"company");				
-				rw.writeList("file4.txt", roles, false, true);*/
+				new Company(i);				
 				
 				//sql
 				
@@ -97,8 +76,6 @@ public class First extends JFrame {
 		btnEmployee.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e){
 				new Employee(i);				
-				/*roles.set(i,"employee");				
-				rw.writeList("file4.txt", roles, false, true);*/
 				
 				//sql
 								

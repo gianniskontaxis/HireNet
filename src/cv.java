@@ -1,15 +1,7 @@
-import java.sql.*;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -26,17 +18,8 @@ public class cv extends JFrame {
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField textField_3;
-	private int i;
-	private aes data = new aes();
-	private final String secretKey = "aes4";
-	private ArrayList<String> emails = new ArrayList<>();
-	private ArrayList<String> dataUser = new ArrayList<>();
-	private String filename="";
-	private FileManager rw = new FileManager();
+	private int i;	
 
-	/**
-	 * Launch the application.
-	 */
 	/*public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -50,9 +33,6 @@ public class cv extends JFrame {
 		});
 	}*/
 
-	/**
-	 * Create the frame.
-	 */
 	public cv(int i) {
 		
 		this.i=i;
@@ -105,51 +85,7 @@ public class cv extends JFrame {
 		textField_3.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		textField_3.setColumns(10);
 		textField_3.setBounds(107, 205, 54, 28);
-		contentPane.add(textField_3);	
-		
-		/* Μέθοδος με files.
-		 
-		filename = "EmployeesData/user" + i +".txt";
-		
-		File fl=new File(filename);
-		  try {
-			fl.createNewFile();
-		} catch (IOException e2) {				
-			e2.printStackTrace();
-		}
-		  
-		String str="";
-		  try {
-				BufferedReader reader = new BufferedReader(new FileReader((filename)));
-				str=reader.readLine();						
-				reader.close();					
-			} catch (IOException e2) {
-				e2.printStackTrace();
-			}
-		  
-		  if (str==null) {
-			  
-			  try {
-					BufferedWriter writer = new BufferedWriter(new FileWriter((filename)));
-									
-					for (int j=0;j<4;j++) {
-						writer.write("" + "\n");
-					}					
-					writer.close();				
-				} catch (IOException e1) {
-					e1.printStackTrace();
-				}		  
-		  }
-		  
-		dataUser = rw.read(filename);
-		 
-		textField.setText(dataUser.get(0));
-		textField_1.setText(dataUser.get(1));
-		textField_2.setText(dataUser.get(2));
-		textField_3.setText(dataUser.get(3)); 
-		  
-	
-		*/
+		contentPane.add(textField_3);			
 		
 		JLabel lblNewLabel_1_1_1_1 = new JLabel("*Jobs");
 		lblNewLabel_1_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 22));
@@ -200,12 +136,7 @@ public class cv extends JFrame {
 		contentPane.add(save);
 		
 		save.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {	
-				
-				rw.writeText(filename, textField.getText(), false, false);					
-				rw.writeText(filename, textField_1.getText(), true, false);					
-				rw.writeText(filename, textField_2.getText(), true, false);					
-				rw.writeText(filename, textField_3.getText(), true, false);					
+			public void actionPerformed(ActionEvent e) {								
 		}
 		});	
 		

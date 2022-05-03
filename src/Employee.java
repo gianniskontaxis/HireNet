@@ -32,11 +32,8 @@ public class Employee extends JFrame {
 	private DefaultListModel model;
 	private PreparedStatement ps = null;
 	private ResultSet rs = null;
-	private JList list;
+	private JList list;	
 	
-	/**
-	 * Launch the application.
-	 */
 	/*public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -49,10 +46,7 @@ public class Employee extends JFrame {
 			}
 		});
 	}*/
-
-	/**
-	 * Create the frame.
-	 */
+	
 	public Employee(int i) {
 		
 		this.i=i;

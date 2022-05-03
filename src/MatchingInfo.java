@@ -1,11 +1,3 @@
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
-import javax.swing.DefaultListModel;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JTextPane;
 import java.awt.Cursor;
 import java.awt.Font;
 import java.awt.SystemColor;
@@ -14,10 +6,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
+import javax.swing.DefaultListModel;
+import javax.swing.JFrame;
 import javax.swing.JList;
-import javax.swing.JTextField;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTextField;
+import javax.swing.JTextPane;
+import javax.swing.border.EmptyBorder;
 
 public class MatchingInfo extends JFrame {
 

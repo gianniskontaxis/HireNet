@@ -2,45 +2,30 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.border.EmptyBorder;
-import java.sql.*;
 
 public class Qualifications extends JFrame {
 
 	private JPanel contentPane;
 	private int i;
 	private JRadioButton[] radioButtons;
-	private ArrayList<String> roles = new ArrayList<>();
-	private aes data = new aes();
-	private final String secretKey = "aes4";
-	private ArrayList<String> qual = new ArrayList<>();
-	private ArrayList<String> qual2 = new ArrayList<>();
-	private String filename="";
-	private FileManager rw = new FileManager();
-	private String role = "";
-	private ArrayList<String> companies = new ArrayList<String>();
-	private ArrayList<String> employees = new ArrayList<String>();
-	private int y=0;
-	Connection conn = null;
-	PreparedStatement ps = null;
-	ResultSet rs = null;
-	String sql="";
-
-	/**
-	 * Launch the application.
-	 */
+	private Connection conn = null;
+	private PreparedStatement ps = null;
+	private ResultSet rs = null;
+	private String sql="";
+	private ArrayList<String> column = new ArrayList<>();
+	
 	/*public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -53,14 +38,10 @@ public class Qualifications extends JFrame {
 			}
 		});
 	}*/
-
-	/**
-	 * Create the frame.
-	 */
+	
 	public  Qualifications(int i) {
 		
-		this.i=i;
-		y=i+1;
+		this.i=i;	
 		
 		setTitle("Qualifications");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -70,27 +51,7 @@ public class Qualifications extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);		
 		
-		radioButtons = new JRadioButton[65];
-		
-		/*roles = rw.readDecr("file4.txt");		
-		role = roles.get(i);		
-		if (role.equals("employee"))	{		
-			  filename = "Employees/user" + i +".txt";
-			  employees = rw.read("employees.txt");		
-			  
-		}
-		else {
-			  filename = "Companies/user" + i +".txt";
-			  companies = rw.read("companies.txt");			 
-		}			
-		
-			  File File=new File(filename);
-			  try {
-				File.createNewFile();
-			} catch (IOException e2) {				
-				e2.printStackTrace();
-			}			  
-		qual = rw.read(filename);*/	
+		radioButtons = new JRadioButton[65];		
 		
 		JButton btnNewButton_1 = new JButton("Save");	
 		
@@ -402,26 +363,21 @@ public class Qualifications extends JFrame {
 			e1.printStackTrace();
 		}
 		
+		FileManager rd = new FileManager();							
+		column = rd.read("quals.txt");
+		
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-		/*
-		int j=0;
-		for (String state : qual) {
-			if (state.equals("TRUE"))
-				radioButtons[j].doClick();
-			j++;
-			}	
-		*/
 				
 		//sql				
 				try {
 					conn = DBConnection.ConnDB();
 					for (int j=0;j<64;j++) {
-					sql = " select `"+radioButtons[j].getLabel()+"` from quals where id = "+i+" ";
+					sql = " select `"+column.get(j)+"` from quals where id = "+i+" ";
 					ps = conn.prepareStatement(sql);
 					rs = ps.executeQuery();
 					rs.next();
-					if (rs.getString(""+radioButtons[j].getLabel()+"").equals("true"))
+					if (rs.getString(""+column.get(j)+"").equals("true"))
 						radioButtons[j].doClick();						
 					}	
 					conn.close();
@@ -434,33 +390,19 @@ public class Qualifications extends JFrame {
 		
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {		
-				/*
-				int	j=0;				
-				for (j=0; j<64; j++)	{					
-					if (radioButtons[j].isSelected()) 
-						qual2.add("TRUE");				
-					else
-						qual2.add("FALSE");
-				}			
-			rw.writeList(filename, qual2, false, false);
-			String r = i+"";
-			if (role.equals("employee") && !employees.contains(r))
-				rw.writeText("employees.txt", i+"", true, false);
-			if (role.equals("company") && !companies.contains(r))
-				rw.writeText("companies.txt", i+"", true, false);	
-				*/
+				
 				//sql
 				
 				try {
 					conn = DBConnection.ConnDB();
 					for (int j=0; j<64; j++) {		
 						if (radioButtons[j].isSelected()) {
-							sql = "update quals set `"+radioButtons[j].getLabel()+"` = 'true' where id = '"+i+"'";
+							sql = "update quals set `"+column.get(j)+"` = 'true' where id = '"+i+"'";
 							ps = conn.prepareStatement(sql);
 						}
 						else
 						{
-							sql = "update quals set `"+radioButtons[j].getLabel()+"` = 'false' where id = '"+i+"'";
+							sql = "update quals set `"+column.get(j)+"` = 'false' where id = '"+i+"'";
 							ps = conn.prepareStatement(sql);
 						}	
 						ps.execute();

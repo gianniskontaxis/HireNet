@@ -2,12 +2,10 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.ArrayList;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
@@ -16,21 +14,15 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
-import java.sql.*;
 
 public class SignUp extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField name;
 	private JTextField email;
-	private JTextField code;	
-	private ArrayList<String> names = new ArrayList<>();
-	private ArrayList<String> emails = new ArrayList<>();
+	private JTextField code;
 	private aes data = new aes();
-	private final String secretKey = "aes4";
-	private FileManager rw = new FileManager();
-	private String x="";
-	private int y=0;
+	private final String secretKey = "aes4";		
 	private Connection conn = null;
 	private PreparedStatement ps = null;
 	private ResultSet rs = null;
@@ -115,22 +107,6 @@ public class SignUp extends JFrame {
 			
 			public void actionPerformed(ActionEvent e) {	
 				conn = DBConnection.ConnDB();
-				/*
-				//Μέθοδος με files.
-				names = rw.readDecr("file3.txt");				
-				emails = rw.readDecr("file2.txt");
-				
-				if ( names.contains(name.getText()) || emails.contains(email.getText()) || !chckbxNewCheckBox.isSelected() )
-					System.out.println("Error");
-				
-				else
-				{
-					rw.writeText("file3.txt", name.getText(), true , true);					
-					rw.writeText("file2.txt", email.getText(), true, true);					
-					rw.writeText("file1.txt", code.getText(), true, true);					
-					rw.writeText("file4.txt", "empty role", true, true);					
-				}
-				*/
 				
 				//Μέθοδος με sql.
 				
@@ -150,7 +126,7 @@ public class SignUp extends JFrame {
 							ps = conn.prepareStatement(sql);
 							ps.setString(1, name.getText());
 							ps.setString(2, email.getText());
-							ps.setString(3, code.getText());
+							ps.setString(3, data.encrypt(code.getText(), secretKey));
 							ps.setString(4, "empty role");		
 							
 							ps.execute();
