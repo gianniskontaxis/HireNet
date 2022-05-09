@@ -1,7 +1,12 @@
-import java.awt.Color;
+import java.awt.Color; 
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -19,6 +24,11 @@ public class cv extends JFrame {
 	private JTextField textField_2;
 	private JTextField textField_3;
 	private int i;	
+	private Connection conn = null;
+	private PreparedStatement ps = null;
+	private ResultSet rs = null;
+	private String sql="";
+
 
 	/*public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -33,9 +43,11 @@ public class cv extends JFrame {
 		});
 	}*/
 
-	public cv(int i) {
+	public cv( int i ){
 		
 		this.i=i;
+		conn = DBConnection.ConnDB();
+
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(50, 50, 750, 680);
 		contentPane = new JPanel();
@@ -96,6 +108,21 @@ public class cv extends JFrame {
 		lblNewLabel_1_1_1_2.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblNewLabel_1_1_1_2.setBounds(47, 260, 93, 40);
 		contentPane.add(lblNewLabel_1_1_1_2);
+		
+        sql = "select * from users where id = '"+i+"'";
+        try {
+        	ps = conn.prepareStatement(sql);
+    		rs = ps.executeQuery();		
+    		textField_2.setText(rs.getString("email"));
+
+			
+			ps.execute();
+		}
+		catch (Exception e1) {
+			e1.printStackTrace();
+		}
+		
+		
 		
 		JButton btnNewButton = new JButton("Qualifications");
 		btnNewButton.addActionListener(new ActionListener() {

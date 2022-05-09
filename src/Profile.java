@@ -1,4 +1,9 @@
 import java.awt.Font;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -11,6 +16,10 @@ public class Profile extends JFrame {
 	private JTextField textField;
 	private JTextField textField_1;	
 	private int i;
+	private Connection conn = null;
+	private PreparedStatement ps = null;
+	private ResultSet rs = null;
+	private String sql="";
 	
 	/*public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -27,7 +36,8 @@ public class Profile extends JFrame {
 	
 	public Profile(int i) {
 		this.i=i;
-		
+		conn = DBConnection.ConnDB();
+
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -54,7 +64,33 @@ public class Profile extends JFrame {
 		textField_1 = new JTextField();
 		
 		textField_1.setColumns(10);
-		textField_1.setBounds(158, 124, 96, 19);
+		textField_1.setBounds(158, 14, 96, 19);
+        sql = "select * from users where id = '"+i+"'";
+        try {
+        	ps = conn.prepareStatement(sql);
+    		rs = ps.executeQuery();		
+    		textField.setText(rs.getString("username"));
+
+			
+			ps.execute();
+		}
+		catch (Exception e1) {
+			e1.printStackTrace();
+		}
+        
+	        sql = "select * from users where id = '"+i+"'";
+	        try {
+	        	ps = conn.prepareStatement(sql);
+	    		rs = ps.executeQuery();		
+	    		textField_1.setText(rs.getString("email"));
+
+				
+				ps.execute();
+			}
+			catch (Exception e2) {
+				e2.printStackTrace();
+			}
+			
 		contentPane.add(textField_1);
 		this.setVisible(true);
 		this.setTitle("Profile");
