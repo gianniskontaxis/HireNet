@@ -12,7 +12,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
@@ -21,14 +20,13 @@ public class SignUp extends JFrame {
 	private JPanel contentPane;
 	private JTextField name;
 	private JTextField email;
-	private JPasswordField code;
+	private JTextField code;
 	private aes data = new aes();
 	private final String secretKey = "aes4";		
 	private Connection conn = null;
 	private PreparedStatement ps = null;
 	private ResultSet rs = null;
 	private String sql="";
-	private JPasswordField textField;
 	
 	/*public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -73,17 +71,24 @@ public class SignUp extends JFrame {
 		
 		JLabel lblPassword = new JLabel("Password");
 		lblPassword.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblPassword.setBounds(99, 207, 72, 19);
+		lblPassword.setBounds(111, 201, 129, 19);
 		contentPane.add(lblPassword);
+		
+		JButton btnNewButton = new JButton("Code");
+		btnNewButton.setBackground(new Color(47, 79, 79));
+		btnNewButton.setForeground(new Color(255, 255, 255));
+		btnNewButton.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
+		btnNewButton.setBounds(227, 201, 85, 41);
+		contentPane.add(btnNewButton);
 		
 		JLabel lblConfirmCode = new JLabel("Confirm password");
 		lblConfirmCode.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblConfirmCode.setBounds(43, 262, 128, 29);
+		lblConfirmCode.setBounds(51, 262, 128, 29);
 		contentPane.add(lblConfirmCode);
 		
-		code = new JPasswordField();
+		code = new JTextField();
 		code.setColumns(10);
-		code.setBounds(193, 263, 116, 32);
+		code.setBounds(196, 263, 116, 32);
 		contentPane.add(code);		
 		
 		JLabel lblCompleteYourInformation = new JLabel("Complete your information");
@@ -119,21 +124,9 @@ public class SignUp extends JFrame {
 						
 						try {
 							ps = conn.prepareStatement(sql);
-							
-							if(name.getText().length() >=4) {
-								ps.setString(1, name.getText());
-							}	
-														
-							if(email.getText().contains("@yahoo.com") || email.getText().contains("@yahoo.gr") || email.getText().contains("@gmail.com") || email.getText().contains("@gmail.gr") || email.getText().contains("@gmail.com") || email.getText().contains("@uom.edu.gr")) {
-								ps.setString(2, email.getText());
-							}
-							
-							if(String.valueOf(code.getPassword()).equals(String.valueOf(textField.getPassword()))) {
-								if(String.valueOf(code.getPassword()).length() <=15) {
-									ps.setString(3, data.encrypt(String.valueOf(code.getPassword()), secretKey));
-								}
-							}
-							
+							ps.setString(1, name.getText());
+							ps.setString(2, email.getText());
+							ps.setString(3, data.encrypt(code.getText(), secretKey));
 							ps.setString(4, "empty role");		
 							
 							ps.execute();
@@ -180,11 +173,6 @@ public class SignUp extends JFrame {
 		btnNewButton_2.setBackground(new Color(47, 79, 79));
 		btnNewButton_2.setBounds(224, 324, 85, 21);
 		contentPane.add(btnNewButton_2);
-		
-		textField = new JPasswordField();
-		textField.setColumns(10);
-		textField.setBounds(193, 203, 116, 32);
-		contentPane.add(textField);
 		
 		this.setVisible(true);
 		this.setTitle("Sign Up");
