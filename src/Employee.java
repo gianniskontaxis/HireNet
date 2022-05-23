@@ -116,7 +116,7 @@ public class Employee extends JFrame {
 		btnNewButton_1.setBackground(new Color(47, 79, 79));
 		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
 		btnNewButton_1.setForeground(new Color(255, 255, 255));
-		btnNewButton_1.setBounds(459, 549, 149, 47);
+		btnNewButton_1.setBounds(117, 549, 149, 47);
 		contentPane.add(btnNewButton_1);
 		
 		JLabel lblWhatCompaniesWant = new JLabel("What Companies ask for the most:");
@@ -146,7 +146,7 @@ public class Employee extends JFrame {
 		search.setForeground(Color.WHITE);
 		search.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
 		search.setBackground(new Color(47, 79, 79));
-		search.setBounds(117, 549, 149, 47);
+		search.setBounds(459, 549, 149, 47);
 		contentPane.add(search);
 		
 		search.addActionListener(new ActionListener() {

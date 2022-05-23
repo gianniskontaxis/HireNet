@@ -27,6 +27,14 @@ public class cv extends JFrame {
 	private Connection conn = null;
 	private PreparedStatement ps = null;
 	private ResultSet rs = null;
+	private PreparedStatement ps1 = null;
+	private ResultSet rs1 = null;
+	private PreparedStatement ps2 = null;
+	private ResultSet rs2 = null;
+	private PreparedStatement ps3 = null;
+	private ResultSet rs3 = null;
+	private PreparedStatement ps4 = null;
+	private ResultSet rs4 = null;
 	private String sql="";
 
 
@@ -46,7 +54,6 @@ public class cv extends JFrame {
 	public cv( int i ){
 		
 		this.i=i;
-		conn = DBConnection.ConnDB();
 
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(50, 50, 750, 680);
@@ -109,21 +116,99 @@ public class cv extends JFrame {
 		lblNewLabel_1_1_1_2.setBounds(47, 260, 93, 40);
 		contentPane.add(lblNewLabel_1_1_1_2);
 		
-        sql = "select * from users where id = '"+i+"'";
+		try {
+
+			conn = DBConnection.ConnDB();
+
+            ps = conn.prepareStatement("select id from employees where id = '"+i+"'");
+            rs = ps.executeQuery();
+            if (rs.isClosed()) {
+                ps = conn.prepareStatement("INSERT INTO employees(id) VALUES(?)");
+                ps.setInt(1, i);
+                ps.execute();
+            }
+            ps.close();
+			conn.close();
+
+            
+
+
+        } catch (SQLException e1) {
+            e1.printStackTrace();
+        }
+		
+    
+		
+		//anagnosh email
+		sql = "select * from users where id = '"+i+"'";
         try {
-        	ps = conn.prepareStatement(sql);
-    		rs = ps.executeQuery();		
-    		textField_2.setText(rs.getString("email"));
+    		conn = DBConnection.ConnDB();
+
+        	ps1 = conn.prepareStatement(sql);
+    		rs1 = ps1.executeQuery();		
+    		textField_2.setText(rs1.getString("email"));
 
 			
-			ps.execute();
+			ps1.execute();
+			conn.close();
 		}
 		catch (Exception e1) {
 			e1.printStackTrace();
 		}
-		
-		
-		
+		//anagnosh firstname
+
+		sql = "select * from employees where id = '"+i+"'";
+        try {
+    		conn = DBConnection.ConnDB();
+
+        	ps2 = conn.prepareStatement(sql);
+    		rs2 = ps2.executeQuery();		
+    		textField.setText(rs2.getString("firstname"));
+
+			
+			ps2.execute();
+			conn.close();
+
+		}
+		catch (Exception e2) {
+			e2.printStackTrace();
+		}
+		//anagnosh lastname
+
+		sql = "select * from employees where id = '"+i+"'";
+        try {
+    		conn = DBConnection.ConnDB();
+
+        	ps3 = conn.prepareStatement(sql);
+    		rs3 = ps3.executeQuery();		
+    		textField_1.setText(rs3.getString("lastname"));
+
+			
+			ps3.execute();
+			conn.close();
+
+		}
+		catch (Exception e3) {
+			e3.printStackTrace();
+		}
+		//anagnosh age
+
+		sql = "select * from employees where id = '"+i+"'";
+        try {
+    		conn = DBConnection.ConnDB();
+
+        	ps4 = conn.prepareStatement(sql);
+    		rs4 = ps4.executeQuery();		
+    		textField_3.setText(rs4.getString("age"));
+
+			
+			ps4.execute();
+			conn.close();
+
+		}
+		catch (Exception e4) {
+			e4.printStackTrace();
+		}
 		JButton btnNewButton = new JButton("Qualifications");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -163,7 +248,22 @@ public class cv extends JFrame {
 		contentPane.add(save);
 		
 		save.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {								
+			public void actionPerformed(ActionEvent e) {
+				  //Εγγραφή χρήστη.
+				sql = "update employees set firstname = '"+textField.getText()+"' , lastname= '"+textField_1.getText()+"' , age = '"+textField_3.getText()+"'  where id = '"+i+"'";
+                try {
+            		conn = DBConnection.ConnDB();
+
+                    ps = conn.prepareStatement(sql);
+                    ps.execute();
+        			conn.close();
+
+                }
+                catch (Exception e0) {
+                    e0.printStackTrace();
+				}
+                
+			
 		}
 		});	
 		

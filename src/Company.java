@@ -42,7 +42,7 @@ public class Company extends JFrame {
 		JButton profile = new JButton("Profile");
 		profile.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				new Profile(i);
 			}
 		});
 		profile.setForeground(new Color(255, 255, 255));
@@ -198,7 +198,7 @@ public class Company extends JFrame {
 			}
 		});
 		
-		JButton select = new JButton("select");
+		JButton select = new JButton("Graph2");
 		select.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {					
 			}

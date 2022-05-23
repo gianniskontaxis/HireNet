@@ -36,7 +36,6 @@ public class Profile extends JFrame {
 	
 	public Profile(int i) {
 		this.i=i;
-		conn = DBConnection.ConnDB();
 
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -64,15 +63,19 @@ public class Profile extends JFrame {
 		textField_1 = new JTextField();
 		
 		textField_1.setColumns(10);
-		textField_1.setBounds(158, 14, 96, 19);
+		textField_1.setBounds(158, 124, 140, 19);
         sql = "select * from users where id = '"+i+"'";
         try {
+    		conn = DBConnection.ConnDB();
+
         	ps = conn.prepareStatement(sql);
     		rs = ps.executeQuery();		
     		textField.setText(rs.getString("username"));
 
 			
 			ps.execute();
+  			conn.close();
+
 		}
 		catch (Exception e1) {
 			e1.printStackTrace();
@@ -80,12 +83,16 @@ public class Profile extends JFrame {
         
 	        sql = "select * from users where id = '"+i+"'";
 	        try {
+	    		conn = DBConnection.ConnDB();
+
 	        	ps = conn.prepareStatement(sql);
 	    		rs = ps.executeQuery();		
 	    		textField_1.setText(rs.getString("email"));
 
 				
 				ps.execute();
+      			conn.close();
+
 			}
 			catch (Exception e2) {
 				e2.printStackTrace();
