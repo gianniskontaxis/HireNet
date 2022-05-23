@@ -44,7 +44,6 @@ public class SignUp extends JFrame {
 	}*/
 	
 	public SignUp() {
-		
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 470, 470);
 		contentPane = new JPanel();
@@ -117,55 +116,27 @@ public class SignUp extends JFrame {
 						
 						//Εγγραφή χρήστη.
 						sql = "INSERT INTO users(username,email,password,role) VALUES(?,?,?,?)";
-						int k=0;
 						
 						try {
 							ps = conn.prepareStatement(sql);
 							
 							if(name.getText().length() >=4) {
 								ps.setString(1, name.getText());
-								k++;
-							}
-							else {
-								JOptionPane.showMessageDialog(null, "Invalid username");
-					            dispose();
-								new SignUp();
-								
-							}
-																							
+							}	
+														
 							if(email.getText().contains("@yahoo.com") || email.getText().contains("@yahoo.gr") || email.getText().contains("@gmail.com") || email.getText().contains("@gmail.gr") || email.getText().contains("@gmail.com") || email.getText().contains("@uom.edu.gr")) {
 								ps.setString(2, email.getText());
-								k++;
 							}
-							else {
-								JOptionPane.showMessageDialog(null, "Invalid email");
-								dispose();
-								new SignUp();
-							}
-							
 							
 							if(String.valueOf(code.getPassword()).equals(String.valueOf(textField.getPassword()))) {
 								if(String.valueOf(code.getPassword()).length() <=15) {
 									ps.setString(3, data.encrypt(String.valueOf(code.getPassword()), secretKey));
-									k++;
 								}
 							}
-							else {
-								JOptionPane.showMessageDialog(null, "Invalid password");
-								dispose();
-								new SignUp();
-								
-							}
 							
-							ps.setString(4, "empty role");	
+							ps.setString(4, "empty role");		
 							
-							if(k==3) {
-								ps.execute();
-							}
-							else {
-								JOptionPane.showMessageDialog(null, "Complete correctly your information");
-							}
-							
+							ps.execute();
 						}
 						catch (Exception e1) {
 							e1.printStackTrace();
@@ -173,9 +144,7 @@ public class SignUp extends JFrame {
 					}
 					else {
 						//Μήνυμα σφάλματος επειδή τα στοιχεία υπάρχουν ήδη ή δεν έγινε η αποδοχή των όρων χρήσης.
-						JOptionPane.showMessageDialog(null, "Invalid Username or Password"); 
-						dispose();
-						new SignUp();
+						JOptionPane.showMessageDialog(null, "Invalid Username or Password");    
 
 					}
 					

@@ -13,7 +13,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
@@ -21,7 +20,7 @@ public class Login extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField name;
-	private JPasswordField code;
+	private JTextField code;
 	private aes data = new aes();
 	private final String secretKey = "aes4";	
 	private Connection conn = null;
@@ -74,7 +73,7 @@ public class Login extends JFrame {
 		lblCode.setBounds(84, 170, 63, 30);
 		contentPane.add(lblCode);
 		
-		code = new JPasswordField();
+		code = new JTextField();
 		code.setColumns(10);
 		code.setBounds(157, 168, 165, 39);
 		contentPane.add(code);
