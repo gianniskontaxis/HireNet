@@ -74,6 +74,18 @@ public class Employee extends JFrame {
 		btnHere.setBounds(441, 127, 118, 37);
 		contentPane.add(btnHere);
 		
+		JButton Aboutusbtn = new JButton("AboutUs!");
+		Aboutusbtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new AboutUs();
+			}
+		});
+		Aboutusbtn.setForeground(Color.WHITE);
+		Aboutusbtn.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
+		Aboutusbtn.setBackground(new Color(47, 79, 79));
+		Aboutusbtn.setBounds(441, 157, 118, 37);
+		contentPane.add(Aboutusbtn);
+		
 		JLabel lblYourResults = new JLabel("Matcing results:");
 		lblYourResults.setBackground(new Color(240, 240, 240));
 		lblYourResults.setFont(new Font("Tahoma", Font.PLAIN, 16));
