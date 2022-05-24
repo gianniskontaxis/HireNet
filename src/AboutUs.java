@@ -251,7 +251,7 @@ public class AboutUs  extends JFrame {
 	            @Override
 	            public void mouseClicked(MouseEvent e) {
 	                try {
-	                    Desktop.getDesktop().browse(new URI(" "));
+	                    Desktop.getDesktop().browse(new URI("https://github.com/NikosSakell"));
 	                } catch (IOException | URISyntaxException e1) {
 	                    e1.printStackTrace();
 	                }
