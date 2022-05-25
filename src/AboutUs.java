@@ -27,7 +27,7 @@ public class AboutUs  extends JFrame {
 	private JPanel contentPane;
 
 	
-		public static void main(String[] args) {
+		/*public static void main(String[] args) {
 			EventQueue.invokeLater(new Runnable() {
 				public void run() {
 					try {
@@ -39,6 +39,7 @@ public class AboutUs  extends JFrame {
 				}
 			});
 		}
+		*/
 
 		/**
 		 * Create the frame.
@@ -75,7 +76,7 @@ public class AboutUs  extends JFrame {
 				Desktop desktop = java.awt.Desktop.getDesktop();
 				try {
 					// specify the protocol along with the URL
-					URI oURL = new URI("https://www.uom.gr/");
+					URI oURL = new URI("https://www.facebook.com/HireNetNHD");
 					desktop.browse(oURL);
 				} catch (URISyntaxException e1) {
 					e1.printStackTrace();
@@ -109,7 +110,7 @@ public class AboutUs  extends JFrame {
 	            @Override
 	            public void mouseClicked(MouseEvent e) {
 	                try {
-	                    Desktop.getDesktop().browse(new URI(" "));
+	                    Desktop.getDesktop().browse(new URI("https://github.com/StavrosDimitriadis"));
 	                } catch (IOException | URISyntaxException e1) {
 	                    e1.printStackTrace();
 	                }
@@ -209,7 +210,7 @@ public class AboutUs  extends JFrame {
 	            @Override
 	            public void mouseClicked(MouseEvent e) {
 	                try {
-	                    Desktop.getDesktop().browse(new URI(" "));
+	                    Desktop.getDesktop().browse(new URI("https://github.com/MatKrp"));
 	                } catch (IOException | URISyntaxException e1) {
 	                    e1.printStackTrace();
 	                }

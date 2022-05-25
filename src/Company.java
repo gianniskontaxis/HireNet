@@ -114,6 +114,7 @@ public class Company extends JFrame {
 		JButton btnNewButton_2 = new JButton("Graph1");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				new Graphs(i);
 				
 			}
 		});
