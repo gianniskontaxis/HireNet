@@ -129,7 +129,6 @@ public class SignUp extends JFrame {
 							else {
 								JOptionPane.showMessageDialog(null, "Invalid name");
 								dispose();
-								new SignUp();
 							}
 							
 							if(email.getText().contains("@yahoo.com") || email.getText().contains("@yahoo.gr") || email.getText().contains("@gmail.com") || email.getText().contains("@gmail.gr") || email.getText().contains("@uom.edu.gr")) {
@@ -138,20 +137,23 @@ public class SignUp extends JFrame {
 							}
 							else {
 								JOptionPane.showMessageDialog(null, "Invalid email");
-								dispose();
-								new SignUp();
-									   
+								dispose();	   
 							}
-						    if(String.valueOf(code.getPassword()).equals(String.valueOf(password.getPassword())))
-							 if(String.valueOf(code.getPassword()).length()<=15) {
-								 ps.setString(3, data.encrypt(String.valueOf(code.getPassword()), secretKey));
-								 k++;
-							 }
-							 else {
-								 JOptionPane.showMessageDialog(null, "Invalid password");
-								 dispose();
-								 new SignUp();
-							 }
+						    if(String.valueOf(code.getPassword()).equals(String.valueOf(password.getPassword()))) {
+						    	if(String.valueOf(code.getPassword()).length()<=15) {
+									 ps.setString(3, data.encrypt(String.valueOf(code.getPassword()), secretKey));
+									 k++;
+								 }
+								 else {
+									 JOptionPane.showMessageDialog(null, "Invalid password");
+									 dispose();
+					                }
+						    }
+						    else {
+								 JOptionPane.showMessageDialog(null, "Not the same passwords");
+                                 dispose();
+                              }
+							 
 							
 							ps.setString(4, "empty role");		
 							

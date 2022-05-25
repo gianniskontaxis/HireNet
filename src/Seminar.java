@@ -7,6 +7,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextPane;
 import javax.swing.border.EmptyBorder;
@@ -75,6 +76,11 @@ public class Seminar extends JFrame {
 		button1.setForeground(Color.WHITE);
 		button1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(null,
+					    "You 've successfully book a seat."
+					    + " For more information check your notifications.");
+				
+				
 			}
 		});
 		button1.setBackground(Color.BLACK);
@@ -105,6 +111,15 @@ public class Seminar extends JFrame {
 		panel2.add(day2);
 		
 		JButton button2 = new JButton("Seat Reservation");
+		button2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(null,
+					    "You 've successfully book a seat."
+					    + " For more information check your notifications.");
+				
+				
+			}
+		});
 		button2.setForeground(Color.WHITE);
 		button2.setBackground(Color.BLACK);
 		button2.setBounds(99, 280, 157, 21);
@@ -144,6 +159,15 @@ public class Seminar extends JFrame {
 		panel3.add(day3);
 		
 		JButton button3 = new JButton("Seat Reservation");
+		button3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(null,
+					    "You 've successfully book a seat."
+					    + " For more information check your notifications.");
+				
+				
+			}
+		});
 		button3.setForeground(Color.WHITE);
 		button3.setBackground(Color.BLACK);
 		button3.setBounds(103, 280, 157, 21);
@@ -178,6 +202,15 @@ public class Seminar extends JFrame {
 		panel4.add(day4);
 		
 		JButton button4 = new JButton("Seat Reservation");
+		button4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(null,
+					    "You 've successfully book a seat."
+					    + " For more information check your notifications.");
+				
+				
+			}
+		});
 		button4.setForeground(Color.WHITE);
 		button4.setBackground(Color.BLACK);
 		button4.setBounds(97, 270, 157, 21);
@@ -205,11 +238,20 @@ public class Seminar extends JFrame {
 		txt5.setBounds(11, 111, 355, 117);
 		panel5.add(txt5);
 		
-		JButton button4_1 = new JButton("Seat Reservation");
-		button4_1.setForeground(Color.WHITE);
-		button4_1.setBackground(Color.BLACK);
-		button4_1.setBounds(101, 272, 157, 21);
-		panel5.add(button4_1);
+		JButton button5 = new JButton("Seat Reservation");
+		button5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(null,
+					    "You 've successfully book a seat."
+					    + " For more information check your notifications.");
+				
+				
+			}
+		});
+		button5.setForeground(Color.WHITE);
+		button5.setBackground(Color.BLACK);
+		button5.setBounds(101, 272, 157, 21);
+		panel5.add(button5);
 		
 		JLabel day5 = new JLabel("August 1-14");
 		day5.setFont(new Font("Tahoma", Font.BOLD, 15));
