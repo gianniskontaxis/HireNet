@@ -18,7 +18,7 @@ public class Graphs extends JFrame {
 	private PreparedStatement ps = null;
 	private ResultSet rs = null;
 	private String sql="";
-	private int pl=0;
+	
 	
 
 		
@@ -31,14 +31,18 @@ public class Graphs extends JFrame {
 		
 		try {
 			conn = DBConnection.ConnDB();
+			
 			for (int j=0;j<64;j++) {
-			sql = "select count(*) from quals where id in (select id from users where role = 'company') and `"+column.get(j)+"` = 'true';";
-			System.out.println(sql);
-			ps = conn.prepareStatement(sql);
-			rs = ps.executeQuery();
-			rs.next();	
-			count.add(rs.getInt(column.get(j)));
-			}
+				sql = "select count(*) as paok from quals where id in (select id from users where role = 'company') and `"+column.get(j)+"` = 'true';";
+
+				ps = conn.prepareStatement(sql);
+				rs = ps.executeQuery();
+				rs.next();
+				
+				int x = Integer.valueOf(rs.getString("paok"));			
+				count.add(x);
+			
+				}
 			conn.close();
 		}					
 		 catch (SQLException e1) {					
@@ -47,6 +51,7 @@ public class Graphs extends JFrame {
 			
 		DefaultCategoryDataset dataset = new DefaultCategoryDataset();
 		for (int j=0;j<64;j++) {
+			
 			dataset.addValue(count.get(j), "Popularity of Qualifications", column.get(j));
 		}
 		
