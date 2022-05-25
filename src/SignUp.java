@@ -12,6 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
@@ -20,13 +21,14 @@ public class SignUp extends JFrame {
 	private JPanel contentPane;
 	private JTextField name;
 	private JTextField email;
-	private JTextField code;
+	private JPasswordField code;
 	private aes data = new aes();
 	private final String secretKey = "aes4";		
 	private Connection conn = null;
 	private PreparedStatement ps = null;
 	private ResultSet rs = null;
 	private String sql="";
+	private JPasswordField password;
 	
 	/*public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -49,7 +51,7 @@ public class SignUp extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);	
 		
-		JLabel lblNewLabel = new JLabel("User Name");
+		JLabel lblNewLabel = new JLabel("Username");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblNewLabel.setBounds(99, 82, 86, 32);
 		contentPane.add(lblNewLabel);
@@ -74,21 +76,14 @@ public class SignUp extends JFrame {
 		lblPassword.setBounds(111, 201, 129, 19);
 		contentPane.add(lblPassword);
 		
-		JButton btnNewButton = new JButton("Code");
-		btnNewButton.setBackground(new Color(47, 79, 79));
-		btnNewButton.setForeground(new Color(255, 255, 255));
-		btnNewButton.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
-		btnNewButton.setBounds(227, 201, 85, 41);
-		contentPane.add(btnNewButton);
-		
 		JLabel lblConfirmCode = new JLabel("Confirm password");
 		lblConfirmCode.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblConfirmCode.setBounds(51, 262, 128, 29);
+		lblConfirmCode.setBounds(43, 262, 128, 29);
 		contentPane.add(lblConfirmCode);
 		
-		code = new JTextField();
+		code = new JPasswordField();
 		code.setColumns(10);
-		code.setBounds(196, 263, 116, 32);
+		code.setBounds(193, 263, 116, 32);
 		contentPane.add(code);		
 		
 		JLabel lblCompleteYourInformation = new JLabel("Complete your information");
@@ -122,14 +117,53 @@ public class SignUp extends JFrame {
 						//Εγγραφή χρήστη.
 						sql = "INSERT INTO users(username,email,password,role) VALUES(?,?,?,?)";
 						
+						int k=0;
+						
 						try {
 							ps = conn.prepareStatement(sql);
-							ps.setString(1, name.getText());
-							ps.setString(2, email.getText());
-							ps.setString(3, data.encrypt(code.getText(), secretKey));
+							
+							if(name.getText().length() >=4) {
+								ps.setString(1, name.getText());
+								k++;
+							}
+							else {
+								JOptionPane.showMessageDialog(null, "Invalid name");
+								dispose();
+								new SignUp();
+							}
+							
+							if(email.getText().contains("@yahoo.com") || email.getText().contains("@yahoo.gr") || email.getText().contains("@gmail.com") || email.getText().contains("@gmail.gr") || email.getText().contains("@uom.edu.gr")) {
+								ps.setString(2, email.getText());
+								k++;
+							}
+							else {
+								JOptionPane.showMessageDialog(null, "Invalid email");
+								dispose();
+								new SignUp();
+									   
+							}
+						    if(String.valueOf(code.getPassword()).equals(String.valueOf(password.getPassword())))
+							 if(String.valueOf(code.getPassword()).length()<=15) {
+								 ps.setString(3, data.encrypt(String.valueOf(code.getPassword()), secretKey));
+								 k++;
+							 }
+							 else {
+								 JOptionPane.showMessageDialog(null, "Invalid password");
+								 dispose();
+								 new SignUp();
+							 }
+							
 							ps.setString(4, "empty role");		
 							
-							ps.execute();
+							if(k==3) {
+								ps.execute();
+							}
+							else {
+								JOptionPane.showMessageDialog(null, "Complete Correctly th information");
+								dispose();
+								new SignUp();
+							}
+							
 						}
 						catch (Exception e1) {
 							e1.printStackTrace();
@@ -137,7 +171,7 @@ public class SignUp extends JFrame {
 					}
 					else {
 						//Μήνυμα σφάλματος επειδή τα στοιχεία υπάρχουν ήδη ή δεν έγινε η αποδοχή των όρων χρήσης.
-						JOptionPane.showMessageDialog(null, "Invalid Username or Password");    
+						JOptionPane.showMessageDialog(null, "Data already exist");    
 
 					}
 					
@@ -173,6 +207,11 @@ public class SignUp extends JFrame {
 		btnNewButton_2.setBackground(new Color(47, 79, 79));
 		btnNewButton_2.setBounds(224, 324, 85, 21);
 		contentPane.add(btnNewButton_2);
+		
+		password = new JPasswordField();
+		password.setColumns(10);
+		password.setBounds(193, 203, 116, 32);
+		contentPane.add(password);
 		
 		this.setVisible(true);
 		this.setTitle("Sign Up");
