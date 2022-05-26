@@ -16,6 +16,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollBar;
 import javax.swing.ListSelectionModel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JTextArea;
 
 public class Company extends JFrame {
 
@@ -201,7 +202,8 @@ public class Company extends JFrame {
 		
 		JButton select = new JButton("Graph2");
 		select.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {					
+			public void actionPerformed(ActionEvent e) {	
+				new Graphs2(i);
 			}
 		});	
 		
@@ -210,6 +212,14 @@ public class Company extends JFrame {
 		select.setBackground(new Color(47, 79, 79));
 		select.setBounds(425, 573, 137, 47);
 		contentPane.add(select);
+		
+		JButton btnNewButton = new JButton("AboutUs");
+		btnNewButton.setBounds(112, 85, 101, 21);
+		contentPane.add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("Messages");
+		btnNewButton_1.setBounds(255, 85, 115, 21);
+		contentPane.add(btnNewButton_1);
 		
 		usernameList.addMouseListener(new MouseListener () {		
 			

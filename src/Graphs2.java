@@ -10,7 +10,7 @@ import org.jfree.chart.plot.*;
 import org.jfree.data.category.*;
 
 
-public class Graphs extends JFrame {
+public class Graphs2 extends JFrame {
 	
 	private ArrayList<String> column = new ArrayList<>();
 	private ArrayList<Integer> count = new ArrayList<>();
@@ -22,7 +22,7 @@ public class Graphs extends JFrame {
 	
 
 		
-	public Graphs(int i) {
+	public Graphs2(int i) {
 		
 		
 		
@@ -33,7 +33,7 @@ public class Graphs extends JFrame {
 			conn = DBConnection.ConnDB();
 			
 			for (int j=0;j<64;j++) {
-				sql = "select count(*) as paok from quals where id in (select id from users where role = 'company') and `"+column.get(j)+"` = 'true';";
+				sql = "select count(*) as paok from quals where id in (select id from users where role = 'employee') and `"+column.get(j)+"` = 'true';";
 
 				ps = conn.prepareStatement(sql);
 				rs = ps.executeQuery();
@@ -71,3 +71,4 @@ public class Graphs extends JFrame {
 
 	
 }
+
