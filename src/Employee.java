@@ -196,6 +196,7 @@ public class Employee extends JFrame {
 		JButton btnNewButton_2 = new JButton("Profile");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 				new Profile(i);
 			}
 		});

@@ -40,7 +40,7 @@ public class Profile extends JFrame {
 		});
 	}*/
 	
-	Employee frame_emp = new Employee(i);
+	
 	
 	public Profile(int i) {
 		this.i=i;
@@ -91,7 +91,7 @@ public class Profile extends JFrame {
 		Delete.setBackground(new Color(47, 79, 79));
 		Delete.setForeground(new Color(255, 255, 255));
 		Delete.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 11));
-		Delete.setBounds(272, 22, 124, 19);
+		Delete.setBounds(293, 22, 121, 19);
 		contentPane.add(Delete);
 		Delete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -136,10 +136,6 @@ public class Profile extends JFrame {
 			
 		contentPane.add(textField_1);
 		
-		JButton btnNewButton = new JButton("Notifications");
-		btnNewButton.setBounds(20, 21, 106, 21);
-		contentPane.add(btnNewButton);
-		
 		JLabel lblNewLabel_1 = new JLabel("Photograph");
 		lblNewLabel_1.setBounds(20, 90, 106, 135);
 		contentPane.add(lblNewLabel_1);
@@ -149,14 +145,44 @@ public class Profile extends JFrame {
 		lblCommunication.setBounds(153, 174, 106, 16);
 		contentPane.add(lblCommunication);
 		
-		JButton btnMessages = new JButton("Messages");
-		btnMessages.setBounds(136, 21, 106, 21);
-		contentPane.add(btnMessages);
 		
 		textField_2 = new JTextField();
 		textField_2.setBounds(272, 174, 96, 19);
 		contentPane.add(textField_2);
 		textField_2.setColumns(10);
+		
+		JButton btnNotifiactions = new JButton("Notifications");
+		btnNotifiactions.setForeground(Color.WHITE);
+		btnNotifiactions.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 11));
+		btnNotifiactions.setBackground(new Color(47, 79, 79));
+		btnNotifiactions.setBounds(20, 22, 115, 19);
+		contentPane.add(btnNotifiactions);
+		btnNotifiactions.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new Notifications();
+			} });
+		
+		
+		JButton btnMessages_1 = new JButton("Messages");
+		btnMessages_1.setForeground(Color.WHITE);
+		btnMessages_1.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 11));
+		btnMessages_1.setBackground(new Color(47, 79, 79));
+		btnMessages_1.setBounds(153, 22, 115, 19);
+		contentPane.add(btnMessages_1);
+		
+		JButton btnBack = new JButton("Back");
+		btnBack.setForeground(Color.WHITE);
+		btnBack.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 11));
+		btnBack.setBackground(new Color(47, 79, 79));
+		btnBack.setBounds(20, 234, 78, 19);
+		contentPane.add(btnBack);
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			} });
+		
+		
+		
 		this.setVisible(true);
 		this.setTitle("Profile");
 	}
