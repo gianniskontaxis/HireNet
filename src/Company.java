@@ -226,12 +226,31 @@ public class Company extends JFrame {
 		JButton btnNewButton_1 = new JButton("Messages");
 		btnNewButton_1.setBounds(255, 85, 115, 21);
 		contentPane.add(btnNewButton_1);
+		
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {	
 				new Messages();
 			}
 		});	
 		
+
+		JButton art = new JButton("Articles");
+		art.setBounds(446, 45, 101, 21);
+		contentPane.add(art);
+		art.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {	
+				new Articles();
+			}
+		});	
+		
+		JButton Sup = new JButton("Support");
+		Sup.setBounds(448, 84, 101, 21);
+		contentPane.add(Sup);
+		Sup.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {	
+				new Support();
+			}
+		});	
 		
 		usernameList.addMouseListener(new MouseListener () {		
 			
