@@ -1,4 +1,7 @@
+import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,6 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
+import javax.swing.SwingConstants;
 
 public class Profile extends JFrame {
 
@@ -35,6 +39,8 @@ public class Profile extends JFrame {
 			}
 		});
 	}*/
+	
+	Employee frame_emp = new Employee(i);
 	
 	public Profile(int i) {
 		this.i=i;
@@ -63,6 +69,34 @@ public class Profile extends JFrame {
 		contentPane.add(lblEmail);
 		
 		textField_1 = new JTextField();
+		
+		JButton Logout=new JButton("Sign out");
+		Logout.setForeground(new Color(255, 255, 255));
+		Logout.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 11));
+		Logout.setBackground(new Color(47, 79, 79));
+		Logout.setBounds(307, 234, 89, 19);
+		contentPane.add(Logout);
+		
+		
+		Logout.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			      /*System.exit(i);*/
+				dispose();
+				new Login();
+			}
+		});
+		
+		
+		JButton Delete=new JButton("Delete account");
+		Delete.setBackground(new Color(47, 79, 79));
+		Delete.setForeground(new Color(255, 255, 255));
+		Delete.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 11));
+		Delete.setBounds(272, 22, 124, 19);
+		contentPane.add(Delete);
+		Delete.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new Deactivate(i);
+			} });
 		
 		textField_1.setColumns(10);
 		textField_1.setBounds(272, 148, 151, 19);
@@ -103,7 +137,7 @@ public class Profile extends JFrame {
 		contentPane.add(textField_1);
 		
 		JButton btnNewButton = new JButton("Notifications");
-		btnNewButton.setBounds(20, 22, 106, 21);
+		btnNewButton.setBounds(20, 21, 106, 21);
 		contentPane.add(btnNewButton);
 		
 		JLabel lblNewLabel_1 = new JLabel("Photograph");
@@ -116,7 +150,7 @@ public class Profile extends JFrame {
 		contentPane.add(lblCommunication);
 		
 		JButton btnMessages = new JButton("Messages");
-		btnMessages.setBounds(153, 22, 106, 21);
+		btnMessages.setBounds(136, 21, 106, 21);
 		contentPane.add(btnMessages);
 		
 		textField_2 = new JTextField();
