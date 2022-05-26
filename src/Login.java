@@ -13,6 +13,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
@@ -20,7 +21,7 @@ public class Login extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField name;
-	private JTextField code;
+	private JPasswordField code;
 	private aes data = new aes();
 	private final String secretKey = "aes4";	
 	private Connection conn = null;
@@ -68,12 +69,12 @@ public class Login extends JFrame {
 		contentPane.add(name);
 		name.setColumns(10);	
 		
-		JLabel lblCode = new JLabel("Code");
+		JLabel lblCode = new JLabel("Password");
 		lblCode.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblCode.setBounds(84, 170, 63, 30);
+		lblCode.setBounds(80, 170, 67, 30);
 		contentPane.add(lblCode);
 		
-		code = new JTextField();
+		code = new JPasswordField();
 		code.setColumns(10);
 		code.setBounds(157, 168, 165, 39);
 		contentPane.add(code);
@@ -82,14 +83,17 @@ public class Login extends JFrame {
 		btnNewButton_2.addActionListener(new ActionListener() {    
 			public void actionPerformed(ActionEvent e) {
 				
-				sql = "select id,role from users where username = '"+name.getText()+"' and password = '"+data.encrypt(code.getText(), secretKey)+"'";
+				sql = "select id,role from users where username = '"+name.getText()+"' and password = '"+data.encrypt(String.valueOf(code.getPassword()), secretKey)+"'";
 				
 				try {
 					ps = conn.prepareStatement(sql);
 					rs = ps.executeQuery();
 					
-					if (rs.isClosed()) 
-						JOptionPane.showMessageDialog(null, "Invalid Username or Password");    
+					if (rs.isClosed()) {
+						JOptionPane.showMessageDialog(null, "Invalid Username or Password"); 
+					    dispose();
+					    new Login();
+					} 
 					else {
 						rs.next();
 						if (rs.getString("role").equals("empty role"))
@@ -121,7 +125,7 @@ public class Login extends JFrame {
 		lblNewLabel_1.setBounds(224, 375, 119, 28);
 		contentPane.add(lblNewLabel_1);		
 		
-		JLabel lblCompany = new JLabel("User Name");
+		JLabel lblCompany = new JLabel("Username");
 		lblCompany.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblCompany.setBounds(72, 108, 92, 30);
 		contentPane.add(lblCompany);
