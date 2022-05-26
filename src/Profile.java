@@ -9,6 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JButton;
 
 public class Profile extends JFrame {
 
@@ -20,6 +21,7 @@ public class Profile extends JFrame {
 	private PreparedStatement ps = null;
 	private ResultSet rs = null;
 	private String sql="";
+	private JTextField textField_2;
 	
 	/*public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -46,24 +48,24 @@ public class Profile extends JFrame {
 		
 		textField = new JTextField();	
 		
-		textField.setBounds(158, 85, 96, 19);
+		textField.setBounds(272, 122, 151, 19);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("UserName");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		lblNewLabel.setBounds(76, 85, 72, 16);
+		lblNewLabel.setBounds(153, 122, 72, 16);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblEmail = new JLabel("Email");
 		lblEmail.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		lblEmail.setBounds(101, 124, 47, 16);
+		lblEmail.setBounds(153, 148, 47, 16);
 		contentPane.add(lblEmail);
 		
 		textField_1 = new JTextField();
 		
 		textField_1.setColumns(10);
-		textField_1.setBounds(158, 124, 140, 19);
+		textField_1.setBounds(272, 148, 151, 19);
         sql = "select * from users where id = '"+i+"'";
         try {
     		conn = DBConnection.ConnDB();
@@ -99,6 +101,28 @@ public class Profile extends JFrame {
 			}
 			
 		contentPane.add(textField_1);
+		
+		JButton btnNewButton = new JButton("Notifications");
+		btnNewButton.setBounds(20, 22, 106, 21);
+		contentPane.add(btnNewButton);
+		
+		JLabel lblNewLabel_1 = new JLabel("Photograph");
+		lblNewLabel_1.setBounds(20, 90, 106, 135);
+		contentPane.add(lblNewLabel_1);
+		
+		JLabel lblCommunication = new JLabel("Communication");
+		lblCommunication.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblCommunication.setBounds(153, 174, 106, 16);
+		contentPane.add(lblCommunication);
+		
+		JButton btnMessages = new JButton("Messages");
+		btnMessages.setBounds(153, 22, 106, 21);
+		contentPane.add(btnMessages);
+		
+		textField_2 = new JTextField();
+		textField_2.setBounds(272, 174, 96, 19);
+		contentPane.add(textField_2);
+		textField_2.setColumns(10);
 		this.setVisible(true);
 		this.setTitle("Profile");
 	}

@@ -58,6 +58,18 @@ public class Login extends JFrame {
 		    }
 		});
 		
+		JButton Recover=new JButton("Forgot your password?");
+		Recover.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));
+		Recover.setBackground(new Color(47, 79, 79));
+		Recover.setForeground(new Color(255, 255, 255));
+		Recover.setBounds(130, 300, 220, 30);
+		contentPane.add(Recover);
+		Recover.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new Recovery();
+				
+			} });
+		
 		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));
 		btnNewButton_1.setBackground(new Color(47, 79, 79));
 		btnNewButton_1.setForeground(new Color(255, 255, 255));
