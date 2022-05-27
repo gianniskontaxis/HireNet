@@ -179,9 +179,35 @@ public class Profile extends JFrame {
 		btnBack.setBackground(new Color(47, 79, 79));
 		btnBack.setBounds(20, 234, 78, 19);
 		contentPane.add(btnBack);
+		
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
+			} });
+		
+		
+
+		JButton btnSave = new JButton("Save");
+		btnSave.setForeground(Color.WHITE);
+		btnSave.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 11));
+		btnSave.setBackground(new Color(47, 79, 79));
+		btnSave.setBounds(159, 233, 78, 19);
+		contentPane.add(btnSave);
+		btnSave.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				sql = "update users set username = '"+textField.getText()+"' , email= '"+textField_1.getText()+"'  where id = '"+i+"'";
+                try {
+            		conn = DBConnection.ConnDB();
+
+                    ps = conn.prepareStatement(sql);
+                    ps.execute();
+        			conn.close();
+
+                }
+                catch (Exception e0) {
+                    e0.printStackTrace();
+				}
+				
 			} });
 		
 		

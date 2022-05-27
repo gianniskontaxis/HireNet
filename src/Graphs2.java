@@ -56,7 +56,7 @@ public class Graphs2 extends JFrame {
 		}
 		
 			
-		JFreeChart chart = ChartFactory.createBarChart("Statistics", "Qualifications", "Popularity", dataset);
+		JFreeChart chart = ChartFactory.createBarChart("Statistics For Employees", "Qualifications", "Popularity", dataset);
 		
 		ChartPanel chartPanel = new ChartPanel(chart);
 			

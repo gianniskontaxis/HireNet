@@ -209,6 +209,28 @@ public class Employee extends JFrame {
 		btnNewButton_2.setBounds(589, 39, 115, 32);
 		contentPane.add(btnNewButton_2);	
 		
+		JButton graphbtn1 = new JButton("Graph1");
+		graphbtn1.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 12));
+		graphbtn1.setBounds(117, 606, 149, 37);
+		contentPane.add(graphbtn1);
+		graphbtn1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				new Graphs(i);
+			}
+		});
+		
+		JButton btnGraph2 = new JButton("Graph2");
+		btnGraph2.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 12));
+		btnGraph2.setBounds(459, 606, 149, 37);
+		contentPane.add(btnGraph2);
+		btnGraph2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				new Graphs2(i);
+			}
+		});
+		
 		
 		usernameList.addMouseListener(new MouseListener () {		
 			
