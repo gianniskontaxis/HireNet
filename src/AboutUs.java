@@ -117,6 +117,7 @@ public class AboutUs  extends JFrame {
 	            }
 			});
 			contentPane.add(stavros);
+			stavros.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 			
 			JLabel lblNewLabel_1 = new JLabel("\u0397 \u03BF\u03BC\u03AC\u03B4\u03B1 \u03C4\u03B7\u03C2 NHD \u03B1\u03C0\u03BF\u03C4\u03B5\u03BB\u03B5\u03AF\u03C4\u03B1\u03B9 \u03B1\u03C0\u03CC 11 \u03BC\u03AD\u03BB\u03B7 ");
 			lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
@@ -148,6 +149,8 @@ public class AboutUs  extends JFrame {
 	            }
 			});
 			contentPane.add(Kontaksis); 
+			Kontaksis.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+
 			
 			JLabel Chrysanthi = new JLabel("Trentsiou Chrysanthi");
 			Chrysanthi.setFont(new Font("Tahoma", Font.ITALIC, 13));
@@ -164,6 +167,8 @@ public class AboutUs  extends JFrame {
 	            }
 			});
 			contentPane.add(Chrysanthi);
+			Chrysanthi.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+
 			
 			JLabel elisavet = new JLabel("Kanidou Elisavet-Persefoni");
 			elisavet.setFont(new Font("Tahoma", Font.ITALIC, 13));
@@ -180,6 +185,8 @@ public class AboutUs  extends JFrame {
 	            }
 			});
 			contentPane.add(elisavet);
+			elisavet.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+
 			
 			JLabel Champos = new JLabel("Semelidis Charalampos");
 			Champos.setFont(new Font("Tahoma", Font.ITALIC, 13));
@@ -196,6 +203,8 @@ public class AboutUs  extends JFrame {
 	            }
 			});
 			contentPane.add(Champos);
+			Champos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+
 			
 			JLabel lblNewLabel_3_1 = new JLabel("1 Project Manager");
 			lblNewLabel_3_1.setFont(new Font("Tahoma", Font.BOLD, 13));
@@ -217,6 +226,8 @@ public class AboutUs  extends JFrame {
 	            }
 			});
 			contentPane.add(matina);
+			matina.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+
 			
 			JLabel lblNewLabel_3_2 = new JLabel("2 testers");
 			lblNewLabel_3_2.setFont(new Font("Tahoma", Font.BOLD, 13));
@@ -243,6 +254,8 @@ public class AboutUs  extends JFrame {
 	            }
 			});
 			contentPane.add(marina);
+			marina.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+
 			
 			JLabel nikos = new JLabel("Sakellaris Nikolaos");
 			nikos.setFont(new Font("Tahoma", Font.ITALIC, 13));
@@ -259,6 +272,8 @@ public class AboutUs  extends JFrame {
 	            }
 			});
 			contentPane.add(nikos);
+			nikos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+
 			
 			JLabel vene = new JLabel("Venetidis Ioannis");
 			vene.setFont(new Font("Tahoma", Font.ITALIC, 13));
@@ -275,6 +290,8 @@ public class AboutUs  extends JFrame {
 	            }
 			});
 			contentPane.add(vene);
+			vene.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+
 			
 			JLabel georgia = new JLabel("Kotzampasi Georgia");
 			georgia.setFont(new Font("Tahoma", Font.ITALIC, 13));
@@ -291,6 +308,8 @@ public class AboutUs  extends JFrame {
 	            }
 			});
 			contentPane.add(georgia);
+			georgia.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+
 			
 			JLabel dimitris = new JLabel("Ampatzis Dimitris");
 			dimitris.setFont(new Font("Tahoma", Font.ITALIC, 13));
@@ -307,6 +326,8 @@ public class AboutUs  extends JFrame {
 	            }
 			});
 			contentPane.add(dimitris);
+			dimitris.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+
 				
 				
 				
