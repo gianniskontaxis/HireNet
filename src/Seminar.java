@@ -3,6 +3,11 @@ import java.awt.Font;
 import java.awt.Panel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -12,10 +17,20 @@ import javax.swing.JPanel;
 import javax.swing.JTextPane;
 import javax.swing.border.EmptyBorder;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
 public class Seminar extends JFrame {
 
 	private JPanel contentPane;
-
+    private int i;
+    private Connection conn = null;
+    private PreparedStatement ps = null;
+    private PreparedStatement ps2 = null;
+	private ResultSet rs = null;
+    /*HashMap<Integer,List<String>> seminars = new HashMap<Integer,List<String>>();*/
+    
 	/**
 	 * Launch the application.
 	 */
@@ -35,7 +50,12 @@ public class Seminar extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Seminar() {
+	public Seminar(int i) {
+		
+		this.i = i;
+		
+		
+		
 		setTitle("Seminars");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 1127, 720);
@@ -72,6 +92,29 @@ public class Seminar extends JFrame {
 		day1.setBounds(117, 244, 101, 24);
 		panel1.add(day1);
 		
+		conn = DBConnection.ConnDB();
+		try {
+			
+            ps = conn.prepareStatement("select id from Seminars where id = '"+i+"'");
+            rs = ps.executeQuery();
+            if (rs.isClosed()) {
+                ps2 = conn.prepareStatement("INSERT INTO Seminars(id) VALUES(?)");
+                ps2.setInt(1, i);
+                ps2.execute();
+            }
+            ps.close();
+            
+
+        } catch (SQLException e1) {
+            e1.printStackTrace();
+        }
+		
+		try {
+			conn.close();
+		} catch (SQLException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		}
 		JButton button1 = new JButton("Seat Reservation");
 		button1.setForeground(Color.WHITE);
 		button1.addActionListener(new ActionListener() {
@@ -80,9 +123,21 @@ public class Seminar extends JFrame {
 					    "You 've successfully book a seat."
 					    + " For more information check your notifications.");
 				
+				   try {
+					   
+					   conn = DBConnection.ConnDB();
+					   ps = conn.prepareStatement("update Seminars set Seminar1 = 'true' where id = '"+i+"'");
+					   ps.execute();
+					   conn.close();
+				   }catch (Exception e1) {
+					   e1.printStackTrace();
+				   }
 				
 			}
 		});
+		
+		
+		
 		button1.setBackground(Color.BLACK);
 		button1.setBounds(87, 278, 157, 21);
 		panel1.add(button1);
@@ -116,7 +171,15 @@ public class Seminar extends JFrame {
 				JOptionPane.showMessageDialog(null,
 					    "You 've successfully book a seat."
 					    + " For more information check your notifications.");
-				
+				 try {
+					   
+					   conn = DBConnection.ConnDB();
+					   ps = conn.prepareStatement("update Seminars set Seminar2 = 'true' where id = '"+i+"'");
+					   ps.execute();
+					   conn.close();
+				   }catch (Exception e1) {
+					   e1.printStackTrace();
+				   }
 				
 			}
 		});
@@ -165,7 +228,15 @@ public class Seminar extends JFrame {
 					    "You 've successfully book a seat."
 					    + " For more information check your notifications.");
 				
-				
+				 try {
+					   
+					   conn = DBConnection.ConnDB();
+					   ps = conn.prepareStatement("update Seminars set Seminar3 = 'true' where id = '"+i+"'");
+					   ps.execute();
+					   conn.close();
+				   }catch (Exception e1) {
+					   e1.printStackTrace();
+				   }
 			}
 		});
 		button3.setForeground(Color.WHITE);
@@ -208,7 +279,15 @@ public class Seminar extends JFrame {
 					    "You 've successfully book a seat."
 					    + " For more information check your notifications.");
 				
-				
+				 try {
+					   
+					   conn = DBConnection.ConnDB();
+					   ps = conn.prepareStatement("update Seminars set Seminar4 = 'true' where id = '"+i+"'");
+					   ps.execute();
+					   conn.close();
+				   }catch (Exception e1) {
+					   e1.printStackTrace();
+				   }
 			}
 		});
 		button4.setForeground(Color.WHITE);
@@ -245,7 +324,15 @@ public class Seminar extends JFrame {
 					    "You 've successfully book a seat."
 					    + " For more information check your notifications.");
 				
-				
+				 try {
+					   
+					   conn = DBConnection.ConnDB();
+					   ps = conn.prepareStatement("update Seminars set Seminar5 = 'true' where id = '"+i+"'");
+					   ps.execute();
+					   conn.close();
+				   }catch (Exception e1) {
+					   e1.printStackTrace();
+				   }
 			}
 		});
 		button5.setForeground(Color.WHITE);
@@ -263,4 +350,5 @@ public class Seminar extends JFrame {
 		this.setTitle("Seminars");
 		
 	}
+	
 }

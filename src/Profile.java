@@ -6,6 +6,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.List;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -26,7 +28,7 @@ public class Profile extends JFrame {
 	private ResultSet rs = null;
 	private String sql="";
 	private JTextField textField_2;
-	
+	/*HashMap<Integer,List<String>> seminars = new HashMap<Integer,List<String>>();*/
 	/*public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -159,7 +161,8 @@ public class Profile extends JFrame {
 		contentPane.add(btnNotifiactions);
 		btnNotifiactions.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Notifications();
+				
+				new Notifications(i);
 			} });
 		
 		

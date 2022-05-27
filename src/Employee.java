@@ -11,6 +11,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
@@ -33,6 +35,7 @@ public class Employee extends JFrame {
 	private PreparedStatement ps = null;
 	private ResultSet rs = null;
 	private JList list;	
+	
 	
 	/*public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -65,7 +68,7 @@ public class Employee extends JFrame {
 		JButton btnHere = new JButton("Here!");
 		btnHere.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Seminar();
+				new Seminar(i);
 			}
 		});
 		btnHere.setForeground(Color.WHITE);
