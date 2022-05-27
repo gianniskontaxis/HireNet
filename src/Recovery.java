@@ -28,9 +28,9 @@ public class Recovery extends JFrame {
 	private Connection conn = null;
 	private PreparedStatement ps = null;
 	private ResultSet rs = null;
-	/**
+	/*
 	 * Launch the application.
-	 */
+	 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -92,14 +92,10 @@ public class Recovery extends JFrame {
 		btnNewButton.setBounds(165, 179, 100, 30);
 		contentPane.add(btnNewButton);
 		
-		
-		
-		
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 				code="select password from users where username ='"+user.getText()+"'";
-				
 				
 				try
 				{
@@ -115,6 +111,11 @@ public class Recovery extends JFrame {
 				catch (Exception e1) {
 					e1.printStackTrace();
 				}
+				
+				
+				
+				
+				
 				JOptionPane.showMessageDialog(null,"Your password is "+code);
 				dispose();
 			} });

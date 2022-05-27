@@ -32,6 +32,8 @@ public class Notifications extends JFrame {
 	private Connection conn = null;
     private PreparedStatement ps = null;
 	private ResultSet rs = null;
+	private PreparedStatement ps2 = null;
+	private ResultSet rs2 = null;
 	private DefaultListModel model;
 	/*HashMap<Integer,List<String>> seminars = new HashMap<Integer,List<String>>();
 	private DefaultListModel model;
@@ -99,26 +101,38 @@ public class Notifications extends JFrame {
 			}
 		});
 		
-		
 		try {
 			conn = DBConnection.ConnDB();
-			ps = conn.prepareStatement("select * from Seminars where id="+i+"");
-			rs = ps.executeQuery();
+			String sql = "select role from users where id = "+i+" ";
+			ps2 = conn.prepareStatement(sql);
+			rs2 = ps2.executeQuery();
 			
-			for(int j=1; j<6; j++) {
-				 if(rs.getString("Seminar" + j).equals("true")){
-					 model.addElement("You 've booked our Seminar" + j);
-				 }
+			if (rs2.getString("role").equals("employee")) {
+				
+				try {
+					conn = DBConnection.ConnDB();
+					ps = conn.prepareStatement("select * from Seminars where id="+i+"");
+					rs = ps.executeQuery();
+										
+					for(int j=1; j<6; j++) {
+						 if(rs.getString("Seminar" + j).equals("true")){
+							 model.addElement("You 've booked our Seminar" + j);
+						 }
+					} 
+					ps.close();
+					rs.close();
+		        } 
+				catch (SQLException e1) {
+		            e1.printStackTrace();
+		        }			
 			}
-			
-          
-            
-           conn.close();
-
-        } catch (SQLException e1) {
+			ps2.close();
+			rs2.close();
+			 conn.close();
+		}
+		catch (SQLException e1) {
             e1.printStackTrace();
-        }
-		
+        }		
 		
 		JButton Refresh = new JButton("Refresh");
 		Refresh.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 11));
