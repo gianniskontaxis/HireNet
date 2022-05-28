@@ -6,6 +6,8 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
@@ -16,6 +18,7 @@ import javax.swing.JTextPane;
 import java.awt.Color;
 import java.awt.Desktop;
 import javax.swing.UIManager;
+import javax.swing.JButton;
 
 public class Support extends JFrame {
 
@@ -131,6 +134,17 @@ public class Support extends JFrame {
 		txtpnAlmostFiveYears_2_1_1_1_2.setBackground(Color.WHITE);
 		txtpnAlmostFiveYears_2_1_1_1_2.setBounds(51, 524, 459, 29);
 		contentPane.add(txtpnAlmostFiveYears_2_1_1_1_2);
+		
+		JButton btnNewButton = new JButton("Back");
+		btnNewButton.setBounds(493, 10, 68, 21);
+		contentPane.add(btnNewButton);
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			     
+				dispose();
+				
+			}
+		});
 		
 		
 		

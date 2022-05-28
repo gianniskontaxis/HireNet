@@ -276,6 +276,21 @@ public class cv extends JFrame {
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 11));
 		lblNewLabel_2.setBounds(103, 581, 218, 40);
 		contentPane.add(lblNewLabel_2);
+		
+		JButton btnNewButton_1 = new JButton("Back");
+		btnNewButton_1.setBounds(599, 591, 85, 21);
+		contentPane.add(btnNewButton_1);
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			      
+				dispose();
+				
+			}
+		});
+		
+		
+		
+		
 		this.setVisible(true);
 		this.setTitle("cv");
 	}

@@ -327,7 +327,17 @@ public class AboutUs  extends JFrame {
 			});
 			contentPane.add(dimitris);
 			dimitris.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-
+			
+			JButton btnNewButton_1 = new JButton("Back");
+			btnNewButton_1.setBounds(405, 632, 85, 21);
+			contentPane.add(btnNewButton_1);
+			btnNewButton_1.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+				      
+					dispose();
+					
+				}
+			});
 				
 				
 				

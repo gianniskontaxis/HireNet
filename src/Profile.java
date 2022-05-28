@@ -28,6 +28,7 @@ public class Profile extends JFrame {
 	private ResultSet rs = null;
 	private String sql="";
 	private JTextField textField_2;
+	private JTextField textField_3;
 	/*HashMap<Integer,List<String>> seminars = new HashMap<Integer,List<String>>();*/
 	/*public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -56,18 +57,18 @@ public class Profile extends JFrame {
 		
 		textField = new JTextField();	
 		
-		textField.setBounds(272, 122, 151, 19);
+		textField.setBounds(272, 90, 151, 19);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("UserName");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		lblNewLabel.setBounds(153, 122, 72, 16);
+		lblNewLabel.setBounds(153, 90, 72, 16);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblEmail = new JLabel("Email");
 		lblEmail.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		lblEmail.setBounds(153, 148, 47, 16);
+		lblEmail.setBounds(153, 116, 47, 16);
 		contentPane.add(lblEmail);
 		
 		textField_1 = new JTextField();
@@ -101,7 +102,7 @@ public class Profile extends JFrame {
 			} });
 		
 		textField_1.setColumns(10);
-		textField_1.setBounds(272, 148, 151, 19);
+		textField_1.setBounds(272, 119, 151, 19);
         sql = "select * from users where id = '"+i+"'";
         try {
     		conn = DBConnection.ConnDB();
@@ -144,12 +145,12 @@ public class Profile extends JFrame {
 		
 		JLabel lblCommunication = new JLabel("Communication");
 		lblCommunication.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		lblCommunication.setBounds(153, 174, 106, 16);
+		lblCommunication.setBounds(153, 148, 106, 16);
 		contentPane.add(lblCommunication);
 		
 		
 		textField_2 = new JTextField();
-		textField_2.setBounds(272, 174, 96, 19);
+		textField_2.setBounds(272, 148, 96, 19);
 		contentPane.add(textField_2);
 		textField_2.setColumns(10);
 		
@@ -193,6 +194,16 @@ public class Profile extends JFrame {
 		btnSave.setBackground(new Color(47, 79, 79));
 		btnSave.setBounds(159, 233, 78, 19);
 		contentPane.add(btnSave);
+		
+		JLabel lblFavNumber = new JLabel("Fav number");
+		lblFavNumber.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblFavNumber.setBounds(153, 181, 106, 16);
+		contentPane.add(lblFavNumber);
+		
+		textField_3 = new JTextField();
+		textField_3.setColumns(10);
+		textField_3.setBounds(272, 181, 96, 19);
+		contentPane.add(textField_3);
 		btnSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				sql = "update users set username = '"+textField.getText()+"' , email= '"+textField_1.getText()+"'  where id = '"+i+"'";
