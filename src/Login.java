@@ -16,6 +16,8 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+import java.awt.Toolkit;
+import javax.swing.SwingConstants;
 
 public class Login extends JFrame {
 
@@ -43,8 +45,9 @@ public class Login extends JFrame {
 	}*/
 	
 	public Login() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Login.class.getResource("/Images/logo_icon25x25.png")));
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 470, 470);
+		setBounds(100, 100, 840, 620);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -52,17 +55,36 @@ public class Login extends JFrame {
 		conn = DBConnection.ConnDB();
 		
 		JButton btnNewButton_1 = new JButton("Sign Up");
+		btnNewButton_1.setHorizontalAlignment(SwingConstants.RIGHT);
+		btnNewButton_1.setOpaque(false);
+		btnNewButton_1.setContentAreaFilled(false);
+		btnNewButton_1.setBorderPainted(false);
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e){
 				 new SignUp();
 		    }
 		});
 		
-		JButton Recover=new JButton("Forgot your password?");
-		Recover.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));
-		Recover.setBackground(new Color(47, 79, 79));
-		Recover.setForeground(new Color(255, 255, 255));
-		Recover.setBounds(130, 300, 220, 30);
+		JLabel lblNewLabel_7 = new JLabel("  \u00A9 Copyright 2022 HireNet, Inc. All Rights Reserved ");
+		lblNewLabel_7.setHorizontalAlignment(SwingConstants.LEFT);
+		lblNewLabel_7.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblNewLabel_7.setBounds(0, 545, 409, 38);
+		contentPane.add(lblNewLabel_7);
+		
+		JLabel lblNewLabel_6 = new JLabel("New label");
+		lblNewLabel_6.setIcon(new ImageIcon(Login.class.getResource("/Images/white2.png")));
+		lblNewLabel_6.setBounds(0, 545, 826, 48);
+		contentPane.add(lblNewLabel_6);
+		
+		JButton Recover=new JButton("Forgot password?");
+		Recover.setHorizontalAlignment(SwingConstants.RIGHT);
+		Recover.setFont(new Font("Tahoma", Font.ITALIC, 14));
+		Recover.setBackground(new Color(51, 102, 102));
+		Recover.setForeground(new Color(0, 102, 102));
+		Recover.setBounds(92, 321, 156, 25);
+		Recover.setOpaque(false);
+		Recover.setContentAreaFilled(false);
+		Recover.setBorderPainted(false);
 		contentPane.add(Recover);
 		Recover.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -70,25 +92,26 @@ public class Login extends JFrame {
 				
 			} });
 		
-		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));
-		btnNewButton_1.setBackground(new Color(47, 79, 79));
-		btnNewButton_1.setForeground(new Color(255, 255, 255));
-		btnNewButton_1.setBounds(323, 370, 98, 39);
+		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 14));
+		btnNewButton_1.setBackground(new Color(51, 102, 102));
+		btnNewButton_1.setForeground(new Color(0, 51, 51));
+		btnNewButton_1.setBounds(158, 454, 92, 25);
 		contentPane.add(btnNewButton_1);
 		
 		name = new JTextField();
-		name.setBounds(157, 108, 165, 39);
+		name.setBounds(65, 183, 225, 39);
 		contentPane.add(name);
 		name.setColumns(10);	
 		
 		JLabel lblCode = new JLabel("Password");
-		lblCode.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblCode.setBounds(80, 170, 67, 30);
+		lblCode.setForeground(new Color(0, 0, 0));
+		lblCode.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblCode.setBounds(65, 232, 92, 30);
 		contentPane.add(lblCode);
 		
 		code = new JPasswordField();
 		code.setColumns(10);
-		code.setBounds(157, 168, 165, 39);
+		code.setBounds(65, 272, 225, 39);
 		contentPane.add(code);
 		
 		JButton btnNewButton_2 = new JButton("Login");
@@ -127,26 +150,46 @@ public class Login extends JFrame {
 		});
 		btnNewButton_2.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));
 		btnNewButton_2.setForeground(new Color(255, 255, 255));
-		btnNewButton_2.setBackground(new Color(47, 79, 79));
-		btnNewButton_2.setBounds(194, 255, 92, 39);
+		btnNewButton_2.setBackground(new Color(0, 102, 102));
+		btnNewButton_2.setBounds(65, 384, 225, 60);
 		contentPane.add(btnNewButton_2);
 		
-		JLabel lblNewLabel_1 = new JLabel("New to HireNet?");
-		lblNewLabel_1.setBackground(new Color(255, 255, 255));
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		lblNewLabel_1.setBounds(224, 375, 119, 28);
-		contentPane.add(lblNewLabel_1);		
-		
 		JLabel lblCompany = new JLabel("Username");
-		lblCompany.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblCompany.setBounds(72, 108, 92, 30);
+		lblCompany.setForeground(new Color(0, 0, 0));
+		lblCompany.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblCompany.setBounds(65, 143, 92, 30);
 		contentPane.add(lblCompany);
 		
+		JLabel lblNewLabel_2 = new JLabel("");
+		lblNewLabel_2.setIcon(new ImageIcon(Login.class.getResource("/Images/Logopit_1648914555345-removebg-preview.png")));
+		lblNewLabel_2.setBounds(310, -3, 355, 313);
+		contentPane.add(lblNewLabel_2);
+		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setBounds(223, 59, 49, 39);
+		lblNewLabel.setIcon(new ImageIcon(Login.class.getResource("/Images/background5.png")));
+		lblNewLabel.setBounds(419, 0, 420, 575);
 		contentPane.add(lblNewLabel);
-		Image img = new ImageIcon(this.getClass().getResource("/icon.png")).getImage();
-		lblNewLabel.setIcon(new ImageIcon(img));
+		
+		JLabel lblNewLabel_1 = new JLabel("Welcome to ");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.ITALIC, 21));
+		lblNewLabel_1.setBounds(65, 79, 122, 25);
+		contentPane.add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_3 = new JLabel("HireNet");
+		lblNewLabel_3.setForeground(new Color(0, 102, 102));
+		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 21));
+		lblNewLabel_3.setBounds(181, 79, 99, 25);
+		contentPane.add(lblNewLabel_3);
+		
+		JLabel lblNewLabel_4 = new JLabel("New here? ");
+		lblNewLabel_4.setFont(new Font("Tahoma", Font.ITALIC, 14));
+		lblNewLabel_4.setBounds(109, 454, 77, 25);
+		contentPane.add(lblNewLabel_4);
+		
+		JLabel lblNewLabel_5 = new JLabel("By New Horizons Development");
+		lblNewLabel_5.setFont(new Font("Tahoma", Font.ITALIC, 11));
+		lblNewLabel_5.setBounds(65, 107, 167, 13);
+		contentPane.add(lblNewLabel_5);
 		
 		this.setVisible(true);
 		this.setTitle("Login");		
