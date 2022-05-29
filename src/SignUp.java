@@ -15,6 +15,8 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+import java.awt.Toolkit;
+import javax.swing.ImageIcon;
 
 public class SignUp extends JFrame {
 
@@ -44,59 +46,65 @@ public class SignUp extends JFrame {
 	}*/
 	
 	public SignUp() {
+		setResizable(false);
+		setIconImage(Toolkit.getDefaultToolkit().getImage(SignUp.class.getResource("/Images/logo_icon25x25.png")));
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 470, 470);
+		setBounds(100, 100, 500, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);	
 		
 		JLabel lblNewLabel = new JLabel("Username");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel.setBounds(99, 82, 86, 32);
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblNewLabel.setBounds(61, 68, 86, 32);
 		contentPane.add(lblNewLabel);
 		
 		name = new JTextField();
-		name.setBounds(193, 85, 116, 32);
+		name.setBounds(61, 110, 350, 32);
 		contentPane.add(name);
 		name.setColumns(10);
 		
 		JLabel lblCompanysCeo = new JLabel("Email");
-		lblCompanysCeo.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblCompanysCeo.setBounds(137, 140, 46, 32);
+		lblCompanysCeo.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblCompanysCeo.setBounds(61, 152, 46, 32);
 		contentPane.add(lblCompanysCeo);
 		
 		email = new JTextField();
 		email.setColumns(10);
-		email.setBounds(193, 143, 116, 32);
+		email.setBounds(61, 194, 350, 32);
 		contentPane.add(email);
 		
 		JLabel lblPassword = new JLabel("Password");
-		lblPassword.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblPassword.setBounds(111, 201, 129, 19);
+		lblPassword.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblPassword.setBounds(61, 236, 129, 29);
 		contentPane.add(lblPassword);
 		
 		JLabel lblConfirmCode = new JLabel("Confirm password");
-		lblConfirmCode.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblConfirmCode.setBounds(43, 262, 128, 29);
+		lblConfirmCode.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblConfirmCode.setBounds(61, 317, 158, 29);
 		contentPane.add(lblConfirmCode);
 		
 		code = new JPasswordField();
 		code.setColumns(10);
-		code.setBounds(193, 263, 116, 32);
+		code.setBounds(61, 275, 350, 32);
 		contentPane.add(code);		
 		
-		JLabel lblCompleteYourInformation = new JLabel("Complete your information");
-		lblCompleteYourInformation.setFont(new Font("Tahoma", Font.BOLD, 16));
-		lblCompleteYourInformation.setBounds(101, 24, 251, 32);
+		JLabel lblCompleteYourInformation = new JLabel("Sign Up");
+		lblCompleteYourInformation.setForeground(new Color(0, 0, 0));
+		lblCompleteYourInformation.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblCompleteYourInformation.setBounds(200, 30, 79, 32);
 		contentPane.add(lblCompleteYourInformation);
 		
-		JCheckBox terms = new JCheckBox("Agree with terms");
-		terms.setFont(new Font("Tahoma", Font.BOLD, 12));
-		terms.setBounds(71, 323, 139, 21);
+		JCheckBox terms = new JCheckBox("I Agree to");
+		terms.setOpaque(false);
+		terms.setContentAreaFilled(false);
+		terms.setBorderPainted(false);
+		terms.setFont(new Font("Tahoma", Font.ITALIC, 15));
+		terms.setBounds(61, 423, 139, 21);
 		contentPane.add(terms);		
 		
-		JButton btnNewButton_1 = new JButton("Complete");
+		JButton btnNewButton_1 = new JButton("Create your account");
 		
 		btnNewButton_1.addActionListener(new ActionListener() {
 			
@@ -191,29 +199,37 @@ public class SignUp extends JFrame {
 			}
 		});
 		
-		btnNewButton_1.setBackground(new Color(47, 79, 79));
+		btnNewButton_1.setBackground(new Color(0, 102, 102));
 		btnNewButton_1.setForeground(new Color(255, 255, 255));
 		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 14));
-		btnNewButton_1.setBounds(170, 382, 116, 41);
+		btnNewButton_1.setBounds(61, 473, 350, 41);
 		contentPane.add(btnNewButton_1);
 		
-		JButton btnNewButton_2 = new JButton("Terms");
+		JButton btnNewButton_2 = new JButton("Terms of use");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {				
 				new  TermsOfUse();
 			}
 		});
 		
-		btnNewButton_2.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
-		btnNewButton_2.setForeground(new Color(255, 255, 255));
-		btnNewButton_2.setBackground(new Color(47, 79, 79));
-		btnNewButton_2.setBounds(224, 324, 85, 21);
+		btnNewButton_2.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));
+		btnNewButton_2.setForeground(new Color(0, 0, 0));
+		btnNewButton_2.setBackground(new Color(0, 102, 102));
+		btnNewButton_2.setOpaque(false);
+		btnNewButton_2.setContentAreaFilled(false);
+		btnNewButton_2.setBorderPainted(false);
+		btnNewButton_2.setBounds(130, 423, 149, 21);
 		contentPane.add(btnNewButton_2);
 		
 		password = new JPasswordField();
 		password.setColumns(10);
-		password.setBounds(193, 203, 116, 32);
+		password.setBounds(61, 356, 350, 32);
 		contentPane.add(password);
+		
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon(SignUp.class.getResource("/Images/hirenetwhite.png")));
+		lblNewLabel_1.setBounds(0, 0, 496, 573);
+		contentPane.add(lblNewLabel_1);
 		
 		this.setVisible(true);
 		this.setTitle("Sign Up");

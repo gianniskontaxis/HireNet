@@ -45,6 +45,7 @@ public class Login extends JFrame {
 	}*/
 	
 	public Login() {
+		setResizable(false);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Login.class.getResource("/Images/logo_icon25x25.png")));
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 840, 620);
@@ -68,12 +69,12 @@ public class Login extends JFrame {
 		JLabel lblNewLabel_7 = new JLabel("  \u00A9 Copyright 2022 HireNet, Inc. All Rights Reserved ");
 		lblNewLabel_7.setHorizontalAlignment(SwingConstants.LEFT);
 		lblNewLabel_7.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		lblNewLabel_7.setBounds(0, 545, 409, 38);
+		lblNewLabel_7.setBounds(0, 555, 409, 28);
 		contentPane.add(lblNewLabel_7);
 		
 		JLabel lblNewLabel_6 = new JLabel("New label");
 		lblNewLabel_6.setIcon(new ImageIcon(Login.class.getResource("/Images/white2.png")));
-		lblNewLabel_6.setBounds(0, 545, 826, 48);
+		lblNewLabel_6.setBounds(0, 555, 826, 38);
 		contentPane.add(lblNewLabel_6);
 		
 		JButton Recover=new JButton("Forgot password?");
@@ -81,7 +82,7 @@ public class Login extends JFrame {
 		Recover.setFont(new Font("Tahoma", Font.ITALIC, 14));
 		Recover.setBackground(new Color(51, 102, 102));
 		Recover.setForeground(new Color(0, 102, 102));
-		Recover.setBounds(92, 321, 156, 25);
+		Recover.setBounds(36, 321, 158, 25);
 		Recover.setOpaque(false);
 		Recover.setContentAreaFilled(false);
 		Recover.setBorderPainted(false);
@@ -95,7 +96,7 @@ public class Login extends JFrame {
 		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 14));
 		btnNewButton_1.setBackground(new Color(51, 102, 102));
 		btnNewButton_1.setForeground(new Color(0, 51, 51));
-		btnNewButton_1.setBounds(158, 454, 92, 25);
+		btnNewButton_1.setBounds(115, 454, 92, 25);
 		contentPane.add(btnNewButton_1);
 		
 		name = new JTextField();
@@ -183,7 +184,7 @@ public class Login extends JFrame {
 		
 		JLabel lblNewLabel_4 = new JLabel("New here? ");
 		lblNewLabel_4.setFont(new Font("Tahoma", Font.ITALIC, 14));
-		lblNewLabel_4.setBounds(109, 454, 77, 25);
+		lblNewLabel_4.setBounds(65, 454, 77, 25);
 		contentPane.add(lblNewLabel_4);
 		
 		JLabel lblNewLabel_5 = new JLabel("By New Horizons Development");

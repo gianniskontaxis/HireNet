@@ -15,6 +15,9 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+import java.awt.Toolkit;
 
 
 public class Recovery extends JFrame {
@@ -48,6 +51,10 @@ public class Recovery extends JFrame {
 	 * Create the frame.
 	 */
 	public Recovery() {
+		setForeground(new Color(0, 0, 0));
+		setTitle("Account Recovery");
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Recovery.class.getResource("/Images/logo_icon25x25.png")));
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -56,41 +63,61 @@ public class Recovery extends JFrame {
 		contentPane.setLayout(null);
 		
 		JTextPane name = new JTextPane();
+		name.setForeground(new Color(240, 248, 255));
 		name.setEditable(false);
 		name.setFont(new Font("Tahoma", Font.PLAIN, 19));
 		name.setBackground(SystemColor.control);
 		name.setBorder(null);
-		name.setText("Please enter your username:");
-		name.setBounds(10, 84, 250, 45);
+		name.setText("Username");
+		name.setBounds(64, 113, 100, 25);
+		name.setOpaque(false);
 		contentPane.add(name);
 		
 		user= new JTextField();
-		user.setBounds(270, 84, 85, 25);
+		user.setBounds(237, 113, 100, 25);
 		contentPane.add(user);
 		user.setColumns(10);
 		
 		JTextPane favnumber = new JTextPane();
+		favnumber.setForeground(new Color(240, 248, 255));
+		favnumber.setOpaque(false);
 		favnumber.setEditable(false);
 		favnumber.setFont(new Font("Tahoma", Font.PLAIN, 19));
 		favnumber.setBackground(SystemColor.control);
 		favnumber.setBorder(null);
-		favnumber.setText("Please enter your favourite number:");
-		favnumber.setBounds(10, 124, 310, 45);
+		favnumber.setText("Favorite number:");
+		favnumber.setBounds(64, 148, 162, 25);
 		contentPane.add(favnumber);
 		
 		this.setVisible(true);
 		
 		textField = new JTextField();
-		textField.setBounds(330, 124, 64, 25);
+		textField.setBounds(237, 148, 100, 25);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
 		JButton btnNewButton = new JButton("Confirm");
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));
-		btnNewButton.setBackground(new Color(47, 79, 79));
+		btnNewButton.setBackground(new Color(0, 102, 102));
 		btnNewButton.setForeground(new Color(255, 255, 255));
-		btnNewButton.setBounds(165, 179, 100, 30);
+		btnNewButton.setBounds(165, 197, 100, 30);
 		contentPane.add(btnNewButton);
+		
+		JLabel lblNewLabel_1 = new JLabel("Account Recovery");
+		lblNewLabel_1.setForeground(new Color(240, 248, 255));
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 20));
+		lblNewLabel_1.setBounds(150, 36, 195, 30);
+		contentPane.add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_2 = new JLabel("");
+		lblNewLabel_2.setIcon(new ImageIcon(Recovery.class.getResource("/Images/icons8-forgot-password-48.png")));
+		lblNewLabel_2.setBounds(92, 24, 48, 49);
+		contentPane.add(lblNewLabel_2);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(Recovery.class.getResource("/Images/recovery_background.png")));
+		lblNewLabel.setBounds(0, 0, 446, 275);
+		contentPane.add(lblNewLabel);
 		
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
