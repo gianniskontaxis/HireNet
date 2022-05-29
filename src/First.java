@@ -128,7 +128,7 @@ public class First extends JFrame {
 		lblNewLabel.setIcon(new ImageIcon(First.class.getResource("/Images/firstback3.png")));
 		lblNewLabel.setBounds(0, 0, 610, 575);
 		contentPane.add(lblNewLabel);
-		Image img = new ImageIcon(this.getClass().getResource("/HireNet400X400.png")).getImage();
+		/*Image img = new ImageIcon(this.getClass().getResource("/HireNet400X400.png")).getImage();*/
 		
 		this.setVisible(true);
 	}
