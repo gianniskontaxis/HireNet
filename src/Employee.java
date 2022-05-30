@@ -73,6 +73,78 @@ public class Employee extends JFrame {
 			}
 		});
 		
+		JButton btnSupport = new JButton("Support");
+		btnSupport.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		
+		JButton btnArticles = new JButton("Articles");
+		btnArticles.setOpaque(false);
+		btnArticles.setHorizontalAlignment(SwingConstants.LEFT);
+		btnArticles.setForeground(new Color(0, 102, 102));
+		btnArticles.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnArticles.setContentAreaFilled(false);
+		btnArticles.setBorderPainted(false);
+		btnArticles.setBackground(new Color(47, 79, 79));
+		btnArticles.setBounds(52, 165, 117, 32);
+		contentPane.add(btnArticles);
+		
+		JLabel lblNewLabel_22_1_1 = new JLabel("");
+		lblNewLabel_22_1_1.setIcon(new ImageIcon(Employee.class.getResource("/Images/articles_icon.png")));
+		lblNewLabel_22_1_1.setBounds(34, 165, 32, 32);
+		contentPane.add(lblNewLabel_22_1_1);
+		btnSupport.setOpaque(false);
+		btnSupport.setHorizontalAlignment(SwingConstants.LEFT);
+		btnSupport.setForeground(new Color(0, 102, 102));
+		btnSupport.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnSupport.setContentAreaFilled(false);
+		btnSupport.setBorderPainted(false);
+		btnSupport.setBackground(new Color(47, 79, 79));
+		btnSupport.setBounds(52, 249, 99, 32);
+		contentPane.add(btnSupport);
+		
+		JLabel lblNewLabel_22_3 = new JLabel("");
+		lblNewLabel_22_3.setIcon(new ImageIcon(Employee.class.getResource("/Images/support_icon.png")));
+		lblNewLabel_22_3.setBounds(34, 249, 32, 32);
+		contentPane.add(lblNewLabel_22_3);
+		
+		JLabel lblNewLabel_22_1 = new JLabel("");
+		lblNewLabel_22_1.setIcon(new ImageIcon(Employee.class.getResource("/Images/messages_icon.png")));
+		lblNewLabel_22_1.setBounds(34, 123, 32, 32);
+		contentPane.add(lblNewLabel_22_1);
+		
+		JButton btnMessages = new JButton("Messages");
+		btnMessages.setOpaque(false);
+		btnMessages.setHorizontalAlignment(SwingConstants.LEFT);
+		btnMessages.setForeground(new Color(0, 102, 102));
+		btnMessages.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnMessages.setContentAreaFilled(false);
+		btnMessages.setBorderPainted(false);
+		btnMessages.setBackground(new Color(47, 79, 79));
+		btnMessages.setBounds(52, 123, 117, 32);
+		contentPane.add(btnMessages);
+		
+		JButton btnNotifications = new JButton("Notifications");
+		btnNotifications.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnNotifications.setOpaque(false);
+		btnNotifications.setHorizontalAlignment(SwingConstants.LEFT);
+		btnNotifications.setForeground(new Color(0, 102, 102));
+		btnNotifications.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnNotifications.setContentAreaFilled(false);
+		btnNotifications.setBorderPainted(false);
+		btnNotifications.setBackground(new Color(47, 79, 79));
+		btnNotifications.setBounds(52, 81, 134, 32);
+		contentPane.add(btnNotifications);
+		
+		JLabel lblNewLabel_22 = new JLabel("");
+		lblNewLabel_22.setIcon(new ImageIcon(Employee.class.getResource("/Images/notifications_icon.png")));
+		lblNewLabel_22.setBounds(34, 81, 32, 32);
+		contentPane.add(lblNewLabel_22);
+		
 		JLabel lblNewLabel_21_1 = new JLabel("Company");
 		lblNewLabel_21_1.setHorizontalAlignment(SwingConstants.LEFT);
 		lblNewLabel_21_1.setForeground(Color.WHITE);
@@ -275,7 +347,7 @@ public class Employee extends JFrame {
 		
 		JLabel lblNewLabel_5 = new JLabel("");
 		lblNewLabel_5.setIcon(new ImageIcon(Employee.class.getResource("/Images/logout_icon.png")));
-		lblNewLabel_5.setBounds(34, 123, 32, 32);
+		lblNewLabel_5.setBounds(34, 291, 32, 32);
 		contentPane.add(lblNewLabel_5);
 		
 		JButton LogOutbtn = new JButton("Log Out");
@@ -283,10 +355,10 @@ public class Employee extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		LogOutbtn.setHorizontalAlignment(SwingConstants.RIGHT);
+		LogOutbtn.setHorizontalAlignment(SwingConstants.LEFT);
 		LogOutbtn.setFont(new Font("Tahoma", Font.BOLD, 15));
 		LogOutbtn.setForeground(new Color(0, 102, 102));
-		LogOutbtn.setBounds(34, 123, 120, 32);
+		LogOutbtn.setBounds(52, 291, 120, 32);
 		LogOutbtn.setOpaque(false);
 		LogOutbtn.setContentAreaFilled(false);
 		LogOutbtn.setBorderPainted(false);
@@ -294,7 +366,7 @@ public class Employee extends JFrame {
 		
 		JLabel lblNewLabel_4 = new JLabel("");
 		lblNewLabel_4.setIcon(new ImageIcon(Employee.class.getResource("/Images/aboutus_icon.png")));
-		lblNewLabel_4.setBounds(34, 81, 32, 32);
+		lblNewLabel_4.setBounds(34, 207, 32, 32);
 		contentPane.add(lblNewLabel_4);
 		Seminars.setForeground(new Color(51, 255, 204));
 		Seminars.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 22));
@@ -306,7 +378,7 @@ public class Employee extends JFrame {
 		contentPane.add(Seminars);
 		
 		JButton Aboutusbtn = new JButton("AboutUs");
-		Aboutusbtn.setHorizontalAlignment(SwingConstants.RIGHT);
+		Aboutusbtn.setHorizontalAlignment(SwingConstants.LEFT);
 		Aboutusbtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				new AboutUs();
@@ -315,7 +387,7 @@ public class Employee extends JFrame {
 		Aboutusbtn.setForeground(new Color(0, 102, 102));
 		Aboutusbtn.setFont(new Font("Tahoma", Font.BOLD, 15));
 		Aboutusbtn.setBackground(new Color(47, 79, 79));
-		Aboutusbtn.setBounds(25, 81, 134, 32);
+		Aboutusbtn.setBounds(52, 207, 117, 32);
 		Aboutusbtn.setOpaque(false);
 		Aboutusbtn.setContentAreaFilled(false);
 		Aboutusbtn.setBorderPainted(false);
@@ -424,7 +496,7 @@ public class Employee extends JFrame {
 		contentPane.add(lblNewLabel_2);
 		
 		JButton Profilebutton = new JButton("Profile");
-		Profilebutton.setHorizontalAlignment(SwingConstants.TRAILING);
+		Profilebutton.setHorizontalAlignment(SwingConstants.LEFT);
 		Profilebutton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -434,7 +506,7 @@ public class Employee extends JFrame {
 		Profilebutton.setForeground(new Color(0, 102, 102));
 		Profilebutton.setFont(new Font("Tahoma", Font.BOLD, 15));
 		Profilebutton.setBackground(new Color(47, 79, 79));
-		Profilebutton.setBounds(34, 40, 111, 32);
+		Profilebutton.setBounds(52, 40, 98, 32);
 		Profilebutton.setOpaque(false);
 		Profilebutton.setContentAreaFilled(false);
 		Profilebutton.setBorderPainted(false);
@@ -449,6 +521,10 @@ public class Employee extends JFrame {
 		lblNewLabel_1.setIcon(new ImageIcon(Employee.class.getResource("/Images/employee_background.png")));
 		lblNewLabel_1.setBounds(0, 0, 1000, 640);
 		contentPane.add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_22_2 = new JLabel("");
+		lblNewLabel_22_2.setBounds(34, 156, 32, 32);
+		contentPane.add(lblNewLabel_22_2);
 		
 		
 		usernameList.addMouseListener(new MouseListener () {		
