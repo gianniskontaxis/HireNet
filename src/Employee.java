@@ -73,21 +73,56 @@ public class Employee extends JFrame {
 			}
 		});
 		
+		JLabel lblNewLabel_21_1 = new JLabel("Company");
+		lblNewLabel_21_1.setHorizontalAlignment(SwingConstants.LEFT);
+		lblNewLabel_21_1.setForeground(Color.WHITE);
+		lblNewLabel_21_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_21_1.setBounds(764, 166, 106, 27);
+		contentPane.add(lblNewLabel_21_1);
+		
+		JLabel lblNewLabel_21 = new JLabel("Company");
+		lblNewLabel_21.setHorizontalAlignment(SwingConstants.LEFT);
+		lblNewLabel_21.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_21.setForeground(Color.WHITE);
+		lblNewLabel_21.setBounds(599, 166, 106, 27);
+		contentPane.add(lblNewLabel_21);
+		
+		JLabel lblNewLabel_20 = new JLabel("Match");
+		lblNewLabel_20.setHorizontalAlignment(SwingConstants.LEFT);
+		lblNewLabel_20.setForeground(Color.WHITE);
+		lblNewLabel_20.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_20.setBounds(537, 166, 58, 27);
+		contentPane.add(lblNewLabel_20);
+		
+		JLabel lblNewLabel_19_1 = new JLabel("");
+		lblNewLabel_19_1.setIcon(new ImageIcon(Employee.class.getResource("/Images/black.png")));
+		lblNewLabel_19_1.setForeground(Color.WHITE);
+		lblNewLabel_19_1.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblNewLabel_19_1.setBounds(757, 166, 206, 27);
+		contentPane.add(lblNewLabel_19_1);
+		
+		JLabel lblNewLabel_19 = new JLabel("");
+		lblNewLabel_19.setIcon(new ImageIcon(Employee.class.getResource("/Images/background6.png")));
+		lblNewLabel_19.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblNewLabel_19.setForeground(Color.WHITE);
+		lblNewLabel_19.setBounds(530, 166, 206, 27);
+		contentPane.add(lblNewLabel_19);
+		
 		JLabel lblNewLabel_18_1 = new JLabel("");
-		lblNewLabel_18_1.setIcon(new ImageIcon(Employee.class.getResource("/Images/request_icon.png")));
-		lblNewLabel_18_1.setBounds(764, 128, 52, 53);
+		lblNewLabel_18_1.setIcon(new ImageIcon(Employee.class.getResource("/Images/companysearch_icon.png")));
+		lblNewLabel_18_1.setBounds(764, 86, 52, 60);
 		contentPane.add(lblNewLabel_18_1);
 		
 		JLabel lblNewLabel_18 = new JLabel("");
 		lblNewLabel_18.setIcon(new ImageIcon(Employee.class.getResource("/Images/mathcing_icon.png")));
-		lblNewLabel_18.setBounds(537, 128, 52, 53);
+		lblNewLabel_18.setBounds(537, 86, 52, 60);
 		contentPane.add(lblNewLabel_18);
 		
-		JLabel lblNewLabel_13_1 = new JLabel("requested");
-		lblNewLabel_13_1.setHorizontalAlignment(SwingConstants.CENTER);
+		JLabel lblNewLabel_13_1 = new JLabel("jobs");
+		lblNewLabel_13_1.setHorizontalAlignment(SwingConstants.LEFT);
 		lblNewLabel_13_1.setForeground(Color.WHITE);
 		lblNewLabel_13_1.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		lblNewLabel_13_1.setBounds(826, 148, 111, 27);
+		lblNewLabel_13_1.setBounds(826, 111, 56, 27);
 		contentPane.add(lblNewLabel_13_1);
 		
 		JLabel lblNewLabel_17 = new JLabel("");
@@ -144,36 +179,36 @@ public class Employee extends JFrame {
 		lblNewLabel_14.setBounds(206, 500, 757, 108);
 		contentPane.add(lblNewLabel_14);
 		
-		JLabel lblNewLabel_13_2_1 = new JLabel("Companies");
-		lblNewLabel_13_2_1.setHorizontalAlignment(SwingConstants.CENTER);
+		JLabel lblNewLabel_13_2_1 = new JLabel("Results");
+		lblNewLabel_13_2_1.setHorizontalAlignment(SwingConstants.LEFT);
 		lblNewLabel_13_2_1.setForeground(new Color(255, 255, 255));
 		lblNewLabel_13_2_1.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		lblNewLabel_13_2_1.setBounds(599, 148, 134, 27);
+		lblNewLabel_13_2_1.setBounds(599, 111, 79, 27);
 		contentPane.add(lblNewLabel_13_2_1);
 		
 		JLabel lblNewLabel_13_2 = new JLabel("Matching");
-		lblNewLabel_13_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_13_2.setHorizontalAlignment(SwingConstants.LEFT);
 		lblNewLabel_13_2.setForeground(new Color(255, 255, 255));
 		lblNewLabel_13_2.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		lblNewLabel_13_2.setBounds(599, 128, 116, 27);
+		lblNewLabel_13_2.setBounds(599, 93, 106, 27);
 		contentPane.add(lblNewLabel_13_2);
 		
-		JLabel lblNewLabel_13 = new JLabel("Most");
-		lblNewLabel_13.setHorizontalAlignment(SwingConstants.CENTER);
+		JLabel lblNewLabel_13 = new JLabel("Available");
+		lblNewLabel_13.setHorizontalAlignment(SwingConstants.LEFT);
 		lblNewLabel_13.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		lblNewLabel_13.setForeground(Color.WHITE);
-		lblNewLabel_13.setBounds(826, 128, 58, 27);
+		lblNewLabel_13.setBounds(826, 93, 98, 27);
 		contentPane.add(lblNewLabel_13);
 		
 		JLabel lblNewLabel_3_1 = new JLabel("");
 		lblNewLabel_3_1.setIcon(new ImageIcon(Employee.class.getResource("/Images/black.png")));
-		lblNewLabel_3_1.setBounds(757, 123, 206, 60);
+		lblNewLabel_3_1.setBounds(757, 86, 206, 60);
 		contentPane.add(lblNewLabel_3_1);
 		
 		JLabel lblNewLabel_3 = new JLabel("");
 		lblNewLabel_3.setForeground(new Color(255, 255, 255));
 		lblNewLabel_3.setIcon(new ImageIcon(Employee.class.getResource("/Images/background6.png")));
-		lblNewLabel_3.setBounds(530, 123, 206, 60);
+		lblNewLabel_3.setBounds(530, 86, 206, 60);
 		contentPane.add(lblNewLabel_3);
 		
 		JLabel lblNewLabel_10_2 = new JLabel("enough yet?");
@@ -249,7 +284,7 @@ public class Employee extends JFrame {
 			}
 		});
 		LogOutbtn.setHorizontalAlignment(SwingConstants.RIGHT);
-		LogOutbtn.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));
+		LogOutbtn.setFont(new Font("Tahoma", Font.BOLD, 15));
 		LogOutbtn.setForeground(new Color(0, 102, 102));
 		LogOutbtn.setBounds(34, 123, 120, 32);
 		LogOutbtn.setOpaque(false);
@@ -278,7 +313,7 @@ public class Employee extends JFrame {
 			}
 		});
 		Aboutusbtn.setForeground(new Color(0, 102, 102));
-		Aboutusbtn.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));
+		Aboutusbtn.setFont(new Font("Tahoma", Font.BOLD, 15));
 		Aboutusbtn.setBackground(new Color(47, 79, 79));
 		Aboutusbtn.setBounds(25, 81, 134, 32);
 		Aboutusbtn.setOpaque(false);
@@ -287,6 +322,7 @@ public class Employee extends JFrame {
 		contentPane.add(Aboutusbtn);
 		
 		list = new JList();
+		list.setForeground(new Color(0, 0, 0));
 		list.setBounds(757, 193, 206, 211);
 		contentPane.add(list);
 		
@@ -329,17 +365,19 @@ public class Employee extends JFrame {
 		contentPane.add(CVbtn);
 		
 		JList usernameList = new JList();
+		usernameList.setForeground(new Color(0, 102, 102));
 		usernameList.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 		usernameList.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		usernameList.setBounds(579, 193, 157, 211);
+		usernameList.setBounds(599, 193, 137, 211);
 		contentPane.add(usernameList);
 		
 		usernameModel = new DefaultListModel();
 		usernameList.setModel(usernameModel);
 		
 		JList scoreList = new JList();
+		scoreList.setForeground(new Color(0, 102, 102));
 		scoreList.setSelectionBackground(Color.WHITE);
-		scoreList.setBounds(530, 193, 52, 211);
+		scoreList.setBounds(530, 193, 68, 211);
 		contentPane.add(scoreList);
 		
 		scoreModel = new DefaultListModel();
@@ -394,7 +432,7 @@ public class Employee extends JFrame {
 			}
 		});
 		Profilebutton.setForeground(new Color(0, 102, 102));
-		Profilebutton.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));
+		Profilebutton.setFont(new Font("Tahoma", Font.BOLD, 15));
 		Profilebutton.setBackground(new Color(47, 79, 79));
 		Profilebutton.setBounds(34, 40, 111, 32);
 		Profilebutton.setOpaque(false);
