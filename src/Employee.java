@@ -76,10 +76,18 @@ public class Employee extends JFrame {
 		JButton btnSupport = new JButton("Support");
 		btnSupport.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				new Support();
 			}
 		});
 		
 		JButton btnArticles = new JButton("Articles");
+		btnArticles.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				new Articles();
+				
+			}
+		});
 		btnArticles.setOpaque(false);
 		btnArticles.setHorizontalAlignment(SwingConstants.LEFT);
 		btnArticles.setForeground(new Color(0, 102, 102));
@@ -134,8 +142,13 @@ public class Employee extends JFrame {
 		JButton btnNotifications = new JButton("Notifications");
 		btnNotifications.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				new Notifications(i);
+				
 			}
 		});
+		
+		
 		btnNotifications.setOpaque(false);
 		btnNotifications.setHorizontalAlignment(SwingConstants.LEFT);
 		btnNotifications.setForeground(new Color(0, 102, 102));
@@ -359,6 +372,8 @@ public class Employee extends JFrame {
 		JButton LogOutbtn = new JButton("Log Out");
 		LogOutbtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				dispose();
+				new Login();
 			}
 		});
 		LogOutbtn.setHorizontalAlignment(SwingConstants.LEFT);

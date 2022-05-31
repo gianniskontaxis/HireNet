@@ -73,21 +73,20 @@ public class Profile extends JFrame {
 		
 		textField_1 = new JTextField();
 		
-		JButton Logout=new JButton("Sign out");
-		Logout.setForeground(new Color(255, 255, 255));
-		Logout.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 11));
-		Logout.setBackground(new Color(47, 79, 79));
-		Logout.setBounds(307, 234, 89, 19);
-		contentPane.add(Logout);
-		
-		
-		Logout.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		//JButton Logout=new JButton("Sign out");
+		//Logout.setForeground(new Color(255, 255, 255));
+		//Logout.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 11));
+		//Logout.setBackground(new Color(47, 79, 79));
+		//Logout.setBounds(307, 234, 89, 19);
+		//contentPane.add(Logout);
+		//Logout.addActionListener(new ActionListener() {
+			//public void actionPerformed(ActionEvent e) {
 			      /*System.exit(i);*/
-				dispose();
-				new Login();
-			}
-		});
+				//dispose();
+				//new Login();
+			//}
+		//});
+		
 		
 		
 		JButton Delete=new JButton("Delete account");
@@ -154,7 +153,7 @@ public class Profile extends JFrame {
 		contentPane.add(textField_2);
 		textField_2.setColumns(10);
 		
-		JButton btnNotifiactions = new JButton("Notifications");
+		/*JButton btnNotifiactions = new JButton("Notifications");
 		btnNotifiactions.setForeground(Color.WHITE);
 		btnNotifiactions.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 11));
 		btnNotifiactions.setBackground(new Color(47, 79, 79));
@@ -165,9 +164,9 @@ public class Profile extends JFrame {
 				
 				new Notifications(i);
 			} });
+		*/
 		
-		
-		JButton btnMessages_1 = new JButton("Messages");
+		/*JButton btnMessages_1 = new JButton("Messages");
 		btnMessages_1.setForeground(Color.WHITE);
 		btnMessages_1.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 11));
 		btnMessages_1.setBackground(new Color(47, 79, 79));
@@ -177,6 +176,7 @@ public class Profile extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				new Messages(i);
 			} });
+		*/
 		
 		JButton btnBack = new JButton("Back");
 		btnBack.setForeground(Color.WHITE);
