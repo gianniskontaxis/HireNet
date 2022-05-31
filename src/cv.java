@@ -16,6 +16,7 @@ import javax.swing.JScrollBar;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JTextPane;
+import javax.swing.JScrollPane;
 
 public class cv extends JFrame {
 
@@ -284,7 +285,7 @@ public class cv extends JFrame {
 		}
         
         //anagnoni phone//
-        sql = "select * from employees where id = '"+i+"'";
+        sql = "select * from users where id = '"+i+"'";
         try {
     		conn = DBConnection.ConnDB();
 
@@ -351,10 +352,6 @@ public class cv extends JFrame {
 		btnNewButton.setBounds(161, 443, 155, 40);
 		contentPane.add(btnNewButton);
 		
-		JScrollBar scrollBar = new JScrollBar();
-		scrollBar.setBounds(667, 173, 17, 48);
-		contentPane.add(scrollBar);
-		
 		JButton save = new JButton("Save");
 		save.setForeground(Color.WHITE);
 		save.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
@@ -362,11 +359,23 @@ public class cv extends JFrame {
 		save.setBounds(18, 544, 143, 48);
 		contentPane.add(save);
 		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(364, 105, 278, 230);
+		contentPane.add(scrollPane);
+		   scrollPane.setViewportView(textPanesummary);
+
+		
+		JScrollPane scrollPane_1 = new JScrollPane();
+		scrollPane_1.setBounds(351, 413, 279, 230);
+		contentPane.add(scrollPane_1);
+		scrollPane_1.setViewportView(textPaneexperience);
+
+		
 		save.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				  //Εγγραφή χρήστη//
 		        
-				sql = "update employees set firstname = '"+firstnametextField.getText()+"' , lastname= '"+lastnametextField_1.getText()+"' , age = '"+agetextField_3.getText()+"',adress = '"+adresstextField_4.getText()+"', phone = '"+phonetextField.getText()+"',summary = '"+textPanesummary.getText()+"' , experience = '"+textPaneexperience.getText()+"' where id = '"+i+"'";
+				sql = "update employees set firstname = '"+firstnametextField.getText()+"' , lastname= '"+lastnametextField_1.getText()+"' , age = '"+agetextField_3.getText()+"',adress = '"+adresstextField_4.getText()+"', summary = '"+textPanesummary.getText()+"' , experience = '"+textPaneexperience.getText()+"' where id = '"+i+"'";
                 try {
             		conn = DBConnection.ConnDB();
 
@@ -377,6 +386,19 @@ public class cv extends JFrame {
                 }
                 catch (Exception e0) {
                     e0.printStackTrace();
+				}
+                
+                sql = "update users set   email= '"+emailtextField_2.getText()+"' , phone= '"+phonetextField.getText()+"' where id = '"+i+"'";
+                try {
+            		conn = DBConnection.ConnDB();
+
+                    ps = conn.prepareStatement(sql);
+                    ps.execute();
+        			conn.close();
+
+                }
+                catch (Exception ee) {
+                    ee.printStackTrace();
 				}
                 
 			

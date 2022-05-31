@@ -27,8 +27,7 @@ public class Profile extends JFrame {
 	private PreparedStatement ps = null;
 	private ResultSet rs = null;
 	private String sql="";
-	private JTextField textField_2;
-	private JTextField textField_3;
+	private JTextField textFieldcomm;
 	/*HashMap<Integer,List<String>> seminars = new HashMap<Integer,List<String>>();*/
 	/*public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -95,6 +94,11 @@ public class Profile extends JFrame {
 		Delete.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 11));
 		Delete.setBounds(293, 22, 121, 19);
 		contentPane.add(Delete);
+		
+		textFieldcomm = new JTextField();
+		textFieldcomm.setBounds(272, 148, 96, 19);
+		contentPane.add(textFieldcomm);
+		textFieldcomm.setColumns(10);
 		Delete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				new Deactivate(i);
@@ -135,6 +139,23 @@ public class Profile extends JFrame {
 			catch (Exception e2) {
 				e2.printStackTrace();
 			}
+	        
+	        sql = "select * from users where id = '"+i+"'";
+	        try {
+	    		conn = DBConnection.ConnDB();
+
+	        	ps = conn.prepareStatement(sql);
+	    		rs = ps.executeQuery();		
+	    		textFieldcomm.setText(rs.getString("phone"));
+
+				
+				ps.execute();
+      			conn.close();
+
+			}
+			catch (Exception ee) {
+				ee.printStackTrace();
+			}
 			
 		contentPane.add(textField_1);
 		
@@ -148,10 +169,7 @@ public class Profile extends JFrame {
 		contentPane.add(lblCommunication);
 		
 		
-		textField_2 = new JTextField();
-		textField_2.setBounds(272, 148, 96, 19);
-		contentPane.add(textField_2);
-		textField_2.setColumns(10);
+		
 		
 		/*JButton btnNotifiactions = new JButton("Notifications");
 		btnNotifiactions.setForeground(Color.WHITE);
@@ -198,19 +216,9 @@ public class Profile extends JFrame {
 		btnSave.setBackground(new Color(47, 79, 79));
 		btnSave.setBounds(159, 233, 78, 19);
 		contentPane.add(btnSave);
-		
-		JLabel lblFavNumber = new JLabel("Fav number");
-		lblFavNumber.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		lblFavNumber.setBounds(153, 181, 106, 16);
-		contentPane.add(lblFavNumber);
-		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(272, 181, 96, 19);
-		contentPane.add(textField_3);
 		btnSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				sql = "update users set username = '"+textField.getText()+"' , email= '"+textField_1.getText()+"'  where id = '"+i+"'";
+				sql = "update users set username = '"+textField.getText()+"' , email= '"+textField_1.getText()+"' , phone = '"+textFieldcomm.getText()+"'   where id = '"+i+"'";
                 try {
             		conn = DBConnection.ConnDB();
 
