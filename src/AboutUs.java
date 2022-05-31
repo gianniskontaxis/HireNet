@@ -61,14 +61,14 @@ public class AboutUs  extends JFrame {
 			btnNewButton.setBounds(248, 587, 23, 27);
 			contentPane.add(btnNewButton);
 			
-			Image img = new ImageIcon(this.getClass().getResource("/facebook.png")).getImage();
+			Image img = new ImageIcon(this.getClass().getResource("Images/facebook.png")).getImage();
 			btnNewButton.setIcon(new ImageIcon(img));
 			
 			JButton btnNewButton_2 = new JButton("");
 			btnNewButton_2.setBounds(309, 589, 23, 27);
 			contentPane.add(btnNewButton_2);
 			
-			Image img2 = new ImageIcon(this.getClass().getResource("/Linkedin.png")).getImage();
+			Image img2 = new ImageIcon(this.getClass().getResource("Images/Linkedin.png")).getImage();
 			btnNewButton_2.setIcon(new ImageIcon(img2));
 			
 			btnNewButton.addActionListener(new ActionListener() {
