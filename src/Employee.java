@@ -124,6 +124,12 @@ public class Employee extends JFrame {
 		btnMessages.setBackground(new Color(47, 79, 79));
 		btnMessages.setBounds(52, 123, 117, 32);
 		contentPane.add(btnMessages);
+		btnMessages.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new Messages(i);
+
+			}
+		});
 		
 		JButton btnNotifications = new JButton("Notifications");
 		btnNotifications.addActionListener(new ActionListener() {
