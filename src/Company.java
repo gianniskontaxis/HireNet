@@ -229,7 +229,7 @@ public class Company extends JFrame {
 		
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {	
-				new Messages();
+				new Messages(i);
 			}
 		});	
 		

@@ -173,6 +173,10 @@ public class Profile extends JFrame {
 		btnMessages_1.setBackground(new Color(47, 79, 79));
 		btnMessages_1.setBounds(153, 22, 115, 19);
 		contentPane.add(btnMessages_1);
+		btnMessages_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new Messages(i);
+			} });
 		
 		JButton btnBack = new JButton("Back");
 		btnBack.setForeground(Color.WHITE);
