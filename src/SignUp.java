@@ -31,6 +31,8 @@ public class SignUp extends JFrame {
 	private ResultSet rs = null;
 	private String sql="";
 	private JPasswordField password;
+	private JTextField textField;
+	private JTextField textField_1;
 	
 	/*public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -55,45 +57,65 @@ public class SignUp extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);	
 		
+		textField_1 = new JTextField();
+		textField_1.setColumns(10);
+		textField_1.setBounds(61, 377, 218, 32);
+		contentPane.add(textField_1);
+		
+		JLabel lblFavoriteNumber = new JLabel("Favorite number");
+		lblFavoriteNumber.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblFavoriteNumber.setBounds(61, 349, 158, 29);
+		contentPane.add(lblFavoriteNumber);
+		
+		textField = new JTextField();
+		textField.setColumns(10);
+		textField.setBounds(61, 317, 350, 32);
+		contentPane.add(textField);
+		
+		JLabel lblPhoneNumber = new JLabel("Phone number");
+		lblPhoneNumber.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblPhoneNumber.setBounds(61, 289, 158, 29);
+		contentPane.add(lblPhoneNumber);
+		
 		JLabel lblNewLabel = new JLabel("Username");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblNewLabel.setBounds(61, 68, 86, 32);
+		lblNewLabel.setBounds(61, 44, 86, 32);
 		contentPane.add(lblNewLabel);
 		
 		name = new JTextField();
-		name.setBounds(61, 110, 350, 32);
+		name.setBounds(61, 76, 350, 32);
 		contentPane.add(name);
 		name.setColumns(10);
 		
 		JLabel lblCompanysCeo = new JLabel("Email");
 		lblCompanysCeo.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblCompanysCeo.setBounds(61, 152, 46, 32);
+		lblCompanysCeo.setBounds(61, 107, 46, 32);
 		contentPane.add(lblCompanysCeo);
 		
 		email = new JTextField();
 		email.setColumns(10);
-		email.setBounds(61, 194, 350, 32);
+		email.setBounds(61, 138, 350, 32);
 		contentPane.add(email);
 		
 		JLabel lblPassword = new JLabel("Password");
 		lblPassword.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblPassword.setBounds(61, 236, 129, 29);
+		lblPassword.setBounds(61, 170, 129, 29);
 		contentPane.add(lblPassword);
 		
 		JLabel lblConfirmCode = new JLabel("Confirm password");
 		lblConfirmCode.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblConfirmCode.setBounds(61, 317, 158, 29);
+		lblConfirmCode.setBounds(61, 229, 158, 29);
 		contentPane.add(lblConfirmCode);
 		
 		code = new JPasswordField();
 		code.setColumns(10);
-		code.setBounds(61, 275, 350, 32);
+		code.setBounds(61, 198, 350, 32);
 		contentPane.add(code);		
 		
 		JLabel lblCompleteYourInformation = new JLabel("Sign Up");
 		lblCompleteYourInformation.setForeground(new Color(0, 0, 0));
 		lblCompleteYourInformation.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblCompleteYourInformation.setBounds(200, 30, 79, 32);
+		lblCompleteYourInformation.setBounds(200, 10, 79, 32);
 		contentPane.add(lblCompleteYourInformation);
 		
 		JCheckBox terms = new JCheckBox("I Agree to");
@@ -101,7 +123,7 @@ public class SignUp extends JFrame {
 		terms.setContentAreaFilled(false);
 		terms.setBorderPainted(false);
 		terms.setFont(new Font("Tahoma", Font.ITALIC, 15));
-		terms.setBounds(61, 423, 139, 21);
+		terms.setBounds(61, 433, 139, 21);
 		contentPane.add(terms);		
 		
 		JButton btnNewButton_1 = new JButton("Create your account");
@@ -123,12 +145,15 @@ public class SignUp extends JFrame {
 					if (rs.isClosed() && terms.isSelected()) {
 						
 						//Εγγραφή χρήστη.
-						sql = "INSERT INTO users(username,email,password,role) VALUES(?,?,?,?)";
+						sql = "INSERT INTO users(username,email,password,role,phone,number) VALUES(?,?,?,?,?,?)";
 						
 						int k=0;
 						
 						try {
 							ps = conn.prepareStatement(sql);
+							
+							
+							
 							
 							if(name.getText().length() >=4) {
 								ps.setString(1, name.getText());
@@ -163,9 +188,22 @@ public class SignUp extends JFrame {
                               }
 							 
 							
-							ps.setString(4, "empty role");		
+							ps.setString(4, "empty role");	
+							if(textField.getText().length()>=10 && textField.getText().length()<=12)
+							{
+							ps.setString(5, textField.getText());
+							k++;
+							}
+							else
+							{
+								JOptionPane.showMessageDialog(null, "Invalid phone number");
+								dispose();
+								
+							}
+							ps.setString(6, textField_1.getText());
+							k++;
 							
-							if(k==3) {
+							if(k==5) {
 								ps.execute();
 							}
 							else {
@@ -218,12 +256,12 @@ public class SignUp extends JFrame {
 		btnNewButton_2.setOpaque(false);
 		btnNewButton_2.setContentAreaFilled(false);
 		btnNewButton_2.setBorderPainted(false);
-		btnNewButton_2.setBounds(130, 423, 149, 21);
+		btnNewButton_2.setBounds(130, 433, 149, 21);
 		contentPane.add(btnNewButton_2);
 		
 		password = new JPasswordField();
 		password.setColumns(10);
-		password.setBounds(61, 356, 350, 32);
+		password.setBounds(61, 257, 350, 32);
 		contentPane.add(password);
 		
 		JLabel lblNewLabel_1 = new JLabel("");
