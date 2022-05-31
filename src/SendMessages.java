@@ -134,17 +134,28 @@ public class SendMessages extends JFrame {
 
 					conn = DBConnection.ConnDB();	
 					
+					conn = DBConnection.ConnDB();	
+					 
+					sql = "select username from users where id = '"+i+"'";
+					ps2 = conn.prepareStatement(sql);
+					rs2 = ps2.executeQuery();
+					
 		                
 					ps = conn.prepareStatement("INSERT INTO messages(idFrom,usernameTo,text,dateOfMessage) VALUES(?,?,?,?)");
 		            ps.setInt(1, i);
 					ps.setString(2, username);
 					ps.setString(3, NewMessagetextArea.getText()); 
 					ps.setString(4, currenDateTime.toString());
+					
+					Model.addElement(rs2.getString("username")+": "+NewMessagetextArea.getText() +currenDateTime.toString()  );							
+
 
 
 		            
 	                ps.execute();
 	                ps.close();
+	                ps2.execute();
+	                ps2.close();
 					conn.close();
 
 		        } catch (SQLException e1) {
@@ -153,6 +164,8 @@ public class SendMessages extends JFrame {
 				
 
 				NewMessagetextArea.setText("");
+				
+				
 			
 			} });
 		
