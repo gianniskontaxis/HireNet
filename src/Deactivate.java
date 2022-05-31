@@ -118,6 +118,7 @@ public class Deactivate extends JFrame {
 				
 				
 				JOptionPane.showMessageDialog(null,"Succesfully deleted!");
+				System.exit(i);
 			} });
 		
 		
