@@ -81,6 +81,7 @@ public class Seminar extends JFrame {
 		panel1.add(img1);
 		
 		JTextPane txt1 = new JTextPane();
+		txt1.setEditable(false);
 		txt1.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		txt1.setBackground(Color.LIGHT_GRAY);
 		txt1.setText("Java remains a great choice for anyone looking to get started with structured programming. In the seminar one of the main goals is to learn object-oriented programming, concepts necessary for anyone looking for a career in developing applications regardless of language. ");
@@ -154,6 +155,7 @@ public class Seminar extends JFrame {
 		panel2.add(sem2);
 		
 		JTextPane txt2 = new JTextPane();
+		txt2.setEditable(false);
 		txt2.setBackground(Color.LIGHT_GRAY);
 		txt2.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		txt2.setText("This seminar offers you the opportunity to be the first to discover the secrets of innovative applications for your mobile phone and you may be the next to reach the top of the future.");
@@ -210,6 +212,7 @@ public class Seminar extends JFrame {
 		panel3.add(img3);
 		
 		JTextPane txt3 = new JTextPane();
+		txt3.setEditable(false);
 		txt3.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		txt3.setBackground(Color.LIGHT_GRAY);
 		txt3.setText("CRM is software that automates a business's sales processes. The aim of the seminar is to facilitate the implementation of these systems and to present their usefulness in everyday business.");
@@ -261,6 +264,7 @@ public class Seminar extends JFrame {
 		panel4.add(img4);
 		
 		JTextPane txt4 = new JTextPane();
+		txt4.setEditable(false);
 		txt4.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		txt4.setText("The key features of Python are its code recognition and the ability for developers to write concepts in fewer lines of code than in other languages. One of the most sought after programming languages for both the novice and the advanced programmer.");
 		txt4.setBackground(Color.LIGHT_GRAY);
@@ -311,6 +315,7 @@ public class Seminar extends JFrame {
 		panel5.add(img5);
 		
 		JTextPane txt5 = new JTextPane();
+		txt5.setEditable(false);
 		txt5.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		txt5.setText("The aim of the seminar is to learn: Microsoft Word, Microsoft Excel, Microsoft Power-Point, Microsoft Access, Computer Use and File Management - Windows 10 Environment, Internet Explorer + Microsoft Outlook - Internet Services (Internet Explorer 8, Microsoft Outlook - Windows 10).");
 		txt5.setBackground(Color.LIGHT_GRAY);
@@ -345,10 +350,23 @@ public class Seminar extends JFrame {
 		day5.setBounds(135, 238, 101, 24);
 		panel5.add(day5);
 		
-
+		
+		
+		
+		
+		JButton btnBck = new JButton("Back");
+		btnBck.setForeground(Color.WHITE);
+		btnBck.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 11));
+		btnBck.setBackground(new Color(47, 79, 79));
+		btnBck.setBounds(853, 423, 85, 21);
+		contentPane.add(btnBck);
+		btnBck.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			} });
+     
 		this.setVisible(true);
 		this.setTitle("Seminars");
 		
 	}
-	
 }

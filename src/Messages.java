@@ -1,4 +1,6 @@
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.sql.Connection;
@@ -7,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.swing.DefaultListModel;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -114,6 +117,17 @@ public class Messages extends JFrame{
 			}	
 		});
 		
+        JButton btnBack = new JButton("Back");
+		btnBack.setForeground(Color.WHITE);
+		btnBack.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 11));
+		btnBack.setBackground(new Color(47, 79, 79));
+		btnBack.setBounds(20, 234, 78, 19);
+		contentPane.add(btnBack);
+		
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			} });
 		
 		this.setVisible(true);
 		this.setTitle("Messages");

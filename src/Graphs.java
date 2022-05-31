@@ -1,17 +1,27 @@
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
-import org.jfree.chart.*;
-import org.jfree.chart.plot.*;
-import org.jfree.data.category.*;
+import javax.swing.JPanel;
+
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.data.category.DefaultCategoryDataset;
 
 
 public class Graphs extends JFrame {
 	
+	
+
 	private ArrayList<String> column = new ArrayList<>();
 	private ArrayList<Integer> count = new ArrayList<>();
 	private Connection conn = null;
@@ -56,11 +66,14 @@ public class Graphs extends JFrame {
 		}
 		
 			
+		
 		JFreeChart chart = ChartFactory.createBarChart("Statistics For Companies", "Qualifications", "Popularity", dataset);
 		
 		ChartPanel chartPanel = new ChartPanel(chart);
-			
 		this.setContentPane(chartPanel);
+		
+		
+		
 			
 		this.setVisible(true);
 		this.setSize(1500,900);
