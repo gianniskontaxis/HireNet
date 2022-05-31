@@ -15,14 +15,15 @@ import javax.swing.JPanel;
 import javax.swing.JScrollBar;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JTextPane;
 
 public class cv extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
+	private JTextField firstnametextField;
+	private JTextField lastnametextField_1;
+	private JTextField emailtextField_2;
+	private JTextField agetextField_3;
 	private int i;	
 	private Connection conn = null;
 	private PreparedStatement ps = null;
@@ -35,7 +36,17 @@ public class cv extends JFrame {
 	private ResultSet rs3 = null;
 	private PreparedStatement ps4 = null;
 	private ResultSet rs4 = null;
+	private PreparedStatement ps5 = null;
+	private ResultSet rs5 = null;
+	private PreparedStatement ps6 = null;
+	private ResultSet rs6 = null;
+	private PreparedStatement ps7 = null;
+	private ResultSet rs7 = null;
+	private PreparedStatement ps8 = null;
+	private ResultSet rs8 = null;
 	private String sql="";
+	private JTextField adresstextField_4;
+	private JTextField phonetextField;
 
 
 	/*public static void main(String[] args) {
@@ -62,58 +73,102 @@ public class cv extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("First Name");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel.setBounds(47, 42, 93, 40);
-		contentPane.add(lblNewLabel);
+		JLabel firstnamelblNewLabel = new JLabel("First Name");
+		firstnamelblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		firstnamelblNewLabel.setBounds(47, 42, 93, 40);
+		contentPane.add(firstnamelblNewLabel);
 		
 		JLabel lblLastName = new JLabel("Last Name");
 		lblLastName.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblLastName.setBounds(47, 92, 93, 40);
 		contentPane.add(lblLastName);
 		
-		JLabel lblNewLabel_1_1 = new JLabel("Email");
-		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel_1_1.setBounds(47, 142, 69, 40);
-		contentPane.add(lblNewLabel_1_1);
+		JLabel emaillNewLabel_1_1 = new JLabel("Email");
+		emaillNewLabel_1_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		emaillNewLabel_1_1.setBounds(47, 142, 69, 40);
+		contentPane.add(emaillNewLabel_1_1);
 		
-		JLabel lblNewLabel_1_1_1 = new JLabel("Age");
-		lblNewLabel_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel_1_1_1.setBounds(47, 192, 69, 40);
-		contentPane.add(lblNewLabel_1_1_1);
+		JLabel ageNewLabel = new JLabel("Age");
+		ageNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		ageNewLabel.setBounds(47, 192, 69, 40);
+		contentPane.add(ageNewLabel);
 		
-		textField = new JTextField();
-		textField.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		textField.setBounds(138, 51, 155, 28);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		firstnametextField = new JTextField();
+		firstnametextField.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		firstnametextField.setBounds(138, 51, 155, 28);
+		contentPane.add(firstnametextField);
+		firstnametextField.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		textField_1.setColumns(10);
-		textField_1.setBounds(138, 105, 155, 28);
-		contentPane.add(textField_1);
+		lastnametextField_1 = new JTextField();
+		lastnametextField_1.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lastnametextField_1.setColumns(10);
+		lastnametextField_1.setBounds(138, 105, 155, 28);
+		contentPane.add(lastnametextField_1);
 		
-		textField_2 = new JTextField();
-		textField_2.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		textField_2.setColumns(10);
-		textField_2.setBounds(107, 155, 186, 28);
-		contentPane.add(textField_2);
+		emailtextField_2 = new JTextField();
+		emailtextField_2.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		emailtextField_2.setColumns(10);
+		emailtextField_2.setBounds(107, 155, 186, 28);
+		contentPane.add(emailtextField_2);
 		
-		textField_3 = new JTextField();
-		textField_3.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		textField_3.setColumns(10);
-		textField_3.setBounds(107, 205, 54, 28);
-		contentPane.add(textField_3);			
+		agetextField_3 = new JTextField();
+		agetextField_3.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		agetextField_3.setColumns(10);
+		agetextField_3.setBounds(107, 205, 54, 28);
+		contentPane.add(agetextField_3);			
 		
-		JLabel lblNewLabel_1_1_1_1 = new JLabel("*Jobs");
+		JLabel lblNewLabel_1_1_1_1 = new JLabel("summary");
 		lblNewLabel_1_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		lblNewLabel_1_1_1_1.setBounds(505, 58, 69, 40);
+		lblNewLabel_1_1_1_1.setBounds(375, 55, 210, 40);
 		contentPane.add(lblNewLabel_1_1_1_1);
+		
+		JButton btnNewButton_1 = new JButton("Back");
+		btnNewButton_1.setBounds(209, 559, 85, 21);
+		contentPane.add(btnNewButton_1);
+		
+		adresstextField_4 = new JTextField();
+		adresstextField_4.setBounds(107, 271, 96, 19);
+		contentPane.add(adresstextField_4);
+		adresstextField_4.setColumns(10);
+		
+		JLabel adressNewLabel_1 = new JLabel("Adress");
+		adressNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		adressNewLabel_1.setBounds(47, 258, 69, 40);
+		contentPane.add(adressNewLabel_1);
+		
+		JLabel phoneNewLabel_2 = new JLabel("phone");
+		phoneNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		phoneNewLabel_2.setBounds(47, 327, 69, 40);
+		contentPane.add(phoneNewLabel_2);
+		
+		phonetextField = new JTextField();
+		phonetextField.setColumns(10);
+		phonetextField.setBounds(124, 340, 96, 19);
+		contentPane.add(phonetextField);
+		
+		JTextPane textPanesummary = new JTextPane();
+		textPanesummary.setBounds(364, 105, 278, 230);
+		contentPane.add(textPanesummary);
+		
+		JLabel lblNewLabel_1_1_1_1_1 = new JLabel("Work Experience");
+		lblNewLabel_1_1_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		lblNewLabel_1_1_1_1_1.setBounds(375, 367, 210, 40);
+		contentPane.add(lblNewLabel_1_1_1_1_1);
+		JTextPane textPaneexperience = new JTextPane();
+		textPaneexperience.setBounds(352, 413, 278, 230);
+		contentPane.add(textPaneexperience);
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			      
+				dispose();
+				
+			}
+		});
+		
 		
 		JLabel lblNewLabel_1_1_1_2 = new JLabel("Write your");
 		lblNewLabel_1_1_1_2.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel_1_1_1_2.setBounds(47, 260, 93, 40);
+		lblNewLabel_1_1_1_2.setBounds(36, 442, 93, 40);
 		contentPane.add(lblNewLabel_1_1_1_2);
 		
 		try {
@@ -146,7 +201,7 @@ public class cv extends JFrame {
 
         	ps1 = conn.prepareStatement(sql);
     		rs1 = ps1.executeQuery();		
-    		textField_2.setText(rs1.getString("email"));
+    		emailtextField_2.setText(rs1.getString("email"));
 
 			
 			ps1.execute();
@@ -163,7 +218,7 @@ public class cv extends JFrame {
 
         	ps2 = conn.prepareStatement(sql);
     		rs2 = ps2.executeQuery();		
-    		textField.setText(rs2.getString("firstname"));
+    		firstnametextField.setText(rs2.getString("firstname"));
 
 			
 			ps2.execute();
@@ -181,7 +236,7 @@ public class cv extends JFrame {
 
         	ps3 = conn.prepareStatement(sql);
     		rs3 = ps3.executeQuery();		
-    		textField_1.setText(rs3.getString("lastname"));
+    		lastnametextField_1.setText(rs3.getString("lastname"));
 
 			
 			ps3.execute();
@@ -199,7 +254,7 @@ public class cv extends JFrame {
 
         	ps4 = conn.prepareStatement(sql);
     		rs4 = ps4.executeQuery();		
-    		textField_3.setText(rs4.getString("age"));
+    		agetextField_3.setText(rs4.getString("age"));
 
 			
 			ps4.execute();
@@ -209,6 +264,81 @@ public class cv extends JFrame {
 		catch (Exception e4) {
 			e4.printStackTrace();
 		}
+        
+        //anagnoni adress//
+        sql = "select * from employees where id = '"+i+"'";
+        try {
+    		conn = DBConnection.ConnDB();
+
+        	ps5 = conn.prepareStatement(sql);
+    		rs5 = ps5.executeQuery();		
+    		adresstextField_4.setText(rs5.getString("adress"));
+
+			
+			ps5.execute();
+			conn.close();
+
+		}
+		catch (Exception e5) {
+			e5.printStackTrace();
+		}
+        
+        //anagnoni phone//
+        sql = "select * from employees where id = '"+i+"'";
+        try {
+    		conn = DBConnection.ConnDB();
+
+        	ps6 = conn.prepareStatement(sql);
+    		rs6 = ps6.executeQuery();		
+    		phonetextField.setText(rs6.getString("phone"));
+
+			
+			ps6.execute();
+			conn.close();
+
+		}
+		catch (Exception e6) {
+			e6.printStackTrace();
+		}
+        
+        //anagnoni summary//
+        sql = "select * from employees where id = '"+i+"'";
+        try {
+    		conn = DBConnection.ConnDB();
+
+        	ps7 = conn.prepareStatement(sql);
+    		rs7 = ps7.executeQuery();		
+    		textPanesummary.setText(rs7.getString("summary"));
+
+			
+			ps7.execute();
+			conn.close();
+
+		}
+		catch (Exception e7) {
+			e7.printStackTrace();
+		}
+        
+        
+        //anagnoni experience//
+        sql = "select * from employees where id = '"+i+"'";
+        try {
+    		conn = DBConnection.ConnDB();
+
+        	ps8 = conn.prepareStatement(sql);
+    		rs8 = ps8.executeQuery();		
+    		textPaneexperience.setText(rs8.getString("experience"));
+
+			
+			ps8.execute();
+			conn.close();
+
+		}
+		catch (Exception e8) {
+			e8.printStackTrace();
+		}
+        
+        
 		JButton btnNewButton = new JButton("Qualifications");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -218,39 +348,25 @@ public class cv extends JFrame {
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
 		btnNewButton.setBackground(new Color(47, 79, 79));
 		btnNewButton.setForeground(new Color(255, 255, 255));
-		btnNewButton.setBounds(138, 262, 155, 40);
+		btnNewButton.setBounds(161, 443, 155, 40);
 		contentPane.add(btnNewButton);
-		
-		JList list = new JList();
-		list.setBounds(384, 105, 300, 195);
-		contentPane.add(list);
 		
 		JScrollBar scrollBar = new JScrollBar();
 		scrollBar.setBounds(667, 173, 17, 48);
 		contentPane.add(scrollBar);
 		
-		JList list_2 = new JList();
-		list_2.setBounds(47, 361, 300, 195);
-		contentPane.add(list_2);
-		
-		JButton btnNewButton_1_1 = new JButton("Search");
-		btnNewButton_1_1.setBackground(new Color(47, 79, 79));
-		btnNewButton_1_1.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
-		btnNewButton_1_1.setForeground(new Color(255, 255, 255));
-		btnNewButton_1_1.setBounds(469, 460, 143, 48);
-		contentPane.add(btnNewButton_1_1);
-		
 		JButton save = new JButton("Save");
 		save.setForeground(Color.WHITE);
 		save.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
 		save.setBackground(new Color(47, 79, 79));
-		save.setBounds(469, 386, 143, 48);
+		save.setBounds(18, 544, 143, 48);
 		contentPane.add(save);
 		
 		save.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				  //Εγγραφή χρήστη.
-				sql = "update employees set firstname = '"+textField.getText()+"' , lastname= '"+textField_1.getText()+"' , age = '"+textField_3.getText()+"'  where id = '"+i+"'";
+				  //Εγγραφή χρήστη//
+		        
+				sql = "update employees set firstname = '"+firstnametextField.getText()+"' , lastname= '"+lastnametextField_1.getText()+"' , age = '"+agetextField_3.getText()+"',adress = '"+adresstextField_4.getText()+"', phone = '"+phonetextField.getText()+"',summary = '"+textPanesummary.getText()+"' , experience = '"+textPaneexperience.getText()+"' where id = '"+i+"'";
                 try {
             		conn = DBConnection.ConnDB();
 
@@ -265,29 +381,9 @@ public class cv extends JFrame {
                 
 			
 		}
-		});	
-		
-		JLabel lblNewLabel_1 = new JLabel("*press ctrl for multiple selections");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 11));
-		lblNewLabel_1.setBounds(69, 561, 239, 40);
-		contentPane.add(lblNewLabel_1);
-		
-		JLabel lblNewLabel_2 = new JLabel("or to unmark a selection...");
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 11));
-		lblNewLabel_2.setBounds(103, 581, 218, 40);
-		contentPane.add(lblNewLabel_2);
-		
-		JButton btnNewButton_1 = new JButton("Back");
-		btnNewButton_1.setBounds(599, 591, 85, 21);
-		contentPane.add(btnNewButton_1);
-		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			      
-				dispose();
-				
-			}
 		});
 		
+	
 		
 		
 		
