@@ -89,6 +89,8 @@ public class SendMessages extends JFrame {
 		
 		JTextArea textArea = new JTextArea();
 		textArea.setLineWrap(true);
+		textArea.setEditable(false);
+		textArea.setWrapStyleWord(true);
 		textArea.setBounds(25, 53, 476, 318);
 		   scrollPane.setViewportView(textArea);
 
