@@ -12,6 +12,7 @@ import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.border.EmptyBorder;
@@ -126,10 +127,11 @@ public class SendMessages extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-        sql = "select getdate()";
-				
-				
-					
+				if((NewMessagetextArea.getText()).equals("")) {
+					JOptionPane.showMessageDialog(null, "write a mesage first");	
+				}
+				else {
+												
 				try {
 
 					conn = DBConnection.ConnDB();	
@@ -157,6 +159,7 @@ public class SendMessages extends JFrame {
 	                ps.close();
 	                ps2.execute();
 	                ps2.close();
+	        		rs2.close();
 					conn.close();
 
 		        } catch (SQLException e1) {
@@ -165,6 +168,8 @@ public class SendMessages extends JFrame {
 				
 
 				NewMessagetextArea.setText("");
+				}
+				
 				
 				
 			
