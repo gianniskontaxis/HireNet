@@ -50,7 +50,6 @@ public class SignUp extends JFrame {
 	public SignUp() {
 		setResizable(false);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(SignUp.class.getResource("/Images/logo_icon25x25.png")));
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 500, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
