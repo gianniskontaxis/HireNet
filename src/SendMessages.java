@@ -63,7 +63,6 @@ public class SendMessages extends JFrame {
 		
 		this.i=i;
 		this.username = username;
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 550, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
