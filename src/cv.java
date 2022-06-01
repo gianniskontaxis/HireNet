@@ -149,7 +149,6 @@ public class cv extends JFrame {
 		
 		JTextPane textPanesummary = new JTextPane();
 		textPanesummary.setBounds(364, 105, 278, 230);
-		contentPane.add(textPanesummary);
 		
 		JLabel lblNewLabel_1_1_1_1_1 = new JLabel("Work Experience");
 		lblNewLabel_1_1_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 22));
@@ -157,7 +156,6 @@ public class cv extends JFrame {
 		contentPane.add(lblNewLabel_1_1_1_1_1);
 		JTextPane textPaneexperience = new JTextPane();
 		textPaneexperience.setBounds(352, 413, 278, 230);
-		contentPane.add(textPaneexperience);
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			      
