@@ -236,12 +236,12 @@ public class Articles extends JFrame {
 		more_5.setForeground(new Color(0, 0, 139));
 		more_5.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		more_5.setBounds(834, 744, 115, 13);
-		more_4.addMouseListener(new MouseAdapter() {
+		more_5.addMouseListener(new MouseAdapter() {
 	       	 
             @Override
             public void mouseClicked(MouseEvent e) {
                 try {
-                    Desktop.getDesktop().browse(new URI("https://www-healthaffairs-org.translate.goog/do/10.1377/forefront.20220110.198444?cookieSet=1&_x_tr_sl=en&_x_tr_tl=el&_x_tr_hl=el&_x_tr_pto=op,sc"));
+                    Desktop.getDesktop().browse(new URI("https://www.healthaffairs.org/do/10.1377/forefront.20220110.198444/full/"));
                 } catch (IOException | URISyntaxException e1) {
                     e1.printStackTrace();
                 }
