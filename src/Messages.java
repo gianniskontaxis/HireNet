@@ -16,6 +16,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollBar;
 import java.awt.Color;
 import javax.swing.JScrollPane;
@@ -28,7 +29,10 @@ public class Messages extends JFrame{
 	private Connection conn = null;
 	private PreparedStatement ps = null;
 	private ResultSet rs = null;
+	private PreparedStatement ps1 = null;
+	private ResultSet rs1 = null;
 	private JList list;	
+	private JTextField searchtextField;
 	
 	public Messages(int i) {
 		
@@ -57,6 +61,52 @@ public class Messages extends JFrame{
 	   scrollPane.setBounds(82, 42, 206, 211);
 	   contentPane.add(scrollPane);
 	   scrollPane.setViewportView(list);
+	   
+	   searchtextField = new JTextField();
+	   searchtextField.setBounds(282, 16, 96, 19);
+	   contentPane.add(searchtextField);
+	   searchtextField.setColumns(10);
+		
+	   JButton searchNewButton = new JButton("Q");
+	   searchNewButton.setBounds(376, 15, 39, 21);
+	   contentPane.add(searchNewButton);
+	   searchNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e){
+				int o=0;
+				int k=0;
+				
+				try {
+					String sql = "select username from users ";
+					conn = DBConnection.ConnDB();
+					ps1 = conn.prepareStatement(sql);
+					rs1 = ps1.executeQuery();	
+
+					while (rs1.next()) {
+						if(rs1.getString("username").equals(searchtextField.getText())) {
+							new SendMessages(i,rs1.getString("username"));						
+						}
+						else {
+							o++;
+						}
+						k++;
+					}
+					if (o==k){
+						JOptionPane.showMessageDialog(null, "There is no user with this username");	
+					}
+
+					
+					ps1.execute();	
+					ps1.close();
+					rs1.close();
+
+					conn.close();
+				}
+				catch (SQLException e1) {					
+					e1.printStackTrace();
+				}	
+				
+		    }
+		});
 
 
 		
@@ -116,6 +166,8 @@ public class Messages extends JFrame{
 				
 			}	
 		});
+        
+       
 		
         JButton btnBack = new JButton("Back");
 		btnBack.setForeground(Color.WHITE);
@@ -123,6 +175,10 @@ public class Messages extends JFrame{
 		btnBack.setBackground(new Color(47, 79, 79));
 		btnBack.setBounds(20, 234, 78, 19);
 		contentPane.add(btnBack);
+		
+	
+		
+		
 		
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
