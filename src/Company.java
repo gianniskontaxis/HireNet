@@ -278,6 +278,14 @@ public class Company extends JFrame {
 		btnNotifications.setContentAreaFilled(false);
 		btnNotifications.setBorderPainted(false);
 		contentPane.add(btnNotifications);
+		btnNotifications.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new Qualifications(i);
+			}
+		});
+		
+		
+		
 		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon(Company.class.getResource("/Images/company_profile.png")));
