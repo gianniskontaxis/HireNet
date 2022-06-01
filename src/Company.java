@@ -280,7 +280,7 @@ public class Company extends JFrame {
 		contentPane.add(btnNotifications);
 		btnNotifications.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Qualifications(i);
+				new Notifications(i);
 			}
 		});
 		
