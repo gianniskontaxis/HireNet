@@ -229,6 +229,7 @@ public class Articles extends JFrame {
             }
 		});
 		contentPane.add(more_4);
+
 		
 		
 		JLabel more_5 = new JLabel("continue reading");
@@ -246,7 +247,7 @@ public class Articles extends JFrame {
                 }
             }
 		});
-		contentPane.add(more_4);
+		contentPane.add(more_5);
 		
 		JButton btnBack = new JButton("Back");
 		btnBack.setForeground(Color.WHITE);
