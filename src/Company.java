@@ -1,25 +1,29 @@
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Font;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+
 import javax.swing.DefaultListModel;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JTextArea;
-import java.awt.Toolkit;
-import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
 
 public class Company extends JFrame {
 
@@ -29,6 +33,11 @@ public class Company extends JFrame {
 	private DefaultListModel scoreModel;	
 	private JList usernameList = new JList();
 	private JList scoreList = new JList();
+	private Connection conn = null;
+	private PreparedStatement ps = null;
+	private ResultSet rs = null;
+	private String sql="";
+	private DefaultListModel qualModel;
 	
 	// Create the Frame.
 	
@@ -68,14 +77,58 @@ public class Company extends JFrame {
 			}
 		});
 		
-		JButton btnNewButton = new JButton("");
-		btnNewButton.setIcon(new ImageIcon(Company.class.getResource("/Images/refresh_icon.png")));
-		btnNewButton.setBounds(925, 161, 32, 32);
-		btnNewButton.setOpaque(false);
-		btnNewButton.setContentAreaFilled(false);
-		btnNewButton.setBorderPainted(false);
-		contentPane.add(btnNewButton);
+		JList list = new JList();
+		list.setBackground(new Color(255, 255, 255));
+		list.setBounds(757, 193, 206, 211);
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(757, 193, 206, 211);
+		contentPane.add(scrollPane);
+		scrollPane.setViewportView(list);
+		qualModel = new DefaultListModel();
+		list.setModel(qualModel);
 		
+		JButton ButtonRef = new JButton("");
+		ButtonRef.setIcon(new ImageIcon(Company.class.getResource("/Images/refresh_icon.png")));
+		ButtonRef.setBounds(925, 161, 32, 32);
+		ButtonRef.setOpaque(false);
+		ButtonRef.setContentAreaFilled(false);
+		ButtonRef.setBorderPainted(false);
+		contentPane.add(ButtonRef);
+		ButtonRef.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				// Kαταχωρηση των qual.
+				
+				FileManager rd = new FileManager();
+				ArrayList<String> column = new ArrayList<>();					
+				column = rd.read("quals.txt");
+				//anagnosh epilegmanvnapaithsevn etairias
+				sql = "select * from quals where id = '"+i+"'";
+
+			       try {
+			   		conn = DBConnection.ConnDB();
+
+		        	ps = conn.prepareStatement(sql);
+			  		rs = ps.executeQuery();	
+			  		
+			  		qualModel.clear();
+						
+					for (int j=0; j<64; j++ ) {
+							
+						if (rs.getString(column.get(j)).equals("true")) {						
+									qualModel.addElement(column.get(j));							
+						}										
+					}
+
+							
+					ps.execute();
+					conn.close();
+				}
+				catch (Exception e1) {
+					e1.printStackTrace();
+				}
+				
+			}
+		});
 		JLabel lblNewLabel_12 = new JLabel("");
 		lblNewLabel_12.setIcon(new ImageIcon(Company.class.getResource("/Images/doublearrow_icon.png")));
 		lblNewLabel_12.setBounds(420, 271, 68, 65);
@@ -338,10 +391,7 @@ public class Company extends JFrame {
 		results.setBounds(244, 285, 116, 35);
 		contentPane.add(results);
 		
-		JList list = new JList();
-		list.setBackground(new Color(255, 255, 255));
-		list.setBounds(757, 193, 206, 211);
-		contentPane.add(list);
+		
 		
 		JScrollBar scrollBar = new JScrollBar();
 		scrollBar.setBackground(Color.WHITE);
@@ -521,6 +571,8 @@ public class Company extends JFrame {
 					
 				try {
 					new MatchingInfo(usernameList.getSelectedValue()+"",i);
+					new CvMatching(usernameList.getSelectedValue()+"",i);
+
 				} catch (SQLException e1) {							
 					e1.printStackTrace();
 				}				

@@ -67,7 +67,6 @@ public class cv extends JFrame {
 		
 		this.i=i;
 
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(50, 50, 750, 680);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -137,7 +136,7 @@ public class cv extends JFrame {
 		adressNewLabel_1.setBounds(47, 258, 69, 40);
 		contentPane.add(adressNewLabel_1);
 		
-		JLabel phoneNewLabel_2 = new JLabel("phone");
+		JLabel phoneNewLabel_2 = new JLabel("Phone");
 		phoneNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		phoneNewLabel_2.setBounds(47, 327, 69, 40);
 		contentPane.add(phoneNewLabel_2);
