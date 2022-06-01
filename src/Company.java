@@ -238,6 +238,11 @@ public class Company extends JFrame {
 		Logoutbtn.setBorderPainted(false);
 		Logoutbtn.setBounds(52, 291, 120, 32);
 		contentPane.add(Logoutbtn);
+		Logoutbtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			} });
+		
 		
 		JLabel label_mess_1_1_1 = new JLabel("");
 		label_mess_1_1_1.setIcon(new ImageIcon(Company.class.getResource("/Images/support_icon.png")));
