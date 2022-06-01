@@ -81,17 +81,16 @@ public class SendMessages extends JFrame {
 		btnNewButton.setBounds(416, 448, 85, 56);
 		contentPane.add(btnNewButton);
 		
-		JList list = new JList();
-		list.setBounds(25, 53, 476, 318);
-		
 		Model = new DefaultListModel();
-		list.setModel(Model);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(25, 53, 476, 318);
 		contentPane.add(scrollPane);
 		
-		scrollPane.setViewportView(list);
+		JTextArea textArea = new JTextArea();
+		textArea.setLineWrap(true);
+		textArea.setBounds(25, 53, 476, 318);
+		   scrollPane.setViewportView(textArea);
 
 	    
 	    //fortosh mhnhmatwn apo thn basi//
@@ -106,7 +105,7 @@ public class SendMessages extends JFrame {
 		rs3 = ps3.executeQuery();
 		
 		while (rs3.next()) {
-			Model.addElement(rs3.getString("username")+": "+rs3.getString("text") +" \n" + rs3.getString("dateOfMessage")  );							
+			textArea.append(rs3.getString("username")+": "+rs3.getString("text") +" \n" + rs3.getString("dateOfMessage") + "\n");							
 				
 		}
 		
@@ -147,8 +146,9 @@ public class SendMessages extends JFrame {
 					ps.setString(3, NewMessagetextArea.getText()); 
 					ps.setString(4, currenDateTime.toString());
 					
-					Model.addElement(rs2.getString("username")+": "+NewMessagetextArea.getText() +currenDateTime.toString()  );							
+					textArea.append(rs2.getString("username")+": "+ NewMessagetextArea.getText() +" \n" + currenDateTime.toString() + "\n");							
 
+					
 
 
 		            
