@@ -254,6 +254,7 @@ public class Company extends JFrame {
 		Logoutbtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
+				new Login();
 			} });
 		
 		
