@@ -169,35 +169,35 @@ public class Employee extends JFrame {
 		lblNewLabel_21_1.setHorizontalAlignment(SwingConstants.LEFT);
 		lblNewLabel_21_1.setForeground(Color.WHITE);
 		lblNewLabel_21_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNewLabel_21_1.setBounds(764, 166, 106, 27);
+		lblNewLabel_21_1.setBounds(764, 161, 106, 32);
 		contentPane.add(lblNewLabel_21_1);
 		
 		JLabel lblNewLabel_21 = new JLabel("Company");
 		lblNewLabel_21.setHorizontalAlignment(SwingConstants.LEFT);
 		lblNewLabel_21.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblNewLabel_21.setForeground(Color.WHITE);
-		lblNewLabel_21.setBounds(599, 166, 106, 27);
+		lblNewLabel_21.setBounds(599, 161, 106, 32);
 		contentPane.add(lblNewLabel_21);
 		
 		JLabel lblNewLabel_20 = new JLabel("Match");
 		lblNewLabel_20.setHorizontalAlignment(SwingConstants.LEFT);
 		lblNewLabel_20.setForeground(Color.WHITE);
 		lblNewLabel_20.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNewLabel_20.setBounds(537, 166, 58, 27);
+		lblNewLabel_20.setBounds(537, 161, 58, 32);
 		contentPane.add(lblNewLabel_20);
 		
 		JLabel lblNewLabel_19_1 = new JLabel("");
 		lblNewLabel_19_1.setIcon(new ImageIcon(Employee.class.getResource("/Images/black.png")));
 		lblNewLabel_19_1.setForeground(Color.WHITE);
 		lblNewLabel_19_1.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lblNewLabel_19_1.setBounds(757, 166, 206, 27);
+		lblNewLabel_19_1.setBounds(757, 161, 206, 32);
 		contentPane.add(lblNewLabel_19_1);
 		
 		JLabel lblNewLabel_19 = new JLabel("");
 		lblNewLabel_19.setIcon(new ImageIcon(Employee.class.getResource("/Images/background6.png")));
 		lblNewLabel_19.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblNewLabel_19.setForeground(Color.WHITE);
-		lblNewLabel_19.setBounds(530, 166, 206, 27);
+		lblNewLabel_19.setBounds(530, 161, 206, 32);
 		contentPane.add(lblNewLabel_19);
 		
 		JLabel lblNewLabel_18_1 = new JLabel("");
