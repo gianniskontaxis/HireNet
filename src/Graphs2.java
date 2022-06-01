@@ -74,7 +74,7 @@ public class Graphs2 extends JFrame {
 			
 		this.setVisible(true);
 		this.setSize(1500,900);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
 			
 	}
 		
