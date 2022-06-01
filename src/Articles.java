@@ -71,6 +71,7 @@ public class Articles extends JFrame {
 		contentPane.add(lblThatWillLeave);
 		
 		JTextPane txtpnLinuxTheMost = new JTextPane();
+		txtpnLinuxTheMost.setEditable(false);
 		txtpnLinuxTheMost.setText("Linux, the most widely used open source operating system in the world, has scored a major publicity coup in the revelation that it is used on 94% of the world\u2019s top 500 supercomputers.");
 		txtpnLinuxTheMost.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		txtpnLinuxTheMost.setBackground(Color.LIGHT_GRAY);
@@ -78,6 +79,7 @@ public class Articles extends JFrame {
 		contentPane.add(txtpnLinuxTheMost);
 		
 		JTextPane txtpnAsTheShift = new JTextPane();
+		txtpnAsTheShift.setEditable(false);
 		txtpnAsTheShift.setText("As the shift to hybrid work becomes a reality, it is clear that the workplace today is different than it was two years ago. Employees\u2019 expectations continue to evolve as they reconsider their \u201Cworth it\u201D equation. In our 2022 Work Trend Index, 53 percent of employees say they\u2019re more likely to prioritize their health and wellbeing over work than before. At the same time, 43 percent of employees are somewhat or extremely likely to consider changing jobs in the coming year, with younger employees even more likely to consider changing employers.  ");
 		txtpnAsTheShift.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		txtpnAsTheShift.setBackground(Color.LIGHT_GRAY);
@@ -90,6 +92,7 @@ public class Articles extends JFrame {
 		contentPane.add(lblJavasMissingFeatures);
 		
 		JTextPane txtpnAlmostFiveYears = new JTextPane();
+		txtpnAlmostFiveYears.setEditable(false);
 		txtpnAlmostFiveYears.setText("Almost five years ago, I wrote an article outlining some feature ideas from other languages that I felt could be of benefit to Java. A lot has happened since then \u2014 at that time, Java 8 was the newly minted release, whereas the most recent version is now Java 14.");
 		txtpnAlmostFiveYears.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		txtpnAlmostFiveYears.setBackground(Color.LIGHT_GRAY);
@@ -102,6 +105,7 @@ public class Articles extends JFrame {
 		contentPane.add(lblBestProgrammingLanguages);
 		
 		JTextPane txtpnOnceUponA = new JTextPane();
+		txtpnOnceUponA.setEditable(false);
 		txtpnOnceUponA.setText("Once upon a time, the world of computer programming was a mysterious and exclusive place. Only a select handful of people were considered computer programmers with cutting-edge coding skills. Today, many IT jobs require a solid grasp of the top programming languages, and yes, we mean more than one. ");
 		txtpnOnceUponA.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		txtpnOnceUponA.setBackground(Color.LIGHT_GRAY);
@@ -109,6 +113,7 @@ public class Articles extends JFrame {
 		contentPane.add(txtpnOnceUponA);
 		
 		JTextPane txtpnLinuxTheMost_1_1 = new JTextPane();
+		txtpnLinuxTheMost_1_1.setEditable(false);
 		txtpnLinuxTheMost_1_1.setText("Afraid of coding and a thought arises in your mind that you won\u2019t get a high-paying job, then you\u2019re wrong. Calm Down Geeks, it\u2019s completely okay if you\u2019re not good at coding and still searching for a technical job. Even students at college are tired of hearing about jobs for software developers, again and again, many have least or no interest in coding. The future seems to be confusing for them. There are a lot of people who wander in search of high-paying jobs other than software developers and there\u2019s also high demand for it. ");
 		txtpnLinuxTheMost_1_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		txtpnLinuxTheMost_1_1.setBackground(Color.LIGHT_GRAY);
@@ -116,6 +121,7 @@ public class Articles extends JFrame {
 		contentPane.add(txtpnLinuxTheMost_1_1);
 		
 		JTextPane txtpnLinuxTheMost_1_2 = new JTextPane();
+		txtpnLinuxTheMost_1_2.setEditable(false);
 		txtpnLinuxTheMost_1_2.setText("Since its inception in 1965, Medicare has been leading the way in providing affordable, quality coverage and care, playing a key role in the health and financial security of more than 63 million Americans. As the largest single purchaser of health care\u2014with one in every five health care dollars paid by the program\u2014Medicare serves as a transformative force in the United States. It plays a central role in the Biden Administration\u2019s vision for the Centers for Medicare & Medicaid Services (CMS): to serve the public as a trusted partner and steward, dedicated to advancing health equity, expanding access to affordable coverage and care, and improving health outcomes. ");
 		txtpnLinuxTheMost_1_2.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		txtpnLinuxTheMost_1_2.setBackground(Color.LIGHT_GRAY);
