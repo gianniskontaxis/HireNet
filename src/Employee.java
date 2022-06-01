@@ -26,6 +26,7 @@ import javax.swing.border.EmptyBorder;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
+import javax.swing.border.LineBorder;
 
 public class Employee extends JFrame {
 	
@@ -415,6 +416,7 @@ public class Employee extends JFrame {
 		contentPane.add(Aboutusbtn);
 		
 		list = new JList();
+		list.setBorder(null);
 		list.setForeground(new Color(0, 0, 0));
 		list.setBounds(757, 193, 206, 211);
 		contentPane.add(list);
@@ -458,6 +460,7 @@ public class Employee extends JFrame {
 		contentPane.add(CVbtn);
 		
 		JList usernameList = new JList();
+		usernameList.setBorder(null);
 		usernameList.setForeground(new Color(0, 102, 102));
 		usernameList.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 		usernameList.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -468,6 +471,7 @@ public class Employee extends JFrame {
 		usernameList.setModel(usernameModel);
 		
 		JList scoreList = new JList();
+		scoreList.setBorder(null);
 		scoreList.setForeground(new Color(0, 102, 102));
 		scoreList.setSelectionBackground(Color.WHITE);
 		scoreList.setBounds(530, 193, 68, 211);
