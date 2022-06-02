@@ -21,6 +21,9 @@ import java.net.URISyntaxException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import java.awt.Toolkit;
+import javax.swing.SwingConstants;
+import javax.swing.JSeparator;
 
 public class AboutUs  extends JFrame {
 
@@ -45,30 +48,54 @@ public class AboutUs  extends JFrame {
 		 * Create the frame.
 		 */
 		public AboutUs() {
-			setBounds(100, 100, 514, 700);
+			setIconImage(Toolkit.getDefaultToolkit().getImage(AboutUs.class.getResource("/Images/logo_icon25x25.png")));
+			setBounds(100, 100, 1000, 660);
 			contentPane = new JPanel();
 			contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 			setContentPane(contentPane);
 			contentPane.setLayout(null);
 			
-			JLabel lblNewLabel = new JLabel("Our Social media");
+			JLabel lblNewLabel_5_1_1 = new JLabel("Development\u2122");
+			lblNewLabel_5_1_1.setForeground(Color.WHITE);
+			lblNewLabel_5_1_1.setFont(new Font("Tahoma", Font.ITALIC, 16));
+			lblNewLabel_5_1_1.setBounds(36, 133, 121, 26);
+			contentPane.add(lblNewLabel_5_1_1);
+			
+			JLabel lblNewLabel_5_1 = new JLabel("Horizons");
+			lblNewLabel_5_1.setForeground(Color.WHITE);
+			lblNewLabel_5_1.setFont(new Font("Tahoma", Font.ITALIC, 16));
+			lblNewLabel_5_1.setBounds(36, 106, 97, 26);
+			contentPane.add(lblNewLabel_5_1);
+			
+			JLabel lblNewLabel_5 = new JLabel("New");
+			lblNewLabel_5.setForeground(Color.WHITE);
+			lblNewLabel_5.setFont(new Font("Tahoma", Font.ITALIC, 16));
+			lblNewLabel_5.setBounds(36, 78, 97, 26);
+			contentPane.add(lblNewLabel_5);
+			
+			JLabel lblNewLabel_4_1 = new JLabel("LinkedIn");
+			lblNewLabel_4_1.setBounds(75, 441, 70, 27);
+			contentPane.add(lblNewLabel_4_1);
+			
+			JLabel lblNewLabel_4 = new JLabel("Facebook");
+			lblNewLabel_4.setBounds(75, 404, 70, 27);
+			contentPane.add(lblNewLabel_4);
+			
+			JSeparator separator = new JSeparator();
+			separator.setForeground(Color.BLACK);
+			separator.setBounds(34, 386, 150, 8);
+			contentPane.add(separator);
+			
+			JLabel lblNewLabel = new JLabel("Contact Us");
+			lblNewLabel.setHorizontalAlignment(SwingConstants.LEFT);
 			lblNewLabel.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 16));
-			lblNewLabel.setBounds(42, 570, 157, 55);
+			lblNewLabel.setBounds(42, 350, 142, 36);
 			contentPane.add(lblNewLabel);
 			
 			JButton btnNewButton = new JButton("");
-			btnNewButton.setBounds(248, 587, 23, 27);
+			btnNewButton.setBounds(42, 404, 23, 27);
 			contentPane.add(btnNewButton);
-			
-			Image img = new ImageIcon(this.getClass().getResource("Images/facebook.png")).getImage();
-			btnNewButton.setIcon(new ImageIcon(img));
-			
-			JButton btnNewButton_2 = new JButton("");
-			btnNewButton_2.setBounds(309, 589, 23, 27);
-			contentPane.add(btnNewButton_2);
-			
-			Image img2 = new ImageIcon(this.getClass().getResource("Images/Linkedin.png")).getImage();
-			btnNewButton_2.setIcon(new ImageIcon(img2));
+			/*btnNewButton.setIcon(new ImageIcon(img));*/
 			
 			btnNewButton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e){
@@ -84,6 +111,11 @@ public class AboutUs  extends JFrame {
 				}
 				}
 			});
+			
+			JButton btnNewButton_2 = new JButton("");
+			btnNewButton_2.setBounds(42, 441, 23, 27);
+			contentPane.add(btnNewButton_2);
+			/*btnNewButton_2.setIcon(new ImageIcon(img2));*/
 			btnNewButton_2.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e){
 				Desktop desktop = java.awt.Desktop.getDesktop();
@@ -99,11 +131,25 @@ public class AboutUs  extends JFrame {
 				}
 			});
 			
+			JLabel lblNewLabel_3 = new JLabel("");
+			lblNewLabel_3.setIcon(new ImageIcon(AboutUs.class.getResource("/Images/firstback2.png")));
+			lblNewLabel_3.setBounds(34, 350, 150, 230);
+			contentPane.add(lblNewLabel_3);
+			
+			JLabel lblNewLabel_2 = new JLabel("");
+			lblNewLabel_2.setIcon(new ImageIcon(AboutUs.class.getResource("/Images/firstbackground.png")));
+			lblNewLabel_2.setBounds(21, 65, 174, 528);
+			contentPane.add(lblNewLabel_2);
+			
+			Image img = new ImageIcon(this.getClass().getResource("Images/facebook.png")).getImage();
+			
+			Image img2 = new ImageIcon(this.getClass().getResource("Images/Linkedin.png")).getImage();
+			
 			
 			
 			JLabel stavros = new JLabel("Dimitriadis Stavros");
 			stavros.setFont(new Font("Tahoma", Font.ITALIC, 13));
-			stavros.setBounds(239, 168, 174, 20);
+			stavros.setBounds(679, 175, 174, 20);
 			stavros.addMouseListener(new MouseAdapter() {
 		       	 
 	            @Override
@@ -118,24 +164,9 @@ public class AboutUs  extends JFrame {
 			contentPane.add(stavros);
 			stavros.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 			
-			JLabel lblNewLabel_1 = new JLabel("\u0397 \u03BF\u03BC\u03AC\u03B4\u03B1 \u03C4\u03B7\u03C2 NHD \u03B1\u03C0\u03BF\u03C4\u03B5\u03BB\u03B5\u03AF\u03C4\u03B1\u03B9 \u03B1\u03C0\u03CC 11 \u03BC\u03AD\u03BB\u03B7 ");
-			lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
-			lblNewLabel_1.setBounds(10, 23, 295, 46);
-			contentPane.add(lblNewLabel_1);
-			
-			JLabel lblNewLabel_2 = new JLabel("\u03C4\u03B1 \u03BF\u03C0\u03BF\u03AF\u03B1 \u03B4\u03B9\u03B1\u03BA\u03C1\u03AF\u03BD\u03BF\u03BD\u03C4\u03B1\u03B9 \u03C3\u03B5:");
-			lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
-			lblNewLabel_2.setBounds(58, 63, 170, 27);
-			contentPane.add(lblNewLabel_2);
-			
-			JLabel lblNewLabel_3 = new JLabel("5 \u03C0\u03C1\u03BF\u03B3\u03C1\u03B1\u03BC\u03BC\u03B1\u03C4\u03B9\u03C3\u03C4\u03B5\u03C2:");
-			lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 13));
-			lblNewLabel_3.setBounds(40, 159, 170, 39);
-			contentPane.add(lblNewLabel_3);
-			
 			JLabel Kontaksis = new JLabel("Kontaksis Ioannis");
 			Kontaksis.setFont(new Font("Tahoma", Font.ITALIC, 13));
-			Kontaksis.setBounds(239, 216, 174, 20);
+			Kontaksis.setBounds(679, 246, 174, 20);
 			Kontaksis.addMouseListener(new MouseAdapter() {
 		       	 
 	            @Override
@@ -153,7 +184,7 @@ public class AboutUs  extends JFrame {
 			
 			JLabel Chrysanthi = new JLabel("Trentsiou Chrysanthi");
 			Chrysanthi.setFont(new Font("Tahoma", Font.ITALIC, 13));
-			Chrysanthi.setBounds(239, 246, 174, 20);
+			Chrysanthi.setBounds(679, 276, 174, 20);
 			Chrysanthi.addMouseListener(new MouseAdapter() {
 		       	 
 	            @Override
@@ -171,7 +202,7 @@ public class AboutUs  extends JFrame {
 			
 			JLabel elisavet = new JLabel("Kanidou Elisavet-Persefoni");
 			elisavet.setFont(new Font("Tahoma", Font.ITALIC, 13));
-			elisavet.setBounds(239, 194, 174, 20);
+			elisavet.setBounds(679, 205, 174, 20);
 			elisavet.addMouseListener(new MouseAdapter() {
 		       	 
 	            @Override
@@ -189,7 +220,7 @@ public class AboutUs  extends JFrame {
 			
 			JLabel Champos = new JLabel("Semelidis Charalampos");
 			Champos.setFont(new Font("Tahoma", Font.ITALIC, 13));
-			Champos.setBounds(239, 276, 174, 20);
+			Champos.setBounds(679, 306, 174, 20);
 			Champos.addMouseListener(new MouseAdapter() {
 		       	 
 	            @Override
@@ -203,16 +234,10 @@ public class AboutUs  extends JFrame {
 			});
 			contentPane.add(Champos);
 			Champos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-
-			
-			JLabel lblNewLabel_3_1 = new JLabel("1 Project Manager");
-			lblNewLabel_3_1.setFont(new Font("Tahoma", Font.BOLD, 13));
-			lblNewLabel_3_1.setBounds(40, 110, 170, 39);
-			contentPane.add(lblNewLabel_3_1);
 			
 			JLabel matina = new JLabel("Karapostoli Stamatia");
 			matina.setFont(new Font("Tahoma", Font.ITALIC, 13));
-			matina.setBounds(239, 124, 174, 20);
+			matina.setBounds(679, 128, 174, 20);
 			matina.addMouseListener(new MouseAdapter() {
 		       	 
 	            @Override
@@ -226,21 +251,10 @@ public class AboutUs  extends JFrame {
 			});
 			contentPane.add(matina);
 			matina.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-
-			
-			JLabel lblNewLabel_3_2 = new JLabel("2 testers");
-			lblNewLabel_3_2.setFont(new Font("Tahoma", Font.BOLD, 13));
-			lblNewLabel_3_2.setBounds(37, 329, 170, 39);
-			contentPane.add(lblNewLabel_3_2);
-			
-			JLabel lblNewLabel_3_3 = new JLabel("3 \u03C3\u03C5\u03B3\u03B3\u03C1\u03B1\u03C6\u03B5\u03AF\u03C2 \u03C0\u03B1\u03C1\u03B1\u03B4\u03BF\u03C4\u03AD\u03BF\u03C5 ");
-			lblNewLabel_3_3.setFont(new Font("Tahoma", Font.BOLD, 13));
-			lblNewLabel_3_3.setBounds(33, 463, 203, 39);
-			contentPane.add(lblNewLabel_3_3);
 			
 			JLabel marina = new JLabel("Gialagkolodou Marina-Makrina");
 			marina.setFont(new Font("Tahoma", Font.ITALIC, 13));
-			marina.setBounds(232, 324, 195, 20);
+			marina.setBounds(679, 336, 195, 20);
 			marina.addMouseListener(new MouseAdapter() {
 		       	 
 	            @Override
@@ -258,7 +272,7 @@ public class AboutUs  extends JFrame {
 			
 			JLabel nikos = new JLabel("Sakellaris Nikolaos");
 			nikos.setFont(new Font("Tahoma", Font.ITALIC, 13));
-			nikos.setBounds(231, 354, 174, 20);
+			nikos.setBounds(679, 376, 174, 20);
 			nikos.addMouseListener(new MouseAdapter() {
 		       	 
 	            @Override
@@ -276,7 +290,7 @@ public class AboutUs  extends JFrame {
 			
 			JLabel vene = new JLabel("Venetidis Ioannis");
 			vene.setFont(new Font("Tahoma", Font.ITALIC, 13));
-			vene.setBounds(244, 442, 174, 20);
+			vene.setBounds(679, 431, 174, 20);
 			vene.addMouseListener(new MouseAdapter() {
 		       	 
 	            @Override
@@ -294,7 +308,7 @@ public class AboutUs  extends JFrame {
 			
 			JLabel georgia = new JLabel("Kotzampasi Georgia");
 			georgia.setFont(new Font("Tahoma", Font.ITALIC, 13));
-			georgia.setBounds(243, 477, 174, 20);
+			georgia.setBounds(679, 477, 174, 20);
 			georgia.addMouseListener(new MouseAdapter() {
 		       	 
 	            @Override
@@ -312,7 +326,7 @@ public class AboutUs  extends JFrame {
 			
 			JLabel dimitris = new JLabel("Ampatzis Dimitris");
 			dimitris.setFont(new Font("Tahoma", Font.ITALIC, 13));
-			dimitris.setBounds(244, 512, 174, 20);
+			dimitris.setBounds(679, 526, 174, 20);
 			dimitris.addMouseListener(new MouseAdapter() {
 		       	 
 	            @Override
@@ -327,9 +341,18 @@ public class AboutUs  extends JFrame {
 			contentPane.add(dimitris);
 			dimitris.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 			
-			JButton btnNewButton_1 = new JButton("Back");
-			btnNewButton_1.setBounds(405, 632, 85, 21);
+			JButton btnNewButton_1 = new JButton("");
+			btnNewButton_1.setIcon(new ImageIcon(AboutUs.class.getResource("/Images/backblack.png")));
+			btnNewButton_1.setBounds(10, 12, 32, 32);
+			btnNewButton_1.setOpaque(false);
+			btnNewButton_1.setContentAreaFilled(false);
+			btnNewButton_1.setBorderPainted(false);
 			contentPane.add(btnNewButton_1);
+			
+			JLabel lblNewLabel_1 = new JLabel("");
+			lblNewLabel_1.setIcon(new ImageIcon(AboutUs.class.getResource("/Images/aboutusbackgrnd.png")));
+			lblNewLabel_1.setBounds(0, 0, 986, 623);
+			contentPane.add(lblNewLabel_1);
 			btnNewButton_1.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 				      
