@@ -33,6 +33,7 @@ public class Recovery extends JFrame {
 	private ResultSet rs = null;
 	private String favnum = "";
 	private int k=0;
+	private int t=0;
 	/*
 	 * Launch the application.
 	 
@@ -153,9 +154,12 @@ public class Recovery extends JFrame {
 					code="select password from users where username ='"+user.getText()+"'";		
 					ps = conn.prepareStatement(code);
 					rs = ps.executeQuery();
+					if (!rs.isClosed()) {	
+					t++;
 					code=rs.getString("password");
 					aes Data=new aes();
 					code=Data.decrypt(code, secretKey);	
+					}
 					ps.close();
 					rs.close();
 					conn.close();
@@ -163,7 +167,8 @@ public class Recovery extends JFrame {
 				catch (Exception e2) {
 					e2.printStackTrace();
 				}	
-				JOptionPane.showMessageDialog(null,"Your password is "+code);
+				if (t>0)
+					JOptionPane.showMessageDialog(null,"Your password is "+code);
 			}
 				else	{	
 					if (k==0) 

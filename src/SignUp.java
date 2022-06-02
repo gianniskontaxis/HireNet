@@ -172,12 +172,12 @@ public class SignUp extends JFrame {
 								dispose();	   
 							}
 						    if(String.valueOf(code.getPassword()).equals(String.valueOf(password.getPassword()))) {
-						    	if(String.valueOf(code.getPassword()).length()<=15) {
+						    	if(String.valueOf(code.getPassword()).length()>7) {
 									 ps.setString(3, data.encrypt(String.valueOf(code.getPassword()), secretKey));
 									 k++;
 								 }
 								 else {
-									 JOptionPane.showMessageDialog(null, "Invalid password");
+									 JOptionPane.showMessageDialog(null, "Password must be at least 8 characters");
 									 dispose();
 					                }
 						    }
