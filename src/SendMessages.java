@@ -128,7 +128,7 @@ public class SendMessages extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				if((NewMessagetextArea.getText()).equals("")) {
-					JOptionPane.showMessageDialog(null, "write a mesage first");	
+					JOptionPane.showMessageDialog(null, "write a message first");	
 				}
 				else {
 												

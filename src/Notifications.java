@@ -113,12 +113,15 @@ public class Notifications extends JFrame {
 					conn = DBConnection.ConnDB();
 					ps = conn.prepareStatement("select * from Seminars where id="+i+"");
 					rs = ps.executeQuery();
-										
+						
+					if (!rs.isClosed()) {
+					
 					for(int j=1; j<6; j++) {
 						 if(rs.getString("Seminar" + j).equals("true")){
 							 model.addElement("You 've booked our Seminar" + j);
 						 }
-					} 
+					}
+					}
 					ps.close();
 					rs.close();
 		        } 

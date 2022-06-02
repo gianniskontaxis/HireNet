@@ -27,10 +27,12 @@ public class Recovery extends JFrame {
 	private String code;
 	private final String secretKey = "aes4";
 	private JPanel contentPane;
-	private JTextField textField;
+	private JTextField favNum;
 	private Connection conn = null;
 	private PreparedStatement ps = null;
 	private ResultSet rs = null;
+	private String favnum = "";
+	private int k=0;
 	/*
 	 * Launch the application.
 	 
@@ -91,10 +93,10 @@ public class Recovery extends JFrame {
 		
 		this.setVisible(true);
 		
-		textField = new JTextField();
-		textField.setBounds(237, 148, 100, 25);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		favNum = new JTextField();
+		favNum.setBounds(237, 148, 100, 25);
+		contentPane.add(favNum);
+		favNum.setColumns(10);
 		
 		JButton btnNewButton = new JButton("Confirm");
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));
@@ -122,31 +124,52 @@ public class Recovery extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				code="select password from users where username ='"+user.getText()+"'";
-				
-				try
-				{
-			
+				try {
 					conn = DBConnection.ConnDB();
+					code = "select number from users where username ='"+user.getText()+"'";
 					ps = conn.prepareStatement(code);
 					rs = ps.executeQuery();
-					code=rs.getString("password");
-					aes Data=new aes();
-					code=Data.decrypt(code, secretKey);
+					if (rs.isClosed()) {
+						JOptionPane.showMessageDialog(null,"Something went wrong");
+						k++;
+					}
+					else {						
+						favnum = rs.getString("number");
+					}
+					
+					ps.close();
+					rs.close();
 					conn.close();
 				}
 				catch (Exception e1) {
 					e1.printStackTrace();
-				}
+				}	
 				
-				
-				
-				
-				
+				if (favnum.equals(favNum.getText())) {
+						
+				try
+				{			
+					conn = DBConnection.ConnDB();
+					code="select password from users where username ='"+user.getText()+"'";		
+					ps = conn.prepareStatement(code);
+					rs = ps.executeQuery();
+					code=rs.getString("password");
+					aes Data=new aes();
+					code=Data.decrypt(code, secretKey);	
+					ps.close();
+					rs.close();
+					conn.close();
+				}				
+				catch (Exception e2) {
+					e2.printStackTrace();
+				}	
 				JOptionPane.showMessageDialog(null,"Your password is "+code);
+			}
+				else	{	
+					if (k==0) 
+					    JOptionPane.showMessageDialog(null,"Something went wrong");	
+				}
 				dispose();
 			} });
-		
-
-	}
+		}
 }
