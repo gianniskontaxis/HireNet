@@ -114,8 +114,11 @@ public class CvMatching extends JFrame {
 		textArea.setEditable(false);
 		textArea.setBounds(290, 114, 238, 181);
 		contentPane.add(textArea);
-		  //anagnoni summary//
-		sql = "select * from users join employees where username = '"+username+"'";
+		
+		
+		
+		  //anagnosh summary// 
+		sql = "select * from users join employees where users.id = employees.id and username = '"+username+"'";
         try {
     		conn = DBConnection.ConnDB();
 
@@ -138,8 +141,11 @@ public class CvMatching extends JFrame {
 		textArea_exp.setEditable(false);
 		textArea_exp.setBounds(290, 393, 238, 181);
 		contentPane.add(textArea_exp);
-		   //anagnoni experience//
-		sql = "select * from users join employees where username = '"+username+"'";
+		
+		
+		
+		   //anagnosh experience//
+		sql = "select * from users join employees where users.id = employees.id and username = '"+username+"'";
         try {
     		conn = DBConnection.ConnDB();
 
@@ -162,9 +168,10 @@ public class CvMatching extends JFrame {
 		textArea_firstname.setEditable(false);
 		textArea_firstname.setBounds(143, 79, 116, 25);
 		contentPane.add(textArea_firstname);
+		
 		//anagnosh firstname
 
-				sql = "select * from users join employees where username = '"+username+"'";
+				sql = "select * from users join employees where users.id = employees.id and username = '"+username+"'";
 		        try {
 		    		conn = DBConnection.ConnDB();
 
@@ -191,7 +198,7 @@ public class CvMatching extends JFrame {
 		contentPane.add(textArea_lastname);
 		//anagnosh lastname
 
-		sql = "select * from users join employees where username = '"+username+"'";
+		sql = "select * from users join employees where users.id = employees.id and username = '"+username+"'";
 		        try {
 		    		conn = DBConnection.ConnDB();
 
@@ -240,7 +247,7 @@ public class CvMatching extends JFrame {
 		contentPane.add(textArea_age);
 		//anagnosh age
 
-		sql = "select * from users join employees where username = '"+username+"'";
+		sql = "select * from users join employees where users.id = employees.id and username = '"+username+"'";
         try {
     		conn = DBConnection.ConnDB();
 
@@ -264,7 +271,7 @@ public class CvMatching extends JFrame {
 		textArea_country.setBounds(143, 279, 116, 25);
 		contentPane.add(textArea_country);
 		  //anagnoni country//
-		sql = "select * from users join employees where username = '"+username+"'";
+		sql = "select * from users join employees where users.id = employees.id and username = '"+username+"'";
         try {
     		conn = DBConnection.ConnDB();
 
@@ -288,7 +295,7 @@ public class CvMatching extends JFrame {
 		textArea_phone.setBounds(143, 322, 116, 25);
 		contentPane.add(textArea_phone);
 		 //anagnoni phone//
-		sql = "select * from users join employees where username = '"+username+"'";
+		sql = "select * from users join employees where users.id = employees.id and username = '"+username+"'";
         try {
     		conn = DBConnection.ConnDB();
 
