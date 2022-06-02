@@ -97,6 +97,7 @@ public class Profile extends JFrame {
 		contentPane.add(lblNewLabel_3);
 		
 		textField = new JTextField();	
+		textField.setEditable(false);
 		
 		textField.setBounds(232, 103, 359, 32);
 		contentPane.add(textField);
@@ -202,6 +203,23 @@ public class Profile extends JFrame {
 			catch (Exception ee) {
 				ee.printStackTrace();
 			}
+	        
+	        sql = "select * from users where id = '"+i+"'";
+	        try {
+	    		conn = DBConnection.ConnDB();
+
+	        	ps = conn.prepareStatement(sql);
+	    		rs = ps.executeQuery();		
+	    		textField_2.setText(rs.getString("number"));
+
+				
+				ps.execute();
+      			conn.close();
+
+			}
+			catch (Exception ee) {
+				ee.printStackTrace();
+			}
 			
 		contentPane.add(textField_1);
 		
@@ -271,7 +289,7 @@ public class Profile extends JFrame {
 		contentPane.add(lblNewLabel_2);
 		btnSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				sql = "update users set username = '"+textField.getText()+"' , email= '"+textField_1.getText()+"' , phone = '"+textFieldcomm.getText()+"'   where id = '"+i+"'";
+				sql = "update users set username = '"+textField.getText()+"' , email= '"+textField_1.getText()+"' , phone = '"+textFieldcomm.getText()+"' , number = '"+textField_2.getText()+"'  where id = '"+i+"'";
                 try {
             		conn = DBConnection.ConnDB();
 

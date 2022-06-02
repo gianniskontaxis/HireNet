@@ -106,6 +106,7 @@ public class cv extends JFrame {
 		contentPane.add(lastnametextField_1);
 		
 		emailtextField_2 = new JTextField();
+		emailtextField_2.setEditable(false);
 		emailtextField_2.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		emailtextField_2.setColumns(10);
 		emailtextField_2.setBounds(107, 155, 186, 28);
@@ -142,6 +143,7 @@ public class cv extends JFrame {
 		contentPane.add(phoneNewLabel_2);
 		
 		phonetextField = new JTextField();
+		phonetextField.setEditable(false);
 		phonetextField.setColumns(10);
 		phonetextField.setBounds(124, 340, 96, 19);
 		contentPane.add(phonetextField);

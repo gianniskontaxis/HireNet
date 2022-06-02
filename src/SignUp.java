@@ -141,7 +141,9 @@ public class SignUp extends JFrame {
 					ps = conn.prepareStatement(sql);
 					rs = ps.executeQuery();
 					
-					if (rs.isClosed() && terms.isSelected()) {
+					if (terms.isSelected()) {
+					
+					if (rs.isClosed()) {
 						
 						//Εγγραφή χρήστη.
 						sql = "INSERT INTO users(username,email,password,role,phone,number) VALUES(?,?,?,?,?,?)";
@@ -188,10 +190,11 @@ public class SignUp extends JFrame {
 							 
 							
 							ps.setString(4, "empty role");	
-							if(textField.getText().length()>=10 && textField.getText().length()<=12)
+							
+							if(textField.getText().length()>=10)
 							{
-							ps.setString(5, textField.getText());
-							k++;
+								ps.setString(5, textField.getText());
+								k++;
 							}
 							else
 							{
@@ -199,28 +202,35 @@ public class SignUp extends JFrame {
 								dispose();
 								
 							}
-							ps.setString(6, textField_1.getText());
-							k++;
 							
+							if (textField_1.getText().length()>7) {
+								ps.setString(6, textField_1.getText());
+								k++;
+							}
+							else 
+								JOptionPane.showMessageDialog(null, "Favorite number must be at least 8 numbers");
 							if(k==5) {
 								ps.execute();
 							}
 							else {
-								JOptionPane.showMessageDialog(null, "Complete Correctly th information");
+								JOptionPane.showMessageDialog(null, "Complete correctly the Information");
 								dispose();
 								new SignUp();
 							}
+							
 							
 						}
 						catch (Exception e1) {
 							e1.printStackTrace();
 						}
 					}
-					else {
+					else {						
 						//Μήνυμα σφάλματος επειδή τα στοιχεία υπάρχουν ήδη ή δεν έγινε η αποδοχή των όρων χρήσης.
-						JOptionPane.showMessageDialog(null, "Data already exist");    
-
+						JOptionPane.showMessageDialog(null, "Data already exist"); 
 					}
+				}
+					else
+						JOptionPane.showMessageDialog(null, "Please accept Terms of use");
 					
 				} catch (SQLException e1) {					
 					e1.printStackTrace();
