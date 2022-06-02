@@ -90,10 +90,10 @@ public class CvMatching extends JFrame {
 		ageNewLabel.setBounds(40, 214, 69, 40);
 		contentPane.add(ageNewLabel);
 		
-		JLabel adressNewLabel_1 = new JLabel("Adress");
-		adressNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		adressNewLabel_1.setBounds(40, 270, 69, 40);
-		contentPane.add(adressNewLabel_1);
+		JLabel countryNewLabel_1 = new JLabel("Country");
+		countryNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		countryNewLabel_1.setBounds(40, 270, 69, 40);
+		contentPane.add(countryNewLabel_1);
 		
 		JLabel phoneNewLabel_2 = new JLabel("Phone");
 		phoneNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 16));
@@ -259,11 +259,11 @@ public class CvMatching extends JFrame {
 			e4.printStackTrace();
 		}
 		
-		JTextArea textArea_Adress = new JTextArea();
-		textArea_Adress.setEditable(false);
-		textArea_Adress.setBounds(143, 279, 116, 25);
-		contentPane.add(textArea_Adress);
-		  //anagnoni adress//
+		JTextArea textArea_country = new JTextArea();
+		textArea_country.setEditable(false);
+		textArea_country.setBounds(143, 279, 116, 25);
+		contentPane.add(textArea_country);
+		  //anagnoni country//
 		sql = "select * from users join employees where username = '"+username+"'";
         try {
     		conn = DBConnection.ConnDB();
@@ -271,7 +271,7 @@ public class CvMatching extends JFrame {
         	ps5 = conn.prepareStatement(sql);
     		rs5 = ps5.executeQuery();		
     		
-    		textArea_Adress.setText(rs5.getString("adress"));
+    		textArea_country.setText(rs5.getString("country"));
     		
 
 			

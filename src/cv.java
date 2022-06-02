@@ -46,7 +46,7 @@ public class cv extends JFrame {
 	private PreparedStatement ps8 = null;
 	private ResultSet rs8 = null;
 	private String sql="";
-	private JTextField adresstextField_4;
+	private JTextField countrytextField_4;
 	private JTextField phonetextField;
 
 
@@ -126,15 +126,15 @@ public class cv extends JFrame {
 		btnNewButton_1.setBounds(209, 559, 85, 21);
 		contentPane.add(btnNewButton_1);
 		
-		adresstextField_4 = new JTextField();
-		adresstextField_4.setBounds(107, 271, 96, 19);
-		contentPane.add(adresstextField_4);
-		adresstextField_4.setColumns(10);
+		countrytextField_4 = new JTextField();
+		countrytextField_4.setBounds(107, 271, 96, 19);
+		contentPane.add(countrytextField_4);
+		countrytextField_4.setColumns(10);
 		
-		JLabel adressNewLabel_1 = new JLabel("Adress");
-		adressNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		adressNewLabel_1.setBounds(47, 258, 69, 40);
-		contentPane.add(adressNewLabel_1);
+		JLabel countryNewLabel_1 = new JLabel("Country");
+		countryNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		countryNewLabel_1.setBounds(47, 258, 69, 40);
+		contentPane.add(countryNewLabel_1);
 		
 		JLabel phoneNewLabel_2 = new JLabel("Phone");
 		phoneNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 16));
@@ -263,14 +263,14 @@ public class cv extends JFrame {
 			e4.printStackTrace();
 		}
         
-        //anagnoni adress//
+        //anagnoni country//
         sql = "select * from employees where id = '"+i+"'";
         try {
     		conn = DBConnection.ConnDB();
 
         	ps5 = conn.prepareStatement(sql);
     		rs5 = ps5.executeQuery();		
-    		adresstextField_4.setText(rs5.getString("adress"));
+    		countrytextField_4.setText(rs5.getString("country"));
 
 			
 			ps5.execute();
@@ -372,7 +372,7 @@ public class cv extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				  //Εγγραφή χρήστη//
 		        
-				sql = "update employees set firstname = '"+firstnametextField.getText()+"' , lastname= '"+lastnametextField_1.getText()+"' , age = '"+agetextField_3.getText()+"',adress = '"+adresstextField_4.getText()+"', summary = '"+textPanesummary.getText()+"' , experience = '"+textPaneexperience.getText()+"' where id = '"+i+"'";
+				sql = "update employees set firstname = '"+firstnametextField.getText()+"' , lastname= '"+lastnametextField_1.getText()+"' , age = '"+agetextField_3.getText()+"',country = '"+countrytextField_4.getText()+"', summary = '"+textPanesummary.getText()+"' , experience = '"+textPaneexperience.getText()+"' where id = '"+i+"'";
                 try {
             		conn = DBConnection.ConnDB();
 
@@ -397,6 +397,7 @@ public class cv extends JFrame {
                 catch (Exception ee) {
                     ee.printStackTrace();
 				}
+                dispose();
                 
 			
 		}
