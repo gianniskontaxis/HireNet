@@ -2,17 +2,12 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
-import java.io.File;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
@@ -53,7 +48,7 @@ public class cv extends JFrame {
 	private String sql="";
 	private JTextField countrytextField_4;
 	private JTextField phonetextField;
-	private JPanel panel = new JPanel();
+
 
 	/*public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -125,11 +120,11 @@ public class cv extends JFrame {
 		
 		JLabel lblNewLabel_1_1_1_1 = new JLabel("summary");
 		lblNewLabel_1_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		lblNewLabel_1_1_1_1.setBounds(478, 10, 210, 40);
+		lblNewLabel_1_1_1_1.setBounds(375, 55, 210, 40);
 		contentPane.add(lblNewLabel_1_1_1_1);
 		
 		JButton btnNewButton_1 = new JButton("Back");
-		btnNewButton_1.setBounds(422, 595, 85, 21);
+		btnNewButton_1.setBounds(209, 559, 85, 21);
 		contentPane.add(btnNewButton_1);
 		
 		countrytextField_4 = new JTextField();
@@ -158,7 +153,7 @@ public class cv extends JFrame {
 		
 		JLabel lblNewLabel_1_1_1_1_1 = new JLabel("Work Experience");
 		lblNewLabel_1_1_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		lblNewLabel_1_1_1_1_1.setBounds(458, 291, 210, 40);
+		lblNewLabel_1_1_1_1_1.setBounds(375, 367, 210, 40);
 		contentPane.add(lblNewLabel_1_1_1_1_1);
 		JTextPane textPaneexperience = new JTextPane();
 		textPaneexperience.setBounds(352, 413, 278, 230);
@@ -173,7 +168,7 @@ public class cv extends JFrame {
 		
 		JLabel lblNewLabel_1_1_1_2 = new JLabel("Write your");
 		lblNewLabel_1_1_1_2.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel_1_1_1_2.setBounds(327, 294, 93, 40);
+		lblNewLabel_1_1_1_2.setBounds(36, 442, 93, 40);
 		contentPane.add(lblNewLabel_1_1_1_2);
 		
 		try {
@@ -353,88 +348,27 @@ public class cv extends JFrame {
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
 		btnNewButton.setBackground(new Color(47, 79, 79));
 		btnNewButton.setForeground(new Color(255, 255, 255));
-		btnNewButton.setBounds(270, 224, 155, 40);
+		btnNewButton.setBounds(161, 443, 155, 40);
 		contentPane.add(btnNewButton);
 		
 		JButton save = new JButton("Save");
 		save.setForeground(Color.WHITE);
 		save.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
 		save.setBackground(new Color(47, 79, 79));
-		save.setBounds(561, 580, 143, 48);
+		save.setBounds(18, 544, 143, 48);
 		contentPane.add(save);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(448, 51, 278, 230);
+		scrollPane.setBounds(364, 105, 278, 230);
 		contentPane.add(scrollPane);
 		   scrollPane.setViewportView(textPanesummary);
 
 		
 		JScrollPane scrollPane_1 = new JScrollPane();
-		scrollPane_1.setBounds(468, 340, 279, 230);
+		scrollPane_1.setBounds(351, 413, 279, 230);
 		contentPane.add(scrollPane_1);
 		scrollPane_1.setViewportView(textPaneexperience);
-		
-		
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setBounds(124, 407, 246, 209);
-		contentPane.add(lblNewLabel);
 
-		
-		
-		JButton btnNewButton_2 = new JButton("upload");
-		btnNewButton_2.setBounds(10, 407, 85, 21);
-		contentPane.add(btnNewButton_2);
-		
-		btnNewButton_2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				JFileChooser filechooser = new JFileChooser();
-			    filechooser.setDialogTitle("Choose Your File");
-			    filechooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
-			    // below code selects the file 
-			    int returnval = filechooser.showOpenDialog(panel);
-			    if (returnval == JFileChooser.APPROVE_OPTION)
-			    {
-			        File file = filechooser.getSelectedFile();
-			        String filename = file.getAbsolutePath();
-			        System.out.println(filename);
-			        BufferedImage bi;
-			        try {
-
-						conn = DBConnection.ConnDB();	
-								
-						//ps = conn.prepareStatement("select id from employees where id = '"+i+"'");
-						//rs = ps.executeQuery();    
-						
-			            //ps2.getBytes("photo");
-						//if(rs.isClosed()) {
-							//ps2 = conn.prepareStatement("INSERT INTO employees(photo) VALUES(?)");
-							//ps2.setString(1, filename);
-						//}
-						
-						ps2 = conn.prepareStatement("INSERT INTO employees(photo) VALUES(?)");
-						ps2.setString(1, filename);
-						
-		                ps2.execute();
-		                ps2.close();
-		                
-						conn.close();
-
-			        } catch (SQLException e1) {
-			            e1.printStackTrace();
-			        }
-			        try {
-			            
-			            bi = ImageIO.read(file);
-			            lblNewLabel.setIcon(new ImageIcon(bi));
-			        } catch(Exception e1) {
-			           e1.printStackTrace(); 
-			        }
-			       
-			    }
-			}
-		});
-		
-		
 		
 		save.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

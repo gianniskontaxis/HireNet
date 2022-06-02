@@ -1,3 +1,4 @@
+/Images/
 /AboutUs$1.class
 /AboutUs$10.class
 /AboutUs$11.class
@@ -19,13 +20,9 @@
 /Articles$4.class
 /Articles$5.class
 /Articles$6.class
-/Articles$7.class
 /Articles.class
 /Company$1.class
 /Company$10.class
-/Company$11.class
-/Company$12.class
-/Company$13.class
 /Company$2.class
 /Company$3.class
 /Company$4.class
@@ -35,7 +32,6 @@
 /Company$8.class
 /Company$9.class
 /Company.class
-/CvMatching.class
 /DBConnection.class
 /Deactivate$1.class
 /Deactivate$2.class
@@ -62,7 +58,6 @@
 /First.class
 /Graphs.class
 /Graphs2.class
-/Images/
 /Login$1.class
 /Login$2.class
 /Login$3.class
@@ -71,8 +66,6 @@
 /Matching.class
 /MatchingInfo.class
 /Messages$1.class
-/Messages$2.class
-/Messages$3.class
 /Messages.class
 /Notifications$1.class
 /Notifications$2.class
@@ -91,7 +84,6 @@
 /Seminar$3.class
 /Seminar$4.class
 /Seminar$5.class
-/Seminar$6.class
 /Seminar.class
 /SendMessages$1.class
 /SendMessages.class
@@ -108,4 +100,14 @@
 /cv$2.class
 /cv$3.class
 /cv.class
-/cv$4.class
+/Graphs$1.class
+/Graphs$2.class
+/Articles$7.class
+/Graphs2$1.class
+/Seminar$6.class
+/Messages$2.class
+/Messages$3.class
+/Company$11.class
+/Company$12.class
+/CvMatching.class
+/Company$13.class
