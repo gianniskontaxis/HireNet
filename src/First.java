@@ -14,6 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.Toolkit;
 import javax.swing.SwingConstants;
+import javax.swing.JSeparator;
 
 public class First extends JFrame {
 
@@ -71,9 +72,18 @@ public class First extends JFrame {
 				dispose();
 		    }
 		});
+		
+		JSeparator separator = new JSeparator();
+		separator.setBounds(93, 369, 407, 10);
+		contentPane.add(separator);
+		
+		JLabel lblNewLabel_5 = new JLabel("");
+		lblNewLabel_5.setIcon(new ImageIcon(First.class.getResource("/Images/slogan2-removebg-preview.png")));
+		lblNewLabel_5.setBounds(10, 172, 566, 148);
+		contentPane.add(lblNewLabel_5);
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
-		btnNewButton.setBackground(new Color(0, 102, 102));
-		btnNewButton.setForeground(Color.WHITE);
+		btnNewButton.setBackground(new Color(255, 255, 255));
+		btnNewButton.setForeground(new Color(0, 102, 51));
 		btnNewButton.setBounds(122, 421, 159, 55);
 		contentPane.add(btnNewButton);
 		
@@ -98,31 +108,38 @@ public class First extends JFrame {
 		    }
 		});
 		btnEmployee.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
-		btnEmployee.setBackground(new Color(0, 102, 102));
-		btnEmployee.setForeground(Color.WHITE);
+		btnEmployee.setBackground(new Color(255, 255, 255));
+		btnEmployee.setForeground(new Color(0, 102, 102));
 		btnEmployee.setBounds(313, 421, 159, 55);
 		contentPane.add(btnEmployee);
 		
 		JLabel lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setIcon(new ImageIcon(First.class.getResource("/Images/rsz_hirenet810x810.png")));
-		lblNewLabel_1.setBounds(122, 0, 350, 213);
+		lblNewLabel_1.setBounds(122, 10, 350, 164);
 		contentPane.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("Please select your role to continue:");
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.ITALIC, 21));
+		lblNewLabel_2.setForeground(new Color(255, 255, 255));
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 19));
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_2.setBounds(122, 356, 350, 55);
+		lblNewLabel_2.setBounds(122, 371, 350, 40);
 		contentPane.add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_3 = new JLabel("You have Succesfully created your Account!");
+		lblNewLabel_3.setForeground(new Color(255, 255, 255));
 		lblNewLabel_3.setFont(new Font("Tahoma", Font.ITALIC, 16));
-		lblNewLabel_3.setBounds(162, 275, 310, 31);
+		lblNewLabel_3.setBounds(162, 330, 310, 31);
 		contentPane.add(lblNewLabel_3);
 		
 		JLabel lblNewLabel_4 = new JLabel("");
 		lblNewLabel_4.setIcon(new ImageIcon(First.class.getResource("/Images/success.png")));
-		lblNewLabel_4.setBounds(122, 275, 30, 31);
+		lblNewLabel_4.setBounds(122, 330, 30, 31);
 		contentPane.add(lblNewLabel_4);
+		
+		JLabel lblNewLabel_6 = new JLabel("");
+		lblNewLabel_6.setIcon(new ImageIcon(First.class.getResource("/Images/background6.png")));
+		lblNewLabel_6.setBounds(93, 319, 407, 175);
+		contentPane.add(lblNewLabel_6);
 		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon(First.class.getResource("/Images/firstback3.png")));
