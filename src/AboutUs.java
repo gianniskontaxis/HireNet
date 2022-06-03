@@ -334,7 +334,7 @@ public class AboutUs  extends JFrame {
 	            @Override
 	            public void mouseClicked(MouseEvent e) {
 	                try {
-	                    Desktop.getDesktop().browse(new URI("https://github.com/champos4EEli"));
+	                    Desktop.getDesktop().browse(new URI("https://github.com/champos4"));
 	                } catch (IOException | URISyntaxException e1) {
 	                    e1.printStackTrace();
 	                }
