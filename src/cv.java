@@ -17,6 +17,7 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JTextPane;
 import javax.swing.JScrollPane;
+import java.awt.Toolkit;
 
 public class cv extends JFrame {
 
@@ -64,6 +65,7 @@ public class cv extends JFrame {
 	}*/
 
 	public cv( int i ){
+		setIconImage(Toolkit.getDefaultToolkit().getImage(cv.class.getResource("/Images/logo_icon25x25.png")));
 		
 		this.i=i;
 
