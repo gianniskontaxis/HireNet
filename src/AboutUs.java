@@ -24,6 +24,7 @@ import javax.swing.JButton;
 import java.awt.Toolkit;
 import javax.swing.SwingConstants;
 import javax.swing.JSeparator;
+import javax.swing.JTextPane;
 
 public class AboutUs  extends JFrame {
 
@@ -55,30 +56,128 @@ public class AboutUs  extends JFrame {
 			setContentPane(contentPane);
 			contentPane.setLayout(null);
 			
+			JLabel lblNewLabel_12 = new JLabel("HireNet");
+			lblNewLabel_12.setForeground(new Color(0, 102, 102));
+			lblNewLabel_12.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 18));
+			lblNewLabel_12.setBounds(362, 64, 89, 32);
+			contentPane.add(lblNewLabel_12);
+			
+			JLabel lblNewLabel_11_4 = new JLabel("Documentation");
+			lblNewLabel_11_4.setIcon(new ImageIcon(AboutUs.class.getResource("/Images/documentation_icon.png")));
+			lblNewLabel_11_4.setFont(new Font("Tahoma", Font.BOLD, 16));
+			lblNewLabel_11_4.setBounds(618, 436, 195, 32);
+			contentPane.add(lblNewLabel_11_4);
+			
+			JLabel lblNewLabel_11_3 = new JLabel("Testers");
+			lblNewLabel_11_3.setIcon(new ImageIcon(AboutUs.class.getResource("/Images/testing.png")));
+			lblNewLabel_11_3.setFont(new Font("Tahoma", Font.BOLD, 16));
+			lblNewLabel_11_3.setBounds(618, 362, 195, 32);
+			contentPane.add(lblNewLabel_11_3);
+			
+			JLabel lblNewLabel_11_2 = new JLabel("Design");
+			lblNewLabel_11_2.setIcon(new ImageIcon(AboutUs.class.getResource("/Images/pen.png")));
+			lblNewLabel_11_2.setFont(new Font("Tahoma", Font.BOLD, 16));
+			lblNewLabel_11_2.setBounds(618, 285, 195, 32);
+			contentPane.add(lblNewLabel_11_2);
+			
+			JLabel lblNewLabel_11_1 = new JLabel("Programmers");
+			lblNewLabel_11_1.setIcon(new ImageIcon(AboutUs.class.getResource("/Images/programming_icon.png")));
+			lblNewLabel_11_1.setFont(new Font("Tahoma", Font.BOLD, 16));
+			lblNewLabel_11_1.setBounds(618, 133, 195, 32);
+			contentPane.add(lblNewLabel_11_1);
+			
+			JLabel lblNewLabel_11 = new JLabel("Project Manager");
+			lblNewLabel_11.setIcon(new ImageIcon(AboutUs.class.getResource("/Images/manager_icon.png")));
+			lblNewLabel_11.setFont(new Font("Tahoma", Font.BOLD, 16));
+			lblNewLabel_11.setBounds(618, 65, 195, 32);
+			contentPane.add(lblNewLabel_11);
+			
+			JLabel lblNewLabel_10_1 = new JLabel("Macedonia");
+			lblNewLabel_10_1.setHorizontalAlignment(SwingConstants.LEFT);
+			lblNewLabel_10_1.setForeground(Color.WHITE);
+			lblNewLabel_10_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
+			lblNewLabel_10_1.setBounds(36, 286, 148, 32);
+			contentPane.add(lblNewLabel_10_1);
+			
+			JLabel lblNewLabel_10 = new JLabel("University of");
+			lblNewLabel_10.setHorizontalAlignment(SwingConstants.LEFT);
+			lblNewLabel_10.setForeground(Color.WHITE);
+			lblNewLabel_10.setFont(new Font("Tahoma", Font.PLAIN, 16));
+			lblNewLabel_10.setBounds(36, 264, 148, 32);
+			contentPane.add(lblNewLabel_10);
+			
+			JLabel lblNewLabel_9 = new JLabel("");
+			lblNewLabel_9.setIcon(new ImageIcon(AboutUs.class.getResource("/Images/uom2.png")));
+			lblNewLabel_9.setBounds(33, 180, 89, 86);
+			contentPane.add(lblNewLabel_9);
+			
+			JLabel lblNewLabel_8 = new JLabel("");
+			lblNewLabel_8.setIcon(new ImageIcon(AboutUs.class.getResource("/Images/logo_icon-removebg-preview.png")));
+			lblNewLabel_8.setBounds(218, 65, 134, 146);
+			contentPane.add(lblNewLabel_8);
+			
+			JLabel lblNewLabel_6 = new JLabel("  About us");
+			lblNewLabel_6.setIcon(new ImageIcon(AboutUs.class.getResource("/Images/team_icon.png")));
+			lblNewLabel_6.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 18));
+			lblNewLabel_6.setBounds(443, 12, 184, 32);
+			contentPane.add(lblNewLabel_6);
+			
+			JTextPane txtpnHirenetIsA = new JTextPane();
+			txtpnHirenetIsA.setFont(new Font("Tahoma", Font.ITALIC, 20));
+			txtpnHirenetIsA.setEditable(false);
+			txtpnHirenetIsA.setText("                                   is a \r\n                      software developed\r\n                      by undergraduate   \r\n                      students (New \r\n                      Horizons \r\n                      Development) as part of their project in the Software Technology course, during their academic semester. Aim of the  particular project is to provide information and enlighten the employees about the IT labor market .Our primary goal is to pass on our knowledge to employees , to help them avoid the path to unemployment .\r\n");
+			txtpnHirenetIsA.setBounds(218, 65, 328, 528);
+			txtpnHirenetIsA.setOpaque(false);
+			contentPane.add(txtpnHirenetIsA);
+			
+			JSeparator separator_1 = new JSeparator();
+			separator_1.setOrientation(SwingConstants.VERTICAL);
+			separator_1.setForeground(Color.BLACK);
+			separator_1.setBounds(576, 65, 32, 528);
+			contentPane.add(separator_1);
+			
+			JLabel lblNewLabel_7 = new JLabel("  \u00A9 Copyright 2022 HireNet, Inc. All Rights Reserved ");
+			lblNewLabel_7.setHorizontalAlignment(SwingConstants.LEFT);
+			lblNewLabel_7.setFont(new Font("Tahoma", Font.PLAIN, 11));
+			lblNewLabel_7.setBounds(218, 565, 348, 28);
+			contentPane.add(lblNewLabel_7);
+			
+			JLabel lblNewLabel_4_1_1 = new JLabel("Coming soon...");
+			lblNewLabel_4_1_1.setBounds(87, 478, 70, 27);
+			contentPane.add(lblNewLabel_4_1_1);
+			
+			JButton btnNewButton_2_1 = new JButton("");
+			btnNewButton_2_1.setIcon(new ImageIcon(AboutUs.class.getResource("/Images/website.png")));
+			btnNewButton_2_1.setOpaque(false);
+			btnNewButton_2_1.setContentAreaFilled(false);
+			btnNewButton_2_1.setBorderPainted(false);
+			btnNewButton_2_1.setBounds(44, 477, 32, 32);
+			contentPane.add(btnNewButton_2_1);
+			
 			JLabel lblNewLabel_5_1_1 = new JLabel("Development\u2122");
 			lblNewLabel_5_1_1.setForeground(Color.WHITE);
-			lblNewLabel_5_1_1.setFont(new Font("Tahoma", Font.ITALIC, 16));
+			lblNewLabel_5_1_1.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 16));
 			lblNewLabel_5_1_1.setBounds(36, 133, 121, 26);
 			contentPane.add(lblNewLabel_5_1_1);
 			
 			JLabel lblNewLabel_5_1 = new JLabel("Horizons");
 			lblNewLabel_5_1.setForeground(Color.WHITE);
-			lblNewLabel_5_1.setFont(new Font("Tahoma", Font.ITALIC, 16));
+			lblNewLabel_5_1.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 16));
 			lblNewLabel_5_1.setBounds(36, 106, 97, 26);
 			contentPane.add(lblNewLabel_5_1);
 			
 			JLabel lblNewLabel_5 = new JLabel("New");
 			lblNewLabel_5.setForeground(Color.WHITE);
-			lblNewLabel_5.setFont(new Font("Tahoma", Font.ITALIC, 16));
+			lblNewLabel_5.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 16));
 			lblNewLabel_5.setBounds(36, 78, 97, 26);
 			contentPane.add(lblNewLabel_5);
 			
 			JLabel lblNewLabel_4_1 = new JLabel("LinkedIn");
-			lblNewLabel_4_1.setBounds(75, 441, 70, 27);
+			lblNewLabel_4_1.setBounds(87, 441, 70, 27);
 			contentPane.add(lblNewLabel_4_1);
 			
 			JLabel lblNewLabel_4 = new JLabel("Facebook");
-			lblNewLabel_4.setBounds(75, 404, 70, 27);
+			lblNewLabel_4.setBounds(87, 404, 70, 27);
 			contentPane.add(lblNewLabel_4);
 			
 			JSeparator separator = new JSeparator();
@@ -92,12 +191,16 @@ public class AboutUs  extends JFrame {
 			lblNewLabel.setBounds(42, 350, 142, 36);
 			contentPane.add(lblNewLabel);
 			
-			JButton btnNewButton = new JButton("");
-			btnNewButton.setBounds(42, 404, 23, 27);
-			contentPane.add(btnNewButton);
+			JButton fb = new JButton("");
+			fb.setIcon(new ImageIcon(AboutUs.class.getResource("/Images/fb.png")));
+			fb.setBounds(44, 399, 32, 32);
+			fb.setOpaque(false);
+			fb.setContentAreaFilled(false);
+			fb.setBorderPainted(false);
+			contentPane.add(fb);
 			/*btnNewButton.setIcon(new ImageIcon(img));*/
 			
-			btnNewButton.addActionListener(new ActionListener() {
+			fb.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e){
 				Desktop desktop = java.awt.Desktop.getDesktop();
 				try {
@@ -113,7 +216,12 @@ public class AboutUs  extends JFrame {
 			});
 			
 			JButton btnNewButton_2 = new JButton("");
-			btnNewButton_2.setBounds(42, 441, 23, 27);
+			btnNewButton_2.setIcon(new ImageIcon(AboutUs.class.getResource("/Images/lnkdn.png")));
+			btnNewButton_2.setBounds(45, 441, 32, 32);
+			btnNewButton_2.setOpaque(false);
+			btnNewButton_2.setContentAreaFilled(false);
+			btnNewButton_2.setBorderPainted(false);
+			
 			contentPane.add(btnNewButton_2);
 			/*btnNewButton_2.setIcon(new ImageIcon(img2));*/
 			btnNewButton_2.addActionListener(new ActionListener() {
@@ -166,7 +274,7 @@ public class AboutUs  extends JFrame {
 			
 			JLabel Kontaksis = new JLabel("Kontaksis Ioannis");
 			Kontaksis.setFont(new Font("Tahoma", Font.ITALIC, 13));
-			Kontaksis.setBounds(679, 246, 174, 20);
+			Kontaksis.setBounds(679, 215, 174, 20);
 			Kontaksis.addMouseListener(new MouseAdapter() {
 		       	 
 	            @Override
@@ -184,7 +292,7 @@ public class AboutUs  extends JFrame {
 			
 			JLabel Chrysanthi = new JLabel("Trentsiou Chrysanthi");
 			Chrysanthi.setFont(new Font("Tahoma", Font.ITALIC, 13));
-			Chrysanthi.setBounds(679, 276, 174, 20);
+			Chrysanthi.setBounds(679, 235, 174, 20);
 			Chrysanthi.addMouseListener(new MouseAdapter() {
 		       	 
 	            @Override
@@ -202,7 +310,7 @@ public class AboutUs  extends JFrame {
 			
 			JLabel elisavet = new JLabel("Kanidou Elisavet-Persefoni");
 			elisavet.setFont(new Font("Tahoma", Font.ITALIC, 13));
-			elisavet.setBounds(679, 205, 174, 20);
+			elisavet.setBounds(679, 195, 174, 20);
 			elisavet.addMouseListener(new MouseAdapter() {
 		       	 
 	            @Override
@@ -220,7 +328,7 @@ public class AboutUs  extends JFrame {
 			
 			JLabel Champos = new JLabel("Semelidis Charalampos");
 			Champos.setFont(new Font("Tahoma", Font.ITALIC, 13));
-			Champos.setBounds(679, 306, 174, 20);
+			Champos.setBounds(679, 255, 174, 20);
 			Champos.addMouseListener(new MouseAdapter() {
 		       	 
 	            @Override
@@ -237,7 +345,7 @@ public class AboutUs  extends JFrame {
 			
 			JLabel matina = new JLabel("Karapostoli Stamatia");
 			matina.setFont(new Font("Tahoma", Font.ITALIC, 13));
-			matina.setBounds(679, 128, 174, 20);
+			matina.setBounds(679, 106, 174, 20);
 			matina.addMouseListener(new MouseAdapter() {
 		       	 
 	            @Override
@@ -254,7 +362,7 @@ public class AboutUs  extends JFrame {
 			
 			JLabel marina = new JLabel("Gialagkolodou Marina-Makrina");
 			marina.setFont(new Font("Tahoma", Font.ITALIC, 13));
-			marina.setBounds(679, 336, 195, 20);
+			marina.setBounds(679, 406, 195, 20);
 			marina.addMouseListener(new MouseAdapter() {
 		       	 
 	            @Override
@@ -272,7 +380,7 @@ public class AboutUs  extends JFrame {
 			
 			JLabel nikos = new JLabel("Sakellaris Nikolaos");
 			nikos.setFont(new Font("Tahoma", Font.ITALIC, 13));
-			nikos.setBounds(679, 376, 174, 20);
+			nikos.setBounds(679, 327, 174, 20);
 			nikos.addMouseListener(new MouseAdapter() {
 		       	 
 	            @Override
@@ -290,7 +398,7 @@ public class AboutUs  extends JFrame {
 			
 			JLabel vene = new JLabel("Venetidis Ioannis");
 			vene.setFont(new Font("Tahoma", Font.ITALIC, 13));
-			vene.setBounds(679, 431, 174, 20);
+			vene.setBounds(679, 480, 174, 20);
 			vene.addMouseListener(new MouseAdapter() {
 		       	 
 	            @Override
@@ -308,7 +416,7 @@ public class AboutUs  extends JFrame {
 			
 			JLabel georgia = new JLabel("Kotzampasi Georgia");
 			georgia.setFont(new Font("Tahoma", Font.ITALIC, 13));
-			georgia.setBounds(679, 477, 174, 20);
+			georgia.setBounds(679, 520, 174, 20);
 			georgia.addMouseListener(new MouseAdapter() {
 		       	 
 	            @Override
@@ -326,7 +434,7 @@ public class AboutUs  extends JFrame {
 			
 			JLabel dimitris = new JLabel("Ampatzis Dimitris");
 			dimitris.setFont(new Font("Tahoma", Font.ITALIC, 13));
-			dimitris.setBounds(679, 526, 174, 20);
+			dimitris.setBounds(679, 500, 174, 20);
 			dimitris.addMouseListener(new MouseAdapter() {
 		       	 
 	            @Override
