@@ -92,15 +92,11 @@ public class Profile extends JFrame {
 		contentPane.add(lblNewLabel_5);
 		
 		JLabel lblNewLabel_4 = new JLabel("Edit Profile");
+		lblNewLabel_4.setIcon(new ImageIcon(Profile.class.getResource("/Images/edit_icon.png")));
 		lblNewLabel_4.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 18));
 		lblNewLabel_4.setForeground(Color.WHITE);
-		lblNewLabel_4.setBounds(274, 12, 121, 32);
+		lblNewLabel_4.setBounds(274, 12, 147, 32);
 		contentPane.add(lblNewLabel_4);
-		
-		JLabel lblNewLabel_3 = new JLabel("");
-		lblNewLabel_3.setIcon(new ImageIcon(Profile.class.getResource("/Images/edit_icon.png")));
-		lblNewLabel_3.setBounds(232, 12, 32, 32);
-		contentPane.add(lblNewLabel_3);
 		
 		textField = new JTextField();	
 		textField.setEditable(false);
