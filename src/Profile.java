@@ -18,6 +18,7 @@ import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
+import javax.swing.JSeparator;
 
 public class Profile extends JFrame {
 
@@ -58,6 +59,11 @@ public class Profile extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
+		JSeparator separator = new JSeparator();
+		separator.setForeground(Color.BLACK);
+		separator.setBounds(0, 54, 636, 8);
+		contentPane.add(separator);
 		
 		JLabel lblFavoriteNumber = new JLabel("Favorite number");
 		lblFavoriteNumber.setForeground(Color.WHITE);

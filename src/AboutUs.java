@@ -56,6 +56,11 @@ public class AboutUs  extends JFrame {
 			setContentPane(contentPane);
 			contentPane.setLayout(null);
 			
+			JSeparator separator_2 = new JSeparator();
+			separator_2.setForeground(Color.BLACK);
+			separator_2.setBounds(0, 54, 986, 8);
+			contentPane.add(separator_2);
+			
 			JLabel lblNewLabel_12 = new JLabel("HireNet");
 			lblNewLabel_12.setForeground(new Color(0, 102, 102));
 			lblNewLabel_12.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 18));
@@ -92,14 +97,14 @@ public class AboutUs  extends JFrame {
 			lblNewLabel_11.setBounds(618, 65, 195, 32);
 			contentPane.add(lblNewLabel_11);
 			
-			JLabel lblNewLabel_10_1 = new JLabel("Macedonia");
+			JLabel lblNewLabel_10_1 = new JLabel("MACEDONIA");
 			lblNewLabel_10_1.setHorizontalAlignment(SwingConstants.LEFT);
 			lblNewLabel_10_1.setForeground(Color.WHITE);
 			lblNewLabel_10_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
 			lblNewLabel_10_1.setBounds(36, 286, 148, 32);
 			contentPane.add(lblNewLabel_10_1);
 			
-			JLabel lblNewLabel_10 = new JLabel("University of");
+			JLabel lblNewLabel_10 = new JLabel("UNIVERSITY OF");
 			lblNewLabel_10.setHorizontalAlignment(SwingConstants.LEFT);
 			lblNewLabel_10.setForeground(Color.WHITE);
 			lblNewLabel_10.setFont(new Font("Tahoma", Font.PLAIN, 16));
@@ -119,7 +124,7 @@ public class AboutUs  extends JFrame {
 			JLabel lblNewLabel_6 = new JLabel("  About us");
 			lblNewLabel_6.setIcon(new ImageIcon(AboutUs.class.getResource("/Images/team_icon.png")));
 			lblNewLabel_6.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 18));
-			lblNewLabel_6.setBounds(443, 12, 184, 32);
+			lblNewLabel_6.setBounds(400, 12, 184, 32);
 			contentPane.add(lblNewLabel_6);
 			
 			JTextPane txtpnHirenetIsA = new JTextPane();
@@ -157,7 +162,7 @@ public class AboutUs  extends JFrame {
 			JLabel lblNewLabel_5_1_1 = new JLabel("Development\u2122");
 			lblNewLabel_5_1_1.setForeground(Color.WHITE);
 			lblNewLabel_5_1_1.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 16));
-			lblNewLabel_5_1_1.setBounds(36, 133, 121, 26);
+			lblNewLabel_5_1_1.setBounds(36, 133, 134, 26);
 			contentPane.add(lblNewLabel_5_1_1);
 			
 			JLabel lblNewLabel_5_1 = new JLabel("Horizons");
