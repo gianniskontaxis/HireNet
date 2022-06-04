@@ -12,6 +12,11 @@ import java.sql.ResultSet;
 
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
+import java.awt.Toolkit;
+import javax.swing.ImageIcon;
+import java.awt.Color;
+import javax.swing.JSeparator;
+import javax.swing.SwingConstants;
 
 public class CvMatching extends JFrame {
 
@@ -60,59 +65,72 @@ public class CvMatching extends JFrame {
 	 * Create the frame.
 	 */
 	public CvMatching(String username,int i) {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(CvMatching.class.getResource("/Images/logo_icon25x25.png")));
 		this.i=i;
 		this.username = username;
 
 
-		setBounds(50, 50, 750, 680);
+		setBounds(50, 50, 600, 660);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel firstnamelblNewLabel = new JLabel("First Name");
-		firstnamelblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		firstnamelblNewLabel.setBounds(40, 64, 93, 40);
-		contentPane.add(firstnamelblNewLabel);
+		JSeparator separator_1_1 = new JSeparator();
+		separator_1_1.setBounds(33, 472, 202, 8);
+		contentPane.add(separator_1_1);
 		
-		JLabel lblLastName = new JLabel("Last Name");
-		lblLastName.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblLastName.setBounds(40, 114, 93, 40);
-		contentPane.add(lblLastName);
+		JTextArea textArea_phone = new JTextArea();
+		textArea_phone.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		textArea_phone.setForeground(Color.WHITE);
+		textArea_phone.setEditable(false);
+		textArea_phone.setBounds(33, 391, 116, 32);
+		textArea_phone.setOpaque(false);
+		contentPane.add(textArea_phone);
 		
-		JLabel emaillNewLabel_1_1 = new JLabel("Email");
-		emaillNewLabel_1_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		emaillNewLabel_1_1.setBounds(40, 164, 69, 40);
-		contentPane.add(emaillNewLabel_1_1);
+		/*textArea_phone.setText(rs6.getString("phone"));*/
 		
-		JLabel ageNewLabel = new JLabel("Age");
-		ageNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		ageNewLabel.setBounds(40, 214, 69, 40);
-		contentPane.add(ageNewLabel);
+		JLabel lblNewLabel_3 = new JLabel("years old");
+		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblNewLabel_3.setForeground(Color.WHITE);
+		lblNewLabel_3.setBounds(58, 274, 97, 32);
+		contentPane.add(lblNewLabel_3);
 		
-		JLabel countryNewLabel_1 = new JLabel("Country");
-		countryNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		countryNewLabel_1.setBounds(40, 270, 69, 40);
+		JLabel lblNewLabel_2 = new JLabel("");
+		lblNewLabel_2.setIcon(new ImageIcon(CvMatching.class.getResource("/Images/profilephoto.png")));
+		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2.setBounds(93, 65, 82, 81);
+		contentPane.add(lblNewLabel_2);
+		
+		JSeparator separator_1 = new JSeparator();
+		separator_1.setBounds(33, 349, 202, 8);
+		contentPane.add(separator_1);
+		
+		JLabel lblNewLabel_1_1_1_1_1_1 = new JLabel("Contact");
+		lblNewLabel_1_1_1_1_1_1.setForeground(Color.WHITE);
+		lblNewLabel_1_1_1_1_1_1.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));
+		lblNewLabel_1_1_1_1_1_1.setBounds(33, 319, 210, 32);
+		contentPane.add(lblNewLabel_1_1_1_1_1_1);
+		
+		JLabel countryNewLabel_1 = new JLabel("Address");
+		countryNewLabel_1.setForeground(Color.WHITE);
+		countryNewLabel_1.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));
+		countryNewLabel_1.setBounds(33, 442, 69, 32);
 		contentPane.add(countryNewLabel_1);
 		
-		JLabel phoneNewLabel_2 = new JLabel("Phone");
-		phoneNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		phoneNewLabel_2.setBounds(40, 320, 69, 40);
-		contentPane.add(phoneNewLabel_2);
-		
-		JLabel lblNewLabel_1_1_1_1 = new JLabel("summary");
+		JLabel lblNewLabel_1_1_1_1 = new JLabel("Professional Summary");
 		lblNewLabel_1_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		lblNewLabel_1_1_1_1.setBounds(333, 64, 210, 40);
+		lblNewLabel_1_1_1_1.setBounds(290, 20, 253, 40);
 		contentPane.add(lblNewLabel_1_1_1_1);
 		
 		JLabel lblNewLabel_1_1_1_1_1 = new JLabel("Work Experience");
 		lblNewLabel_1_1_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		lblNewLabel_1_1_1_1_1.setBounds(318, 343, 210, 40);
+		lblNewLabel_1_1_1_1_1.setBounds(290, 329, 210, 40);
 		contentPane.add(lblNewLabel_1_1_1_1_1);
 		
 		JTextArea textArea = new JTextArea();
 		textArea.setEditable(false);
-		textArea.setBounds(290, 114, 238, 181);
+		textArea.setBounds(290, 64, 272, 231);
 		contentPane.add(textArea);
 		
 		
@@ -139,7 +157,7 @@ public class CvMatching extends JFrame {
 		
 		JTextArea textArea_exp = new JTextArea();
 		textArea_exp.setEditable(false);
-		textArea_exp.setBounds(290, 393, 238, 181);
+		textArea_exp.setBounds(290, 379, 272, 231);
 		contentPane.add(textArea_exp);
 		
 		
@@ -165,8 +183,11 @@ public class CvMatching extends JFrame {
 		}
 		
 		JTextArea textArea_firstname = new JTextArea();
+		textArea_firstname.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		textArea_firstname.setForeground(Color.WHITE);
 		textArea_firstname.setEditable(false);
-		textArea_firstname.setBounds(143, 79, 116, 25);
+		textArea_firstname.setBounds(33, 207, 194, 32);
+		textArea_firstname.setOpaque(false);
 		contentPane.add(textArea_firstname);
 		
 		//anagnosh firstname
@@ -193,8 +214,11 @@ public class CvMatching extends JFrame {
 				}
 		
 		JTextArea textArea_lastname = new JTextArea();
+		textArea_lastname.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		textArea_lastname.setForeground(Color.WHITE);
 		textArea_lastname.setEditable(false);
-		textArea_lastname.setBounds(143, 129, 116, 25);
+		textArea_lastname.setBounds(33, 235, 194, 32);
+		textArea_lastname.setOpaque(false);
 		contentPane.add(textArea_lastname);
 		//anagnosh lastname
 
@@ -218,8 +242,11 @@ public class CvMatching extends JFrame {
 				}
 		
 		JTextArea textArea_email = new JTextArea();
+		textArea_email.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		textArea_email.setForeground(Color.WHITE);
 		textArea_email.setEditable(false);
-		textArea_email.setBounds(143, 179, 116, 25);
+		textArea_email.setBounds(33, 367, 202, 32);
+		textArea_email.setOpaque(false);
 		contentPane.add(textArea_email);
 		//anagnosh email
 				sql = "select * from users where username = '"+username+"'";
@@ -242,8 +269,11 @@ public class CvMatching extends JFrame {
 				}
 		
 		JTextArea textArea_age = new JTextArea();
+		textArea_age.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		textArea_age.setForeground(Color.WHITE);
 		textArea_age.setEditable(false);
-		textArea_age.setBounds(143, 229, 116, 25);
+		textArea_age.setBounds(33, 280, 50, 32);
+		textArea_age.setOpaque(false);
 		contentPane.add(textArea_age);
 		//anagnosh age
 
@@ -267,8 +297,11 @@ public class CvMatching extends JFrame {
 		}
 		
 		JTextArea textArea_country = new JTextArea();
+		textArea_country.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		textArea_country.setForeground(Color.WHITE);
 		textArea_country.setEditable(false);
-		textArea_country.setBounds(143, 279, 116, 25);
+		textArea_country.setBounds(33, 484, 202, 32);
+		textArea_country.setOpaque(false);
 		contentPane.add(textArea_country);
 		  //anagnoni country//
 		sql = "select * from users join employees where users.id = employees.id and username = '"+username+"'";
@@ -290,10 +323,10 @@ public class CvMatching extends JFrame {
 			e5.printStackTrace();
 		}
 		
-		JTextArea textArea_phone = new JTextArea();
-		textArea_phone.setEditable(false);
-		textArea_phone.setBounds(143, 322, 116, 25);
-		contentPane.add(textArea_phone);
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon(CvMatching.class.getResource("/Images/background1.png")));
+		lblNewLabel_1.setBounds(20, 20, 235, 590);
+		contentPane.add(lblNewLabel_1);
 		 //anagnoni phone//
 		sql = "select * from users join employees where users.id = employees.id and username = '"+username+"'";
         try {
@@ -302,7 +335,10 @@ public class CvMatching extends JFrame {
         	ps6 = conn.prepareStatement(sql);
     		rs6 = ps6.executeQuery();	
     		
-    		textArea_phone.setText(rs6.getString("phone"));
+    		JLabel lblNewLabel = new JLabel("");
+    		lblNewLabel.setIcon(new ImageIcon(CvMatching.class.getResource("/Images/cv_backgr2.png")));
+    		lblNewLabel.setBounds(0, 0, 586, 623);
+    		contentPane.add(lblNewLabel);
     		
 
 			
@@ -315,6 +351,6 @@ public class CvMatching extends JFrame {
 		}
 		
 		this.setVisible(true);
-		this.setTitle("CvOfUser");
+		this.setTitle("User CV");
 	}
 }
