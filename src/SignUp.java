@@ -274,7 +274,7 @@ public class SignUp extends JFrame {
 		contentPane.add(password);
 		
 		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon(SignUp.class.getResource("/Images/hirenetwhite.png")));
+		lblNewLabel_1.setIcon(new ImageIcon(SignUp.class.getResource("/Images/aboutusbackgrnd.png")));
 		lblNewLabel_1.setBounds(0, 0, 496, 573);
 		contentPane.add(lblNewLabel_1);
 		

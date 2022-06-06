@@ -20,6 +20,10 @@ import javax.swing.JOptionPane;
 import javax.swing.JScrollBar;
 import java.awt.Color;
 import javax.swing.JScrollPane;
+import java.awt.Toolkit;
+import javax.swing.ImageIcon;
+import javax.swing.JSeparator;
+import javax.swing.border.LineBorder;
 
 public class Messages extends JFrame{
 	
@@ -35,39 +39,22 @@ public class Messages extends JFrame{
 	private JTextField searchtextField;
 	
 	public Messages(int i) {
+		setResizable(false);
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Messages.class.getResource("/Images/logo_icon25x25.png")));
 		
 		this.i=i;
 
 
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 450, 450);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("List Of Users");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		lblNewLabel.setBounds(129, 16, 117, 16);
-		contentPane.add(lblNewLabel);
-		
-		JList list = new JList();
-		list.setBounds(82, 42, 206, 211);
-			
-	   model = new DefaultListModel();
-	   list.setModel(model);
-	   
-	   JScrollPane scrollPane = new JScrollPane();
-	   scrollPane.setBounds(82, 42, 206, 211);
-	   contentPane.add(scrollPane);
-	   scrollPane.setViewportView(list);
-	   
-	   searchtextField = new JTextField();
-	   searchtextField.setBounds(282, 16, 96, 19);
-	   contentPane.add(searchtextField);
-	   searchtextField.setColumns(10);
-		
-	   JButton searchNewButton = new JButton("Q");
-	   searchNewButton.setBounds(376, 15, 39, 21);
+	   JButton searchNewButton = new JButton("");
+	   searchNewButton.setBackground(Color.WHITE);
+	   searchNewButton.setIcon(new ImageIcon(Messages.class.getResource("/Images/search2_icon.png")));
+	   searchNewButton.setBounds(332, 98, 39, 25);
 	   contentPane.add(searchNewButton);
 	   searchNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e){
@@ -106,6 +93,43 @@ public class Messages extends JFrame{
 				
 		    }
 		});
+		
+		searchtextField = new JTextField();
+		searchtextField.setBounds(210, 98, 125, 25);
+		contentPane.add(searchtextField);
+		searchtextField.setColumns(10);
+		
+		JLabel lblNewLabel_2 = new JLabel("");
+		lblNewLabel_2.setIcon(new ImageIcon(Messages.class.getResource("/Images/background1.png")));
+		lblNewLabel_2.setBounds(51, 92, 327, 38);
+		contentPane.add(lblNewLabel_2);
+		
+		JSeparator separator = new JSeparator();
+		separator.setForeground(Color.BLACK);
+		separator.setBounds(0, 54, 436, 8);
+		contentPane.add(separator);
+		
+		JLabel lblNewLabel = new JLabel("Contacts");
+		lblNewLabel.setIcon(new ImageIcon(Messages.class.getResource("/Images/contact_icon.png")));
+		lblNewLabel.setForeground(Color.WHITE);
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 16));
+		lblNewLabel.setBounds(160, 12, 152, 32);
+		contentPane.add(lblNewLabel);
+		
+		JList list = new JList();
+		list.setBorder(null);
+		list.setForeground(new Color(0, 102, 102));
+		list.setBackground(new Color(255, 255, 255));
+		list.setBounds(82, 42, 206, 211);
+			
+	   model = new DefaultListModel();
+	   list.setModel(model);
+	   
+	   JScrollPane scrollPane = new JScrollPane();
+	   scrollPane.setViewportBorder(new LineBorder(new Color(0, 206, 209)));
+	   scrollPane.setBounds(51, 129, 327, 237);
+	   contentPane.add(scrollPane);
+	   scrollPane.setViewportView(list);
 
 
 		
@@ -168,12 +192,18 @@ public class Messages extends JFrame{
         
        
 		
-        JButton btnBack = new JButton("Back");
-		btnBack.setForeground(Color.WHITE);
-		btnBack.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 11));
-		btnBack.setBackground(new Color(47, 79, 79));
-		btnBack.setBounds(20, 234, 78, 19);
+        JButton btnBack = new JButton("");
+		btnBack.setIcon(new ImageIcon(Messages.class.getResource("/Images/back_icon.png")));
+		btnBack.setBounds(10, 12, 32, 32);
+		btnBack.setOpaque(false);
+		btnBack.setContentAreaFilled(false);
+		btnBack.setBorderPainted(false);
 		contentPane.add(btnBack);
+		
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon(Messages.class.getResource("/Images/firstbackground.png")));
+		lblNewLabel_1.setBounds(0, 0, 436, 413);
+		contentPane.add(lblNewLabel_1);
 		
 	
 		

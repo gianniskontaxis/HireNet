@@ -17,6 +17,11 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JScrollPane;
+import java.awt.Toolkit;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+import javax.swing.SwingConstants;
+import java.awt.Font;
 
 public class SendMessages extends JFrame {
 
@@ -61,6 +66,7 @@ public class SendMessages extends JFrame {
 	 * Create the frame.
 	 */
 	public SendMessages(int i, String username) throws SQLException {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(SendMessages.class.getResource("/Images/logo_icon25x25.png")));
 		
 		this.i=i;
 		this.username = username;
@@ -71,14 +77,20 @@ public class SendMessages extends JFrame {
 		contentPane.setLayout(null);
 		
 		JTextArea NewMessagetextArea = new JTextArea();
+		NewMessagetextArea.setBackground(new Color(255, 255, 255));
+		NewMessagetextArea.setForeground(new Color(0, 102, 102));
 		NewMessagetextArea.setBounds(25, 439, 369, 81);
 		contentPane.add(NewMessagetextArea);
 
 		
-		JButton btnNewButton = new JButton("Send");
+		JButton btnNewButton = new JButton("");
+		btnNewButton.setIcon(new ImageIcon(SendMessages.class.getResource("/Images/sendwhite.png")));
 		btnNewButton.setForeground(new Color(255, 255, 255));
-		btnNewButton.setBackground(new Color(47, 79, 79));
-		btnNewButton.setBounds(416, 448, 85, 56);
+		btnNewButton.setBackground(new Color(0, 0, 0));
+		btnNewButton.setOpaque(false);
+		btnNewButton.setBorderPainted(false);
+		btnNewButton.setContentAreaFilled(false);
+		btnNewButton.setBounds(404, 439, 97, 81);
 		contentPane.add(btnNewButton);
 		
 		Model = new DefaultListModel();
@@ -88,11 +100,19 @@ public class SendMessages extends JFrame {
 		contentPane.add(scrollPane);
 		
 		JTextArea textArea = new JTextArea();
+		textArea.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		textArea.setForeground(new Color(0, 102, 102));
+		textArea.setBackground(Color.WHITE);
 		textArea.setLineWrap(true);
 		textArea.setEditable(false);
 		textArea.setWrapStyleWord(true);
 		textArea.setBounds(25, 53, 476, 318);
 		   scrollPane.setViewportView(textArea);
+		   
+		   JLabel lblNewLabel = new JLabel("");
+		   lblNewLabel.setIcon(new ImageIcon(SendMessages.class.getResource("/Images/firstbackground.png")));
+		   lblNewLabel.setBounds(0, 0, 536, 563);
+		   contentPane.add(lblNewLabel);
 
 	    
 	    //fortosh mhnhmatwn apo thn basi//
