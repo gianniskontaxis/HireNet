@@ -24,6 +24,9 @@ import javax.swing.AbstractListModel;
 import javax.swing.ListSelectionModel;
 import javax.swing.JScrollPane;
 import javax.swing.JButton;
+import java.awt.Toolkit;
+import javax.swing.ImageIcon;
+import javax.swing.JSeparator;
 
 public class Notifications extends JFrame {
 
@@ -58,21 +61,30 @@ public class Notifications extends JFrame {
 	 * Create the frame.
 	 */
 	public Notifications(int i) {
+		setResizable(false);
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Notifications.class.getResource("/Images/logo_icon25x25.png")));
 		this.i = i;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 450, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Your Notifications");
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblNewLabel.setBounds(131, 35, 180, 13);
+		JSeparator separator = new JSeparator();
+		separator.setForeground(Color.BLACK);
+		separator.setBounds(0, 54, 436, 8);
+		contentPane.add(separator);
+		
+		JLabel lblNewLabel = new JLabel("Notifications");
+		lblNewLabel.setIcon(new ImageIcon(Notifications.class.getResource("/Images/notswhite_icon.png")));
+		lblNewLabel.setForeground(Color.WHITE);
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblNewLabel.setBounds(131, 12, 180, 32);
 		contentPane.add(lblNewLabel);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(85, 75, 245, 164);
+		scrollPane.setBounds(54, 95, 331, 430);
 		contentPane.add(scrollPane);
 		
 		
@@ -87,13 +99,14 @@ public class Notifications extends JFrame {
 		scrollPane.setViewportView(list);
 		
 		
-		JButton Back = new JButton("Back");
-		Back.setForeground(Color.WHITE);
-		Back.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 11));
-		Back.setBackground(new Color(47, 79, 79));
-		Back.setBounds(345, 234, 81, 19);
-		contentPane.add(Back);
-		Back.addActionListener(new ActionListener() {
+		JButton btnBack = new JButton("");
+		btnBack.setIcon(new ImageIcon(cv.class.getResource("/Images/back_icon.png")));
+		btnBack.setBounds(10, 12, 32, 32);
+		btnBack.setOpaque(false);
+		btnBack.setContentAreaFilled(false);
+		btnBack.setBorderPainted(false);
+		contentPane.add(btnBack);
+		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			      /*System.exit(i);*/
 				dispose();
@@ -137,10 +150,19 @@ public class Notifications extends JFrame {
             e1.printStackTrace();
         }		
 		
-		JButton Refresh = new JButton("Refresh");
+		JButton Refresh = new JButton("");
+		Refresh.setIcon(new ImageIcon(Notifications.class.getResource("/Images/refresh_icon.png")));
 		Refresh.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 11));
-		Refresh.setBounds(341, 47, 85, 21);
+		Refresh.setBounds(394, 12, 32, 32);
+		Refresh.setOpaque(false);
+		Refresh.setBorderPainted(false);
+		Refresh.setContentAreaFilled(false);
 		contentPane.add(Refresh);
+		
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon(Notifications.class.getResource("/Images/notificback.png")));
+		lblNewLabel_1.setBounds(0, 0, 436, 563);
+		contentPane.add(lblNewLabel_1);
 		Refresh.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
