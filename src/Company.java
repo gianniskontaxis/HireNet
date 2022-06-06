@@ -570,7 +570,7 @@ public class Company extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 					
 				try {
-					new MatchingInfo(usernameList.getSelectedValue()+"",i);
+					/*new MatchingInfo(usernameList.getSelectedValue()+"",i);*/
 					new CvMatching(usernameList.getSelectedValue()+"",i);
 
 				} catch (SQLException e1) {							
@@ -602,6 +602,7 @@ public class Company extends JFrame {
 				
 			}	
 		});
+		
 		
 		this.setVisible(true);
 		this.setTitle("Company");

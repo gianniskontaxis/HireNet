@@ -9,10 +9,14 @@ import java.awt.Font;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.ImageIcon;
 import java.awt.Color;
 import javax.swing.JSeparator;
@@ -65,7 +69,7 @@ public class CvMatching extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public CvMatching(String username,int i) {
+	public CvMatching(String username,int i) throws SQLException{
 		setResizable(false);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(CvMatching.class.getResource("/Images/logo_icon25x25.png")));
 		this.i=i;
@@ -98,13 +102,26 @@ public class CvMatching extends JFrame {
 		lblNewLabel_1_1_1_1_1_1_1.setBounds(33, 240, 210, 32);
 		contentPane.add(lblNewLabel_1_1_1_1_1_1_1);
 		
-		JButton btnNewButton = new JButton("View Matching Skills");
-		btnNewButton.setIcon(new ImageIcon(CvMatching.class.getResource("/Images/matchwhite_icon.png")));
-		btnNewButton.setBackground(Color.BLACK);
-		btnNewButton.setForeground(Color.WHITE);
-		btnNewButton.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 11));
-		btnNewButton.setBounds(360, 560, 202, 32);
-		contentPane.add(btnNewButton);
+		JButton btnViewMatch = new JButton("View Matching Skills");
+		btnViewMatch.setIcon(new ImageIcon(CvMatching.class.getResource("/Images/matchwhite_icon.png")));
+		btnViewMatch.setBackground(Color.BLACK);
+		btnViewMatch.setForeground(Color.WHITE);
+		btnViewMatch.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 11));
+		btnViewMatch.setBounds(360, 560, 202, 32);
+		contentPane.add(btnViewMatch);
+		btnViewMatch.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					
+					try {
+						new MatchingInfo(username,i);
+					}
+					catch (Exception e8) {
+						e8.printStackTrace();
+					}
+					
+				}
+			});
+		
 		
 		JTextArea textArea_phone = new JTextArea();
 		textArea_phone.setFont(new Font("Tahoma", Font.PLAIN, 16));
@@ -371,6 +388,10 @@ public class CvMatching extends JFrame {
 			e6.printStackTrace();
 		}
 		
+        
+        
+           
+        
 		this.setVisible(true);
 		this.setTitle("View CV");
 	}
