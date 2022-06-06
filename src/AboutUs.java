@@ -277,10 +277,10 @@ public class AboutUs  extends JFrame {
 			contentPane.add(stavros);
 			stavros.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 			
-			JLabel Kontaksis = new JLabel("Kontaksis Ioannis");
-			Kontaksis.setFont(new Font("Tahoma", Font.ITALIC, 13));
-			Kontaksis.setBounds(679, 215, 174, 20);
-			Kontaksis.addMouseListener(new MouseAdapter() {
+			JLabel Kontaxis = new JLabel("Kontaxis Ioannis");
+			Kontaxis.setFont(new Font("Tahoma", Font.ITALIC, 13));
+			Kontaxis.setBounds(679, 215, 174, 20);
+			Kontaxis.addMouseListener(new MouseAdapter() {
 		       	 
 	            @Override
 	            public void mouseClicked(MouseEvent e) {
@@ -291,8 +291,9 @@ public class AboutUs  extends JFrame {
 	                }
 	            }
 			});
-			contentPane.add(Kontaksis); 
-			Kontaksis.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		
+			contentPane.add(Kontaxis); 
+			Kontaxis.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
 			
 			JLabel Chrysanthi = new JLabel("Trentsiou Chrysanthi");

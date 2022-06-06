@@ -10,6 +10,8 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -19,6 +21,8 @@ import java.util.HashMap;
 import java.util.List;
 
 import javax.swing.JList;
+import javax.swing.JOptionPane;
+
 import java.awt.Color;
 import javax.swing.AbstractListModel;
 import javax.swing.ListSelectionModel;
@@ -28,7 +32,7 @@ import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 import javax.swing.JSeparator;
 
-public class Notifications extends JFrame {
+public class Notifications extends JFrame{
 
 	private JPanel contentPane;
 	private int i;
@@ -90,14 +94,6 @@ public class Notifications extends JFrame {
 		
 		
 		
-		JList list = new JList();
-		list.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
-		
-		model = new DefaultListModel();
-		list.setModel(model);
-		
-		scrollPane.setViewportView(list);
-		
 		
 		JButton btnBack = new JButton("");
 		btnBack.setIcon(new ImageIcon(cv.class.getResource("/Images/back_icon.png")));
@@ -114,41 +110,7 @@ public class Notifications extends JFrame {
 			}
 		});
 		
-		try {
-			conn = DBConnection.ConnDB();
-			String sql = "select role from users where id = "+i+" ";
-			ps2 = conn.prepareStatement(sql);
-			rs2 = ps2.executeQuery();
-			
-			if (rs2.getString("role").equals("employee")) {
-				
-				try {
-					conn = DBConnection.ConnDB();
-					ps = conn.prepareStatement("select * from Seminars where id="+i+"");
-					rs = ps.executeQuery();
-						
-					if (!rs.isClosed()) {
-					
-					for(int j=1; j<6; j++) {
-						 if(rs.getString("Seminar" + j).equals("true")){
-							 model.addElement("You 've booked our Seminar" + j);
-						 }
-					}
-					}
-					ps.close();
-					rs.close();
-		        } 
-				catch (SQLException e1) {
-		            e1.printStackTrace();
-		        }			
-			}
-			ps2.close();
-			rs2.close();
-			 conn.close();
-		}
-		catch (SQLException e1) {
-            e1.printStackTrace();
-        }		
+		
 		
 		JButton Refresh = new JButton("");
 		Refresh.setIcon(new ImageIcon(Notifications.class.getResource("/Images/refresh_icon.png")));
@@ -159,12 +121,76 @@ public class Notifications extends JFrame {
 		Refresh.setContentAreaFilled(false);
 		contentPane.add(Refresh);
 		
+		
+		JList list = new JList();
+		list.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
+		
+		model = new DefaultListModel();
+		list.setModel(model);
+		
+		scrollPane.setViewportView(list);
+		
+		
 		JLabel lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setIcon(new ImageIcon(Notifications.class.getResource("/Images/notificback.png")));
 		lblNewLabel_1.setBounds(0, 0, 436, 563);
 		contentPane.add(lblNewLabel_1);
 		Refresh.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				try {
+					conn = DBConnection.ConnDB();
+					String sql = "select role from users where id = "+i+" ";
+					ps2 = conn.prepareStatement(sql);
+					rs2 = ps2.executeQuery();
+					
+					if (rs2.getString("role").equals("employee")) {
+						
+						try {
+							conn = DBConnection.ConnDB();
+							ps = conn.prepareStatement("select * from Seminars where id="+i+"");
+							rs = ps.executeQuery();
+								
+							if (!rs.isClosed()) {
+							
+							for(int j=1; j<6; j++) {
+								 if(rs.getString("Seminar" + j).equals("true")){
+									 if(j==1) {
+										model.addElement("You 've booked our Íï.1 Seminar");
+									 }
+									 else if (j==2){
+										 model.addElement("You 've booked our Íï.2 Seminar");
+									 }
+									 else if (j==3){
+										 model.addElement("You 've booked our Íï.3 Seminar");
+									 }
+									 else if (j==4){
+										 model.addElement("You 've booked our Íï.4 Seminar");
+									 }
+									 else if (j==5){
+										 model.addElement("You 've booked our Íï.5 Seminar");
+									 }
+									 else if (j==6){
+										 model.addElement("You 've booked our Íï.6 Seminar");
+									 }
+									 //model.addElement("You 've booked our  Seminar" + j);
+								 }
+							}
+							}
+							ps.close();
+							rs.close();
+				        } 
+						catch (SQLException e1) {
+				            e1.printStackTrace();
+				        }			
+					}
+					ps2.close();
+					rs2.close();
+					 conn.close();
+				}
+				catch (SQLException e1) {
+		            e1.printStackTrace();
+		        }		
 				
 				/*list.setFont(new Font("Arial", Font.BOLD, 13));
 				list.setModel(new AbstractListModel() {
@@ -182,7 +208,42 @@ public class Notifications extends JFrame {
 			}
 		});
 		
-		
+     list.addMouseListener(new MouseListener () {		
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+					/*new MatchingInfo(usernameList.getSelectedValue()+"",i);*/
+					//new CvMatching(list.getSelectedValue()+"",i);
+					JOptionPane.showMessageDialog(null,
+						    "You 've chosen on of our seminars."
+						    + " For more information about the chosen " + "\n" + " seminar check our website.");
+				}
+			
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}	
+			
+        });
 		
 		this.setVisible(true);
 		this.setTitle("Notifications");
