@@ -143,8 +143,12 @@ public class Employee extends JFrame {
 		JButton btnNotifications = new JButton("Notifications");
 		btnNotifications.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				try {
+					new Notifications(i);
+				} catch (SQLException e1) {							
+					e1.printStackTrace();
+				}
 				
-				new Notifications(i);
 				
 			}
 		});

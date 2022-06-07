@@ -347,8 +347,11 @@ public class Company extends JFrame {
 		contentPane.add(btnNotifications);
 		btnNotifications.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Notifications(i);
-			}
+				try {
+					new Notifications(i);
+				} catch (SQLException e1) {							
+					e1.printStackTrace();
+				}			}
 		});
 		
 		

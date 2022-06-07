@@ -1,13 +1,7 @@
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
 
-import javax.swing.DefaultListModel;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JLabel;
-
+import java.awt.Color;
 import java.awt.Font;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -17,20 +11,18 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
+import javax.swing.DefaultListModel;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
-
-import java.awt.Color;
-import javax.swing.AbstractListModel;
-import javax.swing.ListSelectionModel;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JButton;
-import java.awt.Toolkit;
-import javax.swing.ImageIcon;
 import javax.swing.JSeparator;
+import javax.swing.border.EmptyBorder;
 
 public class Notifications extends JFrame{
 
@@ -42,6 +34,21 @@ public class Notifications extends JFrame{
 	private PreparedStatement ps2 = null;
 	private ResultSet rs2 = null;
 	private DefaultListModel model;
+	private DefaultListModel model2;
+	private PreparedStatement ps3 = null;
+	private ResultSet rs3 = null;
+	private PreparedStatement ps4 = null;
+	private ResultSet rs4 = null;
+	private PreparedStatement ps5 = null;
+	private ResultSet rs5 = null;
+	private PreparedStatement ps6 = null;
+	private ResultSet rs6 = null;
+	private PreparedStatement ps7 = null;
+	private ResultSet rs7= null;
+	private ArrayList<String> users = new ArrayList<>();
+	private ArrayList<Integer> cou = new ArrayList<>();
+
+	private String sql="";
 	/*HashMap<Integer,List<String>> seminars = new HashMap<Integer,List<String>>();
 	private DefaultListModel model;
 	List<String> seminarlist = new ArrayList<String>();*/
@@ -64,11 +71,10 @@ public class Notifications extends JFrame{
 	/**
 	 * Create the frame.
 	 */
-	public Notifications(int i) {
+	public Notifications(int i) throws SQLException {
 		setResizable(false);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Notifications.class.getResource("/Images/logo_icon25x25.png")));
 		this.i = i;
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -88,7 +94,7 @@ public class Notifications extends JFrame{
 		contentPane.add(lblNewLabel);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(54, 95, 331, 430);
+		scrollPane.setBounds(54, 95, 331, 395);
 		contentPane.add(scrollPane);
 		
 		
@@ -128,7 +134,95 @@ public class Notifications extends JFrame{
 		model = new DefaultListModel();
 		list.setModel(model);
 		
-		scrollPane.setViewportView(list);
+		scrollPane.setColumnHeaderView(list);
+		
+		JList list_mes = new JList();
+		list_mes.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
+		scrollPane.setViewportView(list_mes);
+		
+		model2 = new DefaultListModel();
+		list_mes.setModel(model2);
+		
+		//αθροισμα λιστας ιδ απο τον πινακα notifications
+		conn = DBConnection.ConnDB();	
+
+		sql = "select  count(*) as ar from notifications  where id = '"+i+"'";
+		ps3 = conn.prepareStatement(sql);
+		rs3 = ps3.executeQuery();	
+		rs3.next();
+		
+		int y = Integer.valueOf(rs3.getString("ar"));
+			
+		ps3.close();
+		rs3.close();	
+		
+	   //αθροισμα λιστας χρηστων που εχουν εστειλει μνμ στον χρηστη	 απο τον πινακα messages
+ 
+		sql = "select  count(*) as ar from users join messages where username=usernameTo and id = '"+i+"'";
+
+		ps4 = conn.prepareStatement(sql);
+		rs4 = ps4.executeQuery();
+		rs4.next();
+		
+		int x = Integer.valueOf(rs4.getString("ar"));	
+		
+		ps4.close();
+		rs4.close();
+		// φορτωση λιστασ χρηστων για τουσ οποιος ενημερωθηκε ο χρηστησ οτι εχει μνμ
+	
+		sql = "select  idFrom  from users join messages where username=usernameTo and id = '"+i+"'";
+
+		ps5 = conn.prepareStatement(sql);
+		rs5 = ps5.executeQuery();
+		
+		while (rs5.next()) {
+			cou.add(rs5.getInt("idFrom"));
+		}
+		ps5.close();
+		rs5.close();
+		
+		for(int w=0; w<cou.size(); w++) {				
+		sql = "select  username  from users where  id = '"+cou.get(w)+"'";
+		ps6 = conn.prepareStatement(sql);
+		rs6 = ps6.executeQuery();
+		users.add(rs6.getString("username"));
+		
+		ps6.close();
+		rs6.close();
+		}
+		
+		
+		conn.close();
+		
+
+		
+		
+			for(int w1=0; w1<users.size(); w1++) {				
+				model2.addElement("You 've new Message from " + users.get(w1) + "\n");
+				if(y<users.size()) {
+				try {
+
+					conn = DBConnection.ConnDB();			
+			
+					ps7 = conn.prepareStatement("INSERT INTO notifications(id,MesFrom) VALUES(?,?)");           
+					ps7.setInt(1, i);			
+					ps7.setString(2, users.get(w1));
+						
+					ps7.execute();
+	                ps7.close();
+					conn.close();
+
+			
+				 } catch (SQLException e1) {
+			            e1.printStackTrace();
+			        
+			}
+			
+			}
+		}
+		
+
+
 		
 		
 		JLabel lblNewLabel_1 = new JLabel("");
