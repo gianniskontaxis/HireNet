@@ -122,15 +122,17 @@ public class SendMessages extends JFrame {
 		ps2 = conn.prepareStatement(sql);
 		rs2 = ps2.executeQuery();	
 		
-		sql = "select username,usernameTo ,text,dateOfMessage from users join messages where id=idFrom and ((username='"+rs2.getString(1)+"' and usernameTo='"+username+"') or(username= '"+username+"' and usernameTo='"+rs2.getString(1)+"')) order by dateOfMessage";
+		sql= "select username,usernameTo ,text,dateOfMessage from users join messages where id=idFrom ";
 		ps3 = conn.prepareStatement(sql);
 		rs3 = ps3.executeQuery();
 		
 		while (rs3.next()) {
-			textArea.append(rs3.getString("username")+": "+rs3.getString("text") +" \n" + rs3.getString("dateOfMessage") + "\n");							
+			 if((rs3.getString("username").equals(rs2.getString(1)) && rs3.getString("usernameTo").equals(username)) ||(rs3.getString("username").equals(username) && (rs3.getString("usernameTo").equals(rs2.getString(1))))) {  ;
+
+			textArea.append(rs3.getString("username")+": "+rs3.getString("text") +" \n" + rs3.getString("dateOfMessage") + "\n\n");		
+			 }
 				
 		}
-		
 		
 		ps2.close();
 		rs2.close();
