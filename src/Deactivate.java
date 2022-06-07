@@ -12,6 +12,10 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextPane;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+import java.awt.Toolkit;
+import javax.swing.SwingConstants;
 
 
 public class Deactivate extends JFrame {
@@ -42,6 +46,9 @@ public class Deactivate extends JFrame {
 	 * Create the frame.
 	 */
 	public Deactivate(int i) {
+		setResizable(false);
+		setTitle("Delete Account?");
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Deactivate.class.getResource("/Images/logo_icon25x25.png")));
 		this.i=i;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -52,12 +59,27 @@ public class Deactivate extends JFrame {
 		contentPane.setLayout(null);
 		this.setVisible(true);
 		
+		JLabel lblNewLabel_1 = new JLabel("* You will not be able to undo this action !");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblNewLabel_1.setForeground(new Color(255, 255, 255));
+		lblNewLabel_1.setBounds(10, 240, 241, 13);
+		contentPane.add(lblNewLabel_1);
+		
+		JLabel stoplabel = new JLabel("  WARNING !");
+		stoplabel.setForeground(new Color(255, 255, 255));
+		stoplabel.setFont(new Font("Tahoma", Font.BOLD, 26));
+		stoplabel.setIcon(new ImageIcon(Deactivate.class.getResource("/Images/warning2.png")));
+		stoplabel.setBounds(96, 36, 241, 50);
+		contentPane.add(stoplabel);
+		
 		JTextPane txtpnAreYouSure = new JTextPane();
+		txtpnAreYouSure.setForeground(new Color(255, 255, 255));
 		txtpnAreYouSure.setEditable(false);
+		txtpnAreYouSure.setOpaque(false);
 		txtpnAreYouSure.setBackground(SystemColor.control);
-		txtpnAreYouSure.setFont(new Font("Tahoma", Font.PLAIN, 19));
+		txtpnAreYouSure.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		txtpnAreYouSure.setText("Are you sure you want to delete your account?");
-		txtpnAreYouSure.setBounds(110, 51, 213, 52);
+		txtpnAreYouSure.setBounds(96, 111, 241, 56);
 		contentPane.add(txtpnAreYouSure);
 		
 		JButton btnNewButton = new JButton("Yes");
@@ -65,21 +87,26 @@ public class Deactivate extends JFrame {
 		
 		
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));
-		btnNewButton.setBackground(new Color(47, 79, 79));
+		btnNewButton.setBackground(new Color(0, 0, 0));
 		btnNewButton.setForeground(new Color(255, 255, 255));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton.setBounds(96, 141, 85, 21);
+		btnNewButton.setBounds(96, 177, 85, 21);
 		contentPane.add(btnNewButton);
 		
-		JButton btnNewButton_1 = new JButton("No");
+		JButton btnNewButton_1 = new JButton("Cancel");
 		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));
-		btnNewButton_1.setBackground(new Color(47, 79, 79));
+		btnNewButton_1.setBackground(new Color(0, 0, 0));
 		btnNewButton_1.setForeground(new Color(255, 255, 255));
-		btnNewButton_1.setBounds(252, 141, 85, 21);
+		btnNewButton_1.setBounds(252, 177, 85, 21);
 		contentPane.add(btnNewButton_1);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(Deactivate.class.getResource("/Images/recovery_background.png")));
+		lblNewLabel.setBounds(0, 0, 436, 263);
+		contentPane.add(lblNewLabel);
 		
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

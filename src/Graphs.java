@@ -16,6 +16,7 @@ import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.data.category.DefaultCategoryDataset;
+import java.awt.Toolkit;
 
 
 public class Graphs extends JFrame {
@@ -33,6 +34,9 @@ public class Graphs extends JFrame {
 
 		
 	public Graphs(int i) {
+		setResizable(false);
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Graphs.class.getResource("/Images/logo_icon25x25.png")));
+		setTitle("Companies Graph");
 		
 		
 		

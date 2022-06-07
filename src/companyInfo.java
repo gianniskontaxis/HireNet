@@ -14,6 +14,11 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.border.EmptyBorder;
+import java.awt.Toolkit;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+import javax.swing.JSeparator;
+import java.awt.Color;
 
 public class companyInfo extends JFrame {
 	
@@ -29,10 +34,16 @@ public class companyInfo extends JFrame {
 	private ResultSet rs2 = null;
 	private String sql="";
 	private DefaultListModel qualModel;
+	private JLabel lblNewLabel;
+	private JSeparator separator;
+	private JSeparator separator_1;
+	private JLabel lblNewLabel_1;
+	private JLabel lblNewLabel_2;
 
 	// Create Frame.
 	
 	public companyInfo(String username) throws SQLException {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(companyInfo.class.getResource("/Images/logo_icon25x25.png")));
 		
 		setResizable(false);
 		setTitle("Company's Info");
@@ -41,29 +52,51 @@ public class companyInfo extends JFrame {
 		this.username = username;
 		
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 792, 498);
+		setBounds(100, 100, 420, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		lblNewLabel_2 = new JLabel("");
+		lblNewLabel_2.setIcon(new ImageIcon(companyInfo.class.getResource("/Images/matchingblack.png")));
+		lblNewLabel_2.setBounds(38, 184, 32, 32);
+		contentPane.add(lblNewLabel_2);
+		
+		lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon(companyInfo.class.getResource("/Images/profile_icon.png")));
+		lblNewLabel_1.setBounds(38, 42, 32, 32);
+		contentPane.add(lblNewLabel_1);
+		
+		separator_1 = new JSeparator();
+		separator_1.setForeground(Color.BLACK);
+		separator_1.setBounds(38, 216, 328, 12);
+		contentPane.add(separator_1);
+		
+		separator = new JSeparator();
+		separator.setForeground(Color.BLACK);
+		separator.setBounds(38, 74, 328, 12);
+		contentPane.add(separator);
+		
 		JTextPane txtpnUsersData = new JTextPane();
 		txtpnUsersData.setEditable(false);
+		txtpnUsersData.setOpaque(false);
 		txtpnUsersData.setBackground(SystemColor.menu);
-		txtpnUsersData.setFont(new Font("Tahoma", Font.BOLD, 20));
+		txtpnUsersData.setFont(new Font("Tahoma", Font.BOLD, 18));
 		txtpnUsersData.setText("User's Data");
 		txtpnUsersData.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-		txtpnUsersData.setBounds(100, 63, 146, 36);
+		txtpnUsersData.setBounds(78, 42, 133, 32);
 		contentPane.add(txtpnUsersData);
 		
 		txtEmail = new JTextField();
 		txtEmail.setBorder(null);
+		txtEmail.setOpaque(false);
 		txtEmail.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		txtEmail.setEditable(false);
 		txtEmail.setBackground(SystemColor.menu);
 		txtEmail.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		txtEmail.setText("Email");
-		txtEmail.setBounds(23, 105, 50, 36);
+		txtEmail.setBounds(38, 84, 50, 32);
 		contentPane.add(txtEmail);
 		txtEmail.setColumns(10);
 		
@@ -72,20 +105,21 @@ public class companyInfo extends JFrame {
 		emailField.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		emailField.setEditable(false);
 		emailField.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-		emailField.setBounds(90, 109, 216, 30);
+		emailField.setBounds(38, 120, 216, 30);
 		contentPane.add(emailField);
 		emailField.setColumns(10);
 		
 		txtpnMatches = new JTextPane();
-		txtpnMatches.setText("We ask for!");
-		txtpnMatches.setFont(new Font("Tahoma", Font.BOLD, 20));
+		txtpnMatches.setText("Asking for:");
+		txtpnMatches.setOpaque(false);
+		txtpnMatches.setFont(new Font("Tahoma", Font.BOLD, 18));
 		txtpnMatches.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		txtpnMatches.setBackground(SystemColor.menu);
-		txtpnMatches.setBounds(539, 58, 132, 36);
+		txtpnMatches.setBounds(78, 184, 132, 32);
 		contentPane.add(txtpnMatches);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(477, 105, 270, 256);
+		scrollPane.setBounds(38, 238, 328, 292);
 		contentPane.add(scrollPane);
 		
 		JList qualList = new JList();
@@ -102,6 +136,11 @@ public class companyInfo extends JFrame {
 		rs = ps.executeQuery();
 		
 		emailField.setText(rs.getString("email"));
+		
+		lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(companyInfo.class.getResource("/Images/firstback2.png")));
+		lblNewLabel.setBounds(0, 0, 406, 563);
+		contentPane.add(lblNewLabel);
 		
 		// Kαταχωρηση των qual.
 		

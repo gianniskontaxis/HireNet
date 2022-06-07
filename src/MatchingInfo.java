@@ -63,12 +63,12 @@ public class MatchingInfo extends JFrame {
 		contentPane.setLayout(null);
 		
 		lblNewLabel_2 = new JLabel("");
-		lblNewLabel_2.setIcon(new ImageIcon(MatchingInfo.class.getResource("/Images/puzzle_icon.png")));
+		lblNewLabel_2.setIcon(new ImageIcon(MatchingInfo.class.getResource("/Images/puzzlewhite.png")));
 		lblNewLabel_2.setBounds(38, 184, 32, 32);
 		contentPane.add(lblNewLabel_2);
 		
 		lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon(MatchingInfo.class.getResource("/Images/profile_icon.png")));
+		lblNewLabel_1.setIcon(new ImageIcon(MatchingInfo.class.getResource("/Images/profilewhite.png")));
 		lblNewLabel_1.setBounds(38, 42, 32, 32);
 		contentPane.add(lblNewLabel_1);
 		
@@ -83,6 +83,7 @@ public class MatchingInfo extends JFrame {
 		contentPane.add(separator);
 		
 		JTextPane txtpnUsersData = new JTextPane();
+		txtpnUsersData.setForeground(new Color(255, 255, 255));
 		txtpnUsersData.setEditable(false);
 		txtpnUsersData.setBackground(SystemColor.menu);
 		txtpnUsersData.setFont(new Font("Tahoma", Font.BOLD, 18));
@@ -93,6 +94,7 @@ public class MatchingInfo extends JFrame {
 		contentPane.add(txtpnUsersData);
 		
 		txtEmail = new JTextField();
+		txtEmail.setForeground(new Color(255, 255, 255));
 		txtEmail.setBorder(null);
 		txtEmail.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		txtEmail.setEditable(false);
@@ -114,6 +116,7 @@ public class MatchingInfo extends JFrame {
 		emailField.setColumns(10);
 		
 		txtpnMatches = new JTextPane();
+		txtpnMatches.setForeground(new Color(255, 255, 255));
 		txtpnMatches.setText("Matching Skills");
 		txtpnMatches.setFont(new Font("Tahoma", Font.BOLD, 18));
 		txtpnMatches.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
@@ -142,7 +145,7 @@ public class MatchingInfo extends JFrame {
 		emailField.setText(rs.getString("email"));
 		
 		lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(MatchingInfo.class.getResource("/Images/hirenetwhite.png")));
+		lblNewLabel.setIcon(new ImageIcon(MatchingInfo.class.getResource("/Images/infoback.png")));
 		lblNewLabel.setBounds(0, 0, 406, 563);
 		contentPane.add(lblNewLabel);
 		

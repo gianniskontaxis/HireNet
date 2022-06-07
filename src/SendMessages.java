@@ -76,10 +76,17 @@ public class SendMessages extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		JLabel chat_label = new JLabel("Chat");
+		chat_label.setIcon(new ImageIcon(SendMessages.class.getResource("/Images/chat_icon.png")));
+		chat_label.setForeground(Color.WHITE);
+		chat_label.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 18));
+		chat_label.setBounds(217, 12, 89, 32);
+		contentPane.add(chat_label);
+		
 		JTextArea NewMessagetextArea = new JTextArea();
 		NewMessagetextArea.setBackground(new Color(255, 255, 255));
 		NewMessagetextArea.setForeground(new Color(0, 102, 102));
-		NewMessagetextArea.setBounds(25, 439, 369, 81);
+		NewMessagetextArea.setBounds(41, 418, 353, 102);
 		contentPane.add(NewMessagetextArea);
 
 		
@@ -90,13 +97,13 @@ public class SendMessages extends JFrame {
 		btnNewButton.setOpaque(false);
 		btnNewButton.setBorderPainted(false);
 		btnNewButton.setContentAreaFilled(false);
-		btnNewButton.setBounds(404, 439, 97, 81);
+		btnNewButton.setBounds(404, 430, 81, 81);
 		contentPane.add(btnNewButton);
 		
 		Model = new DefaultListModel();
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(25, 53, 476, 318);
+		scrollPane.setBounds(25, 54, 476, 317);
 		contentPane.add(scrollPane);
 		
 		JTextArea textArea = new JTextArea();
@@ -109,8 +116,13 @@ public class SendMessages extends JFrame {
 		textArea.setBounds(25, 53, 476, 318);
 		   scrollPane.setViewportView(textArea);
 		   
+		   JLabel textbackground = new JLabel("");
+		   textbackground.setIcon(new ImageIcon(SendMessages.class.getResource("/Images/background6.png")));
+		   textbackground.setBounds(25, 400, 476, 138);
+		   contentPane.add(textbackground);
+		   
 		   JLabel lblNewLabel = new JLabel("");
-		   lblNewLabel.setIcon(new ImageIcon(SendMessages.class.getResource("/Images/firstbackground.png")));
+		   lblNewLabel.setIcon(new ImageIcon(SendMessages.class.getResource("/Images/employee_background.png")));
 		   lblNewLabel.setBounds(0, 0, 536, 563);
 		   contentPane.add(lblNewLabel);
 

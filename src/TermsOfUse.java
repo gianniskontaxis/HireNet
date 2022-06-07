@@ -6,6 +6,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
+import java.awt.Toolkit;
+import javax.swing.ImageIcon;
 
 public class TermsOfUse extends JFrame {
 
@@ -27,6 +29,7 @@ public class TermsOfUse extends JFrame {
 
 	
 	public TermsOfUse() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(TermsOfUse.class.getResource("/Images/logo_icon25x25.png")));
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 470, 470);
 		contentPane = new JPanel();
@@ -35,7 +38,7 @@ public class TermsOfUse extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Terms of use");
-		lblNewLabel.setFont(new Font("Arial Black", Font.BOLD | Font.ITALIC, 15));
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 18));
 		lblNewLabel.setBounds(167, 10, 129, 29);
 		contentPane.add(lblNewLabel);
 		
@@ -53,13 +56,18 @@ public class TermsOfUse extends JFrame {
 	         dispose();
 	      });
 		
-		btnNewButton.setFont(new Font("Arial Black", Font.BOLD | Font.ITALIC, 13));
-		btnNewButton.setBackground(new Color(47, 79, 79));
+		btnNewButton.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
+		btnNewButton.setBackground(new Color(0, 0, 0));
 		btnNewButton.setForeground(new Color(255, 255, 255));
 		btnNewButton.setBounds(176, 381, 109, 29);
 		contentPane.add(btnNewButton);
+		
+		JLabel lblNewLabel_2 = new JLabel("");
+		lblNewLabel_2.setIcon(new ImageIcon(TermsOfUse.class.getResource("/Images/hirenetwhite.png")));
+		lblNewLabel_2.setBounds(0, 0, 456, 443);
+		contentPane.add(lblNewLabel_2);
 		this.setVisible(true);
-		this.setTitle("TermsOfUse");
+		this.setTitle("Terms of Use");
 		
 	}
 	

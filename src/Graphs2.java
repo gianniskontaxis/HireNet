@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 import org.jfree.chart.*;
 import org.jfree.chart.plot.*;
 import org.jfree.data.category.*;
+import java.awt.Toolkit;
 
 
 public class Graphs2 extends JFrame {
@@ -32,6 +33,9 @@ public class Graphs2 extends JFrame {
 
 		
 	public Graphs2(int i) {
+		setResizable(false);
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Graphs2.class.getResource("/Images/logo_icon25x25.png")));
+		setTitle("Employees Graph");
 		
 		
 		

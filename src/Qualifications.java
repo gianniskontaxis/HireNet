@@ -14,6 +14,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.border.EmptyBorder;
+import java.awt.Toolkit;
+import javax.swing.ImageIcon;
 
 public class Qualifications extends JFrame {
 
@@ -40,6 +42,8 @@ public class Qualifications extends JFrame {
 	}*/
 	
 	public  Qualifications(int i) {
+		setResizable(false);
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Qualifications.class.getResource("/Images/logo_icon25x25.png")));
 		
 		this.i=i;	
 		
@@ -54,19 +58,21 @@ public class Qualifications extends JFrame {
 		radioButtons = new JRadioButton[65];		
 		
 		JButton btnNewButton_1 = new JButton("Save");	
+		btnNewButton_1.setIcon(new ImageIcon(Qualifications.class.getResource("/Images/save_icon.png")));
 		
-		btnNewButton_1.setBackground(new Color(47, 79, 79));
+		btnNewButton_1.setBackground(new Color(0, 0, 0));
 		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
 		btnNewButton_1.setForeground(new Color(255, 255, 255));
-		btnNewButton_1.setBounds(659, 649, 149, 47);
+		btnNewButton_1.setBounds(659, 649, 149, 34);
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Load");	
+		btnNewButton_2.setIcon(new ImageIcon(Qualifications.class.getResource("/Images/load.png")));
 		
-		btnNewButton_2.setBackground(new Color(47, 79, 79));
+		btnNewButton_2.setBackground(new Color(0, 0, 0));
 		btnNewButton_2.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
 		btnNewButton_2.setForeground(new Color(255, 255, 255));
-		btnNewButton_2.setBounds(159, 649, 149, 47);
+		btnNewButton_2.setBounds(159, 649, 149, 34);
 		contentPane.add(btnNewButton_2);
 		
 		JLabel lblNewLabel = new JLabel("General Qualifications:");
