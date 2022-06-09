@@ -60,7 +60,7 @@ public class Articles extends JFrame {
 		setResizable(false);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Articles.class.getResource("/Images/logo_icon25x25.png")));
 		setTitle("Articles");
-		setBounds(100, 15, 973, 850);
+		setBounds(100, 0, 973, 850);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
