@@ -77,7 +77,7 @@ public class Support extends JFrame {
 		txtpnAlmostFiveYears_1.setText("2) How can I upgrade my skills?");
 		txtpnAlmostFiveYears_1.setFont(new Font("Tahoma", Font.BOLD, 14));
 		txtpnAlmostFiveYears_1.setBackground(Color.LIGHT_GRAY);
-		txtpnAlmostFiveYears_1.setBounds(51, 154, 459, 39);
+		txtpnAlmostFiveYears_1.setBounds(51, 143, 459, 39);
 		contentPane.add(txtpnAlmostFiveYears_1);
 		
 		JTextPane txtpnAlmostFiveYears_2 = new JTextPane();
@@ -135,12 +135,12 @@ public class Support extends JFrame {
 		contentPane.add(txtpnAlmostFiveYears_2_1_1_1);
 		
 		JTextPane txtpnAlmostFiveYears_2_1_1_1_1 = new JTextPane();
-		txtpnAlmostFiveYears_2_1_1_1_1.setText("In the \"Qualifications\" window, there is a \"load\" button, which allows you to add more.");
+		txtpnAlmostFiveYears_2_1_1_1_1.setText("First, you should open your CV window. There is a button called \u201CAdd Qualficications\u201D. Once you push this, a window with skills will appear and you will be able to add yours. When you are finished, you can save your Qualifications and return to main Menu.");
 		txtpnAlmostFiveYears_2_1_1_1_1.setEditable(false);
 		txtpnAlmostFiveYears_2_1_1_1_1.setOpaque(false);
 		txtpnAlmostFiveYears_2_1_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		txtpnAlmostFiveYears_2_1_1_1_1.setBackground(Color.WHITE);
-		txtpnAlmostFiveYears_2_1_1_1_1.setBounds(61, 185, 459, 39);
+		txtpnAlmostFiveYears_2_1_1_1_1.setBounds(61, 166, 459, 70);
 		contentPane.add(txtpnAlmostFiveYears_2_1_1_1_1);
 		
 		JTextPane txtpnAlmostFiveYears_2_1_1_1_1_1 = new JTextPane();
@@ -158,7 +158,7 @@ public class Support extends JFrame {
 		txtpnAlmostFiveYears_3_1_1.setText("6) How can I change my personal information? ");
 		txtpnAlmostFiveYears_3_1_1.setFont(new Font("Tahoma", Font.BOLD, 14));
 		txtpnAlmostFiveYears_3_1_1.setBackground(Color.LIGHT_GRAY);
-		txtpnAlmostFiveYears_3_1_1.setBounds(51, 506, 459, 47);
+		txtpnAlmostFiveYears_3_1_1.setBounds(51, 492, 459, 47);
 		contentPane.add(txtpnAlmostFiveYears_3_1_1);
 		
 		JTextPane txtpnAlmostFiveYears_2_1_1_1_2 = new JTextPane();
@@ -167,7 +167,7 @@ public class Support extends JFrame {
 		txtpnAlmostFiveYears_2_1_1_1_2.setOpaque(false);
 		txtpnAlmostFiveYears_2_1_1_1_2.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		txtpnAlmostFiveYears_2_1_1_1_2.setBackground(Color.WHITE);
-		txtpnAlmostFiveYears_2_1_1_1_2.setBounds(61, 538, 459, 56);
+		txtpnAlmostFiveYears_2_1_1_1_2.setBounds(61, 525, 459, 56);
 		contentPane.add(txtpnAlmostFiveYears_2_1_1_1_2);
 		
 		JButton btnBack = new JButton("");
@@ -201,7 +201,7 @@ public class Support extends JFrame {
 		
 		
 		this.setVisible(true);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
 	}
 }
 
