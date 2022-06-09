@@ -108,7 +108,7 @@ public class Support extends JFrame {
 		contentPane.add(txtpnAlmostFiveYears_2_1);
 		
 		JTextPane txtpnAlmostFiveYears_2_1_1 = new JTextPane();
-		txtpnAlmostFiveYears_2_1_1.setText("In case you forget your password, there is a \"forgot password\u201D button at log in window. Once you press it, one window will appear and you should fill in your username and your favourite password. If your data are correct, your password will appear at your screen.");
+		txtpnAlmostFiveYears_2_1_1.setText("In case you forget your password, there is a \"forgot password\u201D button at log in window. Once you press it, one window will appear and you should fill in your username and your favourite number. If your data are correct, your password will appear at your screen.");
 		txtpnAlmostFiveYears_2_1_1.setEditable(false);
 		txtpnAlmostFiveYears_2_1_1.setOpaque(false);
 		txtpnAlmostFiveYears_2_1_1.setFont(new Font("Tahoma", Font.PLAIN, 13));
