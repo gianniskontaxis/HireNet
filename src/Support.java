@@ -65,16 +65,16 @@ public class Support extends JFrame {
 		JTextPane txtpnAlmostFiveYears = new JTextPane();
 		txtpnAlmostFiveYears.setEditable(false);
 		txtpnAlmostFiveYears.setOpaque(false);
-		txtpnAlmostFiveYears.setText("1)Can I delete my account if I don\u2019t want to be user anymore? ");
+		txtpnAlmostFiveYears.setText("1) Can I delete my account if I don\u2019t want to be user anymore? ");
 		txtpnAlmostFiveYears.setFont(new Font("Tahoma", Font.BOLD, 14));
 		txtpnAlmostFiveYears.setBackground(Color.LIGHT_GRAY);
-		txtpnAlmostFiveYears.setBounds(51, 72, 459, 47);
+		txtpnAlmostFiveYears.setBounds(52, 72, 459, 47);
 		contentPane.add(txtpnAlmostFiveYears);
 		
 		JTextPane txtpnAlmostFiveYears_1 = new JTextPane();
 		txtpnAlmostFiveYears_1.setEditable(false);
 		txtpnAlmostFiveYears_1.setOpaque(false);
-		txtpnAlmostFiveYears_1.setText("2)How can I upgrade my skills?");
+		txtpnAlmostFiveYears_1.setText("2) How can I upgrade my skills?");
 		txtpnAlmostFiveYears_1.setFont(new Font("Tahoma", Font.BOLD, 14));
 		txtpnAlmostFiveYears_1.setBackground(Color.LIGHT_GRAY);
 		txtpnAlmostFiveYears_1.setBounds(51, 154, 459, 39);
@@ -83,7 +83,7 @@ public class Support extends JFrame {
 		JTextPane txtpnAlmostFiveYears_2 = new JTextPane();
 		txtpnAlmostFiveYears_2.setEditable(false);
 		txtpnAlmostFiveYears_2.setOpaque(false);
-		txtpnAlmostFiveYears_2.setText("3)How can I participate in the seminars?  ");
+		txtpnAlmostFiveYears_2.setText("3) How can I participate in the seminars?  ");
 		txtpnAlmostFiveYears_2.setFont(new Font("Tahoma", Font.BOLD, 14));
 		txtpnAlmostFiveYears_2.setBackground(Color.LIGHT_GRAY);
 		txtpnAlmostFiveYears_2.setBounds(51, 240, 459, 29);
@@ -92,7 +92,7 @@ public class Support extends JFrame {
 		JTextPane txtpnAlmostFiveYears_3 = new JTextPane();
 		txtpnAlmostFiveYears_3.setEditable(false);
 		txtpnAlmostFiveYears_3.setOpaque(false);
-		txtpnAlmostFiveYears_3.setText("4)How can I recover my password?");
+		txtpnAlmostFiveYears_3.setText("4) How can I recover my password?");
 		txtpnAlmostFiveYears_3.setFont(new Font("Tahoma", Font.BOLD, 14));
 		txtpnAlmostFiveYears_3.setBackground(Color.LIGHT_GRAY);
 		txtpnAlmostFiveYears_3.setBounds(51, 332, 459, 29);
@@ -119,7 +119,7 @@ public class Support extends JFrame {
 		JTextPane txtpnAlmostFiveYears_3_1 = new JTextPane();
 		txtpnAlmostFiveYears_3_1.setEditable(false);
 		txtpnAlmostFiveYears_3_1.setOpaque(false);
-		txtpnAlmostFiveYears_3_1.setText("5)Does the password have any restrictions?");
+		txtpnAlmostFiveYears_3_1.setText("5) Does the password have any restrictions?");
 		txtpnAlmostFiveYears_3_1.setFont(new Font("Tahoma", Font.BOLD, 14));
 		txtpnAlmostFiveYears_3_1.setBackground(Color.LIGHT_GRAY);
 		txtpnAlmostFiveYears_3_1.setBounds(51, 435, 459, 47);
@@ -155,7 +155,7 @@ public class Support extends JFrame {
 		JTextPane txtpnAlmostFiveYears_3_1_1 = new JTextPane();
 		txtpnAlmostFiveYears_3_1_1.setEditable(false);
 		txtpnAlmostFiveYears_3_1_1.setOpaque(false);
-		txtpnAlmostFiveYears_3_1_1.setText("6)How can I change my personal information? ");
+		txtpnAlmostFiveYears_3_1_1.setText("6) How can I change my personal information? ");
 		txtpnAlmostFiveYears_3_1_1.setFont(new Font("Tahoma", Font.BOLD, 14));
 		txtpnAlmostFiveYears_3_1_1.setBackground(Color.LIGHT_GRAY);
 		txtpnAlmostFiveYears_3_1_1.setBounds(51, 506, 459, 47);
