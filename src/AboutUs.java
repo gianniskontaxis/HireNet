@@ -304,7 +304,7 @@ public class AboutUs  extends JFrame {
 	            @Override
 	            public void mouseClicked(MouseEvent e) {
 	                try {
-	                    Desktop.getDesktop().browse(new URI(" "));
+	                    Desktop.getDesktop().browse(new URI("https://github.com/Chrysanthitre"));
 	                } catch (IOException | URISyntaxException e1) {
 	                    e1.printStackTrace();
 	                }
@@ -366,7 +366,7 @@ public class AboutUs  extends JFrame {
 			contentPane.add(matina);
 			matina.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 			
-			JLabel marina = new JLabel("Gialagkolodou Marina-Makrina");
+			JLabel marina = new JLabel("Gialagkolidou Marina-Makrina");
 			marina.setFont(new Font("Tahoma", Font.ITALIC, 13));
 			marina.setBounds(679, 406, 195, 20);
 			marina.addMouseListener(new MouseAdapter() {
@@ -374,7 +374,7 @@ public class AboutUs  extends JFrame {
 	            @Override
 	            public void mouseClicked(MouseEvent e) {
 	                try {
-	                    Desktop.getDesktop().browse(new URI(" "));
+	                    Desktop.getDesktop().browse(new URI("https://github.com/marinagial"));
 	                } catch (IOException | URISyntaxException e1) {
 	                    e1.printStackTrace();
 	                }

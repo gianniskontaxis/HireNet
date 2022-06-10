@@ -117,17 +117,6 @@ public class Notifications extends JFrame{
 		});
 		
 		
-		
-		JButton Refresh = new JButton("");
-		Refresh.setIcon(new ImageIcon(Notifications.class.getResource("/Images/refresh_icon.png")));
-		Refresh.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 11));
-		Refresh.setBounds(394, 12, 32, 32);
-		Refresh.setOpaque(false);
-		Refresh.setBorderPainted(false);
-		Refresh.setContentAreaFilled(false);
-		contentPane.add(Refresh);
-		
-		
 		JList list = new JList();
 		list.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
 		
@@ -220,6 +209,60 @@ public class Notifications extends JFrame{
 			
 			}
 		}
+			
+			try {
+				conn = DBConnection.ConnDB();
+				String sql = "select role from users where id = "+i+" ";
+				ps2 = conn.prepareStatement(sql);
+				rs2 = ps2.executeQuery();
+				
+				if (rs2.getString("role").equals("employee")) {
+					
+					try {
+						conn = DBConnection.ConnDB();
+						ps = conn.prepareStatement("select * from Seminars where id="+i+"");
+						rs = ps.executeQuery();
+							
+						if (!rs.isClosed()) {
+						
+						for(int j=1; j<6; j++) {
+							 if(rs.getString("Seminar" + j).equals("true")){
+								 if(j==1) {
+									model.addElement("You 've booked our Íï.1 Seminar");
+								 }
+								 else if (j==2){
+									 model.addElement("You 've booked our Íï.2 Seminar");
+								 }
+								 else if (j==3){
+									 model.addElement("You 've booked our Íï.3 Seminar");
+								 }
+								 else if (j==4){
+									 model.addElement("You 've booked our Íï.4 Seminar");
+								 }
+								 else if (j==5){
+									 model.addElement("You 've booked our Íï.5 Seminar");
+								 }
+								 else if (j==6){
+									 model.addElement("You 've booked our Íï.6 Seminar");
+								 }
+								 //model.addElement("You 've booked our  Seminar" + j);
+							 }
+						}
+						}
+						ps.close();
+						rs.close();
+			        } 
+					catch (SQLException e1) {
+			            e1.printStackTrace();
+			        }			
+				}
+				ps2.close();
+				rs2.close();
+				 conn.close();
+			}
+			catch (SQLException e1) {
+	            e1.printStackTrace();
+	        }	
 		
 
 
@@ -229,78 +272,7 @@ public class Notifications extends JFrame{
 		lblNewLabel_1.setIcon(new ImageIcon(Notifications.class.getResource("/Images/notificback.png")));
 		lblNewLabel_1.setBounds(0, 0, 436, 563);
 		contentPane.add(lblNewLabel_1);
-		Refresh.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				try {
-					conn = DBConnection.ConnDB();
-					String sql = "select role from users where id = "+i+" ";
-					ps2 = conn.prepareStatement(sql);
-					rs2 = ps2.executeQuery();
-					
-					if (rs2.getString("role").equals("employee")) {
-						
-						try {
-							conn = DBConnection.ConnDB();
-							ps = conn.prepareStatement("select * from Seminars where id="+i+"");
-							rs = ps.executeQuery();
-								
-							if (!rs.isClosed()) {
-							
-							for(int j=1; j<6; j++) {
-								 if(rs.getString("Seminar" + j).equals("true")){
-									 if(j==1) {
-										model.addElement("You 've booked our Íï.1 Seminar");
-									 }
-									 else if (j==2){
-										 model.addElement("You 've booked our Íï.2 Seminar");
-									 }
-									 else if (j==3){
-										 model.addElement("You 've booked our Íï.3 Seminar");
-									 }
-									 else if (j==4){
-										 model.addElement("You 've booked our Íï.4 Seminar");
-									 }
-									 else if (j==5){
-										 model.addElement("You 've booked our Íï.5 Seminar");
-									 }
-									 else if (j==6){
-										 model.addElement("You 've booked our Íï.6 Seminar");
-									 }
-									 //model.addElement("You 've booked our  Seminar" + j);
-								 }
-							}
-							}
-							ps.close();
-							rs.close();
-				        } 
-						catch (SQLException e1) {
-				            e1.printStackTrace();
-				        }			
-					}
-					ps2.close();
-					rs2.close();
-					 conn.close();
-				}
-				catch (SQLException e1) {
-		            e1.printStackTrace();
-		        }		
-				
-				/*list.setFont(new Font("Arial", Font.BOLD, 13));
-				list.setModel(new AbstractListModel() {
-					String[] values = new String[] {"Seminar Reservation!", "New Matching!"};
-					public int getSize() {
-						return values.length;
-					}
-					public Object getElementAt(int index) {
-						return values[index];
-					}
-				});*/
-				
-				
-				
-			}
-		});
+		
 		
      list.addMouseListener(new MouseListener () {		
 			
