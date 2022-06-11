@@ -187,7 +187,7 @@ public class Notifications extends JFrame{
 		
 		
 			for(int w1=0; w1<users.size(); w1++) {				
-				model2.addElement("You 've new Message from " + users.get(w1) + "\n");
+				model.addElement("You 've new Message from " + users.get(w1) + "\n");
 				if(y<users.size()) {
 				try {
 
@@ -228,22 +228,22 @@ public class Notifications extends JFrame{
 						for(int j=1; j<6; j++) {
 							 if(rs.getString("Seminar" + j).equals("true")){
 								 if(j==1) {
-									model.addElement("You 've booked our Íï.1 Seminar");
+									model2.addElement("Seminar - Programming with Java");
 								 }
 								 else if (j==2){
-									 model.addElement("You 've booked our Íï.2 Seminar");
+									 model2.addElement("Seminar - Mobile Applications Development");
 								 }
 								 else if (j==3){
-									 model.addElement("You 've booked our Íï.3 Seminar");
+									 model2.addElement("Seminar - CRM Management");
 								 }
 								 else if (j==4){
-									 model.addElement("You 've booked our Íï.4 Seminar");
+									 model2.addElement("Seminar - Programming with Python");
 								 }
 								 else if (j==5){
-									 model.addElement("You 've booked our Íï.5 Seminar");
+									 model2.addElement("Seminar - Microsoft Office Tutorials");
 								 }
 								 else if (j==6){
-									 model.addElement("You 've booked our Íï.6 Seminar");
+									 model2.addElement("You 've booked our Íï.6 Seminar");
 								 }
 								 //model.addElement("You 've booked our  Seminar" + j);
 							 }
@@ -273,44 +273,45 @@ public class Notifications extends JFrame{
 		lblNewLabel_1.setBounds(0, 0, 436, 563);
 		contentPane.add(lblNewLabel_1);
 		
-		
+	/*	
      list.addMouseListener(new MouseListener () {		
 			
 			@Override
 			public void mouseClicked(MouseEvent e) {
 					/*new MatchingInfo(usernameList.getSelectedValue()+"",i);*/
 					//new CvMatching(list.getSelectedValue()+"",i);
-					JOptionPane.showMessageDialog(null,
-						    "You 've chosen on of our seminars."
-						    + " For more information about the chosen " + "\n" + " seminar check our website.");
-				}
+					//JOptionPane.showMessageDialog(null,
+						 //   "You 've chosen on of our seminars."
+						 //   + " For more information about the chosen " + "\n" + " seminar check our website.");
+				//}
 			
-			@Override
-			public void mousePressed(MouseEvent e) {
+			//@Override
+			//public void mousePressed(MouseEvent e) {
 				// TODO Auto-generated method stub
 				
-			}
+			//}
 
-			@Override
-			public void mouseReleased(MouseEvent e) {
+			//@Override
+			//public void mouseReleased(MouseEvent e) {
 				// TODO Auto-generated method stub
 				
-			}
+			//}
 
-			@Override
-			public void mouseEntered(MouseEvent e) {
+			//@Override
+			//public void mouseEntered(MouseEvent e) {
 				// TODO Auto-generated method stub
 				
-			}
+			//}
 
-			@Override
-			public void mouseExited(MouseEvent e) {
+			//@Override
+			//public void mouseExited(MouseEvent e) {
 				// TODO Auto-generated method stub
 				
-			}	
+			//}	
 			
-        });
+        //});
 		
+        
 		this.setVisible(true);
 		this.setTitle("Notifications");
 		
