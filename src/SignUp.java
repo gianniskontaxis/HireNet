@@ -210,7 +210,7 @@ public class SignUp extends JFrame {
 							}
 							if(i==0)
 							{
-								JOptionPane.showMessageDialog(null, "Account succesfully created!");
+								JOptionPane.showMessageDialog(null, "Account successfully created!");
 							}
 							
 							if(k==4) {
