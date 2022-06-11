@@ -33,6 +33,7 @@ public class SignUp extends JFrame {
 	private JPasswordField password;
 	private JTextField textField;
 	private JTextField textField_1;
+	private int i=0;
 	
 	/*public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -162,6 +163,7 @@ public class SignUp extends JFrame {
 							}
 							else {
 								JOptionPane.showMessageDialog(null, "Invalid name");
+								i=1;
 								dispose();
 							}
 							
@@ -171,6 +173,7 @@ public class SignUp extends JFrame {
 							}
 							else {
 								JOptionPane.showMessageDialog(null, "Invalid email");
+								i=1;
 								dispose();	   
 							}
 						    if(String.valueOf(code.getPassword()).equals(String.valueOf(password.getPassword()))) {
@@ -180,11 +183,13 @@ public class SignUp extends JFrame {
 								 }
 								 else {
 									 JOptionPane.showMessageDialog(null, "Password must be at least 8 characters");
+									 i=1;
 									 dispose();
 					                }
 						    }
 						    else {
 								 JOptionPane.showMessageDialog(null, "Not the same passwords");
+								 i=1;
                                  dispose();
                               }
 							 
@@ -199,8 +204,13 @@ public class SignUp extends JFrame {
 							else
 							{
 								JOptionPane.showMessageDialog(null, "Invalid phone number");
+								i=1;
 								dispose();
 								
+							}
+							if(i==0)
+							{
+								JOptionPane.showMessageDialog(null, "Account succesfully created!");
 							}
 							
 							if(k==4) {
