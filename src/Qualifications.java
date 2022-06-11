@@ -27,6 +27,7 @@ public class Qualifications extends JFrame {
 	private ResultSet rs = null;
 	private String sql="";
 	private ArrayList<String> column = new ArrayList<>();
+	private int numOfQuals=0;
 	
 	/*public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -357,6 +358,22 @@ public class Qualifications extends JFrame {
 		
 		try {
 			conn = DBConnection.ConnDB();
+			ps = conn.prepareStatement("select id from numOfQuals where id = '"+i+"'");
+			rs = ps.executeQuery();
+			if (rs.isClosed()) {
+				ps = conn.prepareStatement("INSERT INTO numOfQuals(id) VALUES(?)");
+				ps.setInt(1, i);
+				ps.execute();
+			}
+			ps.close();
+			rs.close();
+			conn.close();
+		} catch (SQLException e1) {			
+			e1.printStackTrace();
+		}
+		
+		try {
+			conn = DBConnection.ConnDB();
 			ps = conn.prepareStatement("select id from quals where id = '"+i+"'");
 			rs = ps.executeQuery();
 			if (rs.isClosed()) {
@@ -403,6 +420,7 @@ public class Qualifications extends JFrame {
 					conn = DBConnection.ConnDB();
 					for (int j=0; j<64; j++) {		
 						if (radioButtons[j].isSelected()) {
+							numOfQuals++;
 							sql = "update quals set `"+column.get(j)+"` = 'true' where id = '"+i+"'";
 							ps = conn.prepareStatement(sql);
 						}
@@ -412,8 +430,13 @@ public class Qualifications extends JFrame {
 							ps = conn.prepareStatement(sql);
 						}	
 						ps.execute();
-					}	
+					}
+					
 					ps.close();
+					sql = "update numOfQuals set num = "+numOfQuals+" where id = '"+i+"'";
+					ps = conn.prepareStatement(sql);
+					ps.execute();
+					ps.close();					
 					conn.close();
 					dispose();
 				} catch (SQLException e1) {				

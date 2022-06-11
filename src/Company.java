@@ -31,6 +31,7 @@ public class Company extends JFrame {
 	private JPanel contentPane;		
 	private DefaultListModel usernameModel;	
 	private DefaultListModel scoreModel;	
+	private DefaultListModel scoreModel2;
 	private JList usernameList = new JList();
 	private JList scoreList = new JList();
 	private Connection conn = null;
@@ -38,6 +39,7 @@ public class Company extends JFrame {
 	private ResultSet rs = null;
 	private String sql="";
 	private DefaultListModel qualModel;
+	private int clicks=0;
 	
 	// Create the Frame.
 	
@@ -131,7 +133,7 @@ public class Company extends JFrame {
 		});
 		JLabel lblNewLabel_12 = new JLabel("");
 		lblNewLabel_12.setIcon(new ImageIcon(Company.class.getResource("/Images/doublearrow_icon.png")));
-		lblNewLabel_12.setBounds(420, 271, 68, 65);
+		lblNewLabel_12.setBounds(370, 270, 52, 65);
 		contentPane.add(lblNewLabel_12);
 		
 		JLabel lblNewLabel_16_1 = new JLabel("the qualifications graph for:");
@@ -336,6 +338,16 @@ public class Company extends JFrame {
 		lblNewLabel_1.setBounds(34, 81, 32, 32);
 		contentPane.add(lblNewLabel_1);
 		
+		JButton Match2 = new JButton("Match2");
+		Match2.setRequestFocusEnabled(false);
+		Match2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		Match2.setBorderPainted(false);
+		Match2.setForeground(new Color(255, 255, 255));
+		Match2.setBackground(new Color(0, 132, 152));
+		Match2.setFont(new Font("Tahoma", Font.PLAIN, 12));		
+		Match2.setBounds(450, 161, 79, 32);
+		contentPane.add(Match2);
+		
 		JButton btnNotifications = new JButton("Notifications");
 		btnNotifications.setHorizontalAlignment(SwingConstants.LEFT);
 		btnNotifications.setFont(new Font("Tahoma", Font.BOLD, 15));
@@ -423,7 +435,18 @@ public class Company extends JFrame {
 		usernameList.setModel(usernameModel);
 		
 		scoreModel = new DefaultListModel();
-		scoreList.setModel(scoreModel);
+		scoreList.setModel(scoreModel);	
+		
+		JList score2List = new JList();
+		score2List.setBounds(450, 193, 79, 211);
+		score2List.setForeground(new Color(0, 102, 102));		
+		score2List.setBackground(new Color(255, 255, 255));
+		score2List.setSelectionBackground(Color.LIGHT_GRAY);
+		score2List.setVisible(false);
+		contentPane.add(score2List);
+		
+		scoreModel2 = new DefaultListModel();
+		score2List.setModel(scoreModel2);
 		
 		results.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -482,15 +505,19 @@ public class Company extends JFrame {
 				
 				usernameModel.clear();
 				scoreModel.clear();
+				scoreModel2.clear();
 				
-				Matching mr = new Matching(i,"employee");
+				Matching mr = new Matching(i,"employee",true);
 				ArrayList<String> scoreResults = new ArrayList<>();
 				ArrayList<String> usernameResults = new ArrayList<>();
+				ArrayList<String> scoreResults2 = new ArrayList<>();
 				
 				usernameResults = mr.getUsernameResults();
 				scoreResults = mr.getScoreResults();
+				scoreResults2 = mr.getScoreResults2();
 				usernameModel.addAll(usernameResults);
-				scoreModel.addAll(scoreResults);				
+				scoreModel.addAll(scoreResults);		
+				scoreModel2.addAll(scoreResults2);	
 			}
 		});
 		
@@ -555,7 +582,7 @@ public class Company extends JFrame {
 		JLabel lblNewLabel_3 = new JLabel("");
 		lblNewLabel_3.setIcon(new ImageIcon(Company.class.getResource("/Images/whitelong2.png")));
 		lblNewLabel_3.setBounds(25, 25, 147, 583);
-		contentPane.add(lblNewLabel_3);
+		contentPane.add(lblNewLabel_3);	
 		
 		JLabel lblNewLabel_2 = new JLabel("");
 		lblNewLabel_2.setIcon(new ImageIcon(Company.class.getResource("/Images/company_bck.png")));
@@ -566,6 +593,16 @@ public class Company extends JFrame {
 				new Support();
 			}
 		});	
+		
+		Match2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				clicks++;
+				if ((clicks+1)%2==0) 
+					score2List.setVisible(true);				
+				else 
+					score2List.setVisible(false);				
+		   }
+		});
 		
 		usernameList.addMouseListener(new MouseListener () {		
 			

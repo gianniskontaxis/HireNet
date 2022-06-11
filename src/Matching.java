@@ -27,69 +27,83 @@ public class Matching {
 	private ArrayList<String> results = new ArrayList<>();
 	private ArrayList<String> scoreResults = new ArrayList<>();
 	private ArrayList<String> usernameResults = new ArrayList<>();
+	private ArrayList<String> scoreResults2 = new ArrayList<>();
+	private boolean scoreDesc;
 	
-	public Matching (int i, String role) {
+	public Matching (int i, String role, boolean scoreDesc) {
 		this.i=i;
 		this.role=role;	
 		
 		try {
 			conn = DBConnection.ConnDB();
 			//Φορτωση των στοιχειων κ qual του user.
-			sql = "select * from users join quals where users.id = quals.id and users.id = '"+i+"'";
+			sql = "select * from numOfQuals join users join quals where numOfQuals.id = users.id and numOfQuals.id = quals.id and users.id = '"+i+"'";
 			ps = conn.prepareStatement(sql);
 			rs = ps.executeQuery();					
 			
 			if (!rs.isClosed()) {
 			
 			//Φορτωση των στοιχειων κ qual των users του αλλου role.
-			sql = "select * from users join quals where users.id = quals.id and role = '"+role+"'";
+			sql = "select * from numOfQuals join users join quals where numOfQuals.id = users.id and numOfQuals.id = quals.id and role = '"+role+"'";
 			ps2 = conn.prepareStatement(sql);
-			rs2 = ps2.executeQuery();		
+			rs2 = ps2.executeQuery();
+			
 			
 			//Δημιουργια κ αρχικοποιηση απαραιτητων αντικειμενων.
 			FileManager rd = new FileManager();
 			ArrayList<String> column = new ArrayList<>();					
 			column = rd.read("quals.txt");
 			int x=0;	
-			double q=0.0;					
-			String SQL = "INSERT INTO MatchingResults(username,score) VALUES(?,?)";
+			int q=0;
+			int qo=0;
+			String SQL = "INSERT INTO MatchingResults(username,score,score2) VALUES(?,?,?)";
 			DecimalFormat df = new DecimalFormat("0.00");
 			double pc = 0.0;
+			double pc2=0.0;
+			double z=0.0;
+			double z2=0.0;
 								
-			//Ευρεση συνολικου αριθμου quals του user.
-			sql = "select * from quals where id = '"+i+"'";
+			//Φορτωση συνολικου αριθμου quals του user.
+			sql = "select num from numOfQuals where id = '"+i+"'";
 			ps3 = conn.prepareStatement(sql);
 			rs3 = ps3.executeQuery();
-			
-			while (rs3.next()) {	
-				for (int j=0;j<64;j++) {
-				if (rs3.getString(column.get(j)).equals("true"))
-					q=q+1.0;	
-				}							
-			}	
+			q = rs3.getInt("num");					
 			
 			//Matching...
 			pc = 100.0/q;
+			
 			while (rs2.next()) {					
 			x=0;
+			qo= rs2.getInt("num");
+			pc2=100.0/qo;
+			
 			for (int j=0; j<64; j++ ) {						
-				if (rs.getString(""+column.get(j)+"").equals(""+rs2.getString(column.get(j))+"") 
+				if (rs.getString(column.get(j)).equals(rs2.getString(column.get(j))) 
 					&& rs.getString(column.get(j)).equals("true")) {							
-						x++;						
+						x++;	
+						
 				}					
-			}										
-	       
-	        //Προσθηκη σε πινακα για ταξινομηση.	
-			q=x*pc;
+			}
+			
+	        //Προσθηκη σε πινακα για ταξινομηση.
+			
+			z=x*pc;
+			z2=x*pc2;
+			
 	        ps4 = conn.prepareStatement(SQL);
 	        ps4.setString(1, rs2.getString("username"));
-			ps4.setDouble(2, q);						
+			ps4.setDouble(2, z);
+			ps4.setDouble(3, z2);
 			ps4.execute();
 			ps4.close();					
 			}
 			
 			//Ταξινομηση.
-			sql = "select * from MatchingResults order by score desc";				
+			if (scoreDesc) 
+				sql = "select * from MatchingResults order by score desc ,score2 desc";	
+			else
+				sql = "select * from MatchingResults order by score2 desc ,score desc";
+			
 			ps5 = conn.prepareStatement(sql);
 			rs5 = ps5.executeQuery();
 			
@@ -98,13 +112,18 @@ public class Matching {
 				results.add(df.format(rs5.getDouble("score")) + " %  " + rs5.getString("username"));
 				usernameResults.add(rs5.getString("username"));
 				scoreResults.add(df.format(rs5.getDouble("score")) + " %  ");
+				scoreResults2.add(df.format(rs5.getDouble("score2")) + " %  ");
 				
-			}		
+			}
+			
+			
 			
 			//Διαγραφη περιεχομενων του πινακα MatchingResults.
 			sql = "delete from MatchingResults";
 			ps6 = conn.prepareStatement(sql);
-			ps6.execute();			
+			ps6.execute();	
+			
+			
 			
 			//Κλεισιμο.
 			ps.close();
@@ -135,5 +154,8 @@ public class Matching {
 	}
 	public ArrayList<String> getUsernameResults() {
 		return usernameResults;
+	}
+	public ArrayList<String> getScoreResults2() {
+		return scoreResults2;
 	}
 }

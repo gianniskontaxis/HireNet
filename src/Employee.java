@@ -27,6 +27,8 @@ import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
+import javax.swing.JScrollPane;
+import javax.swing.AbstractListModel;
 
 public class Employee extends JFrame {
 	
@@ -39,7 +41,10 @@ public class Employee extends JFrame {
 	private PreparedStatement ps = null;
 	private ResultSet rs = null;
 	private JList list;	
-	
+	private DefaultListModel scoreModel2;
+	private int clicks=0;
+	private boolean scoreDesk=true;
+	private boolean flag=false;
 	
 	/*public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -187,7 +192,7 @@ public class Employee extends JFrame {
 		lblNewLabel_20.setHorizontalAlignment(SwingConstants.LEFT);
 		lblNewLabel_20.setForeground(Color.WHITE);
 		lblNewLabel_20.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNewLabel_20.setBounds(537, 161, 58, 32);
+		lblNewLabel_20.setBounds(547, 161, 61, 32);
 		contentPane.add(lblNewLabel_20);
 		
 		JLabel lblNewLabel_19_1 = new JLabel("");
@@ -326,7 +331,7 @@ public class Employee extends JFrame {
 		
 		JLabel lblNewLabel_12 = new JLabel("");
 		lblNewLabel_12.setIcon(new ImageIcon(Employee.class.getResource("/Images/double_arrow_icon.png")));
-		lblNewLabel_12.setBounds(420, 271, 68, 65);
+		lblNewLabel_12.setBounds(370, 285, 58, 38);
 		contentPane.add(lblNewLabel_12);
 		
 		JLabel lblNewLabel_11_1 = new JLabel("Companies");
@@ -491,23 +496,27 @@ public class Employee extends JFrame {
 		search.setBackground(new Color(255, 255, 255));
 		search.setBounds(244, 285, 116, 35);
 		contentPane.add(search);
-		
+	
 		search.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				flag=true;
 				//Μέθοδος με SQLite.
 				
 				usernameModel.clear();
 				scoreModel.clear();
+				scoreModel2.clear();
 				
-				Matching mr = new Matching(i,"company");
+				Matching mr = new Matching(i,"company",scoreDesk);
 				ArrayList<String> scoreResults = new ArrayList<>();
 				ArrayList<String> usernameResults = new ArrayList<>();
+				ArrayList<String> scoreResults2 = new ArrayList<>();
 				
 				usernameResults = mr.getUsernameResults();
 				scoreResults = mr.getScoreResults();
+				scoreResults2 = mr.getScoreResults2();
 				usernameModel.addAll(usernameResults);
-				scoreModel.addAll(scoreResults);					
+				scoreModel.addAll(scoreResults);	
+				scoreModel2.addAll(scoreResults2);
 			}
 		});
 		
@@ -546,6 +555,42 @@ public class Employee extends JFrame {
 		lblNewLabel.setBounds(25, 25, 147, 583);
 		contentPane.add(lblNewLabel);
 		
+		scoreModel2 = new DefaultListModel();
+		JList score2List = new JList();		
+		score2List.setLocation(450, 193);
+		score2List.setSize(79, 211);
+		score2List.setBorder(null);
+		score2List.setForeground(new Color(0, 102, 102));
+		score2List.setSelectionBackground(Color.WHITE);
+		contentPane.add(score2List);	
+		score2List.setModel(scoreModel2);
+		
+		JButton Match2 = new JButton("Match2");
+		Match2.setRequestFocusEnabled(false);
+		Match2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		Match2.setBorderPainted(false);
+		Match2.setForeground(new Color(255, 255, 255));
+		Match2.setBackground(new Color(0, 132, 152));
+		Match2.setFont(new Font("Tahoma", Font.PLAIN, 12));		
+		Match2.setBounds(450, 161, 79, 32);
+		contentPane.add(Match2);
+		
+		Match2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (flag) {
+				clicks++;
+				if ((clicks+1)%2==0) {
+					scoreDesk=false;
+					search.doClick();
+				}
+				else {
+					scoreDesk=true;
+					search.doClick();
+				}			
+			  }
+		   }
+		});
+		
 		JLabel lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setIcon(new ImageIcon(Employee.class.getResource("/Images/employee_background.png")));
 		lblNewLabel_1.setBounds(0, 0, 1000, 640);
@@ -553,8 +598,7 @@ public class Employee extends JFrame {
 		
 		JLabel lblNewLabel_22_2 = new JLabel("");
 		lblNewLabel_22_2.setBounds(34, 156, 32, 32);
-		contentPane.add(lblNewLabel_22_2);
-		
+		contentPane.add(lblNewLabel_22_2);		
 		
 		usernameList.addMouseListener(new MouseListener () {		
 			
