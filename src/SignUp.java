@@ -203,13 +203,7 @@ public class SignUp extends JFrame {
 								
 							}
 							
-							if (textField_1.getText().length()>7) {
-								ps.setString(6, textField_1.getText());
-								k++;
-							}
-							else 
-								JOptionPane.showMessageDialog(null, "Favorite number must be at least 8 numbers");
-							if(k==5) {
+							if(k==4) {
 								ps.execute();
 							}
 							else {
