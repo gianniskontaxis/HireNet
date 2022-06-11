@@ -206,14 +206,16 @@ public class SignUp extends JFrame {
 								JOptionPane.showMessageDialog(null, "Invalid phone number");
 								i=1;
 								dispose();
-								
 							}
+						    ps.setString(6, textField_1.getText());
+						    k++;
+									
 							if(i==0)
 							{
 								JOptionPane.showMessageDialog(null, "Account successfully created!");
 							}
 							
-							if(k==4) {
+							if(k==5) {
 								ps.execute();
 							}
 							else {
