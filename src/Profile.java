@@ -1,6 +1,7 @@
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionListener;
+import java.beans.Visibility;
 import java.awt.event.ActionEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -19,6 +20,7 @@ import javax.swing.SwingConstants;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 import javax.swing.JSeparator;
+import javax.swing.JCheckBox;
 
 public class Profile extends JFrame {
 
@@ -155,7 +157,19 @@ public class Profile extends JFrame {
 		
 		textField_1.setColumns(10);
 		textField_1.setBounds(232, 177, 359, 32);
+		
+		JCheckBox visibility = new JCheckBox("Visible to lists.");
+		visibility.setSelected(true);
+		visibility.setFocusable(false);
+		visibility.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		visibility.setForeground(Color.LIGHT_GRAY);
+		visibility.setBackground(new Color(0, 132, 152));
+		visibility.setBounds(232, 363, 121, 35);
+		contentPane.add(visibility);	
+		
+		//Fortwsh Apothikeymenwn stoixeiwn apo thn vash.
         sql = "select * from users where id = '"+i+"'";
+       
         try {
     		conn = DBConnection.ConnDB();
 
@@ -213,8 +227,10 @@ public class Profile extends JFrame {
 	        	ps = conn.prepareStatement(sql);
 	    		rs = ps.executeQuery();		
 	    		textField_2.setText(rs.getString("number"));
-
-				
+	    		
+	    		if (rs.getString("visible").equals("false"))
+	    			visibility.doClick();
+	    		
 				ps.execute();
       			conn.close();
 
@@ -222,7 +238,7 @@ public class Profile extends JFrame {
 			catch (Exception ee) {
 				ee.printStackTrace();
 			}
-			
+	        			
 		contentPane.add(textField_1);
 		
 		JLabel lblCommunication = new JLabel("Phone number");
@@ -283,7 +299,7 @@ public class Profile extends JFrame {
 		btnSave.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 11));
 		btnSave.setBackground(new Color(0, 0, 0));
 		btnSave.setBounds(337, 558, 112, 32);
-		contentPane.add(btnSave);
+		contentPane.add(btnSave);	
 		
 		JLabel lblNewLabel_2 = new JLabel("");
 		lblNewLabel_2.setIcon(new ImageIcon(Profile.class.getResource("/Images/profile_backgrnd.png")));
@@ -291,7 +307,7 @@ public class Profile extends JFrame {
 		contentPane.add(lblNewLabel_2);
 		btnSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				sql = "update users set username = '"+textField.getText()+"' , email= '"+textField_1.getText()+"' , phone = '"+textFieldcomm.getText()+"' , number = '"+textField_2.getText()+"'  where id = '"+i+"'";
+				sql = "update users set username = '"+textField.getText()+"' , email= '"+textField_1.getText()+"' , phone = '"+textFieldcomm.getText()+"' , number = '"+textField_2.getText()+"' , visible = '"+visibility.isSelected()+"' where id = '"+i+"' ";
                 try {
             		conn = DBConnection.ConnDB();
 

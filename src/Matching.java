@@ -44,7 +44,7 @@ public class Matching {
 			if (!rs.isClosed()) {
 			
 			//Φορτωση των στοιχειων κ qual των users του αλλου role.
-			sql = "select * from numOfQuals join users join quals where numOfQuals.id = users.id and numOfQuals.id = quals.id and role = '"+role+"'";
+			sql = "select * from numOfQuals join users join quals where numOfQuals.id = users.id and numOfQuals.id = quals.id and role = '"+role+"' and visible = 'true'";
 			ps2 = conn.prepareStatement(sql);
 			rs2 = ps2.executeQuery();
 			
