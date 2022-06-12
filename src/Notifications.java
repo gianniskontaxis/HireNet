@@ -94,7 +94,7 @@ public class Notifications extends JFrame{
 		contentPane.add(lblNewLabel);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(54, 95, 331, 395);
+		scrollPane.setBounds(54, 95, 331, 130);
 		contentPane.add(scrollPane);
 		
 		
@@ -125,12 +125,7 @@ public class Notifications extends JFrame{
 		
 		scrollPane.setColumnHeaderView(list);
 		
-		JList list_mes = new JList();
-		list_mes.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
-		scrollPane.setViewportView(list_mes);
-		
 		model2 = new DefaultListModel();
-		list_mes.setModel(model2);
 		
 		//αθροισμα λιστας ιδ απο τον πινακα notifications
 		conn = DBConnection.ConnDB();	
@@ -263,6 +258,18 @@ public class Notifications extends JFrame{
 			catch (SQLException e1) {
 	            e1.printStackTrace();
 	        }	
+			
+		JScrollPane scrollPane_1 = new JScrollPane();
+		scrollPane_1.setBounds(54, 224, 331, 130);
+		contentPane.add(scrollPane_1);
+			
+		
+		JList list_mes = new JList();
+		list_mes.setBackground(Color.WHITE);
+		list_mes.setBounds(55, 224, 329, 265);
+		scrollPane_1.setColumnHeaderView(list_mes);
+		list_mes.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
+		list_mes.setModel(model2);
 		
 
 
@@ -272,6 +279,7 @@ public class Notifications extends JFrame{
 		lblNewLabel_1.setIcon(new ImageIcon(Notifications.class.getResource("/Images/notificback.png")));
 		lblNewLabel_1.setBounds(0, 0, 436, 563);
 		contentPane.add(lblNewLabel_1);
+		
 		
 	/*	
      list.addMouseListener(new MouseListener () {		
