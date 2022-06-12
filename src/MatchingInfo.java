@@ -15,10 +15,14 @@ import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.border.EmptyBorder;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.JSeparator;
 import java.awt.Color;
+import javax.swing.JButton;
 
 public class MatchingInfo extends JFrame {
 
@@ -143,6 +147,17 @@ public class MatchingInfo extends JFrame {
 		rs = ps.executeQuery();
 		
 		emailField.setText(rs.getString("email"));
+		
+		JButton MessBtn = new JButton("");
+		MessBtn.setBackground(Color.BLACK);
+		MessBtn.setIcon(new ImageIcon(MatchingInfo.class.getResource("/Images/chat_icon.png")));
+		MessBtn.setBounds(290, 120, 76, 32);
+		contentPane.add(MessBtn);
+		MessBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {	
+				new Messages(i);
+			}
+		});	
 		
 		lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon(MatchingInfo.class.getResource("/Images/infoback.png")));
