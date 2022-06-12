@@ -47,7 +47,7 @@ public class TermsOfUse extends JFrame {
 		scrollPane.setBounds(42, 52, 390, 309);
 		contentPane.add(scrollPane);
 		
-		JLabel lblNewLabel_1 = new JLabel("");
+		JLabel lblNewLabel_1 = new JLabel("\u038C\u03C1\u03BF\u03B9 \u03C7\u03C1\u03AE\u03C3\u03B7\u03C2");
 		scrollPane.setViewportView(lblNewLabel_1);
 		
 		JButton btnNewButton = new JButton("Close");
