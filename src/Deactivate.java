@@ -116,7 +116,7 @@ public class Deactivate extends JFrame {
 					String sql;
 					
                     
-                    sql="select role from users where id ="+i+"";
+                    sql="select * from users where id ="+i+"";
                     ps=conn.prepareStatement(sql);
                     rs=ps.executeQuery();
                     if(rs.getString("role").equals("employee"))
@@ -124,16 +124,35 @@ public class Deactivate extends JFrame {
                     	sql="delete from employees where id="+i+"";
                     	ps2=conn.prepareStatement(sql);
                     	ps2.execute();
+                    	ps2.close();
+                    	sql="delete from Seminars where id="+i+"";
+                    	ps2=conn.prepareStatement(sql);
+                    	ps2.execute();
+                    	ps2.close();
                     }
                     sql="delete from users where id="+i+"";
                     ps2 = conn.prepareStatement(sql);
                     ps2.execute();
+                    ps2.close();
                     sql="delete from quals where id="+i+"";
                     ps2=conn.prepareStatement(sql);
                     ps2.execute();
-                    
+                    ps2.close();
+                    sql="delete from numOfQuals where id="+i+"";
+                    ps2=conn.prepareStatement(sql);
+                    ps2.execute();
+                    ps2.close();
+                    sql="delete from notifications where id="+i+" or MesFrom= '"+rs.getString("username")+"'";
+                    ps2=conn.prepareStatement(sql);
+                    ps2.execute();
+                    ps2.close();
+                    sql="delete from messages where idFrom="+i+" or usernameTo= '"+rs.getString("username")+"'";
+                    ps2=conn.prepareStatement(sql);
+                    ps2.execute();
+                    ps2.close();
               
-                    
+                   ps.close();
+                   rs.close();
                 conn.close();
                 
 				} 
