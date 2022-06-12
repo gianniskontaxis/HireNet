@@ -170,7 +170,7 @@ public class Company extends JFrame {
 		lblNewLabel_21.setHorizontalAlignment(SwingConstants.LEFT);
 		lblNewLabel_21.setForeground(Color.WHITE);
 		lblNewLabel_21.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNewLabel_21.setBounds(599, 161, 106, 32);
+		lblNewLabel_21.setBounds(604, 161, 87, 32);
 		contentPane.add(lblNewLabel_21);
 		
 		JLabel lblNewLabel_20 = new JLabel("Match");
@@ -192,23 +192,16 @@ public class Company extends JFrame {
 		lblNewLabel_18_1.setBounds(760, 86, 60, 60);
 		contentPane.add(lblNewLabel_18_1);
 		
-		JLabel lblNewLabel_13_2_1 = new JLabel("Results");
-		lblNewLabel_13_2_1.setHorizontalAlignment(SwingConstants.LEFT);
-		lblNewLabel_13_2_1.setForeground(Color.WHITE);
-		lblNewLabel_13_2_1.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		lblNewLabel_13_2_1.setBounds(599, 111, 79, 27);
-		contentPane.add(lblNewLabel_13_2_1);
-		
-		JLabel lblNewLabel_13_2 = new JLabel("Matching");
+		JLabel lblNewLabel_13_2 = new JLabel("Matching Results");
 		lblNewLabel_13_2.setHorizontalAlignment(SwingConstants.LEFT);
 		lblNewLabel_13_2.setForeground(Color.WHITE);
 		lblNewLabel_13_2.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		lblNewLabel_13_2.setBounds(599, 93, 106, 27);
+		lblNewLabel_13_2.setBounds(537, 104, 181, 27);
 		contentPane.add(lblNewLabel_13_2);
 		
 		JLabel lblNewLabel_18 = new JLabel("");
 		lblNewLabel_18.setIcon(new ImageIcon(Company.class.getResource("/Images/mathcing_icon.png")));
-		lblNewLabel_18.setBounds(537, 86, 52, 60);
+		lblNewLabel_18.setBounds(475, 86, 52, 60);
 		contentPane.add(lblNewLabel_18);
 		
 		select.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 12));
@@ -234,13 +227,6 @@ public class Company extends JFrame {
 		lblNewLabel_19_1.setBounds(757, 161, 206, 32);
 		contentPane.add(lblNewLabel_19_1);
 		
-		JLabel lblNewLabel_19 = new JLabel("");
-		lblNewLabel_19.setIcon(new ImageIcon(Company.class.getResource("/Images/background6.png")));
-		lblNewLabel_19.setForeground(Color.WHITE);
-		lblNewLabel_19.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lblNewLabel_19.setBounds(530, 161, 206, 32);
-		contentPane.add(lblNewLabel_19);
-		
 		JLabel lblNewLabel_3_1_1 = new JLabel("");
 		lblNewLabel_3_1_1.setIcon(new ImageIcon(Company.class.getResource("/Images/black.png")));
 		lblNewLabel_3_1_1.setBounds(757, 86, 206, 60);
@@ -249,7 +235,7 @@ public class Company extends JFrame {
 		JLabel lblNewLabel_3_1 = new JLabel("");
 		lblNewLabel_3_1.setIcon(new ImageIcon(Company.class.getResource("/Images/background6.png")));
 		lblNewLabel_3_1.setForeground(Color.WHITE);
-		lblNewLabel_3_1.setBounds(530, 86, 206, 60);
+		lblNewLabel_3_1.setBounds(450, 86, 286, 60);
 		contentPane.add(lblNewLabel_3_1);
 		
 		JLabel lblNewLabel_7_1_3 = new JLabel("employees");
@@ -337,16 +323,6 @@ public class Company extends JFrame {
 		lblNewLabel_1.setIcon(new ImageIcon(Company.class.getResource("/Images/notifications_icon.png")));
 		lblNewLabel_1.setBounds(34, 81, 32, 32);
 		contentPane.add(lblNewLabel_1);
-		
-		JButton Match2 = new JButton("Match2");
-		Match2.setRequestFocusEnabled(false);
-		Match2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		Match2.setBorderPainted(false);
-		Match2.setForeground(new Color(255, 255, 255));
-		Match2.setBackground(new Color(0, 132, 152));
-		Match2.setFont(new Font("Tahoma", Font.PLAIN, 12));		
-		Match2.setBounds(450, 161, 79, 32);
-		contentPane.add(Match2);
 		
 		JButton btnNotifications = new JButton("Notifications");
 		btnNotifications.setHorizontalAlignment(SwingConstants.LEFT);
@@ -584,15 +560,24 @@ public class Company extends JFrame {
 		lblNewLabel_3.setBounds(25, 25, 147, 583);
 		contentPane.add(lblNewLabel_3);	
 		
-		JLabel lblNewLabel_2 = new JLabel("");
-		lblNewLabel_2.setIcon(new ImageIcon(Company.class.getResource("/Images/company_bck.png")));
-		lblNewLabel_2.setBounds(0, 0, 986, 633);
-		contentPane.add(lblNewLabel_2);
-		Sup.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {	
-				new Support();
-			}
-		});	
+		JLabel lblNewLabel_20_1 = new JLabel("C. Match");
+		lblNewLabel_20_1.setHorizontalAlignment(SwingConstants.LEFT);
+		lblNewLabel_20_1.setForeground(Color.WHITE);
+		lblNewLabel_20_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_20_1.setBounds(454, 161, 73, 32);
+		contentPane.add(lblNewLabel_20_1);
+		
+		JButton Match2 = new JButton("");
+		Match2.setIcon(new ImageIcon(Company.class.getResource("/Images/sort_icon.png")));
+		Match2.setRequestFocusEnabled(false);
+		Match2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		Match2.setBorderPainted(false);
+		Match2.setOpaque(false);
+		Match2.setForeground(new Color(255, 255, 255));
+		Match2.setBackground(new Color(0, 132, 152));
+		Match2.setFont(new Font("Tahoma", Font.PLAIN, 12));		
+		Match2.setBounds(706, 163, 30, 30);
+		contentPane.add(Match2);
 		
 		Match2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -603,6 +588,28 @@ public class Company extends JFrame {
 					score2List.setVisible(false);				
 		   }
 		});
+		
+		JLabel lblNewLabel_19 = new JLabel("");
+		lblNewLabel_19.setIcon(new ImageIcon(Company.class.getResource("/Images/background6.png")));
+		lblNewLabel_19.setForeground(Color.WHITE);
+		lblNewLabel_19.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblNewLabel_19.setBounds(450, 161, 286, 32);
+		contentPane.add(lblNewLabel_19);
+		
+		JLabel lblNewLabel_4 = new JLabel("");
+		lblNewLabel_4.setIcon(new ImageIcon(Company.class.getResource("/Images/whitelong.png")));
+		lblNewLabel_4.setBounds(450, 193, 79, 211);
+		contentPane.add(lblNewLabel_4);
+		
+		JLabel lblNewLabel_2 = new JLabel("");
+		lblNewLabel_2.setIcon(new ImageIcon(Company.class.getResource("/Images/company_bck.png")));
+		lblNewLabel_2.setBounds(0, 0, 986, 633);
+		contentPane.add(lblNewLabel_2);
+		Sup.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {	
+				new Support();
+			}
+		});	
 		
 		usernameList.addMouseListener(new MouseListener () {		
 			
