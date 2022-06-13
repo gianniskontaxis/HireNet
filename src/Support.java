@@ -22,6 +22,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.Toolkit;
 import javax.swing.JSeparator;
+import javax.swing.SwingConstants;
 
 public class Support extends JFrame {
 
@@ -50,16 +51,42 @@ public class Support extends JFrame {
 		setResizable(false);
 		setTitle("Support");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Support.class.getResource("/Images/logo_icon25x25.png")));
-		setBounds(100, 100, 600, 680);
+		setBounds(100, 100, 985, 680);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		JTextPane txtpnWantMoreInformation = new JTextPane();
+		txtpnWantMoreInformation.setFont(new Font("Tahoma", Font.BOLD, 20));
+		txtpnWantMoreInformation.setText("Want more information on how to use HireNet ? \r\n\r\nYou can download the complete user manual and detailed instructions here:\r\n");
+		txtpnWantMoreInformation.setBounds(588, 72, 318, 196);
+		txtpnWantMoreInformation.setOpaque(false);
+		contentPane.add(txtpnWantMoreInformation);
+		
+		JButton Download = new JButton("Download");
+		Download.setBackground(new Color(0, 102, 102));
+		Download.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
+		Download.setForeground(new Color(255, 255, 255));
+		Download.setBounds(659, 271, 170, 32);
+		contentPane.add(Download);
+		
+		JSeparator separator_1 = new JSeparator();
+		separator_1.setForeground(Color.BLACK);
+		separator_1.setOrientation(SwingConstants.VERTICAL);
+		separator_1.setBounds(521, 72, 10, 544);
+		contentPane.add(separator_1);
+		
+		JLabel lblNewLabel_2 = new JLabel("FAQ");
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 20));
+		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2.setBounds(197, 66, 75, 25);
+		contentPane.add(lblNewLabel_2);
+		
 		JLabel lblNewLabel_1 = new JLabel("Support");
 		lblNewLabel_1.setIcon(new ImageIcon(Support.class.getResource("/Images/support_icon.png")));
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 18));
-		lblNewLabel_1.setBounds(222, 12, 129, 32);
+		lblNewLabel_1.setBounds(431, 12, 129, 32);
 		contentPane.add(lblNewLabel_1);
 		
 		JTextPane txtpnAlmostFiveYears = new JTextPane();
@@ -68,7 +95,7 @@ public class Support extends JFrame {
 		txtpnAlmostFiveYears.setText("1) Can I delete my account if I don\u2019t want to be user anymore? ");
 		txtpnAlmostFiveYears.setFont(new Font("Tahoma", Font.BOLD, 14));
 		txtpnAlmostFiveYears.setBackground(Color.LIGHT_GRAY);
-		txtpnAlmostFiveYears.setBounds(52, 72, 459, 47);
+		txtpnAlmostFiveYears.setBounds(52, 101, 459, 47);
 		contentPane.add(txtpnAlmostFiveYears);
 		
 		JTextPane txtpnAlmostFiveYears_1 = new JTextPane();
@@ -77,7 +104,7 @@ public class Support extends JFrame {
 		txtpnAlmostFiveYears_1.setText("2) How can I upgrade my skills?");
 		txtpnAlmostFiveYears_1.setFont(new Font("Tahoma", Font.BOLD, 14));
 		txtpnAlmostFiveYears_1.setBackground(Color.LIGHT_GRAY);
-		txtpnAlmostFiveYears_1.setBounds(51, 143, 459, 39);
+		txtpnAlmostFiveYears_1.setBounds(52, 172, 459, 29);
 		contentPane.add(txtpnAlmostFiveYears_1);
 		
 		JTextPane txtpnAlmostFiveYears_2 = new JTextPane();
@@ -86,7 +113,7 @@ public class Support extends JFrame {
 		txtpnAlmostFiveYears_2.setText("3) How can I participate in the seminars?  ");
 		txtpnAlmostFiveYears_2.setFont(new Font("Tahoma", Font.BOLD, 14));
 		txtpnAlmostFiveYears_2.setBackground(Color.LIGHT_GRAY);
-		txtpnAlmostFiveYears_2.setBounds(51, 240, 459, 29);
+		txtpnAlmostFiveYears_2.setBounds(52, 278, 459, 29);
 		contentPane.add(txtpnAlmostFiveYears_2);
 		
 		JTextPane txtpnAlmostFiveYears_3 = new JTextPane();
@@ -95,7 +122,7 @@ public class Support extends JFrame {
 		txtpnAlmostFiveYears_3.setText("4) How can I recover my password?");
 		txtpnAlmostFiveYears_3.setFont(new Font("Tahoma", Font.BOLD, 14));
 		txtpnAlmostFiveYears_3.setBackground(Color.LIGHT_GRAY);
-		txtpnAlmostFiveYears_3.setBounds(51, 332, 459, 29);
+		txtpnAlmostFiveYears_3.setBounds(52, 368, 459, 29);
 		contentPane.add(txtpnAlmostFiveYears_3);
 		
 		JTextPane txtpnAlmostFiveYears_2_1 = new JTextPane();
@@ -104,7 +131,7 @@ public class Support extends JFrame {
 		txtpnAlmostFiveYears_2_1.setOpaque(false);
 		txtpnAlmostFiveYears_2_1.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		txtpnAlmostFiveYears_2_1.setBackground(Color.WHITE);
-		txtpnAlmostFiveYears_2_1.setBounds(61, 266, 459, 56);
+		txtpnAlmostFiveYears_2_1.setBounds(52, 302, 459, 56);
 		contentPane.add(txtpnAlmostFiveYears_2_1);
 		
 		JTextPane txtpnAlmostFiveYears_2_1_1 = new JTextPane();
@@ -113,7 +140,7 @@ public class Support extends JFrame {
 		txtpnAlmostFiveYears_2_1_1.setOpaque(false);
 		txtpnAlmostFiveYears_2_1_1.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		txtpnAlmostFiveYears_2_1_1.setBackground(Color.WHITE);
-		txtpnAlmostFiveYears_2_1_1.setBounds(61, 359, 459, 66);
+		txtpnAlmostFiveYears_2_1_1.setBounds(52, 392, 459, 66);
 		contentPane.add(txtpnAlmostFiveYears_2_1_1);
 		
 		JTextPane txtpnAlmostFiveYears_3_1 = new JTextPane();
@@ -122,7 +149,7 @@ public class Support extends JFrame {
 		txtpnAlmostFiveYears_3_1.setText("5) Does the password have any restrictions?");
 		txtpnAlmostFiveYears_3_1.setFont(new Font("Tahoma", Font.BOLD, 14));
 		txtpnAlmostFiveYears_3_1.setBackground(Color.LIGHT_GRAY);
-		txtpnAlmostFiveYears_3_1.setBounds(51, 435, 459, 47);
+		txtpnAlmostFiveYears_3_1.setBounds(52, 468, 459, 29);
 		contentPane.add(txtpnAlmostFiveYears_3_1);
 		
 		JTextPane txtpnAlmostFiveYears_2_1_1_1 = new JTextPane();
@@ -131,7 +158,7 @@ public class Support extends JFrame {
 		txtpnAlmostFiveYears_2_1_1_1.setText("The password must be at least 8 characters.");
 		txtpnAlmostFiveYears_2_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		txtpnAlmostFiveYears_2_1_1_1.setBackground(Color.WHITE);
-		txtpnAlmostFiveYears_2_1_1_1.setBounds(61, 467, 459, 29);
+		txtpnAlmostFiveYears_2_1_1_1.setBounds(52, 494, 459, 29);
 		contentPane.add(txtpnAlmostFiveYears_2_1_1_1);
 		
 		JTextPane txtpnAlmostFiveYears_2_1_1_1_1 = new JTextPane();
@@ -140,7 +167,7 @@ public class Support extends JFrame {
 		txtpnAlmostFiveYears_2_1_1_1_1.setOpaque(false);
 		txtpnAlmostFiveYears_2_1_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		txtpnAlmostFiveYears_2_1_1_1_1.setBackground(Color.WHITE);
-		txtpnAlmostFiveYears_2_1_1_1_1.setBounds(61, 166, 459, 70);
+		txtpnAlmostFiveYears_2_1_1_1_1.setBounds(52, 198, 459, 70);
 		contentPane.add(txtpnAlmostFiveYears_2_1_1_1_1);
 		
 		JTextPane txtpnAlmostFiveYears_2_1_1_1_1_1 = new JTextPane();
@@ -149,7 +176,7 @@ public class Support extends JFrame {
 		txtpnAlmostFiveYears_2_1_1_1_1_1.setOpaque(false);
 		txtpnAlmostFiveYears_2_1_1_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		txtpnAlmostFiveYears_2_1_1_1_1_1.setBackground(Color.WHITE);
-		txtpnAlmostFiveYears_2_1_1_1_1_1.setBounds(61, 115, 459, 29);
+		txtpnAlmostFiveYears_2_1_1_1_1_1.setBounds(52, 143, 459, 29);
 		contentPane.add(txtpnAlmostFiveYears_2_1_1_1_1_1);
 		
 		JTextPane txtpnAlmostFiveYears_3_1_1 = new JTextPane();
@@ -158,7 +185,7 @@ public class Support extends JFrame {
 		txtpnAlmostFiveYears_3_1_1.setText("6) How can I change my personal information? ");
 		txtpnAlmostFiveYears_3_1_1.setFont(new Font("Tahoma", Font.BOLD, 14));
 		txtpnAlmostFiveYears_3_1_1.setBackground(Color.LIGHT_GRAY);
-		txtpnAlmostFiveYears_3_1_1.setBounds(51, 492, 459, 47);
+		txtpnAlmostFiveYears_3_1_1.setBounds(52, 533, 459, 29);
 		contentPane.add(txtpnAlmostFiveYears_3_1_1);
 		
 		JTextPane txtpnAlmostFiveYears_2_1_1_1_2 = new JTextPane();
@@ -167,7 +194,7 @@ public class Support extends JFrame {
 		txtpnAlmostFiveYears_2_1_1_1_2.setOpaque(false);
 		txtpnAlmostFiveYears_2_1_1_1_2.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		txtpnAlmostFiveYears_2_1_1_1_2.setBackground(Color.WHITE);
-		txtpnAlmostFiveYears_2_1_1_1_2.setBounds(61, 525, 459, 56);
+		txtpnAlmostFiveYears_2_1_1_1_2.setBounds(52, 560, 459, 56);
 		contentPane.add(txtpnAlmostFiveYears_2_1_1_1_2);
 		
 		JButton btnBack = new JButton("");
@@ -183,12 +210,12 @@ public class Support extends JFrame {
 		
 		JSeparator separator = new JSeparator();
 		separator.setForeground(Color.BLACK);
-		separator.setBounds(0, 54, 586, 8);
+		separator.setBounds(0, 54, 976, 8);
 		contentPane.add(separator);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(Support.class.getResource("/Images/hirenetwhite2.png")));
-		lblNewLabel.setBounds(0, 0, 586, 643);
+		lblNewLabel.setIcon(new ImageIcon(Support.class.getResource("/Images/aboutusbackgrnd.png")));
+		lblNewLabel.setBounds(0, 0, 976, 643);
 		contentPane.add(lblNewLabel);
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

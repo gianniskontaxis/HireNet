@@ -568,7 +568,7 @@ public class Company extends JFrame {
 		contentPane.add(lblNewLabel_20_1);
 		
 		JButton Match2 = new JButton("");
-		Match2.setIcon(new ImageIcon(Company.class.getResource("/Images/sort_icon.png")));
+		Match2.setIcon(new ImageIcon(Company.class.getResource("/Images/add_column.png")));
 		Match2.setRequestFocusEnabled(false);
 		Match2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		Match2.setBorderPainted(false);
