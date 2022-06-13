@@ -1,4 +1,5 @@
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -28,6 +29,13 @@ public class Graphs2 extends JFrame {
 	private PreparedStatement ps = null;
 	private ResultSet rs = null;
 	private String sql="";
+	private Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
+	private int Screen_size_x = (int) size.getWidth();
+	private int Screen_size_y = (int) size.getHeight();
+	private int Window_Width = Screen_size_x;
+	private int Window_Height = Screen_size_y;
+	private int Window_X_Location =0;
+	private int Window_Y_Location =0;
 	
 	
 
@@ -76,8 +84,9 @@ public class Graphs2 extends JFrame {
 		this.setContentPane(chartPanel);
 		
 			
+		this.setLocation(Window_X_Location,Window_Y_Location);
+		this.setSize(Window_Width,Window_Height);
 		this.setVisible(true);
-		this.setSize(1500,900);
 		
 			
 	}
