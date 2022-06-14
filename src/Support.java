@@ -51,7 +51,7 @@ public class Support extends JFrame {
 		setResizable(false);
 		setTitle("Support");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Support.class.getResource("/Images/logo_icon25x25.png")));
-		setBounds(100, 100, 985, 680);
+		setBounds(100, 100, 985, 620);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -143,24 +143,6 @@ public class Support extends JFrame {
 		txtpnAlmostFiveYears_2_1_1.setBounds(52, 392, 459, 66);
 		contentPane.add(txtpnAlmostFiveYears_2_1_1);
 		
-		JTextPane txtpnAlmostFiveYears_3_1 = new JTextPane();
-		txtpnAlmostFiveYears_3_1.setEditable(false);
-		txtpnAlmostFiveYears_3_1.setOpaque(false);
-		txtpnAlmostFiveYears_3_1.setText("5) Does the password have any restrictions?");
-		txtpnAlmostFiveYears_3_1.setFont(new Font("Tahoma", Font.BOLD, 14));
-		txtpnAlmostFiveYears_3_1.setBackground(Color.LIGHT_GRAY);
-		txtpnAlmostFiveYears_3_1.setBounds(52, 468, 459, 29);
-		contentPane.add(txtpnAlmostFiveYears_3_1);
-		
-		JTextPane txtpnAlmostFiveYears_2_1_1_1 = new JTextPane();
-		txtpnAlmostFiveYears_2_1_1_1.setEditable(false);
-		txtpnAlmostFiveYears_2_1_1_1.setOpaque(false);
-		txtpnAlmostFiveYears_2_1_1_1.setText("The password must be at least 8 characters.");
-		txtpnAlmostFiveYears_2_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		txtpnAlmostFiveYears_2_1_1_1.setBackground(Color.WHITE);
-		txtpnAlmostFiveYears_2_1_1_1.setBounds(52, 494, 459, 29);
-		contentPane.add(txtpnAlmostFiveYears_2_1_1_1);
-		
 		JTextPane txtpnAlmostFiveYears_2_1_1_1_1 = new JTextPane();
 		txtpnAlmostFiveYears_2_1_1_1_1.setText("First, you should open your CV window. There is a button called \u201CAdd Qualficications\u201D. Once you push this, a window with skills will appear and you will be able to add yours. When you are finished, you can save your Qualifications and return to main Menu.");
 		txtpnAlmostFiveYears_2_1_1_1_1.setEditable(false);
@@ -182,10 +164,10 @@ public class Support extends JFrame {
 		JTextPane txtpnAlmostFiveYears_3_1_1 = new JTextPane();
 		txtpnAlmostFiveYears_3_1_1.setEditable(false);
 		txtpnAlmostFiveYears_3_1_1.setOpaque(false);
-		txtpnAlmostFiveYears_3_1_1.setText("6) How can I change my personal information? ");
+		txtpnAlmostFiveYears_3_1_1.setText("5) How can I change my personal information? ");
 		txtpnAlmostFiveYears_3_1_1.setFont(new Font("Tahoma", Font.BOLD, 14));
 		txtpnAlmostFiveYears_3_1_1.setBackground(Color.LIGHT_GRAY);
-		txtpnAlmostFiveYears_3_1_1.setBounds(52, 533, 459, 29);
+		txtpnAlmostFiveYears_3_1_1.setBounds(52, 468, 459, 29);
 		contentPane.add(txtpnAlmostFiveYears_3_1_1);
 		
 		JTextPane txtpnAlmostFiveYears_2_1_1_1_2 = new JTextPane();
@@ -194,7 +176,7 @@ public class Support extends JFrame {
 		txtpnAlmostFiveYears_2_1_1_1_2.setOpaque(false);
 		txtpnAlmostFiveYears_2_1_1_1_2.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		txtpnAlmostFiveYears_2_1_1_1_2.setBackground(Color.WHITE);
-		txtpnAlmostFiveYears_2_1_1_1_2.setBounds(52, 560, 459, 56);
+		txtpnAlmostFiveYears_2_1_1_1_2.setBounds(52, 494, 459, 56);
 		contentPane.add(txtpnAlmostFiveYears_2_1_1_1_2);
 		
 		JButton btnBack = new JButton("");

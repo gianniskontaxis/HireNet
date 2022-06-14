@@ -23,6 +23,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
 import javax.swing.border.EmptyBorder;
+import javax.swing.border.LineBorder;
 
 public class Notifications extends JFrame{
 
@@ -264,12 +265,14 @@ public class Notifications extends JFrame{
 		contentPane.add(scrollPane_1);
 			
 		
-		JList list_mes = new JList();
-		list_mes.setBackground(Color.WHITE);
-		list_mes.setBounds(55, 224, 329, 265);
-		scrollPane_1.setColumnHeaderView(list_mes);
-		list_mes.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
-		list_mes.setModel(model2);
+		JList list_sem = new JList();
+		list_sem.setBackground(Color.WHITE);
+		list_sem.setBounds(55, 224, 329, 265);
+		scrollPane_1.setColumnHeaderView(list_sem);
+	    scrollPane_1.setViewportBorder(new LineBorder(new Color(0, 206, 209)));
+
+		list_sem.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
+		list_sem.setModel(model2);
 		
 
 

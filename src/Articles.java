@@ -27,6 +27,7 @@ import java.net.URISyntaxException;
 
 import javax.swing.JTextPane;
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Desktop;
 import java.awt.Toolkit;
 import javax.swing.JSeparator;
@@ -69,6 +70,7 @@ public class Articles extends JFrame {
 		JLabel more = new JLabel("Read more...");
 		more.setForeground(new Color(51, 255, 204));
 		more.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
+		more.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		more.setBounds(346, 236, 95, 20);
 		more.addMouseListener(new MouseAdapter() {
 	       	 
@@ -195,6 +197,8 @@ public class Articles extends JFrame {
 		more_1.setForeground(new Color(51, 255, 204));
 		more_1.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
 		more_1.setBounds(346, 487, 95, 20);
+		more_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+
 		more_1.addMouseListener(new MouseAdapter() {
 	       	 
             @Override
@@ -213,6 +217,7 @@ public class Articles extends JFrame {
 		more_2.setForeground(new Color(51, 255, 204));
 		more_2.setFont(new Font("Tahoma", Font.BOLD, 13));
 		more_2.setBounds(346, 686, 95, 20);
+		more_2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		more_2.addMouseListener(new MouseAdapter() {
 	       	 
             @Override
@@ -231,6 +236,7 @@ public class Articles extends JFrame {
 		more_3.setForeground(new Color(51, 255, 204));
 		more_3.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
 		more_3.setBounds(846, 236, 95, 20);
+		more_3.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		more_3.addMouseListener(new MouseAdapter() {
 	       	 
             @Override
@@ -249,6 +255,7 @@ public class Articles extends JFrame {
 		more_4.setForeground(new Color(51, 255, 204));
 		more_4.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
 		more_4.setBounds(834, 487, 95, 20);
+		more_4.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		more_4.addMouseListener(new MouseAdapter() {
 	       	 
             @Override
@@ -268,6 +275,7 @@ public class Articles extends JFrame {
 		more_5.setForeground(new Color(51, 255, 204));
 		more_5.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
 		more_5.setBounds(834, 774, 95, 20);
+		more_5.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		more_5.addMouseListener(new MouseAdapter() {
 	       	 
             @Override

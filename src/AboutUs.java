@@ -426,11 +426,21 @@ public class AboutUs  extends JFrame {
 			contentPane.add(georgia);
 			georgia.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
-			
 			JLabel dimitris = new JLabel("Ampatzis Dimitris");
 			dimitris.setFont(new Font("Tahoma", Font.ITALIC, 13));
 			dimitris.setBounds(679, 500, 174, 20);
-			
+			dimitris.addMouseListener(new MouseAdapter() {
+		       	 
+	            @Override
+	            public void mouseClicked(MouseEvent e) {
+	                try {
+	                    Desktop.getDesktop().browse(new URI("https://github.com/jimabatzis"));
+	                } catch (IOException | URISyntaxException e1) {
+	                    e1.printStackTrace();
+	                }
+	            }
+			});
+			dimitris.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 			contentPane.add(dimitris);
 			
 			JButton btnNewButton_1 = new JButton("");
