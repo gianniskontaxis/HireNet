@@ -78,6 +78,8 @@ public class Employee extends JFrame {
 				new Seminar(i);
 			}
 		});
+		Seminars.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+
 		
 		JButton btnSupport = new JButton("Support");
 		btnSupport.addActionListener(new ActionListener() {
@@ -461,6 +463,8 @@ public class Employee extends JFrame {
 		CVbtn.setOpaque(false);
 		CVbtn.setContentAreaFilled(false);
 		CVbtn.setBorderPainted(false);
+		CVbtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+
 		contentPane.add(CVbtn);
 		
 		JList usernameList = new JList();

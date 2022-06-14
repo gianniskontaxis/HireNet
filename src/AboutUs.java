@@ -215,6 +215,8 @@ public class AboutUs  extends JFrame {
 				}
 				}
 			});
+			fb.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+
 			
 			JButton btnNewButton_2 = new JButton("");
 			btnNewButton_2.setIcon(new ImageIcon(AboutUs.class.getResource("/Images/lnkdn.png")));
@@ -230,7 +232,7 @@ public class AboutUs  extends JFrame {
 				Desktop desktop = java.awt.Desktop.getDesktop();
 				try {
 					// specify the protocol along with the URL
-					URI oURL = new URI("https://www.uom.gr/");
+					URI oURL = new URI("https://www.linkedin.com/school/university-of-macedonia/");
 					desktop.browse(oURL);
 				} catch (URISyntaxException e1) {
 					e1.printStackTrace();
@@ -239,6 +241,8 @@ public class AboutUs  extends JFrame {
 				}
 				}
 			});
+			btnNewButton_2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+
 			
 			JLabel lblNewLabel_3 = new JLabel("");
 			lblNewLabel_3.setIcon(new ImageIcon(AboutUs.class.getResource("/Images/firstback2.png")));
@@ -401,19 +405,8 @@ public class AboutUs  extends JFrame {
 			JLabel vene = new JLabel("Venetidis Ioannis");
 			vene.setFont(new Font("Tahoma", Font.ITALIC, 13));
 			vene.setBounds(679, 480, 174, 20);
-			vene.addMouseListener(new MouseAdapter() {
-		       	 
-	            @Override
-	            public void mouseClicked(MouseEvent e) {
-	                try {
-	                    Desktop.getDesktop().browse(new URI(" "));
-	                } catch (IOException | URISyntaxException e1) {
-	                    e1.printStackTrace();
-	                }
-	            }
-			});
+			
 			contentPane.add(vene);
-			vene.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
 			
 			JLabel georgia = new JLabel("Kotzampasi Georgia");
@@ -424,7 +417,7 @@ public class AboutUs  extends JFrame {
 	            @Override
 	            public void mouseClicked(MouseEvent e) {
 	                try {
-	                    Desktop.getDesktop().browse(new URI(" "));
+	                    Desktop.getDesktop().browse(new URI("https://github.com/GeorgiaKtz"));
 	                } catch (IOException | URISyntaxException e1) {
 	                    e1.printStackTrace();
 	                }
@@ -437,19 +430,8 @@ public class AboutUs  extends JFrame {
 			JLabel dimitris = new JLabel("Ampatzis Dimitris");
 			dimitris.setFont(new Font("Tahoma", Font.ITALIC, 13));
 			dimitris.setBounds(679, 500, 174, 20);
-			dimitris.addMouseListener(new MouseAdapter() {
-		       	 
-	            @Override
-	            public void mouseClicked(MouseEvent e) {
-	                try {
-	                    Desktop.getDesktop().browse(new URI(" "));
-	                } catch (IOException | URISyntaxException e1) {
-	                    e1.printStackTrace();
-	                }
-	            }
-			});
+			
 			contentPane.add(dimitris);
-			dimitris.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 			
 			JButton btnNewButton_1 = new JButton("");
 			btnNewButton_1.setIcon(new ImageIcon(AboutUs.class.getResource("/Images/backblack.png")));

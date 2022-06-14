@@ -95,6 +95,8 @@ public class Company extends JFrame {
 		ButtonRef.setOpaque(false);
 		ButtonRef.setContentAreaFilled(false);
 		ButtonRef.setBorderPainted(false);
+		ButtonRef.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+
 		contentPane.add(ButtonRef);
 		ButtonRef.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -372,6 +374,8 @@ public class Company extends JFrame {
 		quals.setOpaque(false);
 		quals.setContentAreaFilled(false);
 		quals.setBorderPainted(false);
+		quals.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+
 		contentPane.add(quals);
 		
 		JButton results = new JButton("");

@@ -1,4 +1,5 @@
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -60,6 +61,8 @@ public class Login extends JFrame {
 		btnNewButton_1.setOpaque(false);
 		btnNewButton_1.setContentAreaFilled(false);
 		btnNewButton_1.setBorderPainted(false);
+		btnNewButton_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e){
 				 new SignUp();
@@ -86,6 +89,8 @@ public class Login extends JFrame {
 		Recover.setOpaque(false);
 		Recover.setContentAreaFilled(false);
 		Recover.setBorderPainted(false);
+		Recover.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+
 		contentPane.add(Recover);
 		Recover.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -153,6 +158,8 @@ public class Login extends JFrame {
 		btnNewButton_2.setForeground(new Color(255, 255, 255));
 		btnNewButton_2.setBackground(new Color(0, 102, 102));
 		btnNewButton_2.setBounds(65, 384, 225, 60);
+		btnNewButton_2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+
 		contentPane.add(btnNewButton_2);
 		
 		JLabel lblCompany = new JLabel("Username");
