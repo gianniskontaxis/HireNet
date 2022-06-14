@@ -16,6 +16,7 @@ import java.net.URISyntaxException;
 
 import javax.swing.JTextPane;
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Desktop;
 import javax.swing.UIManager;
 import javax.swing.ImageIcon;
@@ -69,6 +70,21 @@ public class Support extends JFrame {
 		Download.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
 		Download.setForeground(new Color(255, 255, 255));
 		Download.setBounds(659, 271, 170, 32);
+		Download.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e){
+			Desktop desktop = java.awt.Desktop.getDesktop();
+			try {
+				// specify the protocol along with the URL
+				URI oURL = new URI("https://www.linkedin.com/school/university-of-macedonia/");
+				desktop.browse(oURL);
+			} catch (URISyntaxException e1) {
+				e1.printStackTrace();
+			} catch (IOException e2) {
+				e2.printStackTrace();
+			}
+			}
+		});
+		Download.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		contentPane.add(Download);
 		
 		JSeparator separator_1 = new JSeparator();

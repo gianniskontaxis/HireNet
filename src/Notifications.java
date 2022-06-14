@@ -82,10 +82,28 @@ public class Notifications extends JFrame{
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+
+		model = new DefaultListModel();
+		
+		model2 = new DefaultListModel();
+		
 		JSeparator separator = new JSeparator();
 		separator.setForeground(Color.BLACK);
 		separator.setBounds(0, 54, 436, 8);
 		contentPane.add(separator);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(54, 95, 331, 130);
+		contentPane.add(scrollPane);
+	    scrollPane.setViewportBorder(new LineBorder(new Color(0, 206, 209)));
+
+		
+		
+		JList list = new JList();
+		list.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
+		list.setModel(model);
+		
+		scrollPane.setViewportView(list);
 		
 		JLabel lblNewLabel = new JLabel("Notifications");
 		lblNewLabel.setIcon(new ImageIcon(Notifications.class.getResource("/Images/notswhite_icon.png")));
@@ -94,11 +112,19 @@ public class Notifications extends JFrame{
 		lblNewLabel.setBounds(131, 12, 180, 32);
 		contentPane.add(lblNewLabel);
 		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(54, 95, 331, 130);
-		contentPane.add(scrollPane);
+		JScrollPane scrollPane_1 = new JScrollPane();
+		scrollPane_1.setBounds(54, 224, 331, 130);
+		contentPane.add(scrollPane_1);
+			
 		
-		
+		JList list_sem = new JList();
+		list_sem.setBackground(Color.WHITE);
+		list_sem.setBounds(55, 224, 329, 265);
+		scrollPane_1.setViewportView(list_sem);
+	    scrollPane_1.setViewportBorder(new LineBorder(new Color(0, 206, 209)));
+
+		list_sem.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
+		list_sem.setModel(model2);
 		
 		
 		
@@ -118,15 +144,6 @@ public class Notifications extends JFrame{
 		});
 		
 		
-		JList list = new JList();
-		list.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
-		
-		model = new DefaultListModel();
-		list.setModel(model);
-		
-		scrollPane.setColumnHeaderView(list);
-		
-		model2 = new DefaultListModel();
 		
 		//αθροισμα λιστας ιδ απο τον πινακα notifications
 		conn = DBConnection.ConnDB();	
@@ -182,7 +199,7 @@ public class Notifications extends JFrame{
 
 		
 		
-			for(int w1=0; w1<users.size(); w1++) {				
+			for(int w1=users.size()-1; w1>=0; w1--) {				
 				model.addElement("You 've new Message from " + users.get(w1) + "\n");
 				if(y<users.size()) {
 				try {
@@ -260,19 +277,7 @@ public class Notifications extends JFrame{
 	            e1.printStackTrace();
 	        }	
 			
-		JScrollPane scrollPane_1 = new JScrollPane();
-		scrollPane_1.setBounds(54, 224, 331, 130);
-		contentPane.add(scrollPane_1);
-			
 		
-		JList list_sem = new JList();
-		list_sem.setBackground(Color.WHITE);
-		list_sem.setBounds(55, 224, 329, 265);
-		scrollPane_1.setColumnHeaderView(list_sem);
-	    scrollPane_1.setViewportBorder(new LineBorder(new Color(0, 206, 209)));
-
-		list_sem.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
-		list_sem.setModel(model2);
 		
 
 
