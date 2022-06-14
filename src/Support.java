@@ -65,7 +65,7 @@ public class Support extends JFrame {
 		txtpnWantMoreInformation.setOpaque(false);
 		contentPane.add(txtpnWantMoreInformation);
 		
-		JButton Download = new JButton("Download");
+		JButton Download = new JButton("View PDF");
 		Download.setBackground(new Color(0, 102, 102));
 		Download.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
 		Download.setForeground(new Color(255, 255, 255));
