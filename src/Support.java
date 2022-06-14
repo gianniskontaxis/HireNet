@@ -75,7 +75,7 @@ public class Support extends JFrame {
 			Desktop desktop = java.awt.Desktop.getDesktop();
 			try {
 				// specify the protocol along with the URL
-				URI oURL = new URI("https://www.linkedin.com/school/university-of-macedonia/");
+				URI oURL = new URI("https://github.com/gianniskontaxis/HireNet/blob/main/HireNet-User-manual.pdf");
 				desktop.browse(oURL);
 			} catch (URISyntaxException e1) {
 				e1.printStackTrace();
