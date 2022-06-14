@@ -27,8 +27,11 @@ public class SignUp extends JFrame {
 	private aes data = new aes();
 	private final String secretKey = "aes4";		
 	private Connection conn = null;
+	private Connection conn1 = null;
 	private PreparedStatement ps = null;
+	private PreparedStatement ps1 = null;
 	private ResultSet rs = null;
+	private ResultSet rs1 = null;
 	private String sql="";
 	private JPasswordField password;
 	private JTextField textField;
@@ -193,23 +196,50 @@ public class SignUp extends JFrame {
                                  dispose();
                               }
 							 
+							ps.setString(4, "empty role");
 							
-							ps.setString(4, "empty role");	
 							
-							if(textField.getText().length()>=10)
-							{
-								ps.setString(5, textField.getText());
-								k++;
-							}
-							else
-							{
-								JOptionPane.showMessageDialog(null, "Invalid phone number");
-								i=1;
-								dispose();
-							}
-						    ps.setString(6, textField_1.getText());
-						    k++;
-									
+							try {
+								String sql = "select phone from users where phone = '"+textField.getText()+"'";
+								conn1 = DBConnection.ConnDB();
+								ps1 = conn.prepareStatement(sql);
+								rs1 = ps1.executeQuery();
+								
+							 	
+							 if(rs1.isClosed()) {
+								 
+								 if(textField.getText().length()>=10)
+									{
+										ps.setString(5, textField.getText());
+										k++;
+									}
+									else
+									{
+										JOptionPane.showMessageDialog(null, "Invalid phone number");
+										i=1;
+										dispose();
+									}	 
+							 }
+							 else {
+								 JOptionPane.showMessageDialog(null, "Phone already exists");
+								 i=1;
+							 }
+								
+							ps1.close();
+							rs1.close();
+							conn1.close();	
+						  } 
+							catch (SQLException e2) {
+								
+								e2.printStackTrace();
+						}
+							
+							
+							
+						
+								ps.setString(6, textField_1.getText());
+							    k++;						
+						    
 							if(i==0)
 							{
 								JOptionPane.showMessageDialog(null, "Account successfully created!");
