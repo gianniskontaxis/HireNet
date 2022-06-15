@@ -17,5 +17,9 @@ public class Main {
   ics21016, ics21016Kotzampasi
   ics21096, ics21096Sakellaris
   ics21022, ics21022Gialagkolidou
+  ics21113, ics21113Venetidis
+  ics21078, ics21078Trentsiou
+  ics21076, ics21076Dimitriadis 
+  ics21142, ics21142Semelidis 
  */
  
