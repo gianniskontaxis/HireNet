@@ -609,6 +609,12 @@ public class Employee extends JFrame {
 		lblNewLabel_22_2.setBounds(34, 156, 32, 32);
 		contentPane.add(lblNewLabel_22_2);		
 		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(604, 193, 132, 211);
+		contentPane.add(scrollPane);
+		//scrollPane.setViewportView(usernameList)
+		
+		
 		usernameList.addMouseListener(new MouseListener () {		
 			
 			@Override

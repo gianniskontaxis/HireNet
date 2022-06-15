@@ -24,6 +24,7 @@ import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
+import javax.swing.ScrollPaneConstants;
 
 public class Company extends JFrame {
 
@@ -78,6 +79,11 @@ public class Company extends JFrame {
 				new Graphs2(i);
 			}
 		});
+		
+		/*JScrollPane scrollPane_2 = new JScrollPane();
+		scrollPane_2.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+		scrollPane_2.setBounds(527, 193, 73, 211);
+		contentPane.add(scrollPane_2);*/
 		
 		JList list = new JList();
 		list.setBackground(new Color(255, 255, 255));
@@ -406,16 +412,16 @@ public class Company extends JFrame {
 		scoreList.setBounds(530, 193, 68, 211);
 		contentPane.add(scoreList);
 		
-		JScrollBar scrollBar_1 = new JScrollBar();
-		scrollBar_1.setBackground(Color.WHITE);
-		scrollBar_1.setBounds(577, 270, 17, 117);
-		contentPane.add(scrollBar_1);
-		
 		usernameModel = new DefaultListModel();
 		usernameList.setModel(usernameModel);
 		
 		scoreModel = new DefaultListModel();
 		scoreList.setModel(scoreModel);	
+		
+		/*JScrollPane scrollPane_1 = new JScrollPane();
+		scrollPane_1.setBounds(599, 193, 137, 211);
+		contentPane.add(scrollPane_1);*/
+		//scrollPane_1.setViewportView(usernameList);
 		
 		JList score2List = new JList();
 		score2List.setBounds(450, 193, 79, 211);
@@ -430,6 +436,8 @@ public class Company extends JFrame {
 		
 		results.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				
 				
 				/* Μέθοδος με files.
 				// φορτωση των ID των χρηστων του αλλου ρολου οι οποιοι διαθετουν αποθηκευμενη λιστα με qualifications.
@@ -499,7 +507,9 @@ public class Company extends JFrame {
 				scoreModel.addAll(scoreResults);		
 				scoreModel2.addAll(scoreResults2);	
 			}
+			
 		});
+		
 		
 		JButton AboutUs_btn = new JButton("AboutUs");
 		AboutUs_btn.setHorizontalAlignment(SwingConstants.LEFT);
@@ -587,7 +597,8 @@ public class Company extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				clicks++;
 				if ((clicks+1)%2==0) 
-					score2List.setVisible(true);				
+					score2List.setVisible(true);
+				
 				else 
 					score2List.setVisible(false);				
 		   }
@@ -609,6 +620,12 @@ public class Company extends JFrame {
 		lblNewLabel_2.setIcon(new ImageIcon(Company.class.getResource("/Images/company_bck.png")));
 		lblNewLabel_2.setBounds(0, 0, 986, 633);
 		contentPane.add(lblNewLabel_2);
+		//scrollPane_2.setViewportView(scoreList);
+		
+		/*JScrollPane scrollPane_3 = new JScrollPane();
+		scrollPane_3.setBounds(527, 193, -73, 211);
+		contentPane.add(scrollPane_3);*/
+		
 		Sup.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {	
 				new Support();

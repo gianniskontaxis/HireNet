@@ -8,8 +8,8 @@ public class Main {
 }
 	
 
-/*
-  username, password, 
+/*   Employee accounts
+  USERNAME, PASSWORDS, 
   ics21095, ics21095Kanidou
   ics21105, ics21105Kontaxis
   Matina,   Matina123
@@ -23,3 +23,22 @@ public class Main {
   ics21142, ics21142Semelidis 
  */
  
+/*  Companies accounts
+ USERNAME,PASSWORDS,
+ Facebook, Facebook123
+ Tesla,Tesla123
+ Netflix,Netflix123
+ LinkedIn,LinkedIn123
+ Twitter,Twitter123
+ masouths,masouths123
+ Jumbo,Jumbo123
+ MediaMarkt,MediaMarkt1
+ Google,Google123
+ Cisco,Cisco123
+ Apple,Apple123
+ Samsung,Samsung
+ 
+ 
+ 
+ 
+*/
