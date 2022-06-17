@@ -22,6 +22,7 @@ import java.awt.Color;
 import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
+import javax.swing.JScrollPane;
 
 public class CvMatching extends JFrame {
 
@@ -168,7 +169,25 @@ public class CvMatching extends JFrame {
 		JTextArea textArea = new JTextArea();
 		textArea.setEditable(false);
 		textArea.setBounds(290, 60, 272, 200);
-		contentPane.add(textArea);
+		textArea.setForeground(new Color(0, 0, 0));
+		textArea.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		
+    JScrollPane scrollPane = new JScrollPane();
+    scrollPane.setBounds(290, 55, 272, 208);
+    contentPane.add(scrollPane); 
+    scrollPane.setViewportView(textArea);
+    
+    JTextArea textArea_exp = new JTextArea();
+	textArea_exp.setEditable(false);
+	textArea_exp.setBounds(290, 320, 272, 200);
+	textArea_exp.setForeground(new Color(0, 0, 0));
+	textArea_exp.setFont(new Font("Tahoma", Font.PLAIN, 13));
+	
+	JScrollPane scrollPane_1 = new JScrollPane();
+	scrollPane_1.setBounds(290, 319, 272, 208);
+	contentPane.add(scrollPane_1);
+	scrollPane_1.setViewportView(textArea_exp);
+
 		
 		
 		
@@ -192,10 +211,7 @@ public class CvMatching extends JFrame {
 			e7.printStackTrace();
 		}
 		
-		JTextArea textArea_exp = new JTextArea();
-		textArea_exp.setEditable(false);
-		textArea_exp.setBounds(290, 320, 272, 200);
-		contentPane.add(textArea_exp);
+		
 		
 		
 		
@@ -373,10 +389,16 @@ public class CvMatching extends JFrame {
     		rs6 = ps6.executeQuery();	
     		textArea_phone.setText(rs6.getString("phone"));
     		
+    		
+    		
     		JLabel lblNewLabel = new JLabel("");
     		lblNewLabel.setIcon(new ImageIcon(CvMatching.class.getResource("/Images/cv_backgr2.png")));
     		lblNewLabel.setBounds(0, 0, 586, 623);
     		contentPane.add(lblNewLabel);
+    		
+    		
+    		
+    		
     		
 
 			
@@ -387,8 +409,7 @@ public class CvMatching extends JFrame {
 		catch (Exception e6) {
 			e6.printStackTrace();
 		}
-		
-        
+
         
            
         

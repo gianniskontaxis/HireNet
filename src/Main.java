@@ -25,6 +25,8 @@ public class Main {
  
 /*  Companies accounts
  USERNAME,PASSWORDS,
+ Jumbo,   Jumbo123
+ Liverpool, Liverpool123
  Facebook, Facebook123
  Tesla,Tesla123
  Netflix,Netflix123
@@ -36,7 +38,7 @@ public class Main {
  Google,Google123
  Cisco,Cisco123
  Apple,Apple123
- Samsung,Samsung
+ Samsung,Samsung123
  
  
  
