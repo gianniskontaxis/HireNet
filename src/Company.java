@@ -25,6 +25,10 @@ import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.ScrollPaneConstants;
+import java.awt.SystemColor;
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import net.miginfocom.swing.MigLayout;
 
 public class Company extends JFrame {
 
@@ -55,7 +59,14 @@ public class Company extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setLayout(null);	
+		contentPane.setLayout(null);
+		
+		JScrollPane scrollPane_1 = new JScrollPane();
+		scrollPane_1.setBounds(450, 193, 286, 211);
+		contentPane.add(scrollPane_1);
+		
+		JPanel panel = new JPanel();
+		scrollPane_1.setViewportView(panel);
 		
 		JButton profile = new JButton("Profile");
 		profile.setHorizontalAlignment(SwingConstants.LEFT);
@@ -178,14 +189,14 @@ public class Company extends JFrame {
 		lblNewLabel_21.setHorizontalAlignment(SwingConstants.LEFT);
 		lblNewLabel_21.setForeground(Color.WHITE);
 		lblNewLabel_21.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNewLabel_21.setBounds(604, 161, 87, 32);
+		lblNewLabel_21.setBounds(569, 161, 87, 32);
 		contentPane.add(lblNewLabel_21);
 		
 		JLabel lblNewLabel_20 = new JLabel("Match");
 		lblNewLabel_20.setHorizontalAlignment(SwingConstants.LEFT);
 		lblNewLabel_20.setForeground(Color.WHITE);
 		lblNewLabel_20.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNewLabel_20.setBounds(537, 161, 58, 32);
+		lblNewLabel_20.setBounds(520, 161, 58, 32);
 		contentPane.add(lblNewLabel_20);
 		
 		JLabel lblNewLabel_13 = new JLabel("Requirements");
@@ -400,17 +411,15 @@ public class Company extends JFrame {
 		contentPane.add(scrollBar);		
 		usernameList.setForeground(new Color(0, 102, 102));
 		
-		usernameList.setBackground(new Color(255, 255, 255));
-		usernameList.setBounds(599, 193, 137, 211);
+		usernameList.setBackground(SystemColor.menu);
 		usernameList.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
-		contentPane.add(usernameList);
+		
 		usernameList.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));		
 		scoreList.setForeground(new Color(0, 102, 102));
 		
-		scoreList.setBackground(new Color(255, 255, 255));
+		scoreList.setBackground(SystemColor.menu);
 		scoreList.setSelectionBackground(Color.LIGHT_GRAY);
-		scoreList.setBounds(530, 193, 68, 211);
-		contentPane.add(scoreList);
+		
 		
 		usernameModel = new DefaultListModel();
 		usernameList.setModel(usernameModel);
@@ -424,12 +433,15 @@ public class Company extends JFrame {
 		//scrollPane_1.setViewportView(usernameList);
 		
 		JList score2List = new JList();
-		score2List.setBounds(450, 193, 79, 211);
 		score2List.setForeground(new Color(0, 102, 102));		
-		score2List.setBackground(new Color(255, 255, 255));
+		score2List.setBackground(SystemColor.menu);
 		score2List.setSelectionBackground(Color.LIGHT_GRAY);
 		score2List.setVisible(false);
-		contentPane.add(score2List);
+		panel.setLayout(new MigLayout("", "[1px][1px][1px]", "[1px]"));
+		
+		panel.add(score2List, "cell 0 0,alignx left,aligny top");
+		panel.add(scoreList, "cell 1 0,alignx left,aligny top");
+		panel.add(usernameList, "cell 2 0,alignx left,aligny top");
 		
 		scoreModel2 = new DefaultListModel();
 		score2List.setModel(scoreModel2);
@@ -620,6 +632,8 @@ public class Company extends JFrame {
 		lblNewLabel_2.setIcon(new ImageIcon(Company.class.getResource("/Images/company_bck.png")));
 		lblNewLabel_2.setBounds(0, 0, 986, 633);
 		contentPane.add(lblNewLabel_2);
+		
+		
 		//scrollPane_2.setViewportView(scoreList);
 		
 		/*JScrollPane scrollPane_3 = new JScrollPane();

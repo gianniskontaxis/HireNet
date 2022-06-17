@@ -71,6 +71,17 @@ public class Employee extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(451, 193, 286, 211);
+		contentPane.add(scrollPane);
+		
+		JScrollPane scrollPane2 = new JScrollPane();
+		scrollPane2.setBounds(757, 193, 206, 211);
+		contentPane.add(scrollPane2);
+		
+		JPanel panel = new JPanel();
+		scrollPane.setViewportView(panel);
+		
 		JButton Seminars = new JButton("Watch our seminars");
 		Seminars.setHorizontalAlignment(SwingConstants.LEFT);
 		Seminars.addActionListener(new ActionListener() {
@@ -101,7 +112,7 @@ public class Employee extends JFrame {
 		lblNewLabel_20_1.setHorizontalAlignment(SwingConstants.LEFT);
 		lblNewLabel_20_1.setForeground(Color.WHITE);
 		lblNewLabel_20_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNewLabel_20_1.setBounds(454, 161, 69, 32);
+		lblNewLabel_20_1.setBounds(470, 161, 69, 32);
 		contentPane.add(lblNewLabel_20_1);
 		
 		
@@ -196,14 +207,14 @@ public class Employee extends JFrame {
 		lblNewLabel_21.setHorizontalAlignment(SwingConstants.LEFT);
 		lblNewLabel_21.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblNewLabel_21.setForeground(Color.WHITE);
-		lblNewLabel_21.setBounds(604, 161, 99, 32);
+		lblNewLabel_21.setBounds(610, 161, 99, 32);
 		contentPane.add(lblNewLabel_21);
 		
 		JLabel lblNewLabel_20 = new JLabel("Match");
 		lblNewLabel_20.setHorizontalAlignment(SwingConstants.LEFT);
 		lblNewLabel_20.setForeground(Color.WHITE);
 		lblNewLabel_20.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNewLabel_20.setBounds(534, 161, 69, 32);
+		lblNewLabel_20.setBounds(551, 161, 69, 32);
 		contentPane.add(lblNewLabel_20);
 		
 		JLabel lblNewLabel_19_1 = new JLabel("");
@@ -421,14 +432,7 @@ public class Employee extends JFrame {
 		Aboutusbtn.setBorderPainted(false);
 		contentPane.add(Aboutusbtn);
 		
-		list = new JList();
-		list.setBorder(null);
-		list.setForeground(new Color(0, 0, 0));
-		list.setBounds(757, 193, 206, 211);
-		contentPane.add(list);
-		
 		model = new DefaultListModel();
-		list.setModel(model);
 		
 		//Καταχωρηση των companies.		
 		try {			
@@ -468,22 +472,25 @@ public class Employee extends JFrame {
 		contentPane.add(CVbtn);
 		
 		JList usernameList = new JList();
+		usernameList.setBackground(SystemColor.menu);
+		
 		usernameList.setBorder(null);
 		usernameList.setForeground(new Color(0, 102, 102));
 		usernameList.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 		usernameList.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		usernameList.setBounds(599, 193, 137, 211);
-		contentPane.add(usernameList);
+		
 		
 		usernameModel = new DefaultListModel();
 		usernameList.setModel(usernameModel);
 		
-		JList scoreList = new JList();
+		JList scoreList = new JList();		
+		scoreList.setBackground(SystemColor.menu);
 		scoreList.setBorder(null);
 		scoreList.setForeground(new Color(0, 102, 102));
 		scoreList.setSelectionBackground(Color.WHITE);
 		scoreList.setBounds(530, 193, 68, 211);
-		contentPane.add(scoreList);
+		
 		
 		scoreModel = new DefaultListModel();
 		scoreList.setModel(scoreModel);
@@ -548,10 +555,6 @@ public class Employee extends JFrame {
 		   }
 		});
 		
-		JScrollBar scrollBar = new JScrollBar();
-		scrollBar.setBounds(946, 259, 17, 48);
-		contentPane.add(scrollBar);
-		
 		JScrollBar scrollBar_1 = new JScrollBar();
 		scrollBar_1.setBounds(719, 247, 17, 48);
 		contentPane.add(scrollBar_1);
@@ -585,13 +588,18 @@ public class Employee extends JFrame {
 		
 		scoreModel2 = new DefaultListModel();
 		JList score2List = new JList();		
+		score2List.setBackground(SystemColor.menu);
 		score2List.setLocation(450, 193);
 		score2List.setSize(79, 211);
 		score2List.setBorder(null);
 		score2List.setForeground(new Color(0, 102, 102));
 		score2List.setSelectionBackground(Color.WHITE);
-		contentPane.add(score2List);	
+		panel.add(score2List);
+		panel.add(scoreList);
+		panel.add(usernameList);
 		score2List.setModel(scoreModel2);
+		
+		
 		
 		JLabel lblNewLabel_19 = new JLabel("");
 		lblNewLabel_19.setIcon(new ImageIcon(Employee.class.getResource("/Images/background6.png")));
@@ -602,26 +610,28 @@ public class Employee extends JFrame {
 		
 		JLabel lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setIcon(new ImageIcon(Employee.class.getResource("/Images/employee_background.png")));
-		lblNewLabel_1.setBounds(0, 0, 1000, 640);
+		lblNewLabel_1.setBounds(-14, 10, 1000, 640);
 		contentPane.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_22_2 = new JLabel("");
 		lblNewLabel_22_2.setBounds(34, 156, 32, 32);
-		contentPane.add(lblNewLabel_22_2);		
+		contentPane.add(lblNewLabel_22_2);
 		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(604, 193, 132, 211);
-		contentPane.add(scrollPane);
-		//scrollPane.setViewportView(usernameList)
+		list = new JList();
+		scrollPane2.setViewportView(list);
+		list.setBorder(null);
+		list.setForeground(new Color(0, 0, 0));
+		list.setBounds(57, 205, 206, 211);
+		list.setModel(model);
 		
 		
-		usernameList.addMouseListener(new MouseListener () {		
+		list.addMouseListener(new MouseListener () {		
 			
 			@Override
 			public void mouseClicked(MouseEvent e) {
 					
 				try {
-					new MatchingInfo(usernameList.getSelectedValue()+"",i);
+					new companyInfo(list.getSelectedValue()+"");
 				} catch (SQLException e1) {							
 					e1.printStackTrace();
 				}				
@@ -651,14 +661,16 @@ public class Employee extends JFrame {
 				
 			}	
 		});
+		//scrollPane.setViewportView(usernameList)
 		
-		list.addMouseListener(new MouseListener () {		
+		
+		usernameList.addMouseListener(new MouseListener () {		
 			
 			@Override
 			public void mouseClicked(MouseEvent e) {
 					
 				try {
-					new companyInfo(list.getSelectedValue()+"");
+					new MatchingInfo(usernameList.getSelectedValue()+"",i);
 				} catch (SQLException e1) {							
 					e1.printStackTrace();
 				}				

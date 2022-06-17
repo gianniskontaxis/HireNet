@@ -58,7 +58,7 @@ public class Recovery extends JFrame {
 		setTitle("Account Recovery");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Recovery.class.getResource("/Images/logo_icon25x25.png")));
 		setResizable(false);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
