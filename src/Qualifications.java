@@ -1,5 +1,7 @@
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Font;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
@@ -8,14 +10,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.border.EmptyBorder;
-import java.awt.Toolkit;
-import javax.swing.ImageIcon;
 
 public class Qualifications extends JFrame {
 
@@ -527,7 +528,7 @@ public class Qualifications extends JFrame {
 		
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
 		//sql				
 				try {
 					conn = DBConnection.ConnDB();
@@ -543,7 +544,8 @@ public class Qualifications extends JFrame {
 				}					
 				 catch (SQLException e1) {					
 					 e1.printStackTrace();
-				}			
+				}	
+				setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 			}		
 		});
 		
