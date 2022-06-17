@@ -33,7 +33,6 @@ public class Main {
  LinkedIn,LinkedIn123
  Twitter,Twitter123
  masouths,masouths123
- Jumbo,Jumbo123
  MediaMarkt,MediaMarkt1
  Google,Google123
  Cisco,Cisco123

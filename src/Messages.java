@@ -204,10 +204,7 @@ public class Messages extends JFrame{
 		lblNewLabel_1.setIcon(new ImageIcon(Messages.class.getResource("/Images/firstbackground.png")));
 		lblNewLabel_1.setBounds(0, 0, 436, 413);
 		contentPane.add(lblNewLabel_1);
-		
-	
-		
-		
+			
 		
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

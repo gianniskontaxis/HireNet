@@ -50,9 +50,7 @@ public class Notifications extends JFrame{
 	private ArrayList<Integer> cou = new ArrayList<>();
 
 	private String sql="";
-	/*HashMap<Integer,List<String>> seminars = new HashMap<Integer,List<String>>();
-	private DefaultListModel model;
-	List<String> seminarlist = new ArrayList<String>();*/
+	
 	/**
 	 * Launch the application.
 	 */
@@ -125,8 +123,7 @@ public class Notifications extends JFrame{
 
 		list_sem.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
 		list_sem.setModel(model2);
-		
-		
+				
 		
 		JButton btnBack = new JButton("");
 		btnBack.setIcon(new ImageIcon(cv.class.getResource("/Images/back_icon.png")));
@@ -142,8 +139,7 @@ public class Notifications extends JFrame{
 				
 			}
 		});
-		
-		
+				
 		
 		//αθροισμα λιστας ιδ απο τον πινακα notifications
 		conn = DBConnection.ConnDB();	
@@ -197,28 +193,26 @@ public class Notifications extends JFrame{
 		conn.close();
 		
 
-		
-		
-			for(int w1=users.size()-1; w1>=0; w1--) {				
-				model.addElement("You 've new Message from " + users.get(w1) + "\n");
-				if(y<users.size()) {
-				try {
+		for(int w1=users.size()-1; w1>=0; w1--) {				
+			model.addElement("You 've new Message from " + users.get(w1) + "\n");
+			if(y<users.size()) {
+			try {
 
-					conn = DBConnection.ConnDB();			
+				conn = DBConnection.ConnDB();			
 			
-					ps7 = conn.prepareStatement("INSERT INTO notifications(id,MesFrom) VALUES(?,?)");           
-					ps7.setInt(1, i);			
-					ps7.setString(2, users.get(w1));
+				ps7 = conn.prepareStatement("INSERT INTO notifications(id,MesFrom) VALUES(?,?)");           
+				ps7.setInt(1, i);			
+				ps7.setString(2, users.get(w1));
 						
-					ps7.execute();
-	                ps7.close();
-					conn.close();
+				ps7.execute();
+	            ps7.close();
+				conn.close();
 
 			
-				 } catch (SQLException e1) {
+			 } catch (SQLException e1) {
 			            e1.printStackTrace();
 			        
-			}
+		       }
 			
 			}
 		}
@@ -276,58 +270,13 @@ public class Notifications extends JFrame{
 			catch (SQLException e1) {
 	            e1.printStackTrace();
 	        }	
-			
-		
-		
-
-
-		
+				
 		
 		JLabel lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setIcon(new ImageIcon(Notifications.class.getResource("/Images/notificback.png")));
 		lblNewLabel_1.setBounds(0, 0, 436, 563);
 		contentPane.add(lblNewLabel_1);
-		
-		
-	/*	
-     list.addMouseListener(new MouseListener () {		
-			
-			@Override
-			public void mouseClicked(MouseEvent e) {
-					/*new MatchingInfo(usernameList.getSelectedValue()+"",i);*/
-					//new CvMatching(list.getSelectedValue()+"",i);
-					//JOptionPane.showMessageDialog(null,
-						 //   "You 've chosen on of our seminars."
-						 //   + " For more information about the chosen " + "\n" + " seminar check our website.");
-				//}
-			
-			//@Override
-			//public void mousePressed(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			//}
-
-			//@Override
-			//public void mouseReleased(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			//}
-
-			//@Override
-			//public void mouseEntered(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			//}
-
-			//@Override
-			//public void mouseExited(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			//}	
-			
-        //});
-		
-        
+		      
 		this.setVisible(true);
 		this.setTitle("Notifications");
 		

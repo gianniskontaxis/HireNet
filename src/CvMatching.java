@@ -191,7 +191,7 @@ public class CvMatching extends JFrame {
 		
 		
 		
-		  //anagnosh summary// 
+		  //ανάγνωση summary// 
 		sql = "select * from users join employees where users.id = employees.id and username = '"+username+"'";
         try {
     		conn = DBConnection.ConnDB();
@@ -215,7 +215,7 @@ public class CvMatching extends JFrame {
 		
 		
 		
-		   //anagnosh experience//
+		   //ανάγνωση experience//
 		sql = "select * from users join employees where users.id = employees.id and username = '"+username+"'";
         try {
     		conn = DBConnection.ConnDB();
@@ -243,7 +243,7 @@ public class CvMatching extends JFrame {
 		textArea_firstname.setOpaque(false);
 		contentPane.add(textArea_firstname);
 		
-		//anagnosh firstname
+		//ανάγνωση firstname
 
 				sql = "select * from users join employees where users.id = employees.id and username = '"+username+"'";
 		        try {
@@ -273,7 +273,7 @@ public class CvMatching extends JFrame {
 		textArea_lastname.setBounds(33, 190, 194, 32);
 		textArea_lastname.setOpaque(false);
 		contentPane.add(textArea_lastname);
-		//anagnosh lastname
+		//ανάγνωση lastname
 
 		sql = "select * from users join employees where users.id = employees.id and username = '"+username+"'";
 		        try {
@@ -301,7 +301,7 @@ public class CvMatching extends JFrame {
 		textArea_email.setBounds(33, 465, 202, 32);
 		textArea_email.setOpaque(false);
 		contentPane.add(textArea_email);
-		//anagnosh email
+		//ανάγνωση email
 				sql = "select * from users where username = '"+username+"'";
 		        try {
 		    		conn = DBConnection.ConnDB();
@@ -328,7 +328,7 @@ public class CvMatching extends JFrame {
 		textArea_age.setBounds(33, 290, 50, 32);
 		textArea_age.setOpaque(false);
 		contentPane.add(textArea_age);
-		//anagnosh age
+		//ανάγνωση age
 
 		sql = "select * from users join employees where users.id = employees.id and username = '"+username+"'";
         try {
@@ -356,7 +356,7 @@ public class CvMatching extends JFrame {
 		textArea_country.setBounds(33, 320, 202, 32);
 		textArea_country.setOpaque(false);
 		contentPane.add(textArea_country);
-		  //anagnoni country//
+		  //ανάγνωση country//
 		sql = "select * from users join employees where users.id = employees.id and username = '"+username+"'";
         try {
     		conn = DBConnection.ConnDB();
@@ -380,7 +380,7 @@ public class CvMatching extends JFrame {
 		lblNewLabel_1.setIcon(new ImageIcon(CvMatching.class.getResource("/Images/background1.png")));
 		lblNewLabel_1.setBounds(20, 20, 235, 590);
 		contentPane.add(lblNewLabel_1);
-		 //anagnoni phone//
+		 //ανάγνωση phone//
 		sql = "select * from users join employees where users.id = employees.id and username = '"+username+"'";
         try {
     		conn = DBConnection.ConnDB();

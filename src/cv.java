@@ -276,7 +276,7 @@ public class cv extends JFrame {
 		
     
 		
-		//anagnosh email
+		//ανάγνωση email
 		sql = "select * from users where id = '"+i+"'";
         try {
     		conn = DBConnection.ConnDB();
@@ -292,7 +292,7 @@ public class cv extends JFrame {
 		catch (Exception e1) {
 			e1.printStackTrace();
 		}
-		//anagnosh firstname
+		//ανάγνωση firstname
 
 		sql = "select * from employees where id = '"+i+"'";
         try {
@@ -310,7 +310,7 @@ public class cv extends JFrame {
 		catch (Exception e2) {
 			e2.printStackTrace();
 		}
-		//anagnosh lastname
+		//ανάγνωση lastname
 
 		sql = "select * from employees where id = '"+i+"'";
         try {
@@ -328,7 +328,7 @@ public class cv extends JFrame {
 		catch (Exception e3) {
 			e3.printStackTrace();
 		}
-		//anagnosh age
+		//ανάγνωση age
 
 		sql = "select * from employees where id = '"+i+"'";
         try {
@@ -347,7 +347,7 @@ public class cv extends JFrame {
 			e4.printStackTrace();
 		}
         
-        //anagnoni country//
+        //ανάγνωση country//
         sql = "select * from employees where id = '"+i+"'";
         try {
     		conn = DBConnection.ConnDB();
@@ -365,7 +365,7 @@ public class cv extends JFrame {
 			e5.printStackTrace();
 		}
         
-        //anagnoni phone//
+        //ανάγνωση phone//
         sql = "select * from users where id = '"+i+"'";
         try {
     		conn = DBConnection.ConnDB();
@@ -383,7 +383,7 @@ public class cv extends JFrame {
 			e6.printStackTrace();
 		}
         
-        //anagnoni summary//
+        //ανάγνωση summary//
         sql = "select * from employees where id = '"+i+"'";
         try {
     		conn = DBConnection.ConnDB();
@@ -402,7 +402,7 @@ public class cv extends JFrame {
 		}
         
         
-        //anagnoni experience//
+        //ανάγνωση experience//
         sql = "select * from employees where id = '"+i+"'";
         try {
     		conn = DBConnection.ConnDB();

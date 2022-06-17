@@ -176,10 +176,34 @@ public class AboutUs  extends JFrame {
 			JLabel lblNewLabel_4_1 = new JLabel("LinkedIn");
 			lblNewLabel_4_1.setBounds(87, 441, 70, 27);
 			contentPane.add(lblNewLabel_4_1);
+			lblNewLabel_4_1.addMouseListener(new MouseAdapter() {
+		       	 
+	            @Override
+	            public void mouseClicked(MouseEvent e) {
+	                try {
+	                    Desktop.getDesktop().browse(new URI("https://www.linkedin.com/school/university-of-macedonia/"));
+	                } catch (IOException | URISyntaxException e1) {
+	                    e1.printStackTrace();
+	                }
+	            }
+			});
+			lblNewLabel_4_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 			
 			JLabel lblNewLabel_4 = new JLabel("Facebook");
 			lblNewLabel_4.setBounds(87, 404, 70, 27);
 			contentPane.add(lblNewLabel_4);
+			lblNewLabel_4.addMouseListener(new MouseAdapter() {
+		       	 
+	            @Override
+	            public void mouseClicked(MouseEvent e) {
+	                try {
+	                    Desktop.getDesktop().browse(new URI("https://www.facebook.com/HireNetNHD"));
+	                } catch (IOException | URISyntaxException e1) {
+	                    e1.printStackTrace();
+	                }
+	            }
+			});
+			lblNewLabel_4.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 			
 			JSeparator separator = new JSeparator();
 			separator.setForeground(Color.BLACK);
