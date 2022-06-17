@@ -34,22 +34,7 @@ public class Recovery extends JFrame {
 	private String favnum = "";
 	private int k=0;
 	private int t=0;
-	/*
-	 * Launch the application.
-	 
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Recovery frame = new Recovery();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
+	
 	/**
 	 * Create the frame.
 	 */

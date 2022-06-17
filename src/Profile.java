@@ -34,19 +34,8 @@ public class Profile extends JFrame {
 	private String sql="";
 	private JTextField textFieldcomm;
 	private JTextField textField_2;
-	/*HashMap<Integer,List<String>> seminars = new HashMap<Integer,List<String>>();*/
-	/*public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Profile frame = new Profile(i);
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}*/
+	
+	
 	
 	
 	
@@ -122,19 +111,7 @@ public class Profile extends JFrame {
 		
 		textField_1 = new JTextField();
 		
-		//JButton Logout=new JButton("Sign out");
-		//Logout.setForeground(new Color(255, 255, 255));
-		//Logout.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 11));
-		//Logout.setBackground(new Color(47, 79, 79));
-		//Logout.setBounds(307, 234, 89, 19);
-		//contentPane.add(Logout);
-		//Logout.addActionListener(new ActionListener() {
-			//public void actionPerformed(ActionEvent e) {
-			      /*System.exit(i);*/
-				//dispose();
-				//new Login();
-			//}
-		//});
+		
 		
 		
 		
@@ -250,30 +227,7 @@ public class Profile extends JFrame {
 		
 		
 		
-		/*JButton btnNotifiactions = new JButton("Notifications");
-		btnNotifiactions.setForeground(Color.WHITE);
-		btnNotifiactions.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 11));
-		btnNotifiactions.setBackground(new Color(47, 79, 79));
-		btnNotifiactions.setBounds(20, 22, 115, 19);
-		contentPane.add(btnNotifiactions);
-		btnNotifiactions.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				new Notifications(i);
-			} });
-		*/
 		
-		/*JButton btnMessages_1 = new JButton("Messages");
-		btnMessages_1.setForeground(Color.WHITE);
-		btnMessages_1.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 11));
-		btnMessages_1.setBackground(new Color(47, 79, 79));
-		btnMessages_1.setBounds(153, 22, 115, 19);
-		contentPane.add(btnMessages_1);
-		btnMessages_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				new Messages(i);
-			} });
-		*/
 		
 		JButton btnBack = new JButton("");
 		btnBack.setIcon(new ImageIcon(Profile.class.getResource("/Images/back_icon.png")));

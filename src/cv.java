@@ -54,18 +54,7 @@ public class cv extends JFrame {
 	private JTextField phonetextField;
 
 
-	/*public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					cv frame = new cv();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}*/
+	
 
 	public cv( int i ){
 		setResizable(false);

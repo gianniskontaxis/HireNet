@@ -24,18 +24,7 @@ public class First extends JFrame {
 	private PreparedStatement ps = null;	
 	private String sql="";	
 	
-	/*public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					First frame = new First();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}*/
+	
 	
 	public First(int i) {
 		setResizable(false);
@@ -138,7 +127,7 @@ public class First extends JFrame {
 		lblNewLabel.setIcon(new ImageIcon(First.class.getResource("/Images/firstback3.png")));
 		lblNewLabel.setBounds(0, 0, 610, 575);
 		contentPane.add(lblNewLabel);
-		/*Image img = new ImageIcon(this.getClass().getResource("/HireNet400X400.png")).getImage();*/
+		
 		
 		this.setVisible(true);
 	}

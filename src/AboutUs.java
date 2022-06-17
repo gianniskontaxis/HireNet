@@ -27,19 +27,7 @@ public class AboutUs  extends JFrame {
 	private JPanel contentPane;
 
 	
-		/*public static void main(String[] args) {
-			EventQueue.invokeLater(new Runnable() {
-				public void run() {
-					try {
-						AboutUs frame = new AboutUs();
-						frame.setVisible(true);
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
-				}
-			});
-		}
-		*/
+		
 
 		/**
 		 * Create the frame.
@@ -223,7 +211,7 @@ public class AboutUs  extends JFrame {
 			fb.setContentAreaFilled(false);
 			fb.setBorderPainted(false);
 			contentPane.add(fb);
-			/*btnNewButton.setIcon(new ImageIcon(img));*/
+			
 			
 			fb.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e){
@@ -250,7 +238,7 @@ public class AboutUs  extends JFrame {
 			btnNewButton_2.setBorderPainted(false);
 			
 			contentPane.add(btnNewButton_2);
-			/*btnNewButton_2.setIcon(new ImageIcon(img2));*/
+			
 			btnNewButton_2.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e){
 				Desktop desktop = java.awt.Desktop.getDesktop();

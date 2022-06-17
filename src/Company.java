@@ -91,10 +91,7 @@ public class Company extends JFrame {
 			}
 		});
 		
-		/*JScrollPane scrollPane_2 = new JScrollPane();
-		scrollPane_2.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-		scrollPane_2.setBounds(527, 193, 73, 211);
-		contentPane.add(scrollPane_2);*/
+		
 		
 		JList list = new JList();
 		list.setBackground(new Color(255, 255, 255));
@@ -427,10 +424,7 @@ public class Company extends JFrame {
 		scoreModel = new DefaultListModel();
 		scoreList.setModel(scoreModel);	
 		
-		/*JScrollPane scrollPane_1 = new JScrollPane();
-		scrollPane_1.setBounds(599, 193, 137, 211);
-		contentPane.add(scrollPane_1);*/
-		//scrollPane_1.setViewportView(usernameList);
+		
 		
 		JList score2List = new JList();
 		score2List.setForeground(new Color(0, 102, 102));		
@@ -634,11 +628,7 @@ public class Company extends JFrame {
 		contentPane.add(lblNewLabel_2);
 		
 		
-		//scrollPane_2.setViewportView(scoreList);
 		
-		/*JScrollPane scrollPane_3 = new JScrollPane();
-		scrollPane_3.setBounds(527, 193, -73, 211);
-		contentPane.add(scrollPane_3);*/
 		
 		Sup.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {	

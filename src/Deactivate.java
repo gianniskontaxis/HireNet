@@ -25,22 +25,7 @@ public class Deactivate extends JFrame {
     private PreparedStatement ps = null;
     private ResultSet rs = null;
     private PreparedStatement ps2=null;
-   /*
-	/**
-	 * Launch the application.
-	 
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Deactivation frame = new Deactivation(i);
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	} //
+  
 
 	/**
 	 * Create the frame.

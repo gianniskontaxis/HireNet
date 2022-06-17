@@ -46,18 +46,7 @@ public class Employee extends JFrame {
 	private boolean scoreDesk=true;
 	private boolean flag=false;
 	
-	/*public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Employee frame = new Employee();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}*/
+	
 	
 	public Employee(int i) {
 		setResizable(false);
@@ -661,7 +650,7 @@ public class Employee extends JFrame {
 				
 			}	
 		});
-		//scrollPane.setViewportView(usernameList)
+		
 		
 		
 		usernameList.addMouseListener(new MouseListener () {		

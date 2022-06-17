@@ -51,21 +51,7 @@ public class Notifications extends JFrame{
 
 	private String sql="";
 	
-	/**
-	 * Launch the application.
-	 */
-	/*public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Notifications frame = new Notifications(i);
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}*/
+	
 
 	/**
 	 * Create the frame.
@@ -252,7 +238,7 @@ public class Notifications extends JFrame{
 								 else if (j==6){
 									 model2.addElement("You 've booked our Íï.6 Seminar");
 								 }
-								 //model.addElement("You 've booked our  Seminar" + j);
+								 
 							 }
 						}
 						}

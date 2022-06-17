@@ -30,18 +30,7 @@ public class Qualifications extends JFrame {
 	private ArrayList<String> column = new ArrayList<>();
 	private int numOfQuals=0;
 	
-	/*public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Qualifications frame = new Qualifications();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}*/
+	
 	
 	public  Qualifications(int i) {
 		setResizable(false);

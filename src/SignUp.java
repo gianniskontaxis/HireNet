@@ -38,18 +38,7 @@ public class SignUp extends JFrame {
 	private JTextField textField_1;
 	private int i=0;
 	
-	/*public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					SignUp frame = new SignUp();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}*/
+	
 	
 	public SignUp() {
 		setResizable(false);

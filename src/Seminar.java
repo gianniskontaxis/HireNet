@@ -32,23 +32,9 @@ public class Seminar extends JFrame {
     private PreparedStatement ps = null;
     private PreparedStatement ps2 = null;
 	private ResultSet rs = null;
-    /*HashMap<Integer,List<String>> seminars = new HashMap<Integer,List<String>>();*/
     
-	/**
-	 * Launch the application.
-	 */
-	/*public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Seminar frame = new Seminar();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}*/
+    
+	
 
 	/**
 	 * Create the frame.
