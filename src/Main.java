@@ -8,6 +8,22 @@ public class Main {
 }
 	
 
+
+/* Παρακάτω απαρριθμούνται οι εξωτερικές βιβλιοθήκες που χρησιμοποιήθηκαν στο συγκεκριμένο project:
+ *      -jcommon-1.0.21.jar
+ *      -jfreechart-1.0.17.jar
+ *      -mysql-connector-java-8.0.28.jar
+ *      -sqlite-jdbc-3.36.0.3.jar
+ *      -jgoodies-forms-1.8.0.jar
+ *      -miglayout15-swing.jar
+ *      
+ *      
+ * Επιπλέον στο project χρησιμοποιήθηκε η παρακάτω βάση δεδομένων:
+ *      -hirenetdb.db     
+ */
+
+
+
 /*   Employee accounts
   USERNAME, PASSWORDS, 
   ics21095, ics21095Kanidou
