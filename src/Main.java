@@ -38,8 +38,4 @@ public class Main {
  Cisco,Cisco123
  Apple,Apple123
  Samsung,Samsung123
- 
- 
- 
- 
 */
